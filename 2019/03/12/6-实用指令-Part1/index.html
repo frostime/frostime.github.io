@@ -16,7 +16,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="帮助指令 help：获取Shell内置帮助信息  man：获取在线文档  info：类似man   将文件数据拆成一个一个的段落，每个段落用自己的页面来撰写，  并且在各个页面中还有类似网页的『超链接』来跳到各不同的页面中    $PATH环境变量&amp;emsp;在Linux中，环境变量可以由$PATH变量来获取，就像/bin:/sbin:/usr/bin:……，其中的冒号使目录与目录之间隔开。">
+  <meta name="description" content="帮助指令  help：获取Shell内置帮助信息 man：获取在线文档 info：类似man 将文件数据拆成一个一个的段落，每个段落用自己的页面来撰写， 并且在各个页面中还有类似网页的『超链接』来跳到各不同的页面中  $PATH环境变量  在Linux中，环境变量可以由$PATH变量来获取，就像/bin:/sbin:/usr/bin:……，其中的冒号使目录与目录之间隔开。  当我">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6-实用指令 Part1">
 <meta property="og:url" content="http://yoursite.com/2019/03/12/6-实用指令-Part1/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="帮助指令 help：获取Shell内置帮助信息  man：获取在线文档  info：类似man   将文件数据拆成一个一个的段落，每个段落用自己的页面来撰写，  并且在各个页面中还有类似网页的『超链接』来跳到各不同的页面中    $PATH环境变量&amp;emsp;在Linux中，环境变量可以由$PATH变量来获取，就像/bin:/sbin:/usr/bin:……，其中的冒号使目录与目录之间隔开。">
+<meta property="og:description" content="帮助指令  help：获取Shell内置帮助信息 man：获取在线文档 info：类似man 将文件数据拆成一个一个的段落，每个段落用自己的页面来撰写， 并且在各个页面中还有类似网页的『超链接』来跳到各不同的页面中  $PATH环境变量  在Linux中，环境变量可以由$PATH变量来获取，就像/bin:/sbin:/usr/bin:……，其中的冒号使目录与目录之间隔开。  当我">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-12T06:28:25.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6-实用指令 Part1">
-<meta name="twitter:description" content="帮助指令 help：获取Shell内置帮助信息  man：获取在线文档  info：类似man   将文件数据拆成一个一个的段落，每个段落用自己的页面来撰写，  并且在各个页面中还有类似网页的『超链接』来跳到各不同的页面中    $PATH环境变量&amp;emsp;在Linux中，环境变量可以由$PATH变量来获取，就像/bin:/sbin:/usr/bin:……，其中的冒号使目录与目录之间隔开。">
+<meta name="twitter:description" content="帮助指令  help：获取Shell内置帮助信息 man：获取在线文档 info：类似man 将文件数据拆成一个一个的段落，每个段落用自己的页面来撰写， 并且在各个页面中还有类似网页的『超链接』来跳到各不同的页面中  $PATH环境变量  在Linux中，环境变量可以由$PATH变量来获取，就像/bin:/sbin:/usr/bin:……，其中的冒号使目录与目录之间隔开。  当我">
 
 
 
@@ -161,7 +161,7 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -172,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -430,62 +430,52 @@
       
 
       
-        <h1 id="帮助指令"><a href="#帮助指令" class="headerlink" title="帮助指令"></a>帮助指令</h1><ul>
-<li><p><code>help</code>：获取Shell内置帮助信息</p>
-</li>
-<li><p><code>man</code>：获取在线文档</p>
-</li>
-<li><p><code>info</code>：类似man  </p>
-<p>将文件数据拆成一个一个的段落，每个段落用自己的页面来撰写，  并且在各个页面中还有类似网页的『超链接』来跳到各不同的页面中 </p>
-</li>
-</ul>
-<h1 id="PATH环境变量"><a href="#PATH环境变量" class="headerlink" title="$PATH环境变量"></a>$PATH环境变量</h1><p>&emsp;在Linux中，环境变量可以由<code>$PATH</code>变量来获取，就像<code>/bin:/sbin:/usr/bin:……</code>，其中的冒号使目录与目录之间隔开。  </p>
-<p>&emsp;当我们在运行一个命令的时候，举例来说『ls』好了，系统会<strong>依照PATH的配置去每个PATH定义的目录下搜寻</strong>档名为ls的可运行档， 如果在PATH定义的目录中含有多个档名为ls的可运行档，那么先搜寻到的同名命令先被运行！  </p>
-<p>&emsp;这里要说明一件事，在Linux中运行一个命令的方式有两种:</p>
+        <h1 id="帮助指令">帮助指令</h1>
 <ul>
-<li><p>使用命令的绝对路径：</p>
-<p>比如<code>ls</code>命令在<code>/bin</code>下，所以我们可以使用<code>/bin/ls</code>来运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zuo@zuo-VirtualBox:~$ /bin/ls</span><br><span class="line">examples.desktop  公共的  模板	视频  图片  文档  下载	音乐  桌面</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>直接运行命令，让系统自行在 $PATH 中查找</p>
-</li>
+<li><p><code>help</code>：获取Shell内置帮助信息</p></li>
+<li><p><code>man</code>：获取在线文档</p></li>
+<li><p><code>info</code>：类似man</p>
+<p>将文件数据拆成一个一个的段落，每个段落用自己的页面来撰写， 并且在各个页面中还有类似网页的『超链接』来跳到各不同的页面中</p></li>
 </ul>
-<p>&emsp;除了以上两种，其余的都不行，比如在 /root 下有一个命令 <code>command</code>， 那么即使我们现在在 /root/ 目录下也不能直接运行它，只能要么使用 <code>/root/command</code> 要么把 /root 加入环境变量中。  </p>
+<h1 id="path环境变量">$PATH环境变量</h1>
+<p> 在Linux中，环境变量可以由<code>$PATH</code>变量来获取，就像<code>/bin:/sbin:/usr/bin:……</code>，其中的冒号使目录与目录之间隔开。</p>
+<p> 当我们在运行一个命令的时候，举例来说『ls』好了，系统会<strong>依照PATH的配置去每个PATH定义的目录下搜寻</strong>档名为ls的可运行档， 如果在PATH定义的目录中含有多个档名为ls的可运行档，那么先搜寻到的同名命令先被运行！</p>
+<p> 这里要说明一件事，在Linux中运行一个命令的方式有两种:</p>
+<ul>
+<li>使用命令的绝对路径：</li>
+</ul>
+<p>比如<code>ls</code>命令在<code>/bin</code>下，所以我们可以使用<code>/bin/ls</code>来运行</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zuo@zuo-VirtualBox:~$ /bin/ls</span><br><span class="line">examples.desktop  公共的  模板	视频  图片  文档  下载	音乐  桌面</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>直接运行命令，让系统自行在 $PATH 中查找</li>
+</ul>
+<p> 除了以上两种，其余的都不行，比如在 /root 下有一个命令 <code>command</code>， 那么即使我们现在在 /root/ 目录下也不能直接运行它，只能要么使用 <code>/root/command</code> 要么把 /root 加入环境变量中。</p>
 <ul>
 <li><p>将一个目录加入环境变量的方法</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">zuo@zuo-VirtualBox:~$ <span class="built_in">echo</span> <span class="variable">$PATH</span></span><br><span class="line">/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/<span class="built_in">local</span>/games:/snap/bin</span><br><span class="line"><span class="comment"># 将/root加入环境变量</span></span><br><span class="line">zuo@zuo-VirtualBox:~$ PATH=<span class="string">"<span class="variable">$PATH</span>"</span>:/root</span><br><span class="line">zuo@zuo-VirtualBox:~$ <span class="built_in">echo</span> <span class="variable">$PATH</span></span><br><span class="line">/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/<span class="built_in">local</span>/games:/snap/bin:/root</span><br></pre></td></tr></table></figure>
-<p>使用这种方法,只对当前会话有效，也就是说每当登出或注销系统以后，PATH设置就会失效。 </p>
-<p>不过，为了安全起见，<strong>不建议将<code>.</code>加入PATH的搜寻目录中</strong>。 </p>
-</li>
+<p>使用这种方法,只对当前会话有效，也就是说每当登出或注销系统以后，PATH设置就会失效。</p>
+<p>不过，为了安全起见，<strong>不建议将<code>.</code>加入PATH的搜寻目录中</strong>。</p></li>
 </ul>
-<h1 id="目录与路径相关"><a href="#目录与路径相关" class="headerlink" title="目录与路径相关"></a>目录与路径相关</h1><ul>
-<li><p><code>cd</code></p>
-</li>
-<li><p><code>pwd</code>  </p>
+<h1 id="目录与路径相关">目录与路径相关</h1>
+<ul>
+<li><p><code>cd</code></p></li>
+<li><p><code>pwd</code></p>
 <p>注意<code>pwd</code>打印的是当前的连接地址，如果要想知道真实地址，需要带上<code>-P</code>参数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zuo@zuo-VirtualBox:~$ <span class="built_in">pwd</span> -P</span><br><span class="line">/home/zuo</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zuo@zuo-VirtualBox:~$ <span class="built_in">pwd</span> -P</span><br><span class="line">/home/zuo</span><br></pre></td></tr></table></figure></li>
 <li><p><code>tree</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用法: tree [选项]</span><br><span class="line"></span><br><span class="line">   -a               显示所有</span><br><span class="line">   -d               只显示目录</span><br><span class="line">   -L Level         只显示Level层</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p><code>mkdir</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用法: tree [选项]</span><br><span class="line"></span><br><span class="line">   -a               显示所有</span><br><span class="line">   -d               只显示目录</span><br><span class="line">   -L Level         只显示Level层</span><br></pre></td></tr></table></figure></li>
+<li><p><code>mkdir</code></p>
 <p>创建一个空目录，默认情况下其父目录必须存在，访问权限为默认权限<code>umask</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">用法：mkdir [选项]... 目录...</span><br><span class="line"></span><br><span class="line">  -m, --mode=MODE   配置文件的权限</span><br><span class="line">  -p, --parents     直接将所需要的目录(包含上一级目录)递回创建起来</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ ls -a</span><br><span class="line">.  ..</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ mkdir ./1/1</span><br><span class="line">mkdir: 无法创建目录<span class="string">"./1/1"</span>: 没有那个文件或目录</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ mkdir -p ./1/1</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">└── 1</span><br><span class="line">    └── 1</span><br><span class="line">2 directories, 0 files</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p><code>rmdir</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">用法：mkdir [选项]... 目录...</span><br><span class="line"></span><br><span class="line">  -m, --mode=MODE   配置文件的权限</span><br><span class="line">  -p, --parents     直接将所需要的目录(包含上一级目录)递回创建起来</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ ls -a</span><br><span class="line">.  ..</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ mkdir ./1/1</span><br><span class="line">mkdir: 无法创建目录<span class="string">"./1/1"</span>: 没有那个文件或目录</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ mkdir -p ./1/1</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">└── 1</span><br><span class="line">    └── 1</span><br><span class="line">2 directories, 0 files</span><br></pre></td></tr></table></figure></li>
+<li><p><code>rmdir</code></p>
 <p>删除<strong>空的目录</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">用法：rmdir [选项]... 目录...</span><br><span class="line">删除指定的空目录。</span><br><span class="line">  -p, --parents   remove DIRECTORY and its ancestors; </span><br><span class="line">  				 e.g., <span class="string">'rmdir -p a/b/c'</span> is similar to <span class="string">'rmdir a/b/c a/b a'</span>, a b c are all empty</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="comment"># Sample目录下结构如下</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">└── 1</span><br><span class="line">    └── 1</span><br><span class="line">        └── 1</span><br><span class="line"></span><br><span class="line">3 directories, 0 files</span><br><span class="line"><span class="comment"># 由于目录 1 非空，所以不能删除</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ rmdir -p 1</span><br><span class="line">rmdir: 删除 <span class="string">'1'</span> 失败: 目录非空</span><br><span class="line"><span class="comment"># 加上参数-p，相当于 rmdir 1/1/1 1/1 1</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ rmdir -p 1/1/1</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">0 directories, 0 files</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">用法：rmdir [选项]... 目录...</span><br><span class="line">删除指定的空目录。</span><br><span class="line">  -p, --parents   remove DIRECTORY and its ancestors; </span><br><span class="line">  				 e.g., <span class="string">'rmdir -p a/b/c'</span> is similar to <span class="string">'rmdir a/b/c a/b a'</span>, a b c are all empty</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="comment"># Sample目录下结构如下</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">└── 1</span><br><span class="line">    └── 1</span><br><span class="line">        └── 1</span><br><span class="line"></span><br><span class="line">3 directories, 0 files</span><br><span class="line"><span class="comment"># 由于目录 1 非空，所以不能删除</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ rmdir -p 1</span><br><span class="line">rmdir: 删除 <span class="string">'1'</span> 失败: 目录非空</span><br><span class="line"><span class="comment"># 加上参数-p，相当于 rmdir 1/1/1 1/1 1</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ rmdir -p 1/1/1</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">0 directories, 0 files</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h1 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a>文件与目录管理</h1><ul>
-<li><p><code>ls</code>  </p>
+<h1 id="文件与目录管理">文件与目录管理</h1>
+<ul>
+<li><p><code>ls</code></p>
 <p>列出目录和文件的信息，默认是列出当前路径的所有目录和文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用法：ls [选项]... [文件]...</span><br><span class="line">  -a, --all			不隐藏任何以. 开始的项目（常用）</span><br><span class="line">  -d, --directory    仅列出目录本身，而不是列出目录内的文件数据(常用)</span><br><span class="line">  -l			    使用较长格式列出信息（常用）</span><br><span class="line">  -R, --recursive    递归显示子目录</span><br><span class="line">  -s, --size		以块数形式显示每个文件分配的尺寸</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用法：ls [选项]... [文件]...</span><br><span class="line">  -a, --all			不隐藏任何以. 开始的项目（常用）</span><br><span class="line">  -d, --directory    仅列出目录本身，而不是列出目录内的文件数据(常用)</span><br><span class="line">  -l			    使用较长格式列出信息（常用）</span><br><span class="line">  -R, --recursive    递归显示子目录</span><br><span class="line">  -s, --size		以块数形式显示每个文件分配的尺寸</span><br></pre></td></tr></table></figure></li>
 <li><p><code>cp</code></p>
 <p>复制文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">用法：cp [选项]... [-T] 源文件 目标文件</span><br><span class="line">　或：cp [选项]... 源文件... 目录</span><br><span class="line">　或：cp [选项]... -t 目录 源文件...</span><br><span class="line">Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.</span><br><span class="line"></span><br><span class="line">必选参数对长短选项同时适用。</span><br><span class="line">  -a, --archive			等于-dR --preserve=all</span><br><span class="line">  -i, --interactive      若目标档(destination)已经存在时，在覆盖时会先询问动作的进行</span><br><span class="line">  -p				   等于--preserve=模式,所有权,时间戳</span><br><span class="line">  -R, -r, --recursive		递归复制目录及其子目录内的所有内容</span><br></pre></td></tr></table></figure>
@@ -494,82 +484,69 @@
 <p>不过要注意一个问题，正常使用<code>cp</code>拷贝过去的文件，<strong>只拷贝了文件内容而不拷贝文件权限、、时间等信息</strong>，如果要完整拷贝所有内容和权限、信息，需要使用<code>-a</code>参数</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以看到，文件信息不同</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ ll Temp.cpp; ll 1/Temp.cpp</span><br><span class="line">-rw-r--r-- 1 zuo zuo 71 7月  18 18:19 Temp.cpp</span><br><span class="line">-rw-r--r-- 1 zuo zuo 71 7月  18 18:24 1/Temp.cpp</span><br><span class="line"><span class="comment"># 使用 -a 参数</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ ll Temp.cpp; ll 1/Temp.cpp</span><br><span class="line">-rw-r--r-- 1 zuo zuo 71 7月  18 18:19 Temp.cpp</span><br><span class="line">-rw-r--r-- 1 zuo zuo 71 7月  18 18:19 1/Temp.cpp</span><br></pre></td></tr></table></figure>
 <p>还可以使用<code>-r</code>来拷贝整个文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">│   └── Temp.cpp</span><br><span class="line">├── 2</span><br><span class="line">└── Temp.cpp</span><br><span class="line"><span class="comment"># 将整个目录 1 拷贝到 目录 2 下</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ cp -r 1 2</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">│   └── Temp.cpp</span><br><span class="line">├── 2</span><br><span class="line">│   └── 1</span><br><span class="line">│       └── Temp.cpp</span><br><span class="line">└── Temp.cpp</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">│   └── Temp.cpp</span><br><span class="line">├── 2</span><br><span class="line">└── Temp.cpp</span><br><span class="line"><span class="comment"># 将整个目录 1 拷贝到 目录 2 下</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ cp -r 1 2</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">│   └── Temp.cpp</span><br><span class="line">├── 2</span><br><span class="line">│   └── 1</span><br><span class="line">│       └── Temp.cpp</span><br><span class="line">└── Temp.cpp</span><br></pre></td></tr></table></figure></li>
 <li><p><code>rm</code></p>
 <p>移除目录或文件的指令，<strong>默认状况下只能删除文件不能删除文件夹</strong>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">用法：rm [选项]... [文件]...</span><br><span class="line">Remove (unlink) the FILE(s).</span><br><span class="line"></span><br><span class="line">  -f, --force           忽略不存在的文件，不会出现警告信息</span><br><span class="line">  -i                    互动模式，在删除前会询问使用者是否动作</span><br><span class="line">  -r, -R, --recursive   递归删除整个目录和其内容（非常危险！）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">│   ├── Temp2.cpp</span><br><span class="line">│   └── Temp.cpp</span><br><span class="line">├── 2</span><br><span class="line">│   └── 1</span><br><span class="line">│       └── Temp.cpp</span><br><span class="line">└── Temp.cpp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 1/Temp.cpp</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ rm 1/Temp.cpp </span><br><span class="line"><span class="comment"># 删除 1/Temp2.cpp 删前询问</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ rm -i 1/Temp2.cpp</span><br><span class="line">rm：是否删除普通文件 <span class="string">'1/Temp2.cpp'</span>？ y</span><br><span class="line"><span class="comment"># 删除整个目录 2</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ rm -r 2</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">└── Temp.cpp</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">用法：rm [选项]... [文件]...</span><br><span class="line">Remove (unlink) the FILE(s).</span><br><span class="line"></span><br><span class="line">  -f, --force           忽略不存在的文件，不会出现警告信息</span><br><span class="line">  -i                    互动模式，在删除前会询问使用者是否动作</span><br><span class="line">  -r, -R, --recursive   递归删除整个目录和其内容（非常危险！）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">│   ├── Temp2.cpp</span><br><span class="line">│   └── Temp.cpp</span><br><span class="line">├── 2</span><br><span class="line">│   └── 1</span><br><span class="line">│       └── Temp.cpp</span><br><span class="line">└── Temp.cpp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 1/Temp.cpp</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ rm 1/Temp.cpp </span><br><span class="line"><span class="comment"># 删除 1/Temp2.cpp 删前询问</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ rm -i 1/Temp2.cpp</span><br><span class="line">rm：是否删除普通文件 <span class="string">'1/Temp2.cpp'</span>？ y</span><br><span class="line"><span class="comment"># 删除整个目录 2</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ rm -r 2</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">└── Temp.cpp</span><br></pre></td></tr></table></figure></li>
 <li><p><code>mv</code></p>
 <p>移动文件或目录，也可以用于重命名。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">用法：mv [选项]... 源文件 目标文件</span><br><span class="line">　或：mv [选项]... 源文件... 目录（保留源文件名）</span><br><span class="line"></span><br><span class="line">  -f, --force                  覆盖前不询问</span><br><span class="line">  -i, --interactive            覆盖前询问</span><br><span class="line">  -n, --no-clobber             不覆盖已存在文件</span><br><span class="line">  -u  						 若目标文件已经存在，且 <span class="built_in">source</span> 比较新，才会更新</span><br><span class="line">如果您指定了-i、-f、-n 中的多个，仅最后一个生效。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">├── 2</span><br><span class="line">└── Temp.cpp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重命名文件</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ mv Temp.cpp Src.cpp</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ cp Src.cpp Src2.cpp</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ ls</span><br><span class="line">1  2  Src2.cpp  Src.cpp</span><br><span class="line"><span class="comment"># 移动文件</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ mv Src.cpp 1; mv Src2.cpp 2/Src.cpp</span><br><span class="line"><span class="comment"># 移动整个目录</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ mv 1 2/2-1</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">└── 2</span><br><span class="line">    ├── 2-1</span><br><span class="line">    │   └── Src.cpp</span><br><span class="line">    └── Src.cpp</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">用法：mv [选项]... 源文件 目标文件</span><br><span class="line">　或：mv [选项]... 源文件... 目录（保留源文件名）</span><br><span class="line"></span><br><span class="line">  -f, --force                  覆盖前不询问</span><br><span class="line">  -i, --interactive            覆盖前询问</span><br><span class="line">  -n, --no-clobber             不覆盖已存在文件</span><br><span class="line">  -u  						 若目标文件已经存在，且 <span class="built_in">source</span> 比较新，才会更新</span><br><span class="line">如果您指定了-i、-f、-n 中的多个，仅最后一个生效。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">├── 2</span><br><span class="line">└── Temp.cpp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重命名文件</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ mv Temp.cpp Src.cpp</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ cp Src.cpp Src2.cpp</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ ls</span><br><span class="line">1  2  Src2.cpp  Src.cpp</span><br><span class="line"><span class="comment"># 移动文件</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ mv Src.cpp 1; mv Src2.cpp 2/Src.cpp</span><br><span class="line"><span class="comment"># 移动整个目录</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ mv 1 2/2-1</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree</span><br><span class="line">.</span><br><span class="line">└── 2</span><br><span class="line">    ├── 2-1</span><br><span class="line">    │   └── Src.cpp</span><br><span class="line">    └── Src.cpp</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h1 id="文件内容管理"><a href="#文件内容管理" class="headerlink" title="文件内容管理"></a>文件内容管理</h1><ul>
-<li><p><code>touch</code>  </p>
+<h1 id="文件内容管理">文件内容管理</h1>
+<ul>
+<li><p><code>touch</code></p>
 <p>touch命令有两个功能：</p>
-<ol>
-<li><p>用于修改某个文件的时间属性  </p>
+<ol type="1">
+<li><p>用于修改某个文件的时间属性</p>
 <ul>
 <li><p><strong>modification time (mtime)</strong>：</p>
 <p>当该文件的<strong>内容数据</strong>变更时，就会升级这个时间！</p>
-<p>内容数据指的是文件的内容，而不是文件的属性或权限。</p>
-</li>
-<li><p><strong>status time (ctime)</strong>：  </p>
+<p>内容数据指的是文件的内容，而不是文件的属性或权限。</p></li>
+<li><p><strong>status time (ctime)</strong>：</p>
 <p>当该文件的<strong>状态 (status)</strong>改变时，就会升级这个时间。</p>
-<p>举例来说，像是权限与属性被更改了，都会升级这个时间啊。         </p>
-</li>
-<li><p><strong>access time (atime)</strong>：  </p>
+<p>举例来说，像是权限与属性被更改了，都会升级这个时间啊。</p></li>
+<li><p><strong>access time (atime)</strong>：</p>
 <p>当<strong>该文件的内容被取用</strong>时，就会升级这个访问时间 (access)。</p>
-<p>举例来说，我们使用 cat 去读取 /etc/man.config ，就会升级该文件的 atime 了。</p>
-</li>
-</ul>
-</li>
-<li><p>用来创建新的空文件 </p>
-</li>
+<p>举例来说，我们使用 cat 去读取 /etc/man.config ，就会升级该文件的 atime 了。</p></li>
+</ul></li>
+<li><p>用来创建新的空文件</p></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">用法：touch [选项]... 文件...</span><br><span class="line"></span><br><span class="line">必选参数对长短选项同时适用。</span><br><span class="line">  -a			        只更改访问时间</span><br><span class="line">  -c, --no-create	     不创建任何文件</span><br><span class="line">  -d, --date=string      使用指定字符串表示时间而非当前时间</span><br><span class="line">  -m			        只更改修改时间</span><br><span class="line">  -r, --reference=FILE   use this file<span class="string">'s times instead of current time</span></span><br><span class="line"><span class="string">  -t  STAMP              use [[CC]YY]MMDDhhmm[.ss] instead of current time</span></span><br><span class="line"><span class="string">      --time=WORD        change the specified time:</span></span><br><span class="line"><span class="string">                         WORD is access, atime, or use: equivalent to -a</span></span><br><span class="line"><span class="string">                         WORD is modify or mtime: equivalent to -m</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 例子</span></span><br><span class="line"><span class="string"># 创建空文件： touch filename ，若 filename 不存在会创建同名空文件</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ touch TempFile</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ ls</span></span><br><span class="line"><span class="string">1  2  TempFile</span></span><br><span class="line"><span class="string"># 查看mtime, atime, ctime, ll 是 ls -l 的一个别名</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ ll TempFile; ll --time=atime TempFile; ll --time=ctime TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:11 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:11 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:11 TempFile</span></span><br><span class="line"><span class="string"># touch filename ，若 filename 存在会更新它的时间</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ touch TempFile</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ ll TempFile; ll --time=atime TempFile; ll --time=ctime TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:21 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:21 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:21 TempFile</span></span><br><span class="line"><span class="string"># 使用字符串形式修改访问时间</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ touch -ad "2018/7/16 15:03" TempFile </span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ ll TempFile; ll --time=atime TempFile; ll --time=ctime TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:21 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  16 15:03 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:31 TempFile</span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">用法：touch [选项]... 文件...</span><br><span class="line"></span><br><span class="line">必选参数对长短选项同时适用。</span><br><span class="line">  -a			        只更改访问时间</span><br><span class="line">  -c, --no-create	     不创建任何文件</span><br><span class="line">  -d, --date=string      使用指定字符串表示时间而非当前时间</span><br><span class="line">  -m			        只更改修改时间</span><br><span class="line">  -r, --reference=FILE   use this file<span class="string">'s times instead of current time</span></span><br><span class="line"><span class="string">  -t  STAMP              use [[CC]YY]MMDDhhmm[.ss] instead of current time</span></span><br><span class="line"><span class="string">      --time=WORD        change the specified time:</span></span><br><span class="line"><span class="string">                         WORD is access, atime, or use: equivalent to -a</span></span><br><span class="line"><span class="string">                         WORD is modify or mtime: equivalent to -m</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 例子</span></span><br><span class="line"><span class="string"># 创建空文件： touch filename ，若 filename 不存在会创建同名空文件</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ touch TempFile</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ ls</span></span><br><span class="line"><span class="string">1  2  TempFile</span></span><br><span class="line"><span class="string"># 查看mtime, atime, ctime, ll 是 ls -l 的一个别名</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ ll TempFile; ll --time=atime TempFile; ll --time=ctime TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:11 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:11 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:11 TempFile</span></span><br><span class="line"><span class="string"># touch filename ，若 filename 存在会更新它的时间</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ touch TempFile</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ ll TempFile; ll --time=atime TempFile; ll --time=ctime TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:21 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:21 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:21 TempFile</span></span><br><span class="line"><span class="string"># 使用字符串形式修改访问时间</span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ touch -ad "2018/7/16 15:03" TempFile </span></span><br><span class="line"><span class="string">zuo@zuo-VirtualBox:~/Sample$ ll TempFile; ll --time=atime TempFile; ll --time=ctime TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:21 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  16 15:03 TempFile</span></span><br><span class="line"><span class="string">-rw-r--r-- 1 zuo zuo 0 7月  18 12:31 TempFile</span></span><br></pre></td></tr></table></figure></li>
 <li><p><code>cat</code></p>
-<p>cat 是 Concatenate （连续）的简写， 主要的功能是将一个文件的内容连续的印出在萤幕上面，<strong>如果没有指定文件，或者文件为”-“，则从标准输入读取</strong>。 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">用法：cat [选项]... [文件]...</span><br><span class="line">如果没有指定文件，或者文件为<span class="string">"-"</span>，则从标准输入读取。</span><br><span class="line"></span><br><span class="line">  -b, --number-nonblank    列出行号，仅针对非空白行做行号显示，空白行不标行号</span><br><span class="line">  -n, --number             列印出行号，连同空白行也会有行号</span><br><span class="line">  -T, --show-tabs          将跳格字符显示为^I</span><br><span class="line">  -E, --show-ends          将结尾的断行字节 $ 显示出来</span><br><span class="line">  -v, --show-nonprinting   列出一些看不出来的特殊字符，使用^ 和M- 引用，除了LFD和 TAB 之外</span><br><span class="line">  -e                       和 -vE 等价</span><br><span class="line">  -t                       和 -vT 等价</span><br><span class="line">  -A, --show-all           相当於 -vET 的整合选项，可列出一些特殊字符而不是空白而已</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>more</code>  </p>
+<p>cat 是 Concatenate （连续）的简写， 主要的功能是将一个文件的内容连续的印出在萤幕上面，<strong>如果没有指定文件，或者文件为&quot;-&quot;，则从标准输入读取</strong>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">用法：cat [选项]... [文件]...</span><br><span class="line">如果没有指定文件，或者文件为<span class="string">"-"</span>，则从标准输入读取。</span><br><span class="line"></span><br><span class="line">  -b, --number-nonblank    列出行号，仅针对非空白行做行号显示，空白行不标行号</span><br><span class="line">  -n, --number             列印出行号，连同空白行也会有行号</span><br><span class="line">  -T, --show-tabs          将跳格字符显示为^I</span><br><span class="line">  -E, --show-ends          将结尾的断行字节 $ 显示出来</span><br><span class="line">  -v, --show-nonprinting   列出一些看不出来的特殊字符，使用^ 和M- 引用，除了LFD和 TAB 之外</span><br><span class="line">  -e                       和 -vE 等价</span><br><span class="line">  -t                       和 -vT 等价</span><br><span class="line">  -A, --show-all           相当於 -vET 的整合选项，可列出一些特殊字符而不是空白而已</span><br></pre></td></tr></table></figure></li>
+<li><p><code>more</code></p>
 <p>将文件内容显示在屏幕上，但是是一页一页翻动而不是一次性全部显示在屏幕上</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> more [选项] &lt;文件&gt;...</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line"> -&lt;数字&gt;     每屏的行数</span><br><span class="line"> +&lt;数字&gt;     从指定行开始显示文件</span><br><span class="line"> +/&lt;字符串&gt;  从匹配搜索字符串的位置开始显示文件</span><br></pre></td></tr></table></figure>
 <p>另外在浏览时，还有一些按键可以使用:</p>
 <ul>
 <li>空白键 (space)：代表向下翻一页；</li>
-<li>Enter         ：代表向下翻『一行』；</li>
-<li>/字串         ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；</li>
-<li>=               ：显示行号</li>
-<li>:f               ：立刻显示出档名以及目前显示的行数；</li>
-<li>q               ：代表立刻离开 more ，不再显示该文件内容。</li>
-<li>f/Ctrl+f      ：向下翻页</li>
-<li>b/Ctrl+b    ：往回翻页</li>
-</ul>
-</li>
+<li>Enter ：代表向下翻『一行』；</li>
+<li>/字串 ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；</li>
+<li>= ：显示行号</li>
+<li>:f ：立刻显示出档名以及目前显示的行数；</li>
+<li>q ：代表立刻离开 more ，不再显示该文件内容。</li>
+<li>f/Ctrl+f ：向下翻页</li>
+<li>b/Ctrl+b ：往回翻页</li>
+</ul></li>
 <li><p><code>less</code>：推荐使用<code>less</code>替代<code>more</code></p>
-<p>类似<code>more</code>，但是用法比起 more 又更加的有弹性。在 more 的时候，我们并没有办法向前面翻， 只能往后面看，但若使用了 less 时，就可以使用 <code>PgUp/PgDn</code>  等按键的功能来往前往后翻看文件 。此外，它还提供了更加丰富的查找功能。</p>
+<p>类似<code>more</code>，但是用法比起 more 又更加的有弹性。在 more 的时候，我们并没有办法向前面翻， 只能往后面看，但若使用了 less 时，就可以使用 <code>PgUp/PgDn</code> 等按键的功能来往前往后翻看文件 。此外，它还提供了更加丰富的查找功能。</p>
 <ul>
-<li>空白键            ：向下翻动一页；</li>
-<li>pagedown      ：向下翻动一页；</li>
-<li>pageup          ：向上翻动一页；</li>
-<li>/字串              ：向下搜寻『字串』的功能；</li>
-<li>?字串             ：向上搜寻『字串』的功能；</li>
-<li>n         ：重复前一个搜寻 (与 / 或 ? 有关！)</li>
-<li>N         ：反向的重复前一个搜寻 (与 / 或 ? 有关！)</li>
-<li>q         ：离开 less 这个程序；</li>
-</ul>
-</li>
+<li>空白键 ：向下翻动一页；</li>
+<li>pagedown ：向下翻动一页；</li>
+<li>pageup ：向上翻动一页；</li>
+<li>/字串 ：向下搜寻『字串』的功能；</li>
+<li>?字串 ：向上搜寻『字串』的功能；</li>
+<li>n ：重复前一个搜寻 (与 / 或 ? 有关！)</li>
+<li>N ：反向的重复前一个搜寻 (与 / 或 ? 有关！)</li>
+<li>q ：离开 less 这个程序；</li>
+</ul></li>
 <li><p><code>head</code>和<code>tail</code></p>
 <p>顾名思义，是只看 前/后 n行的内容，有趣的是n可以为负数，可以近似的理解为Python中的 [0:n]</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">head/tail [-n number] 文件 </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="comment"># 显示前10行</span></span><br><span class="line">head -n 10 src.cpp</span><br><span class="line"><span class="comment"># 显示从开头到倒数第10行</span></span><br><span class="line">head -n -10 src.cpp</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">head/tail [-n number] 文件 </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="comment"># 显示前10行</span></span><br><span class="line">head -n 10 src.cpp</span><br><span class="line"><span class="comment"># 显示从开头到倒数第10行</span></span><br><span class="line">head -n -10 src.cpp</span><br></pre></td></tr></table></figure></li>
 <li><p><code>od</code></p>
 <p>使用二进制方式读取文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">od [-t TYPE] 文件</span><br><span class="line"></span><br><span class="line">-t  ：后面可以接各种『类型 (TYPE)』的输出，例如：</span><br><span class="line">      a       ：利用默认的字节来输出；</span><br><span class="line">      c       ：使用 ASCII 字节来输出</span><br><span class="line">      d[size] ：利用十进位(decimal)来输出数据，每个整数占用 size bytes ；</span><br><span class="line">      f[size] ：利用浮点数值(floating)来输出数据，每个数占用 size bytes ；</span><br><span class="line">      o[size] ：利用八进位(octal)来输出数据，每个整数占用 size bytes ；</span><br><span class="line">      x[size] ：利用十六进位(hexadecimal)来输出数据，每个整数占用 size bytes ；</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">od [-t TYPE] 文件</span><br><span class="line"></span><br><span class="line">-t  ：后面可以接各种『类型 (TYPE)』的输出，例如：</span><br><span class="line">      a       ：利用默认的字节来输出；</span><br><span class="line">      c       ：使用 ASCII 字节来输出</span><br><span class="line">      d[size] ：利用十进位(decimal)来输出数据，每个整数占用 size bytes ；</span><br><span class="line">      f[size] ：利用浮点数值(floating)来输出数据，每个数占用 size bytes ；</span><br><span class="line">      o[size] ：利用八进位(octal)来输出数据，每个整数占用 size bytes ；</span><br><span class="line">      x[size] ：利用十六进位(hexadecimal)来输出数据，每个整数占用 size bytes ；</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -764,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#帮助指令"><span class="nav-number">1.</span> <span class="nav-text">帮助指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PATH环境变量"><span class="nav-number">2.</span> <span class="nav-text">$PATH环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录与路径相关"><span class="nav-number">3.</span> <span class="nav-text">目录与路径相关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件与目录管理"><span class="nav-number">4.</span> <span class="nav-text">文件与目录管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件内容管理"><span class="nav-number">5.</span> <span class="nav-text">文件内容管理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#帮助指令"><span class="nav-number">1.</span> <span class="nav-text">帮助指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#path环境变量"><span class="nav-number">2.</span> <span class="nav-text">$PATH环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录与路径相关"><span class="nav-number">3.</span> <span class="nav-text">目录与路径相关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件与目录管理"><span class="nav-number">4.</span> <span class="nav-text">文件与目录管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件内容管理"><span class="nav-number">5.</span> <span class="nav-text">文件内容管理</span></a></li></ol></div>
             
 
           </div>
@@ -929,6 +906,77 @@
   
 
   
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
 
   
 

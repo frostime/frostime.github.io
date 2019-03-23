@@ -16,7 +16,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -156,7 +156,7 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -167,7 +167,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
 
@@ -432,9 +432,9 @@
           
             <p>
               关机重启指令
+
 shutdown
-shutdown命令安全地将系统关机。可以指定一个时间字符串。
-sh
+shutdown命令安全地将系统关机。可以指定一个时间字符串
               ...
             </p>
           <!--noindex-->
@@ -612,7 +612,8 @@ sh
         
           
             <p>
-              Vi和Vim的基本介绍&emsp;所有的 Unix Like 系统都会内建 vi 文书编辑器 ,Vi
+              Vi和Vim的基本介绍
+ 所有的 Unix Like 系统都会内建 vi 文书编辑器 ,Vim是从
               ...
             </p>
           <!--noindex-->
@@ -790,7 +791,8 @@ sh
         
           
             <p>
-              预说明&emsp;在工作中，我们往往遇到的情况是，自己的电脑和linux服务器并不在一台主机上，这个
+              预说明
+ 在工作中，我们往往遇到的情况是，自己的电脑和linux服务器并不在一台主机上，这个时候就
               ...
             </p>
           <!--noindex-->
@@ -968,7 +970,8 @@ sh
         
           
             <p>
-              基本介绍&emsp;linux的文件系统是采用级层式的树状目录结构，在此结构中的最上层是根目录“/”
+              基本介绍
+ linux的文件系统是采用级层式的树状目录结构，在此结构中的最上层是根目录“/”，然后
               ...
             </p>
           <!--noindex-->
@@ -1136,8 +1139,8 @@ sh
           
             <p>
               
-建站安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。
-$ h
+建站
+安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。
               ...
             </p>
           <!--noindex-->
@@ -1452,6 +1455,89 @@ $ h
   
 
   
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
 
   
 

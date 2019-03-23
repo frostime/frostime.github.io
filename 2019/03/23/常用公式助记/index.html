@@ -16,7 +16,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="卷积神经网络维度变化$$\text{Size In Covolutional Layer: l}\$$$$\begin{aligned}&amp;amp;&amp;amp; Filter\ Size&amp;amp;: &amp;amp; f^{[l]} &amp;amp;\quad  \text{Width and hight of a filter}\&amp;amp;&amp;amp; Padding &amp;amp;: &amp;amp;p^{[l]} &amp;a">
+  <meta name="description" content="卷积神经网络维度变化 \[ \text{Size In Covolutional Layer: l}\\ \] \[ \begin{aligned} &amp;amp;&amp;amp; Filter\ Size&amp;amp;: &amp;amp; f^{[l]} &amp;amp;\quad  \text{Width and hight of a filter}\\ &amp;amp;&amp;amp; Padding &amp;amp;:">
 <meta name="keywords" content="杂项">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常用公式助记">
 <meta property="og:url" content="http://yoursite.com/2019/03/23/常用公式助记/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="卷积神经网络维度变化$$\text{Size In Covolutional Layer: l}\$$$$\begin{aligned}&amp;amp;&amp;amp; Filter\ Size&amp;amp;: &amp;amp; f^{[l]} &amp;amp;\quad  \text{Width and hight of a filter}\&amp;amp;&amp;amp; Padding &amp;amp;: &amp;amp;p^{[l]} &amp;a">
+<meta property="og:description" content="卷积神经网络维度变化 \[ \text{Size In Covolutional Layer: l}\\ \] \[ \begin{aligned} &amp;amp;&amp;amp; Filter\ Size&amp;amp;: &amp;amp; f^{[l]} &amp;amp;\quad  \text{Width and hight of a filter}\\ &amp;amp;&amp;amp; Padding &amp;amp;:">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-23T09:42:45.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用公式助记">
-<meta name="twitter:description" content="卷积神经网络维度变化$$\text{Size In Covolutional Layer: l}\$$$$\begin{aligned}&amp;amp;&amp;amp; Filter\ Size&amp;amp;: &amp;amp; f^{[l]} &amp;amp;\quad  \text{Width and hight of a filter}\&amp;amp;&amp;amp; Padding &amp;amp;: &amp;amp;p^{[l]} &amp;a">
+<meta name="twitter:description" content="卷积神经网络维度变化 \[ \text{Size In Covolutional Layer: l}\\ \] \[ \begin{aligned} &amp;amp;&amp;amp; Filter\ Size&amp;amp;: &amp;amp; f^{[l]} &amp;amp;\quad  \text{Width and hight of a filter}\\ &amp;amp;&amp;amp; Padding &amp;amp;:">
 
 
 
@@ -161,7 +161,7 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -172,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -405,7 +405,23 @@
       
 
       
-        <h1 id="卷积神经网络维度变化"><a href="#卷积神经网络维度变化" class="headerlink" title="卷积神经网络维度变化"></a>卷积神经网络维度变化</h1><p>$$<br>\text{Size In Covolutional Layer: l}\<br>$$<br>$$<br>\begin{aligned}<br>&amp;&amp; Filter\ Size&amp;: &amp; f^{[l]} &amp;\quad  \text{Width and hight of a filter}\<br>&amp;&amp; Padding &amp;: &amp;p^{[l]} &amp;\quad \text{The extra edge added around}\<br>&amp;&amp; Stride &amp; : &amp;s^{[l]} &amp;\quad \text{The step for filter to move}\<br>&amp;&amp; Channel &amp;: &amp;n_c^{[l]}&amp;\quad \text{Equal to the numbers of filters}\<br>&amp;&amp; Filter&amp;: &amp; f^{[l]} \times f^{[l]} \times n_c^{[l-1]}\<br>&amp;&amp; Input&amp;: &amp; n_h^{[l-1]} \times n_w^{[l-1]} \times n_c^{[l-1]} &amp;\quad \text{e.g.An image shaped(32,32,3)}\<br>&amp;&amp; Output&amp;: &amp; n_h^{[l]} \times n_w^{[l]} \times n_c^{[l]}\<br>&amp;&amp; n_{n/w}^{[l]} &amp;= &amp; \biggl \lfloor\frac{n_{n/w}^{[l-1]} + 2p^{[l]}-f^{[l]}}{s^{[l]}}+1 \biggr \rfloor\<br>&amp;&amp; Note1 &amp; : &amp; \text{Deeper, } n_{h/w}^{[l]} \uparrow \text{while } n_c^{[l]} \downarrow\<br>&amp;&amp; Note2 &amp; : &amp;Input \rightarrow Conv \rightarrow Add\ Bias &amp; \rightarrow ReLU \rightarrow Output<br>\end{aligned}<br>$$</p>
+        <h1 id="卷积神经网络维度变化">卷积神经网络维度变化</h1>
+<p><span class="math display">\[
+\text{Size In Covolutional Layer: l}\\
+\]</span> <span class="math display">\[
+\begin{aligned}
+&amp;&amp; Filter\ Size&amp;: &amp; f^{[l]} &amp;\quad  \text{Width and hight of a filter}\\
+&amp;&amp; Padding &amp;: &amp;p^{[l]} &amp;\quad \text{The extra edge added around}\\
+&amp;&amp; Stride &amp; : &amp;s^{[l]} &amp;\quad \text{The step for filter to move}\\
+&amp;&amp; Channel &amp;: &amp;n_c^{[l]}&amp;\quad \text{Equal to the numbers of filters}\\
+&amp;&amp; Filter&amp;: &amp; f^{[l]} \times f^{[l]} \times n_c^{[l-1]}\\
+&amp;&amp; Input&amp;: &amp; n_h^{[l-1]} \times n_w^{[l-1]} \times n_c^{[l-1]} &amp;\quad \text{e.g.An image shaped(32,32,3)}\\
+&amp;&amp; Output&amp;: &amp; n_h^{[l]} \times n_w^{[l]} \times n_c^{[l]}\\
+&amp;&amp; n_{n/w}^{[l]} &amp;= &amp; \biggl \lfloor\frac{n_{n/w}^{[l-1]} + 2p^{[l]}-f^{[l]}}{s^{[l]}}+1 \biggr \rfloor\\
+&amp;&amp; Note1 &amp; : &amp; \text{Deeper, } n_{h/w}^{[l]} \uparrow \text{while } n_c^{[l]} \downarrow\\
+&amp;&amp; Note2 &amp; : &amp;Input \rightarrow Conv \rightarrow Add\ Bias &amp; \rightarrow ReLU \rightarrow Output
+\end{aligned}
+\]</span></p>
 
       
     </div>
@@ -760,6 +776,77 @@
   
 
   
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
 
   
 

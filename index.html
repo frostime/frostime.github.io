@@ -16,7 +16,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -156,7 +156,7 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -167,7 +167,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
 
@@ -406,7 +406,9 @@
         
           
             <p>
-              卷积神经网络维度变化$$\text{Size In Covolutional Layer: l}\$
+              卷积神经网络维度变化
+\[
+\text{Size In Covolutional Layer: 
               ...
             </p>
           <!--noindex-->
@@ -571,7 +573,8 @@
         
           
             <p>
-              Windows下Linux子系统升级的命令sudo do-release-upgrade
+              Windows下Linux子系统升级的命令
+sudo do-release-upgrade
 
               
             </p>
@@ -750,7 +753,9 @@
         
           
             <p>
-              基本知识背景知识我们知道在Windows下最常见的压缩文件就只有两种，一是,zip，另一个是.rar
+              基本知识
+背景知识
+我们知道在Windows下最常见的压缩文件就只有两种，一是,zip，另一个是
               ...
             </p>
           <!--noindex-->
@@ -928,7 +933,8 @@
         
           
             <p>
-              基本概念管道命令指的是将前面一个命令的输出结果，传递给后面一个命令，这样就可以起到对一个命令进行层层
+              基本概念
+管道命令指的是将前面一个命令的输出结果，传递给后面一个命令，这样就可以起到对一个命令进行
               ...
             </p>
           <!--noindex-->
@@ -1106,7 +1112,8 @@
         
           
             <p>
-              &emsp;从字面意思上将，数据流重定向就是将“数据给他传导到其他地方去”。&emsp;实际上也没错
+               从字面意思上将，数据流重定向就是将“数据给他传导到其他地方去”。
+ 实际上也没错，数据流重导向就
               ...
             </p>
           <!--noindex-->
@@ -1285,6 +1292,7 @@
           
             <p>
               
+
               
             </p>
           <!--noindex-->
@@ -1463,9 +1471,10 @@
           
             <p>
               时间相关指令
+
 date
 data指令可以用于查看时间以及修改时间
-用法：date [选项]... [
+用法：date [选项]
               ...
             </p>
           <!--noindex-->
@@ -1644,12 +1653,10 @@ data指令可以用于查看时间以及修改时间
           
             <p>
               帮助指令
+
 help：获取Shell内置帮助信息
-
 man：获取在线文档
-
-info：类似man  
-
+info：类似man
               ...
             </p>
           <!--noindex-->
@@ -1827,7 +1834,8 @@ info：类似man
         
           
             <p>
-              运行级别&emsp;Linux设置了7种运行级别，具体如下：
+              运行级别
+ Linux设置了7种运行级别，具体如下：
 
 0：关机
 1：单用户【不需要密码，可
@@ -2008,7 +2016,8 @@ info：类似man
         
           
             <p>
-              用户，用户组&emsp;Linux是一个多用户多任务的系统，一个系统上可能会有多个用户。而每个用户都
+              用户，用户组
+ Linux是一个多用户多任务的系统，一个系统上可能会有多个用户。而每个用户都属于一
               ...
             </p>
           <!--noindex-->
@@ -2323,6 +2332,99 @@ info：类似man
   
 
   
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
 
   
 
