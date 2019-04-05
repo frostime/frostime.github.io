@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Pytorch简介 1import torch as tc 1 Tensor张量 tensor很像numpy中的ndarray，就连操作也很相似。 ### 创建Tensor 12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,">
+  <meta name="description" content="Pytorch简介 1import torch as tc 1 Tensor张量 tensor很像numpy中的ndarray，就连操作也很相似。 创建Tensor 12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,       0,">
 <meta name="keywords" content="Pytorch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[入门]1. Pytorch简介">
 <meta property="og:url" content="http://yoursite.com/2019/03/31/入门-1-Pytorch简介/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="Pytorch简介 1import torch as tc 1 Tensor张量 tensor很像numpy中的ndarray，就连操作也很相似。 ### 创建Tensor 12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,">
+<meta property="og:description" content="Pytorch简介 1import torch as tc 1 Tensor张量 tensor很像numpy中的ndarray，就连操作也很相似。 创建Tensor 12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,       0,">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-31T02:00:41.856Z">
+<meta property="og:updated_time" content="2019-03-31T02:08:54.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[入门]1. Pytorch简介">
-<meta name="twitter:description" content="Pytorch简介 1import torch as tc 1 Tensor张量 tensor很像numpy中的ndarray，就连操作也很相似。 ### 创建Tensor 12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,">
+<meta name="twitter:description" content="Pytorch简介 1import torch as tc 1 Tensor张量 tensor很像numpy中的ndarray，就连操作也很相似。 创建Tensor 12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,       0,">
 
 
 
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-03-31 09:55:58 / 修改时间：10:00:41" itemprop="dateCreated datePublished" datetime="2019-03-31T09:55:58+08:00">2019-03-31</time>
+              <time title="创建时间：2019-03-31 09:55:58 / 修改时间：10:08:54" itemprop="dateCreated datePublished" datetime="2019-03-31T09:55:58+08:00">2019-03-31</time>
             
 
             
@@ -433,7 +433,8 @@
         <h1 id="pytorch简介">Pytorch简介</h1>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> tc</span><br></pre></td></tr></table></figure>
 <h2 id="tensor张量">1 Tensor张量</h2>
-<p>tensor很像numpy中的ndarray，就连操作也很相似。 ### 创建Tensor</p>
+<p>tensor很像numpy中的ndarray，就连操作也很相似。</p>
+<h3 id="创建tensor">创建Tensor</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Returns a tensor filled with uninitialized data</span></span><br><span class="line">tc.empty((<span class="number">5</span>, <span class="number">3</span>), dtype=tc.int32)</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([[      0,       0,       0],
         [      0,       0,       0],
@@ -507,7 +508,11 @@ tensor([7, 3])</code></pre>
 <p>如果可用，我们就可以将Tensor复制到GPU上，迁移时一般需要接受一个<code>device</code>参数，用于指定哪一个设备上。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> tc.cuda.is_available():</span><br><span class="line">    device = tc.device(<span class="string">"cuda"</span>)</span><br><span class="line">    print(type(device), device)</span><br></pre></td></tr></table></figure>
 <pre><code>&lt;class &#39;torch.device&#39;&gt; cuda</code></pre>
-<p>迁移方法有两种: - 直接构造一个在GPU上的Tensor - 把CPU上的Tensor</p>
+<p>迁移方法有两种:</p>
+<ul>
+<li>直接构造一个在GPU上的Tensor</li>
+<li>把CPU上的Tensor</li>
+</ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> tc.cuda.is_available():</span><br><span class="line">    device = tc.device(<span class="string">"cuda"</span>)</span><br><span class="line">    <span class="comment"># 直接</span></span><br><span class="line">    y = tc.ones_like(x, device=device)</span><br><span class="line">    <span class="comment"># 间接</span></span><br><span class="line">    x = x.to(device)</span><br><span class="line">    <span class="comment"># z也是cuda上的</span></span><br><span class="line">    z = x + y</span><br><span class="line">    print(z)</span><br><span class="line">    <span class="comment"># 转会到CPU上</span></span><br><span class="line">    print(z.to(<span class="string">"cpu"</span>, tc.double))</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([7., 9.], device=&#39;cuda:0&#39;)
 tensor([7., 9.], dtype=torch.float64)</code></pre>
@@ -710,7 +715,7 @@ tensor([7., 9.], dtype=torch.float64)</code></pre>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pytorch简介"><span class="nav-number">1.</span> <span class="nav-text">Pytorch简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tensor张量"><span class="nav-number">1.1.</span> <span class="nav-text">1 Tensor张量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算"><span class="nav-number">1.1.1.</span> <span class="nav-text">算术运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resize"><span class="nav-number">1.1.2.</span> <span class="nav-text">Resize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-number">1.1.3.</span> <span class="nav-text">索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tensor和ndarray"><span class="nav-number">1.2.</span> <span class="nav-text">2 Tensor和ndarray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移到gpu上"><span class="nav-number">1.3.</span> <span class="nav-text">3 迁移到GPU上</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pytorch简介"><span class="nav-number">1.</span> <span class="nav-text">Pytorch简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tensor张量"><span class="nav-number">1.1.</span> <span class="nav-text">1 Tensor张量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建tensor"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建Tensor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算"><span class="nav-number">1.1.2.</span> <span class="nav-text">算术运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resize"><span class="nav-number">1.1.3.</span> <span class="nav-text">Resize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-number">1.1.4.</span> <span class="nav-text">索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tensor和ndarray"><span class="nav-number">1.2.</span> <span class="nav-text">2 Tensor和ndarray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移到gpu上"><span class="nav-number">1.3.</span> <span class="nav-text">3 迁移到GPU上</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Frostime">
 <meta property="og:description" content="神经网络 我们一般使用torch.nn模块来构建一个神经网络。 1234import torchimport torch.nn as nnfrom sklearn import datasetsimport numpy as np 1X, y = datasets.load_breast_cancer(return_X_y=True) Pytorch要求训练的数据必须是float类型，导入">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-31T02:01:40.170Z">
+<meta property="og:updated_time" content="2019-03-31T02:09:37.044Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[入门]3. 神经网络">
 <meta name="twitter:description" content="神经网络 我们一般使用torch.nn模块来构建一个神经网络。 1234import torchimport torch.nn as nnfrom sklearn import datasetsimport numpy as np 1X, y = datasets.load_breast_cancer(return_X_y=True) Pytorch要求训练的数据必须是float类型，导入">
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-03-31 09:56:47 / 修改时间：10:01:40" itemprop="dateCreated datePublished" datetime="2019-03-31T09:56:47+08:00">2019-03-31</time>
+              <time title="创建时间：2019-03-31 09:56:47 / 修改时间：10:09:37" itemprop="dateCreated datePublished" datetime="2019-03-31T09:56:47+08:00">2019-03-31</time>
             
 
             
@@ -467,7 +467,11 @@
 <p>有了grad，就可以更新参数了: <span class="math display">\[
 \theta = \theta - \alpha \cdot \frac{dJ}{d\theta}
 \]</span> 关于更新参数有很多种方法，最简单的当然是手动更新了: <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">learning_rate = <span class="number">0.01</span></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> net.parameters():</span><br><span class="line">    f.data.sub_(f.grad.data * learning_rate)</span><br></pre></td></tr></table></figure></p>
-<p>但不建议这么做，在<code>torch.optim</code>中实现了很多更新的算法如SGD, Nesterov-SGD, Adam, RMSProp等等。一般选择 Adam 是最好的。 使用的方法如下: 1. 首先构建一个Optimizer对象: <code>opt = optim.XXX(net.parameters, lr=...)</code> 2. 在需要更新的时候调用 <code>opt.step()</code> 更新一次参数。</p>
+<p>但不建议这么做，在<code>torch.optim</code>中实现了很多更新的算法如SGD, Nesterov-SGD, Adam, RMSProp等等。一般选择 Adam 是最好的。 使用的方法如下:</p>
+<ol type="1">
+<li>首先构建一个Optimizer对象: <code>opt = optim.XXX(net.parameters, lr=...)</code></li>
+<li>在需要更新的时候调用 <code>opt.step()</code> 更新一次参数。</li>
+</ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line">optimizer = optim.SGD(net.parameters(), lr=<span class="number">1e-3</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新参数</span></span><br><span class="line">optimizer.step()</span><br></pre></td></tr></table></figure>
 <p>另外说明一下，opt有一个<code>.zero_grad</code>方法，它的效用和<code>net.zero_grad()</code>是一样的，在每次backward之前都必须调用一次<code>zero_grad</code>。</p>

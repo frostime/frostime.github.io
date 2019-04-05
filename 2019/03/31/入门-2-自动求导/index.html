@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Frostime">
 <meta property="og:description" content="自动求导(Autograd) 在进行深度学习的过程中，我们时常需要进行求导操作。求导的操作可以自动进行完成，下面我们首先给出一个简单的例子来看一看，求导这一过程是怎么完成的。 我们给出如下的一个数学式子: \[ f = \frac{a * b + c}{d} \] 对f进行求导的公式就如下： \[ \frac{df}{da} = \frac{b}{d}\\ \frac{df}{db} =">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-31T02:01:23.634Z">
+<meta property="og:updated_time" content="2019-03-31T02:09:21.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[入门]2. 自动求导">
 <meta name="twitter:description" content="自动求导(Autograd) 在进行深度学习的过程中，我们时常需要进行求导操作。求导的操作可以自动进行完成，下面我们首先给出一个简单的例子来看一看，求导这一过程是怎么完成的。 我们给出如下的一个数学式子: \[ f = \frac{a * b + c}{d} \] 对f进行求导的公式就如下： \[ \frac{df}{da} = \frac{b}{d}\\ \frac{df}{db} =">
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-03-31 09:56:28 / 修改时间：10:01:23" itemprop="dateCreated datePublished" datetime="2019-03-31T09:56:28+08:00">2019-03-31</time>
+              <time title="创建时间：2019-03-31 09:56:28 / 修改时间：10:09:21" itemprop="dateCreated datePublished" datetime="2019-03-31T09:56:28+08:00">2019-03-31</time>
             
 
             
@@ -446,7 +446,12 @@ True True False True True</code></pre>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f.backward()</span><br><span class="line">print(a.grad, b.grad, c.grad, d.grad)</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([0.5000]) tensor([0.2500]) None tensor([-0.2188])</code></pre>
 <h2 id="设置tensor">1. 设置Tensor</h2>
-<p>每一个张量都有几个非常重要的属性： - <code>requires_grad</code> - <code>grad_fn</code> - <code>grad</code></p>
+<p>每一个张量都有几个非常重要的属性：</p>
+<ul>
+<li><code>requires_grad</code></li>
+<li><code>grad_fn</code></li>
+<li><code>grad</code></li>
+</ul>
 <p><code>requires_grad</code>是一个布尔值，当它被设置为True时，它的所有操作都会被跟踪。当完成计算后，你可以在最终的计算结果Tensor上调用<code>.backward()</code>函数，会将所有<code>requires_grad</code>为True的Tensor的导数计算出来，计算结果可以通过<code>.grad</code>来访问到。</p>
 <p><code>grad_fn</code>属性会指明创建该Tensor的是一个什么样的操作函数，如果是用户自定义的Tensor，改属性就是None。</p>
 <p>设置<code>requires_grad</code>可以通过直接设置，还可以通过<code>requires_grad_(bool)</code>函数来进行。不过在诸如<code>ones</code>、<code>zeors</code>、<code>rand</code>等工厂方法中，有一个<code>requires_grad</code>参数可以直接用于指定:</p>
@@ -473,7 +478,10 @@ True
         [4.5000, 4.5000]])</code></pre>
 <h3 id="f-不是标量时">2.2 f 不是标量时</h3>
 <p>实际上在Pytorch中，<strong>不允许 Tensor 对 Tensor 求导，只允许标量 Scalar 对张量 Tensor 求导，求导结果是和自变量同型的 Tensor</strong>。 实际上我们需要用到求导一般都是最后算出了Loss，然后调用<code>loss.backward()</code>，再更新参数，所以事实上根本不允许求矩阵之间的导数。</p>
-<p>然而实际操作中还是允许调用<code>backward</code>的 Tensor 是一个多维张量的，但是需要传入额外参数: - <code>tensor.backward(gradient=None, retain_graph=None, create_graph=False)</code></p>
+<p>然而实际操作中还是允许调用<code>backward</code>的 Tensor 是一个多维张量的，但是需要传入额外参数:</p>
+<ul>
+<li><code>tensor.backward(gradient=None, retain_graph=None, create_graph=False)</code></li>
+</ul>
 <p>传入的这个<code>gradient</code>是一个和<code>tensor</code>同型的张量，**假设 x 经过一番计算得到 y，那么 y.backward(w) 求的不是 y 对 x 的导数，而是 <font color="red"> l = torch.sum(y*w) 对 x 的导数 </font>**。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">W = torch.Tensor([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>]])</span><br><span class="line">W.requires_grad = <span class="literal">True</span></span><br><span class="line">x = torch.Tensor([[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]])</span><br><span class="line">print(W)</span><br><span class="line">print(x)</span><br><span class="line">z = W * x</span><br><span class="line">print(z)</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([[1., 1., 1.],
