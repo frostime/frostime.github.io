@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="卷积神经网络维度变化 \[ \text{Size In Covolutional Layer: l}\\ \] \[ \begin{aligned} &amp;amp;&amp;amp; Filter\ Size&amp;amp;: &amp;amp; f^{[l]} &amp;amp;\quad  \text{Width and hight of a filter}\\ &amp;amp;&amp;amp; Padding &amp;amp;:">
+  <meta name="description" content="卷积神经网络维度变化 \text{Size In Covolutional Layer: l}\\ \begin{aligned} &amp;&amp; Filter\ Size&amp;: &amp; f^{[l]} &amp;\quad  \text{Width and hight of a filter}\\ &amp;&amp; Padding &amp;: &amp;p^{[l]} &amp;\quad \text{The extra edge added arou">
 <meta name="keywords" content="杂项">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常用公式助记">
 <meta property="og:url" content="http://yoursite.com/2019/03/23/常用公式助记/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="卷积神经网络维度变化 \[ \text{Size In Covolutional Layer: l}\\ \] \[ \begin{aligned} &amp;amp;&amp;amp; Filter\ Size&amp;amp;: &amp;amp; f^{[l]} &amp;amp;\quad  \text{Width and hight of a filter}\\ &amp;amp;&amp;amp; Padding &amp;amp;:">
+<meta property="og:description" content="卷积神经网络维度变化 \text{Size In Covolutional Layer: l}\\ \begin{aligned} &amp;&amp; Filter\ Size&amp;: &amp; f^{[l]} &amp;\quad  \text{Width and hight of a filter}\\ &amp;&amp; Padding &amp;: &amp;p^{[l]} &amp;\quad \text{The extra edge added arou">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-13T09:02:00.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用公式助记">
-<meta name="twitter:description" content="卷积神经网络维度变化 \[ \text{Size In Covolutional Layer: l}\\ \] \[ \begin{aligned} &amp;amp;&amp;amp; Filter\ Size&amp;amp;: &amp;amp; f^{[l]} &amp;amp;\quad  \text{Width and hight of a filter}\\ &amp;amp;&amp;amp; Padding &amp;amp;:">
+<meta name="twitter:description" content="卷积神经网络维度变化 \text{Size In Covolutional Layer: l}\\ \begin{aligned} &amp;&amp; Filter\ Size&amp;: &amp; f^{[l]} &amp;\quad  \text{Width and hight of a filter}\\ &amp;&amp; Padding &amp;: &amp;p^{[l]} &amp;\quad \text{The extra edge added arou">
 
 
 
@@ -417,24 +417,20 @@
       
 
       
-        <h1 id="卷积神经网络维度变化">卷积神经网络维度变化</h1>
-<p><span class="math display">\[
-\text{Size In Covolutional Layer: l}\\
-\]</span> <span class="math display">\[
+        <h1 id="卷积神经网络维度变化"><a href="#卷积神经网络维度变化" class="headerlink" title="卷积神经网络维度变化"></a>卷积神经网络维度变化</h1><script type="math/tex; mode=display">
+\text{Size In Covolutional Layer: l}\\</script><script type="math/tex; mode=display">
 \begin{aligned}
-&amp;&amp; Filter\ Size&amp;: &amp; f^{[l]} &amp;\quad  \text{Width and hight of a filter}\\
-&amp;&amp; Padding &amp;: &amp;p^{[l]} &amp;\quad \text{The extra edge added around}\\
-&amp;&amp; Stride &amp; : &amp;s^{[l]} &amp;\quad \text{The step for filter to move}\\
-&amp;&amp; Channel &amp;: &amp;n_c^{[l]}&amp;\quad \text{Equal to the numbers of filters}\\
-&amp;&amp; Filter&amp;: &amp; f^{[l]} \times f^{[l]} \times n_c^{[l-1]}\\
-&amp;&amp; Input&amp;: &amp; n_h^{[l-1]} \times n_w^{[l-1]} \times n_c^{[l-1]} &amp;\quad \text{e.g.An image shaped(32,32,3)}\\
-&amp;&amp; Output&amp;: &amp; n_h^{[l]} \times n_w^{[l]} \times n_c^{[l]}\\
-&amp;&amp; n_{n/w}^{[l]} &amp;= &amp; \biggl \lfloor\frac{n_{n/w}^{[l-1]} + 2p^{[l]}-f^{[l]}}{s^{[l]}}+1 \biggr \rfloor\\
-&amp;&amp; Note1 &amp; : &amp; \text{Deeper, } n_{h/w}^{[l]} \uparrow \text{while } n_c^{[l]} \downarrow\\
-&amp;&amp; Note2 &amp; : &amp;Input \rightarrow Conv \rightarrow Add\ Bias &amp; \rightarrow ReLU \rightarrow Output
-\end{aligned}
-\]</span></p>
-
+&& Filter\ Size&: & f^{[l]} &\quad  \text{Width and hight of a filter}\\
+&& Padding &: &p^{[l]} &\quad \text{The extra edge added around}\\
+&& Stride & : &s^{[l]} &\quad \text{The step for filter to move}\\
+&& Channel &: &n_c^{[l]}&\quad \text{Equal to the numbers of filters}\\
+&& Filter&: & f^{[l]} \times f^{[l]} \times n_c^{[l-1]}\\
+&& Input&: & n_h^{[l-1]} \times n_w^{[l-1]} \times n_c^{[l-1]} &\quad \text{e.g.An image shaped(32,32,3)}\\
+&& Output&: & n_h^{[l]} \times n_w^{[l]} \times n_c^{[l]}\\
+&& n_{n/w}^{[l]} &= & \biggl \lfloor\frac{n_{n/w}^{[l-1]} + 2p^{[l]}-f^{[l]}}{s^{[l]}}+1 \biggr \rfloor\\
+&& Note1 & : & \text{Deeper, } n_{h/w}^{[l]} \uparrow \text{while } n_c^{[l]} \downarrow\\
+&& Note2 & : &Input \rightarrow Conv \rightarrow Add\ Bias & \rightarrow ReLU \rightarrow Output
+\end{aligned}</script>
       
     </div>
 
@@ -551,7 +547,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -603,7 +599,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

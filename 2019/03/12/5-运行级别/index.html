@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="运行级别  Linux设置了7种运行级别，具体如下：  0：关机 1：单用户【不需要密码，可以找回丢失root密码】 2：多用户状态没有网络服务（用的少） 3：多用户状态有网络服务（用得最多） 4：系统未使用保留给用户（保留，可能以后回用到） 5：图形界面 6：系统重启   常用运行级别是3和5，要修改默认的运行级别可改文件 /etc/inittab 的 id:5:initd">
+  <meta name="description" content="运行级别&amp;emsp;Linux设置了7种运行级别，具体如下：  0：关机 1：单用户【不需要密码，可以找回丢失root密码】 2：多用户状态没有网络服务（用的少） 3：多用户状态有网络服务（用得最多） 4：系统未使用保留给用户（保留，可能以后回用到） 5：图形界面 6：系统重启  &amp;emsp;常用运行级别是3和5，要修改默认的运行级别可改文件 /etc/inittab 的 id:5:initdef">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5-运行级别">
 <meta property="og:url" content="http://yoursite.com/2019/03/12/5-运行级别/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="运行级别  Linux设置了7种运行级别，具体如下：  0：关机 1：单用户【不需要密码，可以找回丢失root密码】 2：多用户状态没有网络服务（用的少） 3：多用户状态有网络服务（用得最多） 4：系统未使用保留给用户（保留，可能以后回用到） 5：图形界面 6：系统重启   常用运行级别是3和5，要修改默认的运行级别可改文件 /etc/inittab 的 id:5:initd">
+<meta property="og:description" content="运行级别&amp;emsp;Linux设置了7种运行级别，具体如下：  0：关机 1：单用户【不需要密码，可以找回丢失root密码】 2：多用户状态没有网络服务（用的少） 3：多用户状态有网络服务（用得最多） 4：系统未使用保留给用户（保留，可能以后回用到） 5：图形界面 6：系统重启  &amp;emsp;常用运行级别是3和5，要修改默认的运行级别可改文件 /etc/inittab 的 id:5:initdef">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-04T15:05:41.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5-运行级别">
-<meta name="twitter:description" content="运行级别  Linux设置了7种运行级别，具体如下：  0：关机 1：单用户【不需要密码，可以找回丢失root密码】 2：多用户状态没有网络服务（用的少） 3：多用户状态有网络服务（用得最多） 4：系统未使用保留给用户（保留，可能以后回用到） 5：图形界面 6：系统重启   常用运行级别是3和5，要修改默认的运行级别可改文件 /etc/inittab 的 id:5:initd">
+<meta name="twitter:description" content="运行级别&amp;emsp;Linux设置了7种运行级别，具体如下：  0：关机 1：单用户【不需要密码，可以找回丢失root密码】 2：多用户状态没有网络服务（用的少） 3：多用户状态有网络服务（用得最多） 4：系统未使用保留给用户（保留，可能以后回用到） 5：图形界面 6：系统重启  &amp;emsp;常用运行级别是3和5，要修改默认的运行级别可改文件 /etc/inittab 的 id:5:initdef">
 
 
 
@@ -442,8 +442,7 @@
       
 
       
-        <h1 id="运行级别">运行级别</h1>
-<p> Linux设置了7种运行级别，具体如下：</p>
+        <h1 id="运行级别"><a href="#运行级别" class="headerlink" title="运行级别"></a>运行级别</h1><p>&emsp;Linux设置了7种运行级别，具体如下：</p>
 <ul>
 <li>0：关机</li>
 <li>1：单用户【不需要密码，可以找回丢失root密码】</li>
@@ -453,16 +452,14 @@
 <li>5：图形界面</li>
 <li>6：系统重启</li>
 </ul>
-<p> 常用运行级别是3和5，要修改默认的运行级别可改文件 <code>/etc/inittab</code> 的 <code>id:5:initdefault:</code> 这一行中的数字。不过注意Ubuntu是没有这个文件的，而且Ubuntu的默认运行级别是2。设置这么多的级别是为了适应不同需求，就像Windows系统有正常模式和安全模式一样。</p>
-<h2 id="相关指令">相关指令</h2>
-<p> 可以使用<code>runlevel</code>指令来查看当前运行级别:</p>
+<p>&emsp;常用运行级别是3和5，要修改默认的运行级别可改文件 <code>/etc/inittab</code> 的 <code>id:5:initdefault:</code> 这一行中的数字。不过注意Ubuntu是没有这个文件的，而且Ubuntu的默认运行级别是2。设置这么多的级别是为了适应不同需求，就像Windows系统有正常模式和安全模式一样。    </p>
+<h2 id="相关指令"><a href="#相关指令" class="headerlink" title="相关指令"></a>相关指令</h2><p>&emsp;可以使用<code>runlevel</code>指令来查看当前运行级别:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指令显示为: 上一个运行级别  当前运行级别</span></span><br><span class="line">zuo@zuo-VirtualBox:/etc$ runlevel</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure>
-<p> 在Linux中还可以使用<code>init</code>指令来切换运行级别:</p>
+<p>&emsp;在Linux中还可以使用<code>init</code>指令来切换运行级别:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">init [OPTIONS...] &#123;COMMAND&#125;</span><br><span class="line"></span><br><span class="line">Send control commands to the init daemon.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Commands:</span></span><br><span class="line"><span class="string">  0              Power-off the machine</span></span><br><span class="line"><span class="string">  6              Reboot the machine</span></span><br><span class="line"><span class="string">  2, 3, 4, 5     Start runlevelX.target unit</span></span><br><span class="line"><span class="string">  1, s, S        Enter rescue mode</span></span><br><span class="line"><span class="string">  q, Q           Reload init daemon configuration</span></span><br><span class="line"><span class="string">  u, U           Reexecute init daemon</span></span><br></pre></td></tr></table></figure>
-<h2 id="利用运行级别找回丢失的root密码">利用运行级别找回丢失的root密码</h2>
-<p> 问题描述: 如果我们不小心，忘记root密码，怎么找回。</p>
-<p> 思路：进入到单用户模式，然后修改root密码。因为<strong>进入单用户模式，root不需要密码就可以登录</strong>。</p>
-<p> 设置这么多的级别是为了适应不同需求，就像Windows系统有正常模式和安全模式一样。</p>
+<h2 id="利用运行级别找回丢失的root密码"><a href="#利用运行级别找回丢失的root密码" class="headerlink" title="利用运行级别找回丢失的root密码"></a>利用运行级别找回丢失的root密码</h2><p>&emsp;问题描述: 如果我们不小心，忘记root密码，怎么找回。  </p>
+<p>&emsp;思路：进入到单用户模式，然后修改root密码。因为<strong>进入单用户模式，root不需要密码就可以登录</strong>。</p>
+<p>&emsp;设置这么多的级别是为了适应不同需求，就像Windows系统有正常模式和安全模式一样。</p>
 
       
     </div>
@@ -580,7 +577,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -632,7 +629,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

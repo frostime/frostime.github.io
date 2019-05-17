@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Pytorch简介 1import torch as tc 1 Tensor张量 tensor很像numpy中的ndarray，就连操作也很相似。 创建Tensor 12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,       0,">
+  <meta name="description" content="Pytorch简介1import torch as tc 1 Tensor张量tensor很像numpy中的ndarray，就连操作也很相似。 创建Tensor12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,       0,       0],">
 <meta name="keywords" content="Pytorch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[入门]1. Pytorch简介">
 <meta property="og:url" content="http://yoursite.com/2019/03/31/入门-1-Pytorch简介/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="Pytorch简介 1import torch as tc 1 Tensor张量 tensor很像numpy中的ndarray，就连操作也很相似。 创建Tensor 12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,       0,">
+<meta property="og:description" content="Pytorch简介1import torch as tc 1 Tensor张量tensor很像numpy中的ndarray，就连操作也很相似。 创建Tensor12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,       0,       0],">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-31T02:08:54.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[入门]1. Pytorch简介">
-<meta name="twitter:description" content="Pytorch简介 1import torch as tc 1 Tensor张量 tensor很像numpy中的ndarray，就连操作也很相似。 创建Tensor 12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,       0,">
+<meta name="twitter:description" content="Pytorch简介1import torch as tc 1 Tensor张量tensor很像numpy中的ndarray，就连操作也很相似。 创建Tensor12# Returns a tensor filled with uninitialized datatc.empty((5, 3), dtype=tc.int32) tensor([[      0,       0,       0],">
 
 
 
@@ -430,93 +430,92 @@
       
 
       
-        <h1 id="pytorch简介">Pytorch简介</h1>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> tc</span><br></pre></td></tr></table></figure>
-<h2 id="tensor张量">1 Tensor张量</h2>
-<p>tensor很像numpy中的ndarray，就连操作也很相似。</p>
-<h3 id="创建tensor">创建Tensor</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Returns a tensor filled with uninitialized data</span></span><br><span class="line">tc.empty((<span class="number">5</span>, <span class="number">3</span>), dtype=tc.int32)</span><br></pre></td></tr></table></figure>
+        <h1 id="Pytorch简介"><a href="#Pytorch简介" class="headerlink" title="Pytorch简介"></a>Pytorch简介</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> tc</span><br></pre></td></tr></table></figure>
+<h2 id="1-Tensor张量"><a href="#1-Tensor张量" class="headerlink" title="1 Tensor张量"></a>1 Tensor张量</h2><p>tensor很像numpy中的ndarray，就连操作也很相似。</p>
+<h3 id="创建Tensor"><a href="#创建Tensor" class="headerlink" title="创建Tensor"></a>创建Tensor</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Returns a tensor filled with uninitialized data</span></span><br><span class="line">tc.empty((<span class="number">5</span>, <span class="number">3</span>), dtype=tc.int32)</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([[      0,       0,       0],
         [      0,       0,       0],
         [      0,       0,       0],
         [      0,     872,       0],
-        [      0, 7499635,       0]], dtype=torch.int32)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tc.rand((<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="comment"># tc.zeros</span></span><br><span class="line"><span class="comment"># tc.ones</span></span><br><span class="line"><span class="comment"># tc.randn</span></span><br><span class="line"><span class="comment"># tc.randn_like</span></span><br></pre></td></tr></table></figure>
+        [      0, 7499635,       0]], dtype=torch.int32)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tc.rand((<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="comment"># tc.zeros</span></span><br><span class="line"><span class="comment"># tc.ones</span></span><br><span class="line"><span class="comment"># tc.randn</span></span><br><span class="line"><span class="comment"># tc.randn_like</span></span><br></pre></td></tr></table></figure>
 <pre><code>tensor([[0.7244, 0.4736, 0.6582, 0.1932],
         [0.5942, 0.5942, 0.5028, 0.3844],
-        [0.1217, 0.7820, 0.6298, 0.0850]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = tc.randint(<span class="number">0</span>, <span class="number">5</span>, (<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">print(x)</span><br><span class="line">print(x.shape)</span><br></pre></td></tr></table></figure>
+        [0.1217, 0.7820, 0.6298, 0.0850]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = tc.randint(<span class="number">0</span>, <span class="number">5</span>, (<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">print(x)</span><br><span class="line">print(x.shape)</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([[0, 2, 1],
         [2, 0, 0]])
-torch.Size([2, 3])</code></pre>
-<p><code>torch.Size</code> 实际上就是一个 tuple, 支持一切 tuple 的操作。</p>
-<h3 id="算术运算">算术运算</h3>
-<p>Tensor支持像ndarray一样的加减乘除操作，还可以用形如<code>add</code>一样的函数来操作: 1. <code>z = x + y</code> 2. <code>z = x.add(y)</code> 3. <code>x.add(y, out=z)</code><br>
-等价于<code>z = x + y</code> 4. <code>x.add_(y)</code><br>
-等同于 <code>x = x + y</code>。<strong>凡是有<code>_</code>的都表示调用的对象自身会被改变</strong>。</p>
+torch.Size([2, 3])
+</code></pre><p><code>torch.Size</code> 实际上就是一个 tuple, 支持一切 tuple 的操作。  </p>
+<h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><p>Tensor支持像ndarray一样的加减乘除操作，还可以用形如<code>add</code>一样的函数来操作:</p>
+<ol>
+<li><code>z = x + y</code></li>
+<li><code>z = x.add(y)</code></li>
+<li><code>x.add(y, out=z)</code><br>等价于<code>z = x + y</code></li>
+<li><code>x.add_(y)</code><br>等同于 <code>x = x + y</code>。<strong>凡是有<code>_</code>的都表示调用的对象自身会被改变</strong>。</li>
+</ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = tc.Tensor([<span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">y = tc.Tensor([<span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line">print(x.shape, x)</span><br><span class="line">print(y.shape, y)</span><br></pre></td></tr></table></figure>
 <pre><code>torch.Size([2]) tensor([2., 3.])
-torch.Size([2]) tensor([4., 5.])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">z = x + y</span><br><span class="line">print(z)</span><br><span class="line">z = <span class="number">0</span></span><br><span class="line">z = x.add(y)</span><br><span class="line">print(z)</span><br><span class="line">x.add_(y)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+torch.Size([2]) tensor([4., 5.])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">z = x + y</span><br><span class="line">print(z)</span><br><span class="line">z = <span class="number">0</span></span><br><span class="line">z = x.add(y)</span><br><span class="line">print(z)</span><br><span class="line">x.add_(y)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([6., 8.])
 tensor([6., 8.])
-tensor([6., 8.])</code></pre>
-<h3 id="resize">Resize</h3>
-<p>使用view方法可以将Tensor进行Reshape/Resize: - <code>tensor.view(*shape)</code></p>
+tensor([6., 8.])
+</code></pre><h3 id="Resize"><a href="#Resize" class="headerlink" title="Resize"></a>Resize</h3><p>使用view方法可以将Tensor进行Reshape/Resize:</p>
+<ul>
+<li><code>tensor.view(*shape)</code></li>
+</ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m = tc.randn(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">print(m)</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([[ 0.8630, -0.8310],
-        [-1.5522,  0.3069]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.view(<span class="number">4</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+        [-1.5522,  0.3069]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.view(<span class="number">4</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([[ 0.8630],
         [-0.8310],
         [-1.5522],
-        [ 0.3069]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.view(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>tensor([ 0.8630, -0.8310, -1.5522,  0.3069])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.view(<span class="number">-1</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>tensor([[ 0.8630, -0.8310, -1.5522,  0.3069]])</code></pre>
-<h3 id="索引">索引</h3>
-<p>Tensor可以像ndarray一样索引。</p>
+        [ 0.3069]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.view(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>tensor([ 0.8630, -0.8310, -1.5522,  0.3069])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.view(<span class="number">-1</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>tensor([[ 0.8630, -0.8310, -1.5522,  0.3069]])
+</code></pre><h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>Tensor可以像ndarray一样索引。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m = tc.randint(<span class="number">0</span>, <span class="number">10</span>, (<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">print(m)</span><br><span class="line">print(m[:, <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([[2, 7, 1],
         [5, 3, 6]])
-tensor([7, 3])</code></pre>
-<p>如果Tensor中只有一个元素，可以使用<code>.item()</code>获取该元素的值。</p>
+tensor([7, 3])
+</code></pre><p>如果Tensor中只有一个元素，可以使用<code>.item()</code>获取该元素的值。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(m[<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">print(m[<span class="number">1</span>, <span class="number">2</span>].item())</span><br></pre></td></tr></table></figure>
 <pre><code>tensor(6)
-6</code></pre>
-<p>更多说明见<a href="https://pytorch.org/docs/stable/torch.html" target="_blank" rel="noopener">官方文档的Tensor部分</a>。</p>
-<h2 id="tensor和ndarray">2 Tensor和ndarray</h2>
-<p>All the Tensors <font color="red">on the CPU <strong>except a CharTensor</strong> </font>support converting to NumPy and back.</p>
+6
+</code></pre><p>更多说明见<a href="https://pytorch.org/docs/stable/torch.html" target="_blank" rel="noopener">官方文档的Tensor部分</a>。</p>
+<h2 id="2-Tensor和ndarray"><a href="#2-Tensor和ndarray" class="headerlink" title="2 Tensor和ndarray"></a>2 Tensor和ndarray</h2><p>All the Tensors <font color="red">on the CPU <strong>except a CharTensor</strong> </font>support converting to NumPy and back.</p>
 <ul>
 <li>Tensor转ndarray: <code>tensor.numpy()</code></li>
 <li>ndarray转Tensor: <code>torch.from_numpy()</code></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x1 = tc.Tensor([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">x2 = np.array([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y1 = x1.numpy()</span><br><span class="line">y1</span><br></pre></td></tr></table></figure>
-<pre><code>array([1., 2., 3.], dtype=float32)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y2 = tc.from_numpy(x2)</span><br><span class="line">y2</span><br></pre></td></tr></table></figure>
-<pre><code>tensor([4, 5, 6], dtype=torch.int32)</code></pre>
-<p>注意：<strong>转换的Tensor和ndarray<big>共享内存</big>！！！</strong></p>
+<pre><code>array([1., 2., 3.], dtype=float32)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y2 = tc.from_numpy(x2)</span><br><span class="line">y2</span><br></pre></td></tr></table></figure>
+<pre><code>tensor([4, 5, 6], dtype=torch.int32)
+</code></pre><p>注意：<strong>转换的Tensor和ndarray<big>共享内存</big>！！！</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更改x1，y1也会变</span></span><br><span class="line">x1[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">print(x1, y1)</span><br><span class="line"><span class="comment"># 更改x2, y2也会变</span></span><br><span class="line">x2[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">print(x2, y2)</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([0., 2., 3.]) [0. 2. 3.]
-[0 5 6] tensor([0, 5, 6], dtype=torch.int32)</code></pre>
-<h2 id="迁移到gpu上">3 迁移到GPU上</h2>
-<p>在深度学习中使用GPU来对模型进行训练是可以通过并行化其计算来提高运行效率。这需要我们将内存中的数据复制到GPU的显存中去，从而可以通过GPU来进行运算。 <code>torch.cuda.is_available()</code>方法可以判断GPU是否可用：</p>
+[0 5 6] tensor([0, 5, 6], dtype=torch.int32)
+</code></pre><h2 id="3-迁移到GPU上"><a href="#3-迁移到GPU上" class="headerlink" title="3 迁移到GPU上"></a>3 迁移到GPU上</h2><p>在深度学习中使用GPU来对模型进行训练是可以通过并行化其计算来提高运行效率。这需要我们将内存中的数据复制到GPU的显存中去，从而可以通过GPU来进行运算。<br><code>torch.cuda.is_available()</code>方法可以判断GPU是否可用：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tc.cuda.is_available()</span><br></pre></td></tr></table></figure>
-<pre><code>True</code></pre>
-<p>如果可用，我们就可以将Tensor复制到GPU上，迁移时一般需要接受一个<code>device</code>参数，用于指定哪一个设备上。</p>
+<pre><code>True
+</code></pre><p>如果可用，我们就可以将Tensor复制到GPU上，迁移时一般需要接受一个<code>device</code>参数，用于指定哪一个设备上。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> tc.cuda.is_available():</span><br><span class="line">    device = tc.device(<span class="string">"cuda"</span>)</span><br><span class="line">    print(type(device), device)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;class &#39;torch.device&#39;&gt; cuda</code></pre>
-<p>迁移方法有两种:</p>
+<pre><code>&lt;class &#39;torch.device&#39;&gt; cuda
+</code></pre><p>迁移方法有两种:</p>
 <ul>
 <li>直接构造一个在GPU上的Tensor</li>
 <li>把CPU上的Tensor</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> tc.cuda.is_available():</span><br><span class="line">    device = tc.device(<span class="string">"cuda"</span>)</span><br><span class="line">    <span class="comment"># 直接</span></span><br><span class="line">    y = tc.ones_like(x, device=device)</span><br><span class="line">    <span class="comment"># 间接</span></span><br><span class="line">    x = x.to(device)</span><br><span class="line">    <span class="comment"># z也是cuda上的</span></span><br><span class="line">    z = x + y</span><br><span class="line">    print(z)</span><br><span class="line">    <span class="comment"># 转会到CPU上</span></span><br><span class="line">    print(z.to(<span class="string">"cpu"</span>, tc.double))</span><br></pre></td></tr></table></figure>
 <pre><code>tensor([7., 9.], device=&#39;cuda:0&#39;)
-tensor([7., 9.], dtype=torch.float64)</code></pre>
-
+tensor([7., 9.], dtype=torch.float64)
+</code></pre>
       
     </div>
 
@@ -633,7 +632,7 @@ tensor([7., 9.], dtype=torch.float64)</code></pre>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -685,7 +684,9 @@ tensor([7., 9.], dtype=torch.float64)</code></pre>
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -721,7 +722,7 @@ tensor([7., 9.], dtype=torch.float64)</code></pre>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pytorch简介"><span class="nav-text">Pytorch简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tensor张量"><span class="nav-text">1 Tensor张量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建tensor"><span class="nav-text">创建Tensor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算"><span class="nav-text">算术运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resize"><span class="nav-text">Resize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-text">索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tensor和ndarray"><span class="nav-text">2 Tensor和ndarray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移到gpu上"><span class="nav-text">3 迁移到GPU上</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pytorch简介"><span class="nav-text">Pytorch简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Tensor张量"><span class="nav-text">1 Tensor张量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Tensor"><span class="nav-text">创建Tensor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算"><span class="nav-text">算术运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resize"><span class="nav-text">Resize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-text">索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Tensor和ndarray"><span class="nav-text">2 Tensor和ndarray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-迁移到GPU上"><span class="nav-text">3 迁移到GPU上</span></a></li></ol></li></ol></div>
             
 
           </div>
