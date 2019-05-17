@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="&amp;emsp;从字面意思上将，数据流重定向就是将“数据给他传导到其他地方去”。&amp;emsp;实际上也没错，数据流重导向就是将某个命令运行后应该要出现在屏幕上的数据，给他传输到其他的地方，例如文件或者是装置 (例如打印机之类的)。   &amp;emsp;我们知道，计算机中输入输出分为三种:  标准输入: stdin 标准输出: stdout 标准错误输出: stderr  &amp;emsp;我们利用数据流重导向可以">
+  <meta name="description" content="从字面意思上将，数据流重定向就是将“数据给他传导到其他地方去”。  实际上也没错，数据流重导向就是将某个命令运行后应该要出现在屏幕上的数据，给他传输到其他的地方，例如文件或者是装置 (例如打印机之类的)。  我们知道，计算机中输入输出分为三种: - 标准输入: stdin - 标准输出: stdout - 标准错误输出: stderr  我们利用数据流重导向可以将上述三者分开(主要是std">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="9-IO重定向">
 <meta property="og:url" content="http://yoursite.com/2019/03/12/9-IO重定向/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="&amp;emsp;从字面意思上将，数据流重定向就是将“数据给他传导到其他地方去”。&amp;emsp;实际上也没错，数据流重导向就是将某个命令运行后应该要出现在屏幕上的数据，给他传输到其他的地方，例如文件或者是装置 (例如打印机之类的)。   &amp;emsp;我们知道，计算机中输入输出分为三种:  标准输入: stdin 标准输出: stdout 标准错误输出: stderr  &amp;emsp;我们利用数据流重导向可以">
+<meta property="og:description" content="从字面意思上将，数据流重定向就是将“数据给他传导到其他地方去”。  实际上也没错，数据流重导向就是将某个命令运行后应该要出现在屏幕上的数据，给他传输到其他的地方，例如文件或者是装置 (例如打印机之类的)。  我们知道，计算机中输入输出分为三种: - 标准输入: stdin - 标准输出: stdout - 标准错误输出: stderr  我们利用数据流重导向可以将上述三者分开(主要是std">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-12T06:30:24.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="9-IO重定向">
-<meta name="twitter:description" content="&amp;emsp;从字面意思上将，数据流重定向就是将“数据给他传导到其他地方去”。&amp;emsp;实际上也没错，数据流重导向就是将某个命令运行后应该要出现在屏幕上的数据，给他传输到其他的地方，例如文件或者是装置 (例如打印机之类的)。   &amp;emsp;我们知道，计算机中输入输出分为三种:  标准输入: stdin 标准输出: stdout 标准错误输出: stderr  &amp;emsp;我们利用数据流重导向可以">
+<meta name="twitter:description" content="从字面意思上将，数据流重定向就是将“数据给他传导到其他地方去”。  实际上也没错，数据流重导向就是将某个命令运行后应该要出现在屏幕上的数据，给他传输到其他的地方，例如文件或者是装置 (例如打印机之类的)。  我们知道，计算机中输入输出分为三种: - 标准输入: stdin - 标准输出: stdout - 标准错误输出: stderr  我们利用数据流重导向可以将上述三者分开(主要是std">
 
 
 
@@ -430,47 +430,45 @@
       
 
       
-        <p>&emsp;从字面意思上将，数据流重定向就是将“数据给他传导到其他地方去”。<br>&emsp;实际上也没错，数据流重导向就是<strong>将某个命令运行后应该要出现在屏幕上的数据，给他传输到其他的地方，例如文件或者是装置</strong> (例如打印机之类的)。  </p>
-<p>&emsp;我们知道，计算机中输入输出分为三种:</p>
+        <p> 从字面意思上将，数据流重定向就是将“数据给他传导到其他地方去”。<br>
+ 实际上也没错，数据流重导向就是<strong>将某个命令运行后应该要出现在屏幕上的数据，给他传输到其他的地方，例如文件或者是装置</strong> (例如打印机之类的)。</p>
+<p> 我们知道，计算机中输入输出分为三种: - 标准输入: stdin - 标准输出: stdout - 标准错误输出: stderr</p>
+<p> 我们利用数据流重导向可以将上述三者分开(主要是stdout和stderr)</p>
 <ul>
-<li>标准输入: stdin</li>
-<li>标准输出: stdout</li>
-<li>标准错误输出: stderr</li>
+<li>stdin ：代码为 0 ，使用 &lt; 或 &lt;&lt;</li>
+<li>stdout ：代码为 1 ，使用 &gt; 或 &gt;&gt;</li>
+<li>stderr ：代码为 2 ，使用 2&gt; 或 2&gt;&gt;</li>
 </ul>
-<p>&emsp;我们利用数据流重导向可以将上述三者分开(主要是stdout和stderr)</p>
+<h1 id="stdout">stdout</h1>
 <ul>
-<li>stdin   ：代码为 0 ，使用 &lt; 或 &lt;&lt;</li>
-<li>stdout  ：代码为 1 ，使用 &gt; 或 &gt;&gt; </li>
-<li>stderr  ：代码为 2 ，使用 2&gt; 或 2&gt;&gt;</li>
-</ul>
-<h1 id="stdout"><a href="#stdout" class="headerlink" title="stdout"></a>stdout</h1><ul>
 <li><p><code>&gt;</code></p>
-<p>重定向，将正确的内容<strong>覆盖性写入</strong>文件中</p>
-</li>
+<p>重定向，将正确的内容<strong>覆盖性写入</strong>文件中</p></li>
 <li><p><code>&gt;&gt;</code></p>
-<p>重定向，将正确的内容<strong>追加写入</strong>文件中</p>
-</li>
+<p>重定向，将正确的内容<strong>追加写入</strong>文件中</p></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">zuo@zuo-VirtualBox:~/Sample$ <span class="built_in">echo</span> <span class="string">"目录树"</span> &gt; rcd</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ tree &gt;&gt; rcd</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ <span class="built_in">echo</span> <span class="string">"src.cpp的前3行"</span> &gt;&gt; rcd</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ head -n 3 &gt;&gt; rcd</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ head -n 3 src.cpp &gt;&gt; rcd</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ cat rcd</span><br><span class="line">目录树</span><br><span class="line">.</span><br><span class="line">├── 1</span><br><span class="line">├── rcd</span><br><span class="line">└── src.cpp</span><br><span class="line"></span><br><span class="line">1 directories, 2 files</span><br><span class="line">src.cpp的前3行</span><br><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include &lt;vector&gt;</span></span><br><span class="line">using namespace std;</span><br></pre></td></tr></table></figure>
-<h1 id="stderr"><a href="#stderr" class="headerlink" title="stderr"></a>stderr</h1><ul>
+<h1 id="stderr">stderr</h1>
+<ul>
 <li><code>2&gt;</code></li>
 <li><code>2&gt;&gt;</code></li>
 </ul>
-<p>&emsp;将错误的信息进行重定向</p>
+<p> 将错误的信息进行重定向</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将报错信息重定向到文件Stderr中</span></span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ py-thon Temp.py 2&gt; Stderr</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ cat Stderr</span><br><span class="line"></span><br><span class="line">Command <span class="string">'py-thon'</span> not found, did you mean:</span><br><span class="line"></span><br><span class="line">  <span class="built_in">command</span> <span class="string">'python'</span> from deb python3</span><br><span class="line">  <span class="built_in">command</span> <span class="string">'python'</span> from deb python</span><br><span class="line">  <span class="built_in">command</span> <span class="string">'python'</span> from deb python-minimal</span><br><span class="line"></span><br><span class="line">Try: sudo apt install &lt;deb name&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="利用重定向将正确输出和保存信息分开"><a href="#利用重定向将正确输出和保存信息分开" class="headerlink" title="利用重定向将正确输出和保存信息分开"></a>利用重定向将正确输出和保存信息分开</h1><p>&emsp;比如有Temp.py如下</p>
+<h1 id="利用重定向将正确输出和保存信息分开">利用重定向将正确输出和保存信息分开</h1>
+<p> 比如有Temp.py如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">l = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'a'</span>]</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> l:</span><br><span class="line">    print(int(x))</span><br></pre></td></tr></table></figure>
-<p>&emsp;如果直接运行:</p>
+<p> 如果直接运行:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">zuo@zuo-VirtualBox:~/Sample$ python Temp.py </span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"Temp.py"</span>, line 4, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">print</span>(int(x))</span><br><span class="line">ValueError: invalid literal <span class="keyword">for</span> int() with base 10: <span class="string">'a'</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;利用重定向，可以<strong>把两股数据流分开</strong>：</p>
+<p> 利用重定向，可以<strong>把两股数据流分开</strong>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">zuo@zuo-VirtualBox:~/Sample$ python Temp.py &gt; Stdout 2&gt; Stderr</span><br><span class="line">zuo@zuo-VirtualBox:~/Sample$ cat Stdout; <span class="built_in">echo</span> <span class="string">"----"</span>; cat Stderr</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">----</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"Temp.py"</span>, line 4, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">print</span>(int(x))</span><br><span class="line">ValueError: invalid literal <span class="keyword">for</span> int() with base 10: <span class="string">'a'</span></span><br></pre></td></tr></table></figure>
-<h1 id="stdin"><a href="#stdin" class="headerlink" title="stdin"></a>stdin</h1><ul>
+<h1 id="stdin">stdin</h1>
+<ul>
 <li><code>&lt;</code></li>
 <li><code>&lt;&lt;</code></li>
 </ul>
-<p>&emsp;以最简单的说法来说， stdin的重定向就是 <strong>“将原本需要由键盘输入的数据，改由文件内容来取代”</strong> 的意思。 我们先由底下的 cat 命令操作来了解一下什么叫做“键盘输入”。我们前面提到过，如果<code>cat</code>指令不带文件名，就是从标准输入流读取并打印在屏幕上的意思，利用stdout我们可以实现对文件的直接输入:</p>
+<p> 以最简单的说法来说， stdin的重定向就是 <strong>“将原本需要由键盘输入的数据，改由文件内容来取代”</strong> 的意思。 我们先由底下的 cat 命令操作来了解一下什么叫做“键盘输入”。我们前面提到过，如果<code>cat</code>指令不带文件名，就是从标准输入流读取并打印在屏幕上的意思，利用stdout我们可以实现对文件的直接输入:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输入并重定向</span></span><br><span class="line">zuo@zuo-VirtualBox:~$ cat &gt; temp</span><br><span class="line">This is file <span class="string">"/home/zuo/temp"</span></span><br><span class="line">It was builed with the <span class="built_in">command</span> <span class="string">"cat &gt; temp"</span>                                    </span><br><span class="line">Hello World!</span><br><span class="line"><span class="comment"># 文件被建立起来了</span></span><br><span class="line">zuo@zuo-VirtualBox:~$ cat temp</span><br><span class="line">This is file <span class="string">"/home/zuo/temp"</span></span><br><span class="line">It was builed with the <span class="built_in">command</span> <span class="string">"cat &gt; temp"</span></span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
-<p>&emsp;利用对 stdin 的重定向，我们可以<strong>用纯文本文件取代键盘的输入</strong>，也就是说，用某个文件的内容来取代键盘的敲击:</p>
+<p> 利用对 stdin 的重定向，我们可以<strong>用纯文本文件取代键盘的输入</strong>，也就是说，用某个文件的内容来取代键盘的敲击:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将标准输入重定向为从文件 temp 中读取</span></span><br><span class="line">zuo@zuo-VirtualBox:~$ (cat &gt; temp2) &lt; temp</span><br><span class="line">zuo@zuo-VirtualBox:~$ cat temp2</span><br><span class="line">This is file <span class="string">"/home/zuo/temp"</span></span><br><span class="line">It was builed with the <span class="built_in">command</span> <span class="string">"cat &gt; temp"</span></span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
 
       
