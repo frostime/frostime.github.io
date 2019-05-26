@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. 引例 从一个简单的问题引入:  电影票每张 50 元，如果有 \(m + n\) 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 \(m + n\) 个人排成一列，顺序购票?  乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="卡特兰数">
+<meta property="og:url" content="http://yoursite.com/2019/05/26/卡特兰数/index.html">
+<meta property="og:site_name" content="Frostime">
+<meta property="og:description" content="1. 引例 从一个简单的问题引入:  电影票每张 50 元，如果有 \(m + n\) 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 \(m + n\) 个人排成一列，顺序购票?  乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/05/26/卡特兰数/Catalan.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/26/卡特兰数/x.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/05/26/卡特兰数/y.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/05/26/卡特兰数/z.png">
+<meta property="og:updated_time" content="2019-05-26T10:41:49.334Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="卡特兰数">
+<meta name="twitter:description" content="1. 引例 从一个简单的问题引入:  电影票每张 50 元，如果有 \(m + n\) 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 \(m + n\) 个人排成一列，顺序购票?  乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/26/卡特兰数/Catalan.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/26/卡特兰数/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>卡特兰数 | Frostime</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frostime</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/26/卡特兰数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zuo Yiping">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frostime">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">卡特兰数
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-26 18:32:13 / 修改时间：18:41:49" itemprop="dateCreated datePublished" datetime="2019-05-26T18:32:13+08:00">2019-05-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/组合问题/" itemprop="url" rel="index"><span itemprop="name">组合问题</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="引例">1. 引例</h1>
+<p>从一个简单的问题引入:</p>
+<blockquote>
+<p>电影票每张 50 元，如果有 <span class="math inline">\(m + n\)</span> 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 <span class="math inline">\(m + n\)</span> 个人排成一列，顺序购票?</p>
+</blockquote>
+<p>乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。</p>
+<p>实际上，这可以说是一类十分经典的问题，我们可以将上述问题抽象为这样一个泛化的问题:</p>
+<blockquote>
+<p>假如有M种操作a，以及N种操作b。现在要求顺序执行这总共 <span class="math inline">\(m + n\)</span> 种操作，且要求：<strong>在整个操作的任何一个阶段时，已经执行过的 a 操作数量不能大于已经执行过的 b 操作</strong></p>
+</blockquote>
+<p>上述问题的演变模型有很多，我们举几个例子:</p>
+<ol type="1">
+<li><p>进出栈<br>
+一个栈(无穷大)的进栈序列为1,2,3,..n,有多少个不同的出栈序列?</p></li>
+<li><p>方格移动<br>
+在一个 <span class="math inline">\(m\times n\)</span> 的网格中，从左下角的原点 <span class="math inline">\(O(0,0)\)</span> 出发，每次向右或向上移动，要求任意时刻点不得在 <span class="math inline">\(y = x\)</span> 这条线之上。</p></li>
+</ol>
+<p><img src="/2019/05/26/卡特兰数/Catalan.png"></p>
+<ol start="3" type="1">
+<li><p>括号匹配</p>
+<p>求由n对括号形成的合法括号表达式的个数</p></li>
+</ol>
+<p>以上问题的解均和一个数有关：<strong>卡特兰数(Catalan)</strong>。</p>
+<h1 id="卡特兰数">2. 卡特兰数</h1>
+<h2 id="分析">2.1 分析</h2>
+<p>什么是卡特兰数？在谈卡特兰数前先让我们分析一下之前的问题的求解。首先我们以最简单出栈入栈问题为例:</p>
+<p>首先，每一种进出栈的顺序都与出栈序列一一对应．也就是说，如果我们用+1表示进栈，−1表示出栈，那么题中示例中的出栈序列1,3,4,2与进出栈顺序:</p>
+<blockquote>
+<p>+1,+1,−1,+1,+1,−1,−1,−1,</p>
+</blockquote>
+<p>是对应的。</p>
+<p>那么对n个数的序列，总的进出栈顺序是给 <span class="math inline">\(2n\)</span> 个里面挑 <span class="math inline">\(n\)</span> 个填入 1 其余的是 -1，共 <span class="math inline">\({\large C}_{2n}^{n}\)</span> 种吗？</p>
+<p>答案是否定的，这是<strong>因为出栈的前提是有进栈动作，于是要求每个排列中的前若干项和均不为负数</strong>，也就是说诸如排列:</p>
+<blockquote>
+<p>1,−1,−1,1,1,−1,−1,1</p>
+</blockquote>
+<p>这样的是无效的。也就是说<strong>真正的答案 = <span class="math inline">\({\large C}_{2n}^{n} - \text{不合法的排列数量}\)</span></strong>。</p>
+<p>所以现在的问题就是：不合法的排列有几种？</p>
+<h2 id="不合法的排列数">2.2 不合法的排列数</h2>
+<p>那么如何计算不合法的排列数量呢？这里我们使用一种折线发。前面讲到过，出入栈和从 <span class="math inline">\((0, 0)\)</span> 到 <span class="math inline">\((n, n)\)</span> 问题是等价的。</p>
+<p><img src="/2019/05/26/卡特兰数/x.jpg"></p>
+<p>由于没找到合适的图，所以放了一张以<span class="math inline">\(y = 0\)</span> 为分界线的图，不过原理都是一样的。</p>
+<p>我们不妨来看一种不合法的情况，对应的折线是这样的:</p>
+<p><img src="/2019/05/26/卡特兰数/y.jpg"></p>
+<p>我们可以看到，<strong>任何一个不合法的折线一定会经过 <span class="math inline">\(y = x + 1\)</span> (对应图中的 <span class="math inline">\(y = -1\)</span> )，我们将第一个与这条线的点之后的部分以 <span class="math inline">\(y = x + 1\)</span> (对应图中的 <span class="math inline">\(y = -1\)</span> )为对称轴做一个对称变化，可以发现最后的落点一定会是 <span class="math inline">\((n - 1, n + 1)\)</span> (对应图中的 <span class="math inline">\((2n, -2)\)</span> )</strong>。</p>
+<p>这说明什么？这说明<strong>在2n步选择中，有n - 1步选了向右，所有的选法加起来就是 <span class="math inline">\(\large C_{2n}^{n - 1}\)</span> </strong>。</p>
+<p>因此无效的排列总共有 <span class="math inline">\(\large C_{2n}^{n - 1}\)</span> 种。</p>
+<h2 id="卡特兰数-1">2.3 卡特兰数</h2>
+<p>结合上面两节，我们现在可以知道了，一共的排列方法种类数量为: <span class="math display">\[
+\Large C_n = \Large C_{2n}^{n} - \Large C_{2n}^{n - 1} = \frac{1}{n + 1}\Large C_{2n}^{n}
+\]</span> 这个 <span class="math inline">\(\Large C_n\)</span> 就被称为卡特兰数。</p>
+<h1 id="变形的卡特兰数">3. 变形的卡特兰数</h1>
+<p>然而到目前为止，我们还是无法解决一开始提出的那个问题。因为刚才我们一直讨论的卡特兰数有一个要求：<strong>两种操作的数量相同，都是n</strong>。</p>
+<p>那么，当操作不同时该怎么办呢？</p>
+<p>其实这个问题很简单，刚才我们不是走了一个正方形的棋盘吗？现在换成矩形就行了:</p>
+<p><img src="/2019/05/26/卡特兰数/z.png"></p>
+<p>稍加思索我们发现，这个和之前的没有任何区别。假设<strong>宽为m，高为n，且有 m &gt; n，那么经过对称处理后终点落在了 <span class="math inline">\((n - 1, m + 1)\)</span></strong>。</p>
+<p>也就是说，最终结果为: <span class="math display">\[
+\Large C_{m + n}^{n} - \Large C_{m + n}^{n - 1}
+\]</span></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/26/整数划分问题/" rel="next" title="整数划分问题">
+                <i class="fa fa-chevron-left"></i> 整数划分问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/26/全排列/" rel="prev" title="全排列">
+                全排列 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zuo Yiping</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引例"><span class="nav-text">1. 引例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#卡特兰数"><span class="nav-text">2. 卡特兰数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">2.1 分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不合法的排列数"><span class="nav-text">2.2 不合法的排列数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卡特兰数-1"><span class="nav-text">2.3 卡特兰数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变形的卡特兰数"><span class="nav-text">3. 变形的卡特兰数</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zuo Yiping</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 â€“ <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.0</div>
+
+
+
+
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

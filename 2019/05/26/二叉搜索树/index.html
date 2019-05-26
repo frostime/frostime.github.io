@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. 概论 二叉搜索树（Binary Search Tree, BST），（又：二叉查找树，二叉排序树）它或者是一棵空树，或者是具有下列性质的二叉树：  若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值 它的左、右子树也分别为二叉排序树   BST  顾名思义，BST常用于搜索结构。现在我们给出通常对BS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉搜索树">
+<meta property="og:url" content="http://yoursite.com/2019/05/26/二叉搜索树/index.html">
+<meta property="og:site_name" content="Frostime">
+<meta property="og:description" content="1. 概论 二叉搜索树（Binary Search Tree, BST），（又：二叉查找树，二叉排序树）它或者是一棵空树，或者是具有下列性质的二叉树：  若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值 它的左、右子树也分别为二叉排序树   BST  顾名思义，BST常用于搜索结构。现在我们给出通常对BS">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/05/26/二叉搜索树/BST.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/26/二叉搜索树/insert1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/26/二叉搜索树/insert2.gif">
+<meta property="og:image" content="http://yoursite.com/2019/05/26/二叉搜索树/remove.png">
+<meta property="og:updated_time" content="2019-05-26T12:49:36.792Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="二叉搜索树">
+<meta name="twitter:description" content="1. 概论 二叉搜索树（Binary Search Tree, BST），（又：二叉查找树，二叉排序树）它或者是一棵空树，或者是具有下列性质的二叉树：  若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值 它的左、右子树也分别为二叉排序树   BST  顾名思义，BST常用于搜索结构。现在我们给出通常对BS">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/26/二叉搜索树/BST.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/26/二叉搜索树/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>二叉搜索树 | Frostime</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frostime</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/26/二叉搜索树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zuo Yiping">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frostime">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">二叉搜索树
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-26 20:27:58 / 修改时间：20:49:36" itemprop="dateCreated datePublished" datetime="2019-05-26T20:27:58+08:00">2019-05-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/树/" itemprop="url" rel="index"><span itemprop="name">树</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概论">1. 概论</h1>
+<p>二叉搜索树（Binary Search Tree, BST），（又：二叉查找树，二叉排序树）它或者是一棵空树，或者是具有下列性质的二叉树：</p>
+<ul>
+<li><strong>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值</strong></li>
+<li><strong>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值</strong></li>
+<li><strong>它的左、右子树也分别为二叉排序树</strong></li>
+</ul>
+<figure>
+<img src="/2019/05/26/二叉搜索树/BST.png" alt="BST"><figcaption>BST</figcaption>
+</figure>
+<p>顾名思义，BST常用于搜索结构。现在我们给出通常对BST进行的操作的概述：</p>
+<ul>
+<li>插入一个特定值的结点</li>
+<li>删除一个特定值的结点</li>
+<li>判断一个给定值是否存在</li>
+<li>找出最大/最小值</li>
+<li>遍历打印整棵树</li>
+<li>清空</li>
+</ul>
+<p>由于树的递归定义，我们一般使用递归算法来完成操作。<strong>因为BST的平均搜索深度为 <span class="math inline">\(O(\log_{}{n})\)</span> 所以无序担心栈溢出</strong>。</p>
+<p>下面给出BST实现的类模板接口。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinarySearchTree</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">enum</span> Traversal&#123;preorder, inorder, postorder&#125;;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BinNode</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        T val;</span><br><span class="line">        BinNode *left;</span><br><span class="line">        BinNode *right;</span><br><span class="line">        BinNode(T v, BinNode *l = <span class="literal">nullptr</span>, BinNode *r = <span class="literal">nullptr</span>) : </span><br><span class="line">                val(v), left(l), right(r) &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    BinarySearchTree();</span><br><span class="line">    BinarySearchTree(<span class="keyword">const</span> BinarySearchTree &amp;other);</span><br><span class="line">    ~BinarySearchTree();</span><br><span class="line">    <span class="keyword">const</span> BinarySearchTree &amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> BinarySearchTree &amp;other); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//Manipulation</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> T &amp;val)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> T &amp;val)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">makeEmpty</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//Info</span></span><br><span class="line">    <span class="function"><span class="keyword">const</span> T&amp; <span class="title">findMin</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">const</span> T&amp; <span class="title">findMax</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function">BinNode* <span class="title">contains</span><span class="params">(<span class="keyword">const</span> T &amp;elem)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(Traversal order)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function">BinNode * <span class="title">findMin</span><span class="params">(BinNode *cur)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function">BinNode * <span class="title">findMax</span><span class="params">(BinNode *cur)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="comment">//由于不改变指针指向，不需要使用指针的引用</span></span><br><span class="line">    <span class="function">BinNode* <span class="title">contains</span><span class="params">(<span class="keyword">const</span> T &amp;elem, BinNode *cur)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//由于一开始root为nullptr，要想在程序中更改其指向，就要写作指针的引用</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> T &amp;val, BinNode *&amp;cur)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> T &amp;val, BinNode *&amp;cur)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">makeEmpty</span><span class="params">(BinarySearchTree *&amp; root)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">preorderPrint</span><span class="params">(BinNode *root)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">inorderPrint</span><span class="params">(BinNode *root)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">postorderPrint</span><span class="params">(BinNode *root)</span> <span class="keyword">const</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    BinNode *root;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在这里还有一些疑问，我们先做简单解释：</p>
+<ul>
+<li><p>程序中在 <code>public</code> 和 <code>private</code> 中分别出现重载的函数是为了方便使用递归。<strong><code>public</code> 中的方法提供对外接口并隐藏关键信息；<code>private</code> 中的方法用于实现递归算法</strong>。</p></li>
+<li><p>之所以有些参数类型为 <code>*&amp;</code> 是因为在执行过程中传入的指针指向需要改变。</p></li>
+</ul>
+<p>此外需要注意的是，<strong>在这里数据类型 <code>T</code> 必须已实现了 <code>operator &lt;</code></strong>。<strong>如果没有实现重载的话也可以使用一个函数对象</strong>:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Comparator = less&lt;T&gt;&gt;</span><br><span class="line">class BinarySearchTree</span><br><span class="line">&#123;</span><br><span class="line">    Comparator lessThan;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>less</code> 是定义在标准库 <code>&lt;functional&gt;</code> 中的一个函数类模板。使用时可以:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (lessThan(x, cur-&gt;val);)</span><br></pre></td></tr></table></figure>
+<h1 id="contain">2. <code>contain</code></h1>
+<p><code>contain</code> 方法主要用于判断元素是否存在于BST当中。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">contains</span><span class="params">(<span class="keyword">const</span> T &amp;elem)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> contains(elem, root) != <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">BinNode * <span class="title">contains</span><span class="params">(<span class="keyword">const</span> T &amp;elem, BinNode *cur)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> cur;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (elem &lt; cur-&gt;val)</span><br><span class="line">        <span class="keyword">return</span> contains(elem, cur-&gt;left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;val &lt; elem)</span><br><span class="line">        <span class="keyword">return</span> contains(elem, cur-&gt;right);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>算法的思想很简单：如果根节点就是，那就返回根节点；否则，可以利用BST的性质判断目标结点所在的位置，然后递归处理。该算法有几点要注意的：</p>
+<ul>
+<li><code>T</code> 需要对 <code>&lt;</code> 进行重载</li>
+<li>对根节点是否为空的判断必须放在最前面</li>
+<li><strong>把最不可能发生的情况放在最后面判断</strong></li>
+<li>指针无需以引用的方式传递</li>
+<li><strong>两个方法的返回值不同，是因为外部不需要关系该值的具体位置(信息隐藏)，而内部则不然</strong>。</li>
+</ul>
+<p>算法评估: 时间 | 空间 ---|--- <span class="math inline">\(O(\log_{}{n})\)</span> | <span class="math inline">\(O(\log_{}{n})\)</span></p>
+<p>可以看出<strong>这个递归算法本质上是一个尾递归</strong>。不过由于对栈的使用最多不过 <span class="math inline">\(O(\log_{}{n})\)</span> ，所以这里的尾递归是安全合理的。<br>
+同时完全可以写成非递归算法:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BinNode * <span class="title">contains</span><span class="params">(<span class="keyword">const</span> T &amp;elem)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BinNode *cur = root;</span><br><span class="line">    <span class="keyword">while</span> (cur != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (elem &lt; cur-&gt;val)</span><br><span class="line">            cur = cur-&gt;left;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;val &lt; elem)</span><br><span class="line">            cur = cur-&gt;right;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (elem == cur-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> cur;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，非递归算法的形式也十分简单。不过注意的是<strong>即使写成非递归算法，也不应该舍弃对外接口，因为 <code>BinNode*</code> 不是外界应该能获得的，出于信息隐藏的考虑，对外接口仍应该是</strong>:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">contains</span><span class="params">(<span class="keyword">const</span> T &amp;elem)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
+<h1 id="findmax-和-finmin">3. <code>findMax</code> 和 <code>finMin</code></h1>
+<p>在BST中，查找最大最小值是极为简单的:<strong>最小值在最左边；最大值在最右边</strong>。原理很简单，仔细考虑一下BST的性质就能想明白。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">const</span> T &amp; <span class="title">findMin</span><span class="params">()</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> findMin(root)-&gt;val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">const</span> T&amp; <span class="title">findMax</span><span class="params">()</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> findMax(root)-&gt;val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上两个算法提供对外接口。而内部则由另一个算法完成:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BinNode * <span class="title">findMin</span><span class="params">(BinNode *cur)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur == <span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">if</span> (cur-&gt;left == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> cur;</span><br><span class="line">    <span class="keyword">return</span> findMin(cur-&gt;left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再次强调一下，<strong>对空指针的检查一定要放在最前面</strong>。同时，由于我们是<strong>pass-by-value</strong>，因此<strong>对指针的变更不会有问题</strong>。</p>
+<p><strong>注意，这里我们的返回值类型为<code>BinNode*</code>，而对外接口的返回值则为<code>const T &amp;</code>。这是因为我们不希望外界可以获取直接访问结点的权限，而内部的方法却又有这样一个需求</strong>。</p>
+<p>顺便还有一点，最好不要写成这样:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (cur == <span class="literal">nullptr</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line"><span class="keyword">if</span> (cur-&gt;left != <span class="literal">nullptr</span>)</span><br><span class="line">    <span class="keyword">return</span> findMin(cur-&gt;left);</span><br><span class="line"><span class="keyword">return</span> cur;</span><br></pre></td></tr></table></figure>
+<p>这里我们使用了<strong>尾递归</strong>，希望编译器能对其优化。如果写成后者就不是尾递归的形式了。</p>
+<p>事实上，既然可以使用尾递归，就说明一定可以更改为迭代的形式。<strong>事实上在这里，我们更支持使用迭代而非递归</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//本迭代式十分简单，总体而言更优于使用递归</span></span><br><span class="line"><span class="function">BinNode * <span class="title">findMax</span><span class="params">(BinNode *cur)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur != <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">while</span> (cur-&gt;right != <span class="literal">nullptr</span>)</span><br><span class="line">            cur = cur-&gt;right;</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="insert">4. <code>insert</code></h1>
+<h2 id="基本说明">4.1 基本说明</h2>
+<p><strong>如果你仔细观察对外接口的参数列表你会发现它只指定了值，而不指定位置；同时也没有返回值。这和我们在单链表中的做法大不相同</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在单链表中，这个接口往往定义为</span></span><br><span class="line"><span class="comment">//iterator insert(const T &amp;val, const iterator &amp;pos);</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> T &amp;val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    insert(val, root);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而这就反映了BST的不同之处，具体而言：</p>
+<ul>
+<li><p>我们在链表中指定位置是因为链表对元素的位置没有要求。而在BST中，<strong>元素的位置必须严格遵守规定，不可由用户指定</strong>。而事实上，<strong>在BST中添加元素往往意味着建立一个新的叶子节点</strong>。</p></li>
+<li>我们设置一个返回迭代器的方法是为了便于连续插入以及修改元素。这两点在BST中都毫无用处:
+<ul>
+<li>大部分情况下插入的元素的位置基本都隔得很远</li>
+<li>我们一般把BST当作集合来使用，不允许修改其中的元素</li>
+</ul></li>
+</ul>
+<h2 id="算法思路">4.2 算法思路</h2>
+<p>若在BST中建立新结点，则它必为叶节点。<br>
+插入和查找思路类似，<strong>首先查找有没有和给定值相同的，如果有进行相应处理(注意，有多种处理方式)；如果没有找到，那么创建新的节点。并更新每个节点的值</strong>。</p>
+<figure>
+<img src="/2019/05/26/二叉搜索树/insert1.png" alt="insert"><figcaption>insert</figcaption>
+</figure>
+<figure>
+<img src="/2019/05/26/二叉搜索树/insert2.gif" alt="insert"><figcaption>insert</figcaption>
+</figure>
+<h2 id="实现">4.3 实现</h2>
+<h3 id="递归版">4.3.1 递归版</h3>
+<h4 id="使用引用">使用引用</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> T &amp;val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    insert(val, root);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> T &amp;val, BinNode *&amp;cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur == <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//相当于root-&gt;left = new BinNode()（或是right）</span></span><br><span class="line">        cur = <span class="keyword">new</span> BinNode(val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;val &lt; val)</span><br><span class="line">    &#123;</span><br><span class="line">        insert(val, cur-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (val &lt; cur-&gt;val)</span><br><span class="line">    &#123;</span><br><span class="line">        insert(val, cur-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        ;<span class="comment">//重复元素，我们什么都不做</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>老生常谈的，对<code>nullptr</code>的处理我们必须要放在最前面。不同之处在于这次是要创建一个结点，让传入的<code>cur</code>指向它以此在BST上连上一个新结点。</p>
+<p>问题来了，为什么参数名为 <code>BinNode *&amp;cur</code> ？这是因为在 <code>cur = new BinNode(val);</code> 这一句中 <strong><code>cur</code> 的指向被改变了，如果不使用引用，就无法将新结点连入</strong>。</p>
+<p>使用了引用之后，如果称前一次递归调用的指针 <code>cur</code> 为 <code>p</code>，那么在本次方法中，<code>cur</code> 就相当于 <code>p-&gt;left</code> (或 <code>p-&gt;right</code> )。下图为模拟在递归中 <code>cur</code> 的含义:</p>
+<pre class="mermaid">graph TD
+a(root)-->b(root->left)
+b(root->left)-->c(root->left->right)
+c-->d(...)</pre>
+<p>最终 <code>cur = new BinNode(val);</code> 就<strong>相当于 <code>root-&gt;left-&gt;right-&gt;...-&gt;left = new BinNode(val);</code></strong>。这样结点就链接上去了。</p>
+<h4 id="不使用引用">不使用引用</h4>
+<p>考虑到很多语言不支持pass-by-reference，我们也给出按值传递的实现。同样，只需要添加一些赋值操作和返回值就行了。<strong>首先我们规定 <code>insert</code> 算法返回指向子树的指针</strong>，根据这个就可以写出相应算法:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> T &amp;val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    root = insert(val, root);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">BinNode * <span class="title">insert</span><span class="params">(<span class="keyword">const</span> T &amp;val, BinNode *cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//处理子树的根节点，让它连到更新后的子子树上</span></span><br><span class="line">    <span class="keyword">if</span> (cur == <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cur =  <span class="keyword">new</span> BinNode(val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;val &lt; val)</span><br><span class="line">    &#123;</span><br><span class="line">        cur-&gt;right = insert(val, cur-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (val &lt; cur-&gt;val)</span><br><span class="line">    &#123;</span><br><span class="line">        cur-&gt;left = insert(val, cur-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        ;<span class="comment">//重复元素，我们什么都不做</span></span><br><span class="line">    <span class="comment">//返回子树根节点让它连到父节点的left或right或root上</span></span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>递归逻辑为：<strong><code>cur</code> 是一个子树的根节点，每次只要将元素插入到 <code>cur</code> 的子树中，再返回 <code>cur</code> 将它连到父节点上就可以了</strong>。</p>
+<h3 id="非递归版">4.3.2 非递归版</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> T &amp;val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//处理特殊情况</span></span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        root = <span class="keyword">new</span> BinNode(val);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    BinNode *parent = root, *cur = root;</span><br><span class="line">    <span class="keyword">while</span> (cur != <span class="literal">nullptr</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (val &lt; cur-&gt;val)</span><br><span class="line">        &#123;</span><br><span class="line">            parent = cur;</span><br><span class="line">            cur = cur-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;val &lt; val)</span><br><span class="line">        &#123;</span><br><span class="line">            parent = cur;</span><br><span class="line">            cur = cur-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span>;<span class="comment">//已存在，什么都不做</span></span><br><span class="line">    &#125;</span><br><span class="line">    (val &lt; parent-&gt;val)? </span><br><span class="line">    parent-&gt;left = <span class="keyword">new</span> BinNode(val): parent-&gt;right = <span class="keyword">new</span> BinNode(val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>算法很清楚，首先处理特殊情况空树。然后迭代移动 <code>cur</code> 指针。<code>cur</code> 的作用在于确定是否到了可以插入的位置，真正执行插入的是 <code>parent</code> 指针，因为那时候 <code>cur</code> 已经是 <code>nullptr</code>了。(<strong>注意不要漏掉了已存在的情况</strong>)</p>
+<p>注意不要写出这样的糟糕算法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> T &amp;val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (contains(val))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//....</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//....</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是我在网上看到的极其糟糕的一个算法， <code>contains</code> 完全是多余的。因为BST的特殊性，<code>insert</code> 的过程本身就在判断存在性，所以不要做无用功。</p>
+<h2 id="对已存在元素的处理进行一个小改进">4.4 对已存在元素的处理进行一个小改进</h2>
+<p>现在让我们重新来考虑一下之前一直无视的一个问题：如果代插入元素已存在怎么办？</p>
+<p>之前我们的做法是像正统的集合一样无视之。但是如果我们想要利用BST来实现一个 <code>multi-set</code> 呢？显然这个问题就不可忽视了。</p>
+<p>一个最为直观的做法是如果存在，就再插入一个结点。但这样做一点也不好，问题有两个:</p>
+<ul>
+<li><p>由于插入点必然在已存在结点的子树上，无论是插入在左子树还是右子树上，都破坏了BST的逻辑。</p></li>
+<li><p><strong>如果程序中有大量插入重复数据操作，BST的高度将会急速增长，这是很致命的</strong>！</p></li>
+</ul>
+<p>所以<strong>我们的改进做法是在 <code>BinNode</code> 的数据域中增加一项 <code>frequency</code> ，用来记录结点被插入的次数。当重复插入时，只需将 <code>frequency</code> 加一即可</strong>。</p>
+<p>表面上看这增加了空间消耗，但比起BST的高度增加，区区四分之一的额外空间不足挂齿。</p>
+<h1 id="remove">5. <code>remove</code></h1>
+<h2 id="基本思路">5.1 基本思路</h2>
+<p>BST的删除算法会相对困难一些，当然我们这里指的是 <code>frequency == 1</code> 的“真删除”操作。</p>
+<p>首先我们先要搞清楚对一个BST进行删除操作意味着什么。</p>
+<figure>
+<img src="/2019/05/26/二叉搜索树/remove.png" alt="Sample"><figcaption>Sample</figcaption>
+</figure>
+<p>经过仔细分析，我们发现可以将删除结点分为三种情况:</p>
+<ol type="1">
+<li><strong>删除一个叶子结点</strong></li>
+<li><strong>删除一个只有一个孩子的父节点</strong></li>
+<li><strong>删除同时有两个孩子的父节点</strong></li>
+</ol>
+<p>在这其中1，2两种情况比较简单。</p>
+<p><strong>对于情况1，只需直接删除即可。对于情况2，就完全退化为一个普通单链表删除结点的问题了</strong>。大致方式如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意，要么使用引用，要么待会返回cur给父节点</span></span><br><span class="line">BinNode *oldNode = cur;</span><br><span class="line">cur = (cur-&gt;left != <span class="literal">nullptr</span>)? cur-&gt;left : cur-&gt;right;</span><br><span class="line"><span class="keyword">delete</span> oldNode;</span><br></pre></td></tr></table></figure>
+<p>麻烦在于情况3。</p>
+<p>就比如说如果我想删除值为6的结点，该怎么做？更准确的来讲，<strong>将结点6删除后，原本结点6的位置该怎么办</strong>？显然，<strong>不能像在单链表里的那样简单粗暴地让结点的前驱指向其后继。因为作为前驱的父节点只有一个左孩子指针，而他要面对的确是两棵子树</strong>。</p>
+<p>一般在树中的做法是找一个子树结点让它来代替结点6的位置。在BST中自然也不例外，所以剩下的问题就是找哪个？</p>
+<p>不妨做一个简单的分析。目标结点必须满足这样一个条件：</p>
+<p><span class="math display">\[
+maxValue(leftSubTree) \leqslant value(Node) \leqslant minValue(rightSubTree)
+\]</span></p>
+<p>继续分析，该结点可能存在的位置无外乎两种：</p>
+<ul>
+<li>结点在左子树上</li>
+<li>结点在右子树上</li>
+</ul>
+<p><strong>不妨假设结点x在右子树上，那么 <code>value(x)</code> 必然满足不等式左侧的关系</strong>。显然要想同时满足右侧关系，<strong>x必为右子树上的最小值</strong>。同样的分析也可适用于左子树。</p>
+<p>这样我们就对BST树的删除有了一个基本思路。</p>
+<p>需要注意的是<strong>删除操作必然会改变BST树的结构，这是无法避免的</strong>。但由于我们只关系BST的排列顺序结构，所以内部如何组织和我们毫无关系，不必在意。</p>
+<h2 id="实现-1">5.2 实现</h2>
+<h3 id="使用引用-1">5.2.1 使用引用</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> T &amp;val, BinNode *&amp;cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur == <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (val &lt; cur-&gt;val)</span><br><span class="line">    &#123;</span><br><span class="line">        remove(val, cur-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;val &lt; val)</span><br><span class="line">    &#123;</span><br><span class="line">        remove(val, cur-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//对刚好是这个结点的情况进行讨论</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;left &amp;&amp; cur-&gt;right)</span><br><span class="line">    &#123;</span><br><span class="line">        cur-&gt;val = findMin(cur-&gt;right)-&gt;val;</span><br><span class="line">        remove(cur-&gt;val, cur-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        BinNode *oldNode = cur;</span><br><span class="line">        cur = (cur-&gt;left != <span class="literal">nullptr</span>)? cur-&gt;left : cur-&gt;right;</span><br><span class="line">        <span class="keyword">delete</span> oldNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序十分清楚首先先判断为空，如果 <code>cur</code> 为空或 <code>val</code> 根本不存在，那就会直接 <code>return</code> 回去。</p>
+<p>接下来第二三两个 <code>if</code> 判断不断递归找到了需要进行删除的点。然后就来到了第四五两个条件判断块。</p>
+<p>如果存在两个子树(<strong>这是更加常见的情况，我们把它放到前面</strong>)，那么首先现用右子树的最小值来覆盖该结点，然后删除那一个重复的右子树最小值即可。<strong>由于右子树的最小值结点不可能有左子树</strong>，<strong>我们就将第3种情况的问题转化为了第1，2种情况</strong>。</p>
+<p>就这样，无论是直接到达，还是从第四条判断语句跳转过来，算法最终都会执行到第五条判断，<strong>也就是针对最多只有一个孩子的结点进行删除操作</strong>。需要注意的是，<strong>我们不能直接将结点 <code>delete</code> 就了事，还要对该结点的父节点进行处理，让它指到别处</strong>。</p>
+<p>好在这里<strong>我们的 <code>cur</code> 是一个引用，它等同于 <code>parent-&gt;left</code> 或 <code>parent-&gt;right</code>，所以直接将它指向 <code>cur</code> 的子树</strong>:</p>
+<ul>
+<li>如果 <code>cur</code> 无子树，则 <code>parent-&gt;*</code> 直接指向 <code>nullptr</code></li>
+<li>如果 <code>cur</code> 有一棵子树，则 <code>parent-&gt;*</code> 直接指向该子树</li>
+</ul>
+<h3 id="不使用引用-1">5.2.2 不使用引用</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> T &amp;val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    root = remove(val, root);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//返回根节点</span></span><br><span class="line"><span class="function">BinNode * <span class="title">remove</span><span class="params">(<span class="keyword">const</span> T &amp;val, BinNode *cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur == <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> cur;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (val &lt; cur-&gt;val)</span><br><span class="line">    &#123;</span><br><span class="line">        cur-&gt;left = remove(val, cur-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;val &lt; val)</span><br><span class="line">    &#123;</span><br><span class="line">        cur-&gt;right = remove(val, cur-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//对刚好是这个结点的情况进行讨论</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;left &amp;&amp; cur-&gt;right)</span><br><span class="line">    &#123;</span><br><span class="line">        cur-&gt;val = findMin(cur-&gt;right)-&gt;val;</span><br><span class="line">        cur-&gt;right = remove(cur-&gt;val, cur-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        BinNode *oldNode = cur;</span><br><span class="line">        cur = (cur-&gt;left != <span class="literal">nullptr</span>)? cur-&gt;left : cur-&gt;right;</span><br><span class="line">        <span class="keyword">delete</span> oldNode;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="优化">5.3 优化</h2>
+<p>以上程序效率并不高，算法还有优化的空间，主要问题出现在这一段:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cur-&gt;val = findMin(cur-&gt;right)-&gt;val;</span><br><span class="line">cur-&gt;right = remove(cur-&gt;val, cur-&gt;right);</span><br></pre></td></tr></table></figure>
+<p>这段程序连续两次对同一个子树进行搜索，这是极大的浪费。解决方法是<strong>新定义一个 <code>removeMin()</code> 方法，一次性解决</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeMin</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    root = removeMin(root, temp);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">BinNode * <span class="title">removeMin</span><span class="params">(BinNode *cur, <span class="keyword">int</span> &amp;minValue)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;left != <span class="literal">nullptr</span>)</span><br><span class="line">        cur-&gt;left = removeMin(cur-&gt;left, minValue);</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        BinNode *oldNode = cur;</span><br><span class="line">        minValue = oldNode-&gt;val;</span><br><span class="line">        cur = (cur-&gt;left != <span class="literal">nullptr</span>)? cur-&gt;left : cur-&gt;right;</span><br><span class="line">        <span class="keyword">delete</span> oldNode;</span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>仅就 <code>removeMin</code> 本身而言，是不需要 <code>minValue</code> 参数的。我们事实上完全可以将<code>cur</code>设为按引用传递然后返回 <code>min</code> 的值。但这里我们没有这么做，而是依旧使用按值传递，是考虑到兼顾很多不支持传递引用的语言。给出更为广泛性适用的算法。</p>
+<p><strong>至于 <code>minValue</code> 的引用问题，则没什么大不了。以 <code>Java</code> 为例完全可以自定义一个类，然后将该值取出来——我们可以很简单地定义一个类来替代 <code>int&amp;</code> 的功能，但想代替 <code>BinNode *&amp;</code> 的类就没那么容易定义了。所以相比较之下，我们就选择了这样的编写策略——返回根节点指针，而在参数列表中进行引用传递</strong>。</p>
+<p>这样一来，<code>remove</code> 方法就可以进一步改进了：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BinNode * <span class="title">remove</span><span class="params">(<span class="keyword">const</span> T &amp;val, BinNode *cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> cur;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (val &lt; cur-&gt;val)</span><br><span class="line">        cur-&gt;left = remove(val, cur-&gt;left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;val &lt; val)</span><br><span class="line">        cur-&gt;right = remove(val, cur-&gt;right);</span><br><span class="line">    <span class="comment">//对刚好是这个结点的情况进行讨论</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cur-&gt;left &amp;&amp; cur-&gt;right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//改进之后，只查找一次就够了</span></span><br><span class="line">        cur-&gt;right = removeMin(cur-&gt;right, cur-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        BinNode *oldNode = cur;</span><br><span class="line">        cur = (cur-&gt;left != <span class="literal">nullptr</span>)? cur-&gt;left : cur-&gt;right;</span><br><span class="line">        <span class="keyword">delete</span> oldNode;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="其他操作">6. 其他操作</h1>
+<h2 id="清空makeempty">6.1 清空<code>makeEmpty</code></h2>
+<p>同之前几个一样，这里清空操作依旧是由一个外部接口来发起一个内部递归的算法。算法的核心思想是：<strong>对于一棵树，先清空左子树，再清空右子树，最后把根节点清空</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">makeEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    makeEmpty(root);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">makeEmpty</span><span class="params">(BinNode *&amp;root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        makeEmpty(root-&gt;left);</span><br><span class="line">        makeEmpty(root-&gt;right);</span><br><span class="line">        <span class="keyword">delete</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    root = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line">~BinarySearchTree()</span><br><span class="line">&#123;</span><br><span class="line">    makeEmpty();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有几点要注意的:</p>
+<ul>
+<li>最后不要忘了将 <code>root</code> 置为 <code>nullptr</code> 。因为初始时一棵树的根节点就是空。</li>
+<li>注意这里我们仍用了指针的引用，主要还是因为根节点。<strong>在整棵树清空后，根节点要想有效地置空，必须用引用。否则要加一个返回值才行。</strong></li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不用引用的话就要有返回值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">makeEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    root = makeEmpty(root);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">BinNode * <span class="title">makeEmpty</span><span class="params">(BinNode *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        root-&gt;left = makeEmpty(root-&gt;left);</span><br><span class="line">        root-&gt;right = makeEmpty(root-&gt;right);</span><br><span class="line">        <span class="keyword">delete</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="复制">6.2 复制</h2>
+<p>按照以往惯例，我们同样也写一个 <code>operator=()</code> 然后在拷贝构造函数中直接调用。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">BinarySearchTree(<span class="keyword">const</span> BinarySearchTree &amp;other)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">operator</span>=(other);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> BinarySearchTree &amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> BinarySearchTree &amp;other)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == &amp;other)</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    makeEmpty();</span><br><span class="line">    <span class="comment">/*???*/</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>仔细想一想，发现拷贝的过程也是一个遍历的过程，还是得用到递归，所以有必要定义另一个 <code>clone</code> 方法用于开启递归算法。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非常巧妙的构思</span></span><br><span class="line"><span class="function">BinNode * <span class="title">clone</span><span class="params">(BinNode *cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> BinNode(cur-&gt;val, clone(cur-&gt;left), clone(cur-&gt;right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在 <code>operator=</code> 中调用:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> BinarySearchTree &amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> BinarySearchTree &amp;other)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == &amp;other)</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    makeEmpty();</span><br><span class="line">    root = clone(other.root);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="补充比较大小操作">7. 补充：比较大小操作</h1>
+<p>之前的操作都是默认 <code>T</code> 重载了 <code>&lt;</code> 的，实际上我们可以通过使用一个 <code>function</code> 对象来优化，使该BST更有泛型特性。</p>
+<ul>
+<li><p>定义一个用于比较的对象 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function&lt;<span class="keyword">bool</span>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;)&gt; lessThan;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>默认状况下将它赋值为 <code>less&lt;T&gt;()</code>，这时意味着 <code>T</code> 重载了 <code>&lt;</code><br>
+但是要注意，<strong>如果是自定义的重载必须为 <code>bool operator &lt;(...) const</code>，尾后的 <code>const</code> 不能省</strong>！</p></li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessThan = less&lt;T&gt;();</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>也可以自行定制比较方法 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BinarySearchTree(<span class="keyword">const</span> function&lt;<span class="keyword">bool</span>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;)&gt; &amp;less = less&lt;T&gt;())</span><br><span class="line">&#123;</span><br><span class="line">    lessThan = less;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>使用 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用lambda定制操作</span></span><br><span class="line">BinarySearchTree&lt;Point&gt; l(</span><br><span class="line">    [](<span class="keyword">const</span> Node &amp;a, <span class="keyword">const</span> Node &amp;b)-&gt;<span class="keyword">bool</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a.x &lt; b.x &amp;&amp; a.y &lt; b.y)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/26/博弈问题的搜索解法/" rel="next" title="博弈问题的搜索解法">
+                <i class="fa fa-chevron-left"></i> 博弈问题的搜索解法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zuo Yiping</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概论"><span class="nav-text">1. 概论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#contain"><span class="nav-text">2. contain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#findmax-和-finmin"><span class="nav-text">3. findMax 和 finMin</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#insert"><span class="nav-text">4. insert</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本说明"><span class="nav-text">4.1 基本说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思路"><span class="nav-text">4.2 算法思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-text">4.3 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归版"><span class="nav-text">4.3.1 递归版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用引用"><span class="nav-text">使用引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不使用引用"><span class="nav-text">不使用引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非递归版"><span class="nav-text">4.3.2 非递归版</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对已存在元素的处理进行一个小改进"><span class="nav-text">4.4 对已存在元素的处理进行一个小改进</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#remove"><span class="nav-text">5. remove</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本思路"><span class="nav-text">5.1 基本思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现-1"><span class="nav-text">5.2 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用引用-1"><span class="nav-text">5.2.1 使用引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不使用引用-1"><span class="nav-text">5.2.2 不使用引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-text">5.3 优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他操作"><span class="nav-text">6. 其他操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#清空makeempty"><span class="nav-text">6.1 清空makeEmpty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制"><span class="nav-text">6.2 复制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充比较大小操作"><span class="nav-text">7. 补充：比较大小操作</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zuo Yiping</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 â€“ <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.0</div>
+
+
+
+
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
