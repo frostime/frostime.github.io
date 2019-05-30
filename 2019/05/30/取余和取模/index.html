@@ -96,24 +96,24 @@
 
 
 
-  <meta name="description" content="预说明  在工作中，我们往往遇到的情况是，自己的电脑和linux服务器并不在一台主机上，这个时候就需要远程登录并进行操作。  注意，为了完成这样的工作，我们必须要有一个前提：那就是Linux服务器必须开启了SSHD服务监听端口22。我们以Ubuntu为例:  打开终端，输入sudo apt-get install openssh-client openssh-server安装服务 然后确">
+  <meta name="description" content="无论是取余还是取模公式皆为 \(r = a - (a / b) * b\)， 区别在对商 \(a / b\) 的取整处理上：  取余使用 fix()，即趋于零取整 取模使用 floor() ，即趋于负无穷大取整  两操作数同号时，取余和取模效果相同。异号时结果就会有差别。 例如: \[ 4 / (-3) \approx -1.3 \]  取余(C/C++, Java 中的%)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="远程操作Linux">
-<meta property="og:url" content="http://yoursite.com/2019/03/12/远程操作Linux/index.html">
+<meta property="og:title" content="取余和取模">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/取余和取模/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="预说明  在工作中，我们往往遇到的情况是，自己的电脑和linux服务器并不在一台主机上，这个时候就需要远程登录并进行操作。  注意，为了完成这样的工作，我们必须要有一个前提：那就是Linux服务器必须开启了SSHD服务监听端口22。我们以Ubuntu为例:  打开终端，输入sudo apt-get install openssh-client openssh-server安装服务 然后确">
+<meta property="og:description" content="无论是取余还是取模公式皆为 \(r = a - (a / b) * b\)， 区别在对商 \(a / b\) 的取整处理上：  取余使用 fix()，即趋于零取整 取模使用 floor() ，即趋于负无穷大取整  两操作数同号时，取余和取模效果相同。异号时结果就会有差别。 例如: \[ 4 / (-3) \approx -1.3 \]  取余(C/C++, Java 中的%)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-12T06:14:17.892Z">
+<meta property="og:updated_time" content="2019-05-30T14:21:54.672Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="远程操作Linux">
-<meta name="twitter:description" content="预说明  在工作中，我们往往遇到的情况是，自己的电脑和linux服务器并不在一台主机上，这个时候就需要远程登录并进行操作。  注意，为了完成这样的工作，我们必须要有一个前提：那就是Linux服务器必须开启了SSHD服务监听端口22。我们以Ubuntu为例:  打开终端，输入sudo apt-get install openssh-client openssh-server安装服务 然后确">
+<meta name="twitter:title" content="取余和取模">
+<meta name="twitter:description" content="无论是取余还是取模公式皆为 \(r = a - (a / b) * b\)， 区别在对商 \(a / b\) 的取整处理上：  取余使用 fix()，即趋于零取整 取模使用 floor() ，即趋于负无穷大取整  两操作数同号时，取余和取模效果相同。异号时结果就会有差别。 例如: \[ 4 / (-3) \approx -1.3 \]  取余(C/C++, Java 中的%)">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/12/远程操作Linux/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/30/取余和取模/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>远程操作Linux | Frostime</title>
+  <title>取余和取模 | Frostime</title>
   
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/远程操作Linux/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/取余和取模/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zuo Yiping">
@@ -339,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">远程操作Linux
+          <h1 class="post-title" itemprop="name headline">取余和取模
 
               
             
@@ -365,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-03-12 14:13:37 / 修改时间：14:14:17" itemprop="dateCreated datePublished" datetime="2019-03-12T14:13:37+08:00">2019-03-12</time>
+              <time title="创建时间：2019-05-30 22:19:38 / 修改时间：22:21:54" itemprop="dateCreated datePublished" datetime="2019-05-30T22:19:38+08:00">2019-05-30</time>
             
 
             
@@ -387,14 +387,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/Linux使用杂记/" itemprop="url" rel="index"><span itemprop="name">Linux使用杂记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -429,20 +422,26 @@
       
 
       
-        <h1 id="预说明">预说明</h1>
-<p> 在工作中，我们往往遇到的情况是，自己的电脑和linux服务器并不在一台主机上，这个时候就需要远程登录并进行操作。</p>
-<p> 注意，为了完成这样的工作，我们必须要有一个前提：那就是Linux服务器必须开启了SSHD服务监听端口22。我们以Ubuntu为例:</p>
+        <p>无论是取余还是取模公式皆为 <span class="math inline">\(r = a - (a / b) * b\)</span>， 区别在对商 <span class="math inline">\(a / b\)</span> 的取整处理上：</p>
 <ul>
-<li>打开终端，输<code>入sudo apt-get install openssh-client openssh-server</code>安装服务</li>
-<li>然后确认sshserver是否启动了：输入<code>ps -e | grep sshd</code>，若出现了sshd，说明打开了。若没有输入<code>sudo service ssh start</code></li>
+<li><strong>取余使用 fix()，即趋于零取整</strong></li>
+<li><strong>取模使用 floor() ，即趋于负无穷大取整</strong></li>
 </ul>
-<h1 id="使用xshell远程登陆并操作linux">使用XShell远程登陆并操作Linux</h1>
-<p> 打开XShell，新建一个会话，输入会话名，协议选择SSH，主机填写linux服务器的ip地址，端口号填写22。然后点击连接，之后输入linux服务器上的登录账号及密码即可连接上。</p>
-<p> 想知道linux服务器的ip地址，只需要在终端输入ifconfig即可。</p>
-<p> 登陆完毕后，我们在远程端输入的命令，就相当于在主机上直接对linux服务器进行操作。</p>
-<h1 id="使用xftp进行文件上传下载">使用Xftp进行文件上传下载</h1>
-<p> 和上面的类似，新建一个会话，协议选择SFTP，主机填写IP，填写用户密码。然后连接即可。</p>
-<p> 用哪个用户登录，就会自动来到那个用户的家目录(/home/xxx或者/root)</p>
+<p><strong>两操作数同号时，取余和取模效果相同。异号时结果就会有差别</strong>。</p>
+<p>例如:</p>
+<p><span class="math display">\[
+4 / (-3) \approx -1.3
+\]</span></p>
+<ul>
+<li><p>取余(<strong>C/C++, Java 中的%</strong>)<br>
+<span class="math display">\[
+4 / (-3) = -1 \Rightarrow 4 \% (-3) = 4 - ((-1)*(-3)) = 1
+\]</span></p></li>
+<li><p>取模(<strong>Python 中的%</strong>) <span class="math display">\[
+4 / (-3) = -2 \Rightarrow 4 \% (-3) = 4 - ((-2)*(-3)) = -2
+\]</span></p></li>
+</ul>
+<p><strong>在大多数语言如C/C++，Java中，运算符%是取余运算；少数语言如Python中，%为取模运算</strong>。</p>
 
       
     </div>
@@ -473,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/12/1-Linux目录结构/" rel="next" title="1.Linux目录结构">
-                <i class="fa fa-chevron-left"></i> 1.Linux目录结构
+              <a href="/2019/05/26/二叉搜索树/" rel="next" title="二叉搜索树">
+                <i class="fa fa-chevron-left"></i> 二叉搜索树
               </a>
             
           </div>
@@ -482,10 +481,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/12/2-Vi与Vim的使用/" rel="prev" title="2.Vi与Vim的使用">
-                2.Vi与Vim的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,17 +524,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -653,23 +639,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#预说明"><span class="nav-text">预说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用xshell远程登陆并操作linux"><span class="nav-text">使用XShell远程登陆并操作Linux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用xftp进行文件上传下载"><span class="nav-text">使用Xftp进行文件上传下载</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -818,7 +787,76 @@
   
 
 
-  <script src="/js/src/bootstrap.js?v=7.0.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -837,29 +875,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-
-  
-  
-
-
-  
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 
