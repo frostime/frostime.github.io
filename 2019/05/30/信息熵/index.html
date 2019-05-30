@@ -96,24 +96,25 @@
 
 
 
-  <meta name="description" content="1. 取模的数学规则 1.1 基本四则运算 \[ \begin{cases} (a + b) \bmod p == (a \bmod p + b \bmod p) \bmod p\\ (a - b) \bmod p == (a \bmod p - b \bmod p + p) \bmod p\\ (a * b) \bmod p == (a \bmod p * b \bmod p) \b">
+  <meta name="description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
+<meta name="keywords" content="Note">
 <meta property="og:type" content="article">
-<meta property="og:title" content="取模问题">
-<meta property="og:url" content="http://yoursite.com/2019/05/26/取模问题/index.html">
+<meta property="og:title" content="信息熵">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/信息熵/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="1. 取模的数学规则 1.1 基本四则运算 \[ \begin{cases} (a + b) \bmod p == (a \bmod p + b \bmod p) \bmod p\\ (a - b) \bmod p == (a \bmod p - b \bmod p + p) \bmod p\\ (a * b) \bmod p == (a \bmod p * b \bmod p) \b">
+<meta property="og:description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-26T10:25:30.404Z">
+<meta property="og:updated_time" content="2019-05-30T14:52:40.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="取模问题">
-<meta name="twitter:description" content="1. 取模的数学规则 1.1 基本四则运算 \[ \begin{cases} (a + b) \bmod p == (a \bmod p + b \bmod p) \bmod p\\ (a - b) \bmod p == (a \bmod p - b \bmod p + p) \bmod p\\ (a * b) \bmod p == (a \bmod p * b \bmod p) \b">
+<meta name="twitter:title" content="信息熵">
+<meta name="twitter:description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/26/取模问题/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/30/信息熵/">
 
 
 
@@ -123,7 +124,7 @@
   };
 </script>
 
-  <title>取模问题 | Frostime</title>
+  <title>信息熵 | Frostime</title>
   
 
 
@@ -322,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/26/取模问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/信息熵/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zuo Yiping">
@@ -339,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">取模问题
+          <h1 class="post-title" itemprop="name headline">信息熵
 
               
             
@@ -365,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-05-26 18:08:02 / 修改时间：18:25:30" itemprop="dateCreated datePublished" datetime="2019-05-26T18:08:02+08:00">2019-05-26</time>
+              <time title="创建时间：2019-05-30 22:47:47 / 修改时间：22:52:40" itemprop="dateCreated datePublished" datetime="2019-05-30T22:47:47+08:00">2019-05-30</time>
             
 
             
@@ -387,14 +388,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学/" itemprop="url" rel="index"><span itemprop="name">数学</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/数论相关算法/" itemprop="url" rel="index"><span itemprop="name">数论相关算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
 
                 
                 
@@ -429,57 +430,83 @@
       
 
       
-        <h1 id="取模的数学规则">1. 取模的数学规则</h1>
-<h2 id="基本四则运算">1.1 基本四则运算</h2>
+        <h1 id="信息熵">信息熵</h1>
 <p><span class="math display">\[
-\begin{cases}
-(a + b) \bmod p == (a \bmod p + b \bmod p) \bmod p\\
-(a - b) \bmod p == (a \bmod p - b \bmod p + p) \bmod p\\
-(a * b) \bmod p == (a \bmod p * b \bmod p) \bmod p\\
-(a ^ b) \bmod p == ((a \bmod p) ^ b) \bmod p\\
-(a \bmod p) \bmod p == a \bmod p
-\end{cases}
+H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}}
 \]</span></p>
-<h2 id="其他性质">1.2 其他性质</h2>
+<h1 id="条件熵">条件熵</h1>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;H(Y|X)\\
+&amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\
+&amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cdot \log_{2}{P(y|x)}}
+\end{aligned}
+\]</span></p>
+<h1 id="信息增益">信息增益</h1>
+<p>信息增益的含义即<strong>在条件X下，信息Y的不确定性的减少程度。</strong></p>
+<p><span class="math display">\[
+InfoGain(Y, X) = H(Y) - H(Y|X)
+\]</span></p>
+<h1 id="例题">例题</h1>
+<p>例如:</p>
+<table>
+<thead>
+<tr class="header">
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hx-hy"><code>H(X)</code>, <code>H(Y)</code></h2>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;H(X) = -(0.5\log_{2}{0.5} + 0.5\log_{2}{0.5}) = 1\\
+&amp;H(Y) = -(0.5\log_{2}{0.5} + 0.25\log_{2}{0.25}\times2 = 1.5
+\end{aligned}
+\]</span></p>
+<h2 id="hyx"><code>H(Y|X)</code></h2>
 <ul>
-<li>交换律</li>
+<li>法一</li>
 </ul>
 <p><span class="math display">\[
-(a + b) \bmod c = (b + a) \bmod c\\
-(a * b) \bmod c = (b * a) \bmod c
+\begin{aligned}
+&amp;H(Y|X=1) = 0, H(Y|X=2) = 1\\
+&amp;H(Y|X) = 0.5\times0 + 0.5\times1 = 0.5
+\end{aligned}
 \]</span></p>
 <ul>
-<li>结合律</li>
+<li>法二</li>
 </ul>
 <p><span class="math display">\[
-((a+b) \bmod p + c) \bmod p = (a + (b+c) \bmod p) \bmod p\\
-((a * b) \bmod p * c) \bmod p = (a * (b * c) \bmod p) \bmod p\\
+\begin{aligned}
+&amp;P(x=1, y=2)\log_{2}{P(y=2|x=1)} = 0.5 \times 0 = 0\\
+&amp;P(x=2, y=3)\log_{2}{P(y=3|x=2)} = 0.25 \times (-1) = -0.25\\
+&amp;P(x=2, y=4)\log_{2}{P(y=4|x=2)} =  0.25 \times (-1) = -0.25\\
+&amp;H(Y|X) = -(0 - 0.25 - 0.25) = 0.5
+\end{aligned}
 \]</span></p>
-<ul>
-<li>分配律</li>
-</ul>
+<h2 id="infogain"><code>InfoGain</code></h2>
 <p><span class="math display">\[
-((a +b)\bmod p * c) \bmod p = ((a * c) \bmod p + (b * c) \bmod p) \bmod p 
+InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
 \]</span></p>
-<h1 id="重要应用">2. 重要应用</h1>
-<p>有一种常见的题型，要求<strong>对一个大整数求模运算</strong>， 这时我们就可以灵活运用求模运算的性质。</p>
-<p>例如下面这题:</p>
-<blockquote>
-<p>求斐波那契数列 <span class="math inline">\(F_n\)</span> 除以10007的余数是多少(1 &lt;= n &lt;= 1000000)</p>
-</blockquote>
-<p>这里很显然主要的问题就是溢出问题，一下这种写法很显然会溢出:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> a = <span class="number">1</span>, b = <span class="number">1</span>, res = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    res = a + b;</span><br><span class="line">    a = b;</span><br><span class="line">    b = res;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(res % <span class="number">10007</span>);</span><br></pre></td></tr></table></figure>
-<p>利用取模的性质，我们可以改写为:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    res = (a + b) % <span class="number">10007</span>;</span><br><span class="line">    a = b;</span><br><span class="line">    b = res;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(res);</span><br></pre></td></tr></table></figure>
-<p>再举一个例子:</p>
-<blockquote>
-<p>输入n，求前n个阶乘相加后的数的后6位(不包含前导0)。n &lt;= 10^6</p>
-</blockquote>
-<p>如果我们不利用性质，就会写出一个比较危险的代码:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> factorial = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">long</span> mod = <span class="number">1000000</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    factorial *= i;</span><br><span class="line">    sum += factorial;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(sum % mod);</span><br></pre></td></tr></table></figure>
-<p>显然百分百会溢出。但是如果我们更改一下，重复利用数学性质，则有:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> factorialx = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">long</span> sumx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">long</span> mod = <span class="number">1000000</span>;</span><br><span class="line"><span class="comment">//灵活运用性质1和性质5</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    factorialx = (factorialx * i) % mod;<span class="comment">//等价与factorialx + i % mod, 但这么做factorialx有溢出的风险</span></span><br><span class="line">    sumx = (sumx + factorialx) % mod;<span class="comment">//等价于sumx + factorialx % mod，但这么做sumx有溢出的风险</span></span><br><span class="line">&#125;</span><br><span class="line">System.out.println(sumx % mod);</span><br></pre></td></tr></table></figure>
-<p>证明略。</p>
 
       
     </div>
@@ -501,6 +528,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Note/" rel="tag"># Note</a>
+          
+        </div>
+      
 
       
       
@@ -510,8 +543,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/26/最大公约数与最小公倍数/" rel="next" title="最大公约数与最小公倍数">
-                <i class="fa fa-chevron-left"></i> 最大公约数与最小公倍数
+              <a href="/2019/05/30/正则表达式/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
               </a>
             
           </div>
@@ -519,10 +552,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/26/整数划分问题/" rel="prev" title="整数划分问题">
-                整数划分问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -705,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#取模的数学规则"><span class="nav-text">1. 取模的数学规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本四则运算"><span class="nav-text">1.1 基本四则运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他性质"><span class="nav-text">1.2 其他性质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重要应用"><span class="nav-text">2. 重要应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息熵"><span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件熵"><span class="nav-text">条件熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信息增益"><span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题"><span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hx-hy"><span class="nav-text">H(X), H(Y)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hyx"><span class="nav-text">H(Y|X)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#infogain"><span class="nav-text">InfoGain</span></a></li></ol></li></ol></div>
             
 
           </div>
