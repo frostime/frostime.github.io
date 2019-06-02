@@ -96,25 +96,24 @@
 
 
 
-  <meta name="description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
-<meta name="keywords" content="Note">
+  <meta name="description" content="1. 思路 最大子矩阵和是最大字段和的一个拓展延申。相当于把原本一维的数组延展到二维上面来。 首先来列一下最大子段和的算法: 12345678910int maxSubArray(int arr[], size_t n)&amp;#123;    int maxSum = arr[0], dp = 0;    for (int i = 0; i &amp;lt; n; ++i)    &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="信息熵">
-<meta property="og:url" content="http://yoursite.com/2019/05/30/信息熵/index.html">
+<meta property="og:title" content="最大子阵和">
+<meta property="og:url" content="http://yoursite.com/2019/06/02/最大子阵和/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
+<meta property="og:description" content="1. 思路 最大子矩阵和是最大字段和的一个拓展延申。相当于把原本一维的数组延展到二维上面来。 首先来列一下最大子段和的算法: 12345678910int maxSubArray(int arr[], size_t n)&amp;#123;    int maxSum = arr[0], dp = 0;    for (int i = 0; i &amp;lt; n; ++i)    &amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-30T14:52:40.834Z">
+<meta property="og:updated_time" content="2019-06-02T13:07:33.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="信息熵">
-<meta name="twitter:description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
+<meta name="twitter:title" content="最大子阵和">
+<meta name="twitter:description" content="1. 思路 最大子矩阵和是最大字段和的一个拓展延申。相当于把原本一维的数组延展到二维上面来。 首先来列一下最大子段和的算法: 12345678910int maxSubArray(int arr[], size_t n)&amp;#123;    int maxSum = arr[0], dp = 0;    for (int i = 0; i &amp;lt; n; ++i)    &amp;#123;">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/30/信息熵/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/02/最大子阵和/">
 
 
 
@@ -124,7 +123,7 @@
   };
 </script>
 
-  <title>信息熵 | Frostime</title>
+  <title>最大子阵和 | Frostime</title>
   
 
 
@@ -323,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/信息熵/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/最大子阵和/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zuo Yiping">
@@ -340,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">信息熵
+          <h1 class="post-title" itemprop="name headline">最大子阵和
 
               
             
@@ -366,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-05-30 22:47:47 / 修改时间：22:52:40" itemprop="dateCreated datePublished" datetime="2019-05-30T22:47:47+08:00">2019-05-30</time>
+              <time title="创建时间：2019-06-02 21:04:23 / 修改时间：21:07:33" itemprop="dateCreated datePublished" datetime="2019-06-02T21:04:23+08:00">2019-06-02</time>
             
 
             
@@ -388,14 +387,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学/" itemprop="url" rel="index"><span itemprop="name">数学</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/OJ/" itemprop="url" rel="index"><span itemprop="name">OJ</span></a></span>
 
                 
                 
@@ -430,83 +422,62 @@
       
 
       
-        <h1 id="信息熵">信息熵</h1>
+        <h1 id="思路">1. 思路</h1>
+<p>最大子矩阵和是最大字段和的一个拓展延申。相当于把原本一维的数组延展到二维上面来。</p>
+<p>首先来列一下最大子段和的算法: <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span> arr[], size_t n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxSum = arr[<span class="number">0</span>], dp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        dp = max(arr[i], dp + arr[i]);</span><br><span class="line">        maxSum = max(maxSum, dp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么如何解决最大子矩阵和的问题呢？核心的思想是<strong>把二维矩阵变为一维数组，然后求解一个最大子段和问题</strong>。</p>
+<p>什么意思？假如有这么一个矩阵:</p>
 <p><span class="math display">\[
-H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}}
+\begin{pmatrix} 
+0 &amp; -2 &amp; -7 &amp; 0\\
+9 &amp; 2 &amp; -6 &amp; 2\\
+-4 &amp; 1 &amp; -4 &amp; 1\\
+-1 &amp; 8 &amp; 0 &amp; 2 
+\end{pmatrix}
 \]</span></p>
-<h1 id="条件熵">条件熵</h1>
+<p>如果我们能把它变成这样:</p>
 <p><span class="math display">\[
-\begin{aligned}
-&amp;H(Y|X)\\
-&amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\
-&amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cdot \log_{2}{P(y|x)}}
-\end{aligned}
+\begin{pmatrix}
+0 &amp; -2 &amp; -7 &amp; 0\\
+9 &amp; 2 &amp; -6 &amp; 2\\
+-4 &amp; 1 &amp; -4 &amp; 1\\
+-1 &amp; 8 &amp; 0 &amp; 2
+\end{pmatrix}
+\Rightarrow
+\begin{pmatrix} 
+a_0 &amp; 0 &amp; -2 &amp; -7 &amp; 0\\
+a_0+a_1 &amp; 9 &amp; 0 &amp; -15 &amp; 2\\
+a_0+a_1+a_2 &amp; 5 &amp; 1 &amp; -19 &amp; 1\\
+a_0+a_1+a_2+a_3 &amp; 4 &amp; 9 &amp; -19&amp; 3\\
+a_1 &amp; 9 &amp; 2 &amp; -6 &amp; 2\\
+a_1+a_2 &amp; 5 &amp; 3 &amp; -10&amp; 3\\
+a_1+a_2+a_3 &amp; 4 &amp; 11 &amp; -10 &amp; 5\\
+a_2&amp;-4 &amp; 1 &amp; -4&amp; 1\\
+a_2+a_3&amp;-5 &amp; 9 &amp;-4 &amp; 3\\
+a_3&amp;-1 &amp; 8 &amp; 0 &amp; 2
+\end{pmatrix}
 \]</span></p>
-<h1 id="信息增益">信息增益</h1>
-<p>信息增益的含义即<strong>在条件X下，信息Y的不确定性的减少程度。</strong></p>
+<p>然后对于<strong>新的矩阵的的每一行都求一次最大字段和，取其最大值，就是最大子阵和了</strong>。</p>
+<p>也就是这样:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MaxSubMatrix(matrix):</span><br><span class="line">    maxVal = 负无穷</span><br><span class="line">    for i = 1:n:</span><br><span class="line">        for j = i:n:</span><br><span class="line">            array = sum(matrix[i:j, :], 沿着纵轴)</span><br><span class="line">            maxVal = max(maxVal, array的最大子段和)</span><br><span class="line">    return maxVal</span><br></pre></td></tr></table></figure>
+<p>以上的伪代码就是算法的基本思想，其中 <code>matrix[i:j, :]</code> 的意思是 <code>matrix</code> 从 <code>i</code> 到 <code>j</code> 的一个闭区间子矩阵。</p>
+<p>不过上面的算法还有一些可以改进的地方。</p>
+<h1 id="改进">2. 改进</h1>
+<p>什么地方可以改进呢？在于 <code>sum(matrix[i:j, :], 沿着纵轴)</code>，这实在是太花时间了！想想看把，本来已经有一个二重循环了，最里面还要对一个子矩阵做遍历，这加起来足足有 <span class="math inline">\(O(n^4)\)</span> 的复杂度了。</p>
+<p>所以为了简化这一操作，我们可以做一个预处理，我们可以使用一个辅助矩阵 <code>AxisSum</code>，其中</p>
 <p><span class="math display">\[
-InfoGain(Y, X) = H(Y) - H(Y|X)
+\large AxisSum[i][j] = \large \sum_{k = 0}^{i}{Matrix[k][j]}
 \]</span></p>
-<h1 id="例题">例题</h1>
-<p>例如:</p>
-<table>
-<thead>
-<tr class="header">
-<th>X</th>
-<th>Y</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<h2 id="hx-hy"><code>H(X)</code>, <code>H(Y)</code></h2>
+<p>这样一来我们可以轻松的计算矩阵中任意一列的子段之和了，比如现在我们想要将矩阵第a行到第b行之间的子矩阵进行压缩考察，那么有:</p>
 <p><span class="math display">\[
-\begin{aligned}
-&amp;H(X) = -(0.5\log_{2}{0.5} + 0.5\log_{2}{0.5}) = 1\\
-&amp;H(Y) = -(0.5\log_{2}{0.5} + 0.25\log_{2}{0.25}\times2 = 1.5
-\end{aligned}
+Array[j] = 
+\begin{cases}
+AxisSum[b][j] - AxisSum[a - 1][j] &amp; (a &gt; 1)\\
+Axis[1][j] &amp; (a = 1)
+\end{cases}
 \]</span></p>
-<h2 id="hyx"><code>H(Y|X)</code></h2>
-<ul>
-<li>法一</li>
-</ul>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H(Y|X=1) = 0, H(Y|X=2) = 1\\
-&amp;H(Y|X) = 0.5\times0 + 0.5\times1 = 0.5
-\end{aligned}
-\]</span></p>
-<ul>
-<li>法二</li>
-</ul>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;P(x=1, y=2)\log_{2}{P(y=2|x=1)} = 0.5 \times 0 = 0\\
-&amp;P(x=2, y=3)\log_{2}{P(y=3|x=2)} = 0.25 \times (-1) = -0.25\\
-&amp;P(x=2, y=4)\log_{2}{P(y=4|x=2)} =  0.25 \times (-1) = -0.25\\
-&amp;H(Y|X) = -(0 - 0.25 - 0.25) = 0.5
-\end{aligned}
-\]</span></p>
-<h2 id="infogain"><code>InfoGain</code></h2>
-<p><span class="math display">\[
-InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
-\]</span></p>
+<h1 id="完整代码">3. 完整代码</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="comment">/*mat[i][j]表示从第一行到第i+1行的j列的和*/</span></span><br><span class="line"><span class="keyword">long</span> mat[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"><span class="keyword">long</span> arr[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Input</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; mat[<span class="number">0</span>][j];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; mat[i][j];</span><br><span class="line">            mat[i][j] += mat[i - <span class="number">1</span>][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxSum = arr[<span class="number">0</span>], dp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        dp = max(arr[i], dp + arr[i]);</span><br><span class="line">        maxSum = max(maxSum, dp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DP</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxVal = mat[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; n; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n; ++k)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> high = mat[j][k];</span><br><span class="line">                <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>)</span><br><span class="line">                    low = mat[i - <span class="number">1</span>][k];</span><br><span class="line">                arr[k] = high - low;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> val = maxSubArray();</span><br><span class="line">            maxVal = max(val, maxVal);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; maxVal &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        Input();</span><br><span class="line">        DP();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -528,12 +499,6 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Note/" rel="tag"># Note</a>
-          
-        </div>
-      
 
       
       
@@ -543,8 +508,8 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/30/正则表达式/" rel="next" title="正则表达式">
-                <i class="fa fa-chevron-left"></i> 正则表达式
+              <a href="/2019/06/02/背包问题/" rel="next" title="背包问题">
+                <i class="fa fa-chevron-left"></i> 背包问题
               </a>
             
           </div>
@@ -552,10 +517,6 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/31/清华考研-整数划分/" rel="prev" title="【清华考研】整数划分">
-                【清华考研】整数划分 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -746,7 +707,7 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息熵"><span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件熵"><span class="nav-text">条件熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信息增益"><span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题"><span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hx-hy"><span class="nav-text">H(X), H(Y)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hyx"><span class="nav-text">H(Y|X)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#infogain"><span class="nav-text">InfoGain</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-text">1. 思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#改进"><span class="nav-text">2. 改进</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整代码"><span class="nav-text">3. 完整代码</span></a></li></ol></div>
             
 
           </div>
