@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. C-风格字符串输入 1.1 cin &amp;gt;&amp;gt; 1.1.1 使用方式 12char sz[20];cin &amp;gt;&amp;gt; sz; 1.1.2 细节知识点 用 cin 读取时，它会将回车键生成的换行符保留在缓冲区中。 这点很重要，与之后 getline() 和 get() 函数出现的问题有关。 1.1.3 存在的问题 引例 123456char sz[20];char">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++字符串输入">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/C-字符串输入/index.html">
+<meta property="og:site_name" content="Frostime">
+<meta property="og:description" content="1. C-风格字符串输入 1.1 cin &amp;gt;&amp;gt; 1.1.1 使用方式 12char sz[20];cin &amp;gt;&amp;gt; sz; 1.1.2 细节知识点 用 cin 读取时，它会将回车键生成的换行符保留在缓冲区中。 这点很重要，与之后 getline() 和 get() 函数出现的问题有关。 1.1.3 存在的问题 引例 123456char sz[20];char">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-05T15:07:57.708Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++字符串输入">
+<meta name="twitter:description" content="1. C-风格字符串输入 1.1 cin &amp;gt;&amp;gt; 1.1.1 使用方式 12char sz[20];cin &amp;gt;&amp;gt; sz; 1.1.2 细节知识点 用 cin 读取时，它会将回车键生成的换行符保留在缓冲区中。 这点很重要，与之后 getline() 和 get() 函数出现的问题有关。 1.1.3 存在的问题 引例 123456char sz[20];char">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/05/C-字符串输入/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>C++字符串输入 | Frostime</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frostime</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/C-字符串输入/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zuo Yiping">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frostime">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++字符串输入
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-05 21:42:11 / 修改时间：23:07:57" itemprop="dateCreated datePublished" datetime="2019-06-05T21:42:11+08:00">2019-06-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="c-风格字符串输入">1. C-风格字符串输入</h1>
+<h2 id="cin">1.1 <code>cin &gt;&gt;</code></h2>
+<h3 id="使用方式">1.1.1 使用方式</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> sz[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; sz;</span><br></pre></td></tr></table></figure>
+<h3 id="细节知识点">1.1.2 细节知识点</h3>
+<p>用 <code>cin</code> 读取时，它会<strong>将回车键生成的换行符保留在缓冲区中。</strong></p>
+<p>这点很重要，与之后 <code>getline()</code> 和 <code>get()</code> 函数出现的问题有关。</p>
+<h3 id="存在的问题">1.1.3 存在的问题</h3>
+<h4 id="引例">引例</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> sz[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; sz;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; sz &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p><em>输入</em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello world <span class="comment">//按回车键</span></span><br></pre></td></tr></table></figure>
+<p><em>输出</em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
+<h4 id="原因">原因</h4>
+<blockquote>
+<p><code>cin</code> 使用空白符号来确定字符串结束的位置，这意味着字符数组在输入时一次只读入一个单词。<br>
+<code>cin</code> 将该单词放入数组之中，<strong>自动添加空字符</strong>，<strong>而输入的其余内容则留在缓冲区中</strong>。</p>
+</blockquote>
+<h2 id="cin.getline">1.2 <code>cin.getline()</code></h2>
+<h3 id="使用方式-1">1.2.1 使用方式</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">istream &amp;<span class="title">getline</span><span class="params">(<span class="keyword">char</span> *buffer, streamsize num)</span></span>;</span><br><span class="line"><span class="function">istream &amp;<span class="title">getline</span><span class="params">(<span class="keyword">char</span> *buffer, streamsize num, <span class="keyword">char</span> delim)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><code>getline()</code> 函数用于输入流，读取字符到 buffer 中，直到下列情况发生：</p>
+<ul>
+<li>num - 1个字符已经读入,</li>
+<li>碰到一个换行标志，</li>
+<li>碰到一个EOF，</li>
+<li>任意地读入，直到读到字符delim。delim字符不会被放入buffer中。</li>
+</ul>
+<h4 id="样例">样例</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> sz[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span>.getline(sz, <span class="number">20</span>);</span><br><span class="line"><span class="built_in">cin</span>.getline(str, <span class="number">20</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; sz;<span class="comment">//注意没有endl</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p><em>输入</em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello world <span class="comment">//按回车键</span></span><br><span class="line">here <span class="comment">//按回车键</span></span><br></pre></td></tr></table></figure>
+<p><em>输出</em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello worldhere</span><br><span class="line"><span class="comment">//endl空行</span></span><br></pre></td></tr></table></figure>
+<h3 id="细节知识点-1">1.2.2 细节知识点</h3>
+<ol type="1">
+<li>若参数num为n，<strong>则最多读入n-1个字符。</strong></li>
+<li><code>getline()</code> 函数每次读取一行。它通过换行符确定行尾，<strong>但不会将换行符留在缓冲区中，而是将换行符用空字符替换保留在字符串中。</strong></li>
+</ol>
+<p>以上面的例子为例，<strong>在输入hello world之后按下了回车键。</strong></p>
+<blockquote>
+<p><code>hello world //回车键</code></p>
+</blockquote>
+<p><strong>但输出时并没有空行。</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello worldhere<span class="comment">//没有空行</span></span><br><span class="line">空行</span><br></pre></td></tr></table></figure>
+<h3 id="存在的问题-1">1.2.3 存在的问题</h3>
+<h4 id="读入空行">读入空行</h4>
+<h5 id="引例-1">引例</h5>
+<p>对一下程序 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> sz[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; sz;</span><br><span class="line"><span class="built_in">cin</span>.getline(str, <span class="number">20</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sz: "</span> &lt;&lt; sz &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"str: "</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<p>首先以一个输入方式为例。</p>
+<ul>
+<li><em>不会出错的输入</em> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">her name<span class="comment">//按回车键</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><em>输出</em> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">her</span><br><span class="line"> name<span class="comment">//注意前面的空格</span></span><br></pre></td></tr></table></figure></p>
+<p><code>cin</code>在读到<code>her</code>后面的空格后结束，<strong>并且将空位符留在缓冲区中，由下一个字符串读取。</strong></p>
+<p><em>由此我们可以引出一个常见的错误</em></p>
+<ul>
+<li><em>会出错的输入</em> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">her<span class="comment">//按回车键</span></span><br><span class="line"><span class="comment">//无法输入下一个字符串，直接输出</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><em>输出</em> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">her</span><br></pre></td></tr></table></figure></p>
+<p>这是由于<code>cin</code><strong>将回车键产生的换行符留在缓冲区内所以直接被<code>str</code>读取。</strong> 所以<code>str</code></p>
+<blockquote>
+<p>注意，<code>cin &gt;&gt;</code> 与 <code>cin.getline()</code>连用要小心</p>
+</blockquote>
+<p>而对于<code>cicin.getline()</code>的连用，<strong>由于该函数不会将换行符留在缓冲区中，因此连用时没有读取空行的担忧。</strong></p>
+<p>也就是说 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是可行的</span></span><br><span class="line"><span class="built_in">cin</span>.getline(sz, <span class="number">20</span>);</span><br><span class="line"><span class="built_in">cin</span>.getline(str, <span class="number">20</span>);</span><br></pre></td></tr></table></figure></p>
+<h5 id="解决办法">解决办法</h5>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cin</span> &gt;&gt; sz;</span><br><span class="line"><span class="comment">//法一</span></span><br><span class="line"><span class="built_in">cin</span>.get();</span><br><span class="line"><span class="comment">//法二，ignore()默认忽略eof标识前一个字符</span></span><br><span class="line"><span class="built_in">cin</span>.ignore();</span><br></pre></td></tr></table></figure>
+<h4 id="字数超长问题">字数超长问题</h4>
+<p>如果输入行包含的字符比指定的字符数多，<code>getline()</code>会将剩余的字符留在缓冲区中，<strong>然后设置失效位，并关闭输入。</strong></p>
+<h2 id="cin.get">1.3 <code>cin.get()</code></h2>
+<h3 id="使用方式-2">1.3.1 使用方式</h3>
+<h4 id="原型">原型</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">istream &amp;<span class="title">get</span><span class="params">( <span class="keyword">char</span> &amp;ch )</span></span>;</span><br><span class="line"><span class="function">istream &amp;<span class="title">get</span><span class="params">( <span class="keyword">char</span> *buffer, streamsize num )</span></span>;</span><br><span class="line"><span class="function">istream &amp;<span class="title">get</span><span class="params">( <span class="keyword">char</span> *buffer, streamsize num, <span class="keyword">char</span> delim )</span></span>;</span><br><span class="line"><span class="function">istream &amp;<span class="title">get</span><span class="params">( streambuf &amp;buffer )</span></span>;</span><br><span class="line"><span class="function">istream &amp;<span class="title">get</span><span class="params">( streambuf &amp;buffer, <span class="keyword">char</span> delim )</span></span>;</span><br></pre></td></tr></table></figure>
+<p>get()函数被用于输入流，和以下这些:</p>
+<ul>
+<li>读入一个字符并返回它的值，</li>
+<li>读入一个字符并把它存储在ch，</li>
+<li>读取字符到buffer直到num - 1个字符被读入, 或者碰到EOF或换行标志，</li>
+<li>读取字符到buffer直到已读入num - 1 个字符，或者碰到EOF或delim(delim直到下一次不会被读取)，</li>
+<li>读取字符到buffer中，直到碰到换行或EOF，</li>
+<li>读取字符到buffer中，直到碰到换行，EOF或delim。(相反, delim直到下一个get()不会被读取 ).</li>
+</ul>
+<h3 id="细节问题">1.3.2 细节问题</h3>
+<h1 id="string-输入">2. <code>string</code> 输入</h1>
+<h2 id="cin-1">2.1 <code>cin &gt;&gt;</code></h2>
+<h3 id="使用方法">2.1.2 使用方法</h3>
+<p>同上，一次只能读取一个单词。<br>
+<strong>注意这里读取时利用<code>while</code>的技巧</strong> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> line;</span><br><span class="line">	ifstream in;</span><br><span class="line">	<span class="comment">//每次读取一个单词，直到文件末尾</span></span><br><span class="line">	<span class="keyword">while</span> (in &gt;&gt; word)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; word &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="getline">2.2 <code>getline()</code></h2>
+<h3 id="原型-1">2.2.1 原型</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">getline</span> <span class="params">(istream&amp;  is, <span class="built_in">string</span>&amp; str, <span class="keyword">char</span> delim)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">getline</span> <span class="params">(istream&amp;&amp; is, <span class="built_in">string</span>&amp; str, <span class="keyword">char</span> delim)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">istream&amp; <span class="title">getline</span> <span class="params">(istream&amp;  is, <span class="built_in">string</span>&amp; str)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">getline</span> <span class="params">(istream&amp;&amp; is, <span class="built_in">string</span>&amp; str)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="使用方法-1">2.2.2 使用方法</h3>
+<p>同上，遇到换行符为止(<code>delim</code>)，但是终止字符<code>delim</code>(默认为换行符)<strong>并不会留在缓冲区中留给下一位来读取，而是变成了空字符留在了字符串中，不影响输出。(可以当作被丢弃了)</strong></p>
+<h3 id="例子">2.2.3 例子</h3>
+<p>有文件<code>a.txt</code>:</p>
+<blockquote>
+<p>Iam a boy<br>
+Helloaworld</p>
+</blockquote>
+<p>程序如下： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">ifstream <span class="title">fin</span><span class="params">(<span class="string">"a.txt"</span>)</span></span>;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="comment">//每次读取一段文字，直到文件末尾EOF</span></span><br><span class="line">    <span class="keyword">while</span> (getline(fin, str, <span class="string">'a'</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">I<span class="comment">//遇到了a停止读入</span></span><br><span class="line">m<span class="comment">//字符a没有被读入下一个str</span></span><br><span class="line"> boy <span class="comment">//遇到了a停止读入，但空格被下一个str读入了</span></span><br><span class="line">Hello</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/05/并查集/" rel="next" title="并查集">
+                <i class="fa fa-chevron-left"></i> 并查集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/06/C-中的排序，不只有std-sort/" rel="prev" title="C++中的排序，不只有std::sort">
+                C++中的排序，不只有std::sort <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zuo Yiping</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#c-风格字符串输入"><span class="nav-text">1. C-风格字符串输入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cin"><span class="nav-text">1.1 cin &gt;&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式"><span class="nav-text">1.1.1 使用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#细节知识点"><span class="nav-text">1.1.2 细节知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存在的问题"><span class="nav-text">1.1.3 存在的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引例"><span class="nav-text">引例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原因"><span class="nav-text">原因</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cin.getline"><span class="nav-text">1.2 cin.getline()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式-1"><span class="nav-text">1.2.1 使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样例"><span class="nav-text">样例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#细节知识点-1"><span class="nav-text">1.2.2 细节知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存在的问题-1"><span class="nav-text">1.2.3 存在的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读入空行"><span class="nav-text">读入空行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#引例-1"><span class="nav-text">引例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决办法"><span class="nav-text">解决办法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字数超长问题"><span class="nav-text">字数超长问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cin.get"><span class="nav-text">1.3 cin.get()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式-2"><span class="nav-text">1.3.1 使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原型"><span class="nav-text">原型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#细节问题"><span class="nav-text">1.3.2 细节问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#string-输入"><span class="nav-text">2. string 输入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cin-1"><span class="nav-text">2.1 cin &gt;&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-text">2.1.2 使用方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getline"><span class="nav-text">2.2 getline()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型-1"><span class="nav-text">2.2.1 原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法-1"><span class="nav-text">2.2.2 使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-text">2.2.3 例子</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zuo Yiping</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 â€“ <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.0</div>
+
+
+
+
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
