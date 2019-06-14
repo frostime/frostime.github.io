@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="以前用过 memset，以为唯一的坑就是最后一个参数，没想到还有坑。 从下面的代码说起。 12345678910int road[10001];int main()&amp;#123;    while (cin &amp;gt;&amp;gt; L &amp;gt;&amp;gt; M)    &amp;#123;        //我们希望把 road 前 L 个元素设置为 1        memset(road, 1, sizeof">
-<meta name="keywords" content="踩坑笔记">
+  <meta name="description" content="1. 题目描述 爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。 最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作： 选出任一 x，满足 0 &amp;lt; x &amp;lt; N 且 N % x == 0 。 用 N - x 替换黑板上的数字 N 。 如果玩家无法执行这些操作，就会输掉游戏。 只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个">
+<meta name="keywords" content="动态规划,博弈">
 <meta property="og:type" content="article">
-<meta property="og:title" content="memset的陷阱">
-<meta property="og:url" content="http://yoursite.com/2019/06/02/memset的陷阱/index.html">
+<meta property="og:title" content="【LeetCode】1025 除数博弈">
+<meta property="og:url" content="http://yoursite.com/2019/06/14/【LeetCode】1025-除数博弈/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="以前用过 memset，以为唯一的坑就是最后一个参数，没想到还有坑。 从下面的代码说起。 12345678910int road[10001];int main()&amp;#123;    while (cin &amp;gt;&amp;gt; L &amp;gt;&amp;gt; M)    &amp;#123;        //我们希望把 road 前 L 个元素设置为 1        memset(road, 1, sizeof">
+<meta property="og:description" content="1. 题目描述 爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。 最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作： 选出任一 x，满足 0 &amp;lt; x &amp;lt; N 且 N % x == 0 。 用 N - x 替换黑板上的数字 N 。 如果玩家无法执行这些操作，就会输掉游戏。 只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-05T13:42:32.247Z">
+<meta property="og:updated_time" content="2019-06-14T10:39:49.290Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="memset的陷阱">
-<meta name="twitter:description" content="以前用过 memset，以为唯一的坑就是最后一个参数，没想到还有坑。 从下面的代码说起。 12345678910int road[10001];int main()&amp;#123;    while (cin &amp;gt;&amp;gt; L &amp;gt;&amp;gt; M)    &amp;#123;        //我们希望把 road 前 L 个元素设置为 1        memset(road, 1, sizeof">
+<meta name="twitter:title" content="【LeetCode】1025 除数博弈">
+<meta name="twitter:description" content="1. 题目描述 爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。 最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作： 选出任一 x，满足 0 &amp;lt; x &amp;lt; N 且 N % x == 0 。 用 N - x 替换黑板上的数字 N 。 如果玩家无法执行这些操作，就会输掉游戏。 只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/02/memset的陷阱/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/14/【LeetCode】1025-除数博弈/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>memset的陷阱 | Frostime</title>
+  <title>【LeetCode】1025 除数博弈 | Frostime</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/memset的陷阱/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/14/【LeetCode】1025-除数博弈/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zuo Yiping">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">memset的陷阱
+          <h1 class="post-title" itemprop="name headline">【LeetCode】1025 除数博弈
 
               
             
@@ -366,24 +366,12 @@
                 
               
 
-              <time title="创建时间：2019-06-02 22:25:40" itemprop="dateCreated datePublished" datetime="2019-06-02T22:25:40+08:00">2019-06-02</time>
+              <time title="创建时间：2019-06-14 17:42:11 / 修改时间：18:39:49" itemprop="dateCreated datePublished" datetime="2019-06-14T17:42:11+08:00">2019-06-14</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-05 21:42:32" itemprop="dateModified" datetime="2019-06-05T21:42:32+08:00">2019-06-05</time>
               
             
           </span>
@@ -400,14 +388,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/OJ/" itemprop="url" rel="index"><span itemprop="name">OJ</span></a></span>
 
                 
                 
@@ -442,26 +423,60 @@
       
 
       
-        <p>以前用过 <code>memset</code>，以为唯一的坑就是最后一个参数，没想到还有坑。</p>
-<p>从下面的代码说起。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> road[<span class="number">10001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; L &gt;&gt; M)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//我们希望把 road 前 L 个元素设置为 1</span></span><br><span class="line">        <span class="built_in">memset</span>(road, <span class="number">1</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>) * L);</span><br><span class="line">        <span class="comment">//....</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然而这个代码运行是不成功的，因为 <code>memset(road, 1, sizeof(int) * L);</code> 并不会把 <code>road</code> 数组变成 1。我在查看时发现所有的元素都变成了 <code>16843009</code>！</p>
-<p>这他娘的就很见鬼了，我一开始还以为是系统的 bug 后来查了一下资料才发现是我对 <code>memset</code> 理解的错误。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">memset(数组名, 值, sizeof(数组名));</span><br></pre></td></tr></table></figure>
-<p>因为memset是<strong>按字节赋值，对每个字节赋值同样的值，这样int四个字节会附相同的值</strong>(这也是它为什么是在 <code>cstring</code> 里的原因)。而0二进制代码全为0，不容易错。</p>
-<p>那么赋值为 1 时呢？你看啊，一个 <code>int</code> 四个四节，每个字节变成 1，那就是:</p>
+        <h1 id="题目描述">1. 题目描述</h1>
+<p>爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。</p>
+<p>最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作：</p>
+<pre><code>选出任一 x，满足 0 &lt; x &lt; N 且 N % x == 0 。
+用 N - x 替换黑板上的数字 N 。</code></pre>
+<p>如果玩家无法执行这些操作，就会输掉游戏。</p>
+<p>只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个玩家都以最佳状态参与游戏。</p>
+<p>示例 1：</p>
+<pre><code>输入：2
+输出：true
+解释：爱丽丝选择 1，鲍勃无法进行操作。</code></pre>
+<p>示例 2：</p>
+<pre><code>输入：3
+输出：false
+解释：爱丽丝选择 1，鲍勃也选择 1，然后爱丽丝无法进行操作。</code></pre>
+<p>提示：</p>
+<pre><code>1 &lt;= N &lt;= 1000</code></pre>
+<p>来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/divisor-game 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 <blockquote>
-<p>00000001 00000001 00000001 00000001</p>
+<p>来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/divisor-game</p>
 </blockquote>
-<p>转换成10进制也就是16843009。</p>
-<p>以后用 <code>memset</code> 的时候就要注意了，一般拿它来置零就行了，要想赋值为别的值，就用 <code>algorithm</code> 里的 <code>fill</code>吧。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fill</span> <span class="params">(ForwardIterator first, ForwardIterator last, <span class="keyword">const</span> T&amp; val)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>当然这个会稍微慢一点。</p>
-<p>以后用 <code>memset</code> 需要注意了:</p>
+<h1 id="动态规划法">2. 动态规划法</h1>
+<p>乍一看，这不就是巴什博弈么？仔细观察才发现还是有些不同的，巴什博弈中对于取石子的数量没有约束，而这里要求必须是整除。</p>
+<p>由于这道题是我在动态规划专题里看到的，所以第一反应就是怎么使用动规。试过以后才发现动态规化还挺合适这一类博弈问题的(当然，并非最优解答)。</p>
+<p>首先来总结一下这一类博弈问题的基本特点吧。</p>
 <ol type="1">
-<li>如果是针对 <code>char</code> 这样的单字节数组，哪么先设置什么就设置什么</li>
-<li>如果是 <code>int</code>，那只有 0 和 -1 是有效的</li>
+<li>可以用某个整数值来表征当前的局面；例如 n = 10 表示黑板上的数字是 10</li>
+<li>固定的局面对应了固定的结果，且上下文无关；例如 n = 10 的时候先手必败，那就意味着不管是一开始就是 10 还是从其他局面转移到当前局面，处身于当前局面的先手必败（即具有了<strong>状态转移的特性</strong>）</li>
+<li>各个局面之间具有很强烈的序列关系</li>
 </ol>
+<p>所以，这种类型的博弈问题都可以用这样的搜索结构来解决:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for 局面 i = 1:n</span><br><span class="line">    for each action</span><br><span class="line">        i --action--&gt; j，且 j &lt; i</span><br><span class="line">        if 局面 j 对先手而言是必败局</span><br><span class="line">            局面 i 对先手是必胜局</span><br><span class="line">            break</span><br><span class="line">    else</span><br><span class="line">        不管做什么动作，都会变成对于对手而言的必胜局</span><br><span class="line">        所以 i 对先手是必败局</span><br></pre></td></tr></table></figure>
+<p>有了这样的分析，我们就有了 AC 代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">divisorGame</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">bool</span> alice[N + <span class="number">1</span>];</span><br><span class="line">        alice[<span class="number">1</span>] = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">bool</span> ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= N; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            ans = <span class="literal">false</span>;</span><br><span class="line">            <span class="comment">//遍历所有合法的动作</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt; i; ++x)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//如果有一个 x 能够使得对方陷入 false 的境遇，那么当前的状况就是 true 的</span></span><br><span class="line">                <span class="keyword">if</span> (i % x == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (alice[i - x] == <span class="literal">false</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        ans = <span class="literal">true</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            alice[i] = ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> alice[N];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="归纳总结法">3. 归纳总结法</h1>
+<p>我们说了，上面的动态规划方法并不是最优的解。这种博弈问题一般经过严密的数学分析后都可以变得及其简单。</p>
+<p>首先模拟一下:</p>
+<pre><code>游戏开始时，
+假设N=1，爱丽丝失败；
+假设N=2，她可以选择x=1，来使鲍勃遇到的N=2-1=1，无法操作，爱丽丝获胜；
+假设N=3，她只能选择x=1，鲍勃遇到的N=2，鲍勃获胜；
+假设N=4，她可以选择x=1，来使鲍勃遇到的N=3，爱丽丝获胜；
+······</code></pre>
+<p>我们</p>
+<ol type="1">
+<li>注意到 N = 2 是一个必胜局面。</li>
+<li>奇数的因子只能是奇数，偶数的因子可以是奇数或偶数。</li>
+</ol>
+<p>所以:</p>
+<ul>
+<li>N 是偶数时，总可以选到一个 N 的奇数因子 x（比如1）， 使得传给对方的 N-x 为奇数，而对方遇到奇数 N，只能选择 N 的奇数因子 x， 又会将偶数的 N-x 传回给爱丽丝，最终爱丽丝会遇到 N = 2，然后获胜。</li>
+<li>N 是奇数时，只能传给对方偶数或无法操作 (N = 1)，无法获胜。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">divisorGame</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> N % <span class="number">2</span> == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -485,7 +500,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/踩坑笔记/" rel="tag"># 踩坑笔记</a>
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+          
+            <a href="/tags/博弈/" rel="tag"># 博弈</a>
           
         </div>
       
@@ -498,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/02/最大子阵和/" rel="next" title="最大子阵和">
-                <i class="fa fa-chevron-left"></i> 最大子阵和
+              <a href="/2019/06/07/【洛谷】P1309-瑞士轮/" rel="next" title="【洛谷】P1309 瑞士轮">
+                <i class="fa fa-chevron-left"></i> 【洛谷】P1309 瑞士轮
               </a>
             
           </div>
@@ -507,10 +524,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/03/n维切k刀/" rel="prev" title="n维空间切k刀">
-                n维空间切k刀 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,8 +567,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -689,6 +711,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">1. 题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划法"><span class="nav-text">2. 动态规划法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#归纳总结法"><span class="nav-text">3. 归纳总结法</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
