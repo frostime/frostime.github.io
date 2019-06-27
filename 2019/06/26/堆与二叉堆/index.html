@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/06/26/堆与二叉堆/堆的性质.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/26/堆与二叉堆/Insert.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/26/堆与二叉堆/Pop.png">
-<meta property="og:updated_time" content="2019-06-26T14:07:21.277Z">
+<meta property="og:updated_time" content="2019-06-27T02:30:46.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆与二叉堆">
 <meta name="twitter:description" content="1. 堆的概念 堆又名优先队列，是一种特殊的队列结构(尽管实现可能和队列毫无相似之处)。它的特点如下:  入队: 和正常队列一样把元素插入到数据结构中 出队: 将最小/大的元素出队  根据出队元素是最大的还是最小的元素又可以把堆分类为大顶堆和小顶堆两类。 堆的应用很广泛，最典型的例子就是带有优先级的排队，例如对中断的响应问题：优先响应高优先级的中断，同等优先级的按照顺序排队等。 堆">
@@ -370,16 +370,53 @@
                 
               
 
-              <time title="创建时间：2019-06-26 20:51:28 / 修改时间：22:07:21" itemprop="dateCreated datePublished" datetime="2019-06-26T20:51:28+08:00">2019-06-26</time>
+              <time title="创建时间：2019-06-26 20:51:28" itemprop="dateCreated datePublished" datetime="2019-06-26T20:51:28+08:00">2019-06-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-27 10:30:46" itemprop="dateModified" datetime="2019-06-27T10:30:46+08:00">2019-06-27</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/堆/" itemprop="url" rel="index"><span itemprop="name">堆</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -645,7 +682,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -876,7 +915,76 @@
   
 
 
-  <script src="/js/src/bootstrap.js?v=7.0.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -895,29 +1003,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-
-  
-  
-
-
-  
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 
