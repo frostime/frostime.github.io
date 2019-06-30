@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="给定一个数组，请写一个算法来求取该数组的全排列。 1. dfs 12345678910111213141516171819202122232425262728private static void permutation(int[] src)&amp;#123;    StringBuilder res = new StringBuilder();    boolean[] visited = new">
+  <meta name="description" content="给定一个数组，请写一个算法来求取该数组的全排列。 1. dfs12345678910111213141516171819202122232425262728private static void permutation(int[] src)&amp;#123;    StringBuilder res = new StringBuilder();    boolean[] visited = new bo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="全排列">
 <meta property="og:url" content="http://yoursite.com/2019/05/26/全排列/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="给定一个数组，请写一个算法来求取该数组的全排列。 1. dfs 12345678910111213141516171819202122232425262728private static void permutation(int[] src)&amp;#123;    StringBuilder res = new StringBuilder();    boolean[] visited = new">
+<meta property="og:description" content="给定一个数组，请写一个算法来求取该数组的全排列。 1. dfs12345678910111213141516171819202122232425262728private static void permutation(int[] src)&amp;#123;    StringBuilder res = new StringBuilder();    boolean[] visited = new bo">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-26T12:13:33.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全排列">
-<meta name="twitter:description" content="给定一个数组，请写一个算法来求取该数组的全排列。 1. dfs 12345678910111213141516171819202122232425262728private static void permutation(int[] src)&amp;#123;    StringBuilder res = new StringBuilder();    boolean[] visited = new">
+<meta name="twitter:description" content="给定一个数组，请写一个算法来求取该数组的全排列。 1. dfs12345678910111213141516171819202122232425262728private static void permutation(int[] src)&amp;#123;    StringBuilder res = new StringBuilder();    boolean[] visited = new bo">
 
 
 
@@ -423,40 +423,40 @@
 
       
         <p>给定一个数组，请写一个算法来求取该数组的全排列。</p>
-<h1 id="dfs">1. dfs</h1>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">permutation</span><span class="params">(<span class="keyword">int</span>[] src)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[src.length];</span><br><span class="line">    permute(src, visited, res);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Use dfs to make it</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">permute</span><span class="params">(<span class="keyword">int</span>[] src, <span class="keyword">boolean</span>[] visited, StringBuilder res)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (res.length() == src.length)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(res.toString());</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; src.length; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!visited[i])</span><br><span class="line">        &#123;</span><br><span class="line">            visited[i] = <span class="keyword">true</span>;</span><br><span class="line">            res.append(src[i]);</span><br><span class="line">            permute(src, visited, res);</span><br><span class="line">            visited[i] = <span class="keyword">false</span>;</span><br><span class="line">            res.deleteCharAt(res.length() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="交换法">2. 交换法</h1>
-<p>将<strong>第一个元素不断地与后面的元素交换</strong>，代表了<strong>以不同元素开头的情况</strong>。然后递归的对后面的元素进行同样的处理。</p>
+<h1 id="1-dfs"><a href="#1-dfs" class="headerlink" title="1. dfs"></a>1. dfs</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">permutation</span><span class="params">(<span class="keyword">int</span>[] src)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[src.length];</span><br><span class="line">    permute(src, visited, res);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Use dfs to make it</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">permute</span><span class="params">(<span class="keyword">int</span>[] src, <span class="keyword">boolean</span>[] visited, StringBuilder res)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (res.length() == src.length)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(res.toString());</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; src.length; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!visited[i])</span><br><span class="line">        &#123;</span><br><span class="line">            visited[i] = <span class="keyword">true</span>;</span><br><span class="line">            res.append(src[i]);</span><br><span class="line">            permute(src, visited, res);</span><br><span class="line">            visited[i] = <span class="keyword">false</span>;</span><br><span class="line">            res.deleteCharAt(res.length() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-交换法"><a href="#2-交换法" class="headerlink" title="2. 交换法"></a>2. 交换法</h1><p>将<strong>第一个元素不断地与后面的元素交换</strong>，代表了<strong>以不同元素开头的情况</strong>。然后递归的对后面的元素进行同样的处理。</p>
 <p>每次递归结束后，再将元素换回来(<strong>回溯</strong>):</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * With an array [beg, end)</span></span><br><span class="line"><span class="comment"> * Switch the first element with each latter elements.</span></span><br><span class="line"><span class="comment"> * Then recursively handle with [beg + 1, end)</span></span><br><span class="line"><span class="comment"> * Notice: </span></span><br><span class="line"><span class="comment"> * Though it may change the array's order during the process.</span></span><br><span class="line"><span class="comment"> * The array will come back to the initial condition after the excution done</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@prama</span> beg: 从哪里开始全排列</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">permuteBySwitch</span><span class="params">(<span class="keyword">int</span>[] src, <span class="keyword">int</span> beg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//边际条件，只有一个元素</span></span><br><span class="line">    <span class="keyword">if</span> (beg + <span class="number">1</span> == src.length)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : src)</span><br><span class="line">            System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//注意要从beg开始</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = beg; i &lt; src.length; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//试探</span></span><br><span class="line">        swap(src, beg, i);</span><br><span class="line">        permuteBySwitch(src, beg + <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//回溯</span></span><br><span class="line">        swap(src, beg, i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以几个例子来说明。</p>
 <hr>
+
 <p>以 <code>[1, 2]</code> 为例</p>
-<ol type="1">
-<li><p>以1为首元素(即与自己交换)<br>
-只有一个 <code>[1, 2]</code>，返回</p></li>
-<li><p>交换1和2，代表了以2为第一个元素的情况<br>
-得到 <code>[2, 1]</code></p></li>
+<ol>
+<li><p>以1为首元素(即与自己交换)<br>只有一个 <code>[1, 2]</code>，返回</p>
+</li>
+<li><p>交换1和2，代表了以2为第一个元素的情况<br>得到 <code>[2, 1]</code></p>
+</li>
 </ol>
 <hr>
+
 <p>以 <code>[1, 2, 3]</code> 为例:</p>
-<ol type="1">
-<li>以1为首元(交换自己)
-<ol start="2" type="1">
+<ol>
+<li>以1为首元(交换自己)<ol>
 <li>后面的部分是 <code>[2, 3]</code></li>
 <li>同第一个例子，依次得到 <code>[1, 2, 3]</code> 和<code>[1, 3, 2]</code></li>
 <li>交换回来(还是1和1换)，返回初始的 <code>[1, 2, 3]</code></li>
-</ol></li>
-<li>把1和2交换得到 <code>[2, 1, 3]</code>
-<ol type="1">
-<li>处理 <code>[1, 3]</code> 部分
-<ol type="1">
+</ol>
+</li>
+<li>把1和2交换得到 <code>[2, 1, 3]</code>  <ol>
+<li>处理 <code>[1, 3]</code> 部分  <ol>
 <li>1和1交换，然后到达了边界处，输出 <code>[2, 1, 3]</code>，返回</li>
 <li>1和3交换，到达边界处，输出 <code>[2, 3, 1]</code>。返回后将1和3换回来，回到了刚才 <code>[2, 1, 3]</code> 的情况</li>
-</ol></li>
+</ol>
+</li>
 <li><code>[1, 3]</code> 处理完，返回到最开始的 <code>[2, 1, 3]</code> 处，将1和2还回来。</li>
-</ol></li>
-<li>继续交换1和3，做同样的处理。</li>
+</ol>
+</li>
+<li>继续交换1和3，做同样的处理。 </li>
 </ol>
 
       
@@ -707,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dfs"><span class="nav-text">1. dfs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交换法"><span class="nav-text">2. 交换法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-dfs"><span class="nav-text">1. dfs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-交换法"><span class="nav-text">2. 交换法</span></a></li></ol></div>
             
 
           </div>

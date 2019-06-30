@@ -96,20 +96,20 @@
 
 
 
-  <meta name="description" content="术语  数据表( data list): 它是待排序数据对象的有限集合。 排序码(key): 通常数据对象有多个属性域，即多个数据成员组成,其中有一个属性域可用来区分对象,作为排序依据。该域即为排序码。每个数据表用哪个属性域作为排序码，要视具体的应用需要而定。 稳定: 如果a原本在b前面，而a=b，排序之后a仍然在b的前面； 不稳定： 如果a原本在b的前面，而a=b，排序之后a可能">
+  <meta name="description" content="术语 数据表( data list):它是待排序数据对象的有限集合。 排序码(key):通常数据对象有多个属性域，即多个数据成员组成,其中有一个属性域可用来区分对象,作为排序依据。该域即为排序码。每个数据表用哪个属性域作为排序码，要视具体的应用需要而定。   稳定:如果a原本在b前面，而a=b，排序之后a仍然在b的前面； 不稳定：如果a原本在b的前面，而a=b，排序之后a可能会出现在b的后面；">
 <meta name="keywords" content="排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法基本概念">
 <meta property="og:url" content="http://yoursite.com/2019/05/19/排序算法基本概念/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="术语  数据表( data list): 它是待排序数据对象的有限集合。 排序码(key): 通常数据对象有多个属性域，即多个数据成员组成,其中有一个属性域可用来区分对象,作为排序依据。该域即为排序码。每个数据表用哪个属性域作为排序码，要视具体的应用需要而定。 稳定: 如果a原本在b前面，而a=b，排序之后a仍然在b的前面； 不稳定： 如果a原本在b的前面，而a=b，排序之后a可能">
+<meta property="og:description" content="术语 数据表( data list):它是待排序数据对象的有限集合。 排序码(key):通常数据对象有多个属性域，即多个数据成员组成,其中有一个属性域可用来区分对象,作为排序依据。该域即为排序码。每个数据表用哪个属性域作为排序码，要视具体的应用需要而定。   稳定:如果a原本在b前面，而a=b，排序之后a仍然在b的前面； 不稳定：如果a原本在b的前面，而a=b，排序之后a可能会出现在b的后面；">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/05/19/排序算法基本概念/sort.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/19/排序算法基本概念/比较.jpg">
 <meta property="og:updated_time" content="2019-06-17T09:37:10.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法基本概念">
-<meta name="twitter:description" content="术语  数据表( data list): 它是待排序数据对象的有限集合。 排序码(key): 通常数据对象有多个属性域，即多个数据成员组成,其中有一个属性域可用来区分对象,作为排序依据。该域即为排序码。每个数据表用哪个属性域作为排序码，要视具体的应用需要而定。 稳定: 如果a原本在b前面，而a=b，排序之后a仍然在b的前面； 不稳定： 如果a原本在b的前面，而a=b，排序之后a可能">
+<meta name="twitter:description" content="术语 数据表( data list):它是待排序数据对象的有限集合。 排序码(key):通常数据对象有多个属性域，即多个数据成员组成,其中有一个属性域可用来区分对象,作为排序依据。该域即为排序码。每个数据表用哪个属性域作为排序码，要视具体的应用需要而定。   稳定:如果a原本在b前面，而a=b，排序之后a仍然在b的前面； 不稳定：如果a原本在b的前面，而a=b，排序之后a可能会出现在b的后面；">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/19/排序算法基本概念/sort.png">
 
 
@@ -445,38 +445,33 @@
       
 
       
-        <h1 id="术语">术语</h1>
-<ul>
-<li>数据表( data list):<br>
-它是待排序数据对象的有限集合。</li>
-<li><p>排序码(key):<br>
-通常数据对象有多个属性域，即多个数据成员组成,其中有一个属性域可用来区分对象,作为排序依据。该域即为排序码。每个数据表用哪个属性域作为排序码，要视具体的应用需要而定。</p></li>
-<li>稳定: 如果a原本在b前面，而a=b，排序之后a仍然在b的前面；</li>
-<li><p>不稳定：<br>
-如果a原本在b的前面，而a=b，排序之后a可能会出现在b的后面；</p></li>
-<li>内排序：<br>
-所有排序操作都在内存中完成；</li>
-<li><p>外排序：<br>
-由于数据太大，因此把数据放在磁盘中，而排序通过磁盘和内存的数据传输才能进行；</p></li>
-<li>时间复杂度: 一个算法执行所耗费的时间。</li>
-<li><p>空间复杂度: 运行完一个程序所需内存的大小。</p></li>
+        <h1 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h1><ul>
+<li>数据表( data list):<br>它是待排序数据对象的有限集合。</li>
+<li>排序码(key):<br>通常数据对象有多个属性域，即多个数据成员组成,其中有一个属性域可用来区分对象,作为排序依据。该域即为排序码。每个数据表用哪个属性域作为排序码，要视具体的应用需要而定。</li>
 </ul>
-<h1 id="比较">比较</h1>
-<figure>
-<img src="/2019/05/19/排序算法基本概念/sort.png" alt="比较1"><figcaption>比较1</figcaption>
-</figure>
-<p> 说明一下，表内除了最后三个以外都是<strong>基于比较的排序</strong>，而<strong>基于比较的排序最快也无法超越 <span class="math inline">\(n\log_{}n\)</span></strong>。</p>
+<ul>
+<li>稳定:<br>如果a原本在b前面，而a=b，排序之后a仍然在b的前面；</li>
+<li><p>不稳定：<br>如果a原本在b的前面，而a=b，排序之后a可能会出现在b的后面；</p>
+</li>
+<li><p>内排序：<br>所有排序操作都在内存中完成；</p>
+</li>
+<li><p>外排序：<br>由于数据太大，因此把数据放在磁盘中，而排序通过磁盘和内存的数据传输才能进行；</p>
+</li>
+<li><p>时间复杂度: 一个算法执行所耗费的时间。</p>
+</li>
+<li>空间复杂度: 运行完一个程序所需内存的大小。</li>
+</ul>
+<h1 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h1><p><img src="/2019/05/19/排序算法基本概念/sort.png" alt="比较1"></p>
+<p>&emsp;说明一下，表内除了最后三个以外都是<strong>基于比较的排序</strong>，而<strong>基于比较的排序最快也无法超越 $n\log_{}n$</strong>。</p>
 <ul>
 <li><code>n</code>: 数据规模</li>
 <li><code>k</code>:“桶”的个数</li>
 <li><code>In-place</code>: 占用常数内存，不占用额外内存</li>
 <li><code>Out-place</code>: 占用额外内存</li>
 </ul>
-<p> 当需要对大量数据进行排序时，<code>In-place sort</code>就显示出优点，因为只需要占用常数的内存。</p>
+<p>&emsp;当需要对大量数据进行排序时，<code>In-place sort</code>就显示出优点，因为只需要占用常数的内存。</p>
 <p>设想一下，如果要对10000个数据排序，如果使用了<code>Out-place sort</code>，则假设需要用200G的额外空间，则一台老式电脑会吃不消，但是如果使用<code>In-place sort</code>，则不需要花费额外内存。</p>
-<figure>
-<img src="/2019/05/19/排序算法基本概念/比较.jpg" alt="比较2"><figcaption>比较2</figcaption>
-</figure>
+<p><img src="/2019/05/19/排序算法基本概念/比较.jpg" alt="比较2"></p>
 
       
     </div>

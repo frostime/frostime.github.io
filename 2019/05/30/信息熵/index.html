@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
+  <meta name="description" content="信息熵 H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}}条件熵 \begin{aligned} &amp;H(Y|X)\\ &amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cdot \log_{2}{P(y|x)}} \end{align">
 <meta name="keywords" content="Note">
 <meta property="og:type" content="article">
 <meta property="og:title" content="信息熵">
 <meta property="og:url" content="http://yoursite.com/2019/05/30/信息熵/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
+<meta property="og:description" content="信息熵 H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}}条件熵 \begin{aligned} &amp;H(Y|X)\\ &amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cdot \log_{2}{P(y|x)}} \end{align">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-30T14:52:40.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信息熵">
-<meta name="twitter:description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
+<meta name="twitter:description" content="信息熵 H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}}条件熵 \begin{aligned} &amp;H(Y|X)\\ &amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cdot \log_{2}{P(y|x)}} \end{align">
 
 
 
@@ -430,84 +430,65 @@
       
 
       
-        <h1 id="信息熵">信息熵</h1>
-<p><span class="math display">\[
-H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}}
-\]</span></p>
-<h1 id="条件熵">条件熵</h1>
-<p><span class="math display">\[
+        <h1 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h1><script type="math/tex; mode=display">
+H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}}</script><h1 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h1><script type="math/tex; mode=display">
 \begin{aligned}
-&amp;H(Y|X)\\
-&amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\
-&amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cdot \log_{2}{P(y|x)}}
-\end{aligned}
-\]</span></p>
-<h1 id="信息增益">信息增益</h1>
-<p>信息增益的含义即<strong>在条件X下，信息Y的不确定性的减少程度。</strong></p>
-<p><span class="math display">\[
-InfoGain(Y, X) = H(Y) - H(Y|X)
-\]</span></p>
-<h1 id="例题">例题</h1>
-<p>例如:</p>
+&H(Y|X)\\
+&= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\
+&= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cdot \log_{2}{P(y|x)}}
+\end{aligned}</script><h1 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h1><p>信息增益的含义即<strong>在条件X下，信息Y的不确定性的减少程度。</strong></p>
+<script type="math/tex; mode=display">
+InfoGain(Y, X) = H(Y) - H(Y|X)</script><h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><p>例如:</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>X</th>
 <th>Y</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>2</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>2</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2</td>
 <td>3</td>
 </tr>
-<tr class="even">
+<tr>
 <td>2</td>
 <td>4</td>
 </tr>
 </tbody>
 </table>
-<h2 id="hx-hy"><code>H(X)</code>, <code>H(Y)</code></h2>
-<p><span class="math display">\[
+</div>
+<h2 id="H-X-H-Y"><a href="#H-X-H-Y" class="headerlink" title="H(X), H(Y)"></a><code>H(X)</code>, <code>H(Y)</code></h2><script type="math/tex; mode=display">
 \begin{aligned}
-&amp;H(X) = -(0.5\log_{2}{0.5} + 0.5\log_{2}{0.5}) = 1\\
-&amp;H(Y) = -(0.5\log_{2}{0.5} + 0.25\log_{2}{0.25}\times2 = 1.5
-\end{aligned}
-\]</span></p>
-<h2 id="hyx"><code>H(Y|X)</code></h2>
-<ul>
+&H(X) = -(0.5\log_{2}{0.5} + 0.5\log_{2}{0.5}) = 1\\
+&H(Y) = -(0.5\log_{2}{0.5} + 0.25\log_{2}{0.25}\times2 = 1.5
+\end{aligned}</script><h2 id="H-Y-X"><a href="#H-Y-X" class="headerlink" title="H(Y|X)"></a><code>H(Y|X)</code></h2><ul>
 <li>法一</li>
 </ul>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-&amp;H(Y|X=1) = 0, H(Y|X=2) = 1\\
-&amp;H(Y|X) = 0.5\times0 + 0.5\times1 = 0.5
-\end{aligned}
-\]</span></p>
-<ul>
+&H(Y|X=1) = 0, H(Y|X=2) = 1\\
+&H(Y|X) = 0.5\times0 + 0.5\times1 = 0.5
+\end{aligned}</script><ul>
 <li>法二</li>
 </ul>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-&amp;P(x=1, y=2)\log_{2}{P(y=2|x=1)} = 0.5 \times 0 = 0\\
-&amp;P(x=2, y=3)\log_{2}{P(y=3|x=2)} = 0.25 \times (-1) = -0.25\\
-&amp;P(x=2, y=4)\log_{2}{P(y=4|x=2)} =  0.25 \times (-1) = -0.25\\
-&amp;H(Y|X) = -(0 - 0.25 - 0.25) = 0.5
-\end{aligned}
-\]</span></p>
-<h2 id="infogain"><code>InfoGain</code></h2>
-<p><span class="math display">\[
-InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
-\]</span></p>
-
+&P(x=1, y=2)\log_{2}{P(y=2|x=1)} = 0.5 \times 0 = 0\\
+&P(x=2, y=3)\log_{2}{P(y=3|x=2)} = 0.25 \times (-1) = -0.25\\
+&P(x=2, y=4)\log_{2}{P(y=4|x=2)} =  0.25 \times (-1) = -0.25\\
+&H(Y|X) = -(0 - 0.25 - 0.25) = 0.5
+\end{aligned}</script><h2 id="InfoGain"><a href="#InfoGain" class="headerlink" title="InfoGain"></a><code>InfoGain</code></h2><script type="math/tex; mode=display">
+InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1</script>
       
     </div>
 
@@ -762,7 +743,7 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息熵"><span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件熵"><span class="nav-text">条件熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信息增益"><span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题"><span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hx-hy"><span class="nav-text">H(X), H(Y)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hyx"><span class="nav-text">H(Y|X)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#infogain"><span class="nav-text">InfoGain</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息熵"><span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件熵"><span class="nav-text">条件熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信息增益"><span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题"><span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#H-X-H-Y"><span class="nav-text">H(X), H(Y)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H-Y-X"><span class="nav-text">H(Y|X)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InfoGain"><span class="nav-text">InfoGain</span></a></li></ol></li></ol></div>
             
 
           </div>

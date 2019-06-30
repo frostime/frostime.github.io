@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="1. 整数划分 对于任意一个正整数n，它可以表示为多个其他正整数相加。例如:  6 = 6 = 5 + 1 = 4 + 2 = 4 + 1 + 1 = 3 + 3 = 3 + 2 + 1 = 3 + 1 + 1 + 1...  我们称这种不同的组合为不同的整数划分。这类问题是经典的组合数学问题。常常要用到动态规划。 2. 经典整数划分问题 给定两个数，n和m。请问n的最大加数为不超过">
+  <meta name="description" content="1. 整数划分对于任意一个正整数n，它可以表示为多个其他正整数相加。例如:  6 = 6 = 5 + 1 = 4 + 2 = 4  + 1 + 1 = 3 + 3 = 3 + 2 + 1 = 3 + 1 + 1 + 1…  我们称这种不同的组合为不同的整数划分。这类问题是经典的组合数学问题。常常要用到动态规划。 2. 经典整数划分问题给定两个数，n和m。请问n的最大加数为不超过m的划分共有几种？这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="整数划分问题">
 <meta property="og:url" content="http://yoursite.com/2019/05/26/整数划分问题/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="1. 整数划分 对于任意一个正整数n，它可以表示为多个其他正整数相加。例如:  6 = 6 = 5 + 1 = 4 + 2 = 4 + 1 + 1 = 3 + 3 = 3 + 2 + 1 = 3 + 1 + 1 + 1...  我们称这种不同的组合为不同的整数划分。这类问题是经典的组合数学问题。常常要用到动态规划。 2. 经典整数划分问题 给定两个数，n和m。请问n的最大加数为不超过">
+<meta property="og:description" content="1. 整数划分对于任意一个正整数n，它可以表示为多个其他正整数相加。例如:  6 = 6 = 5 + 1 = 4 + 2 = 4  + 1 + 1 = 3 + 3 = 3 + 2 + 1 = 3 + 1 + 1 + 1…  我们称这种不同的组合为不同的整数划分。这类问题是经典的组合数学问题。常常要用到动态规划。 2. 经典整数划分问题给定两个数，n和m。请问n的最大加数为不超过m的划分共有几种？这">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-06-09T08:13:26.761Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="整数划分问题">
-<meta name="twitter:description" content="1. 整数划分 对于任意一个正整数n，它可以表示为多个其他正整数相加。例如:  6 = 6 = 5 + 1 = 4 + 2 = 4 + 1 + 1 = 3 + 3 = 3 + 2 + 1 = 3 + 1 + 1 + 1...  我们称这种不同的组合为不同的整数划分。这类问题是经典的组合数学问题。常常要用到动态规划。 2. 经典整数划分问题 给定两个数，n和m。请问n的最大加数为不超过">
+<meta name="twitter:description" content="1. 整数划分对于任意一个正整数n，它可以表示为多个其他正整数相加。例如:  6 = 6 = 5 + 1 = 4 + 2 = 4  + 1 + 1 = 3 + 3 = 3 + 2 + 1 = 3 + 1 + 1 + 1…  我们称这种不同的组合为不同的整数划分。这类问题是经典的组合数学问题。常常要用到动态规划。 2. 经典整数划分问题给定两个数，n和m。请问n的最大加数为不超过m的划分共有几种？这">
 
 
 
@@ -441,137 +441,129 @@
       
 
       
-        <h1 id="整数划分">1. 整数划分</h1>
-<p>对于任意一个正整数n，它可以<strong>表示为多个其他正整数相加</strong>。例如:</p>
+        <h1 id="1-整数划分"><a href="#1-整数划分" class="headerlink" title="1. 整数划分"></a>1. 整数划分</h1><p>对于任意一个正整数n，它可以<strong>表示为多个其他正整数相加</strong>。例如:</p>
 <blockquote>
-<p>6 = 6 = 5 + 1 = 4 + 2 = 4 + 1 + 1 = 3 + 3 = 3 + 2 + 1 = 3 + 1 + 1 + 1...</p>
+<p>6 = 6 = 5 + 1 = 4 + 2 = 4  + 1 + 1 = 3 + 3 = 3 + 2 + 1 = 3 + 1 + 1 + 1…</p>
 </blockquote>
 <p>我们称这种不同的组合为不同的整数划分。这类问题是经典的组合数学问题。常常要用到动态规划。</p>
-<h1 id="经典整数划分问题">2. 经典整数划分问题</h1>
-<p>给定两个数，n和m。请问<strong>n的最大加数为不超过m的划分共有几种</strong>？这时一个较为经典的问题了，它的一个子问题就是当<code>m ==n</code>时的情况。</p>
-<p>对于以上问题我们可以使用递归的思想，进行思考。</p>
-<h2 id="各个加数允许相同">2.1 各个加数允许相同</h2>
-<p>那么不妨这样考虑。</p>
-<ol type="1">
+<h1 id="2-经典整数划分问题"><a href="#2-经典整数划分问题" class="headerlink" title="2. 经典整数划分问题"></a>2. 经典整数划分问题</h1><p>给定两个数，n和m。请问<strong>n的最大加数为不超过m的划分共有几种</strong>？这时一个较为经典的问题了，它的一个子问题就是当<code>m ==n</code>时的情况。</p>
+<p>对于以上问题我们可以使用递归的思想，进行思考。  </p>
+<h2 id="2-1-各个加数允许相同"><a href="#2-1-各个加数允许相同" class="headerlink" title="2.1 各个加数允许相同"></a>2.1 各个加数允许相同</h2><p>那么不妨这样考虑。</p>
+<ol>
 <li><p>一般情况下<code>f(n, m)</code>有何种特征？</p>
-<p>首先我们明确了对于任何<code>m &gt; n</code>，都有<code>f(n, m) == f(n, n)</code>。</p>
-<p>然后我们进行递归的思考：将n按最大为m的划分有两种情况:</p>
+<p>首先我们明确了对于任何<code>m &gt; n</code>，都有<code>f(n, m) == f(n, n)</code>。  </p>
+<p>然后我们进行递归的思考：将n按最大为m的划分有两种情况:  </p>
 <ul>
-<li><p>划分中没有用到m</p>
+<li><p>划分中没有用到m  </p>
 <p>这种情况下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n, m) = f(n, m-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p>​</p></li>
+<p>​</p>
+</li>
 <li><p>划分中用到了m</p>
-<p>这种情况下我们就相当于把n划分为&quot;m + ...&quot;。所以:</p>
+<p>这种情况下我们就相当于把n划分为”m + …”。所以:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n, m) = f(n-m, m)</span><br></pre></td></tr></table></figure>
-<p>​</p></li>
+<p>​</p>
+</li>
 </ul>
 <p>这样我们就可以对应的写出一个递归过程:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (n &lt; m)</span><br><span class="line">  	<span class="keyword">return</span> f(n, n);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  	<span class="keyword">return</span> f(n, m-<span class="number">1</span>) + f(n-m, m);</span><br></pre></td></tr></table></figure></li>
-<li><p>递归基是怎么样的？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (n &lt; m)</span><br><span class="line">  	<span class="keyword">return</span> f(n, n);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  	<span class="keyword">return</span> f(n, m-<span class="number">1</span>) + f(n-m, m);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>递归基是怎么样的？  </p>
 <p>由于递归基基本就出现在0或1的情况下。所以为了考虑这个问题，我们只需要按照以下流程来思考就可以了:</p>
-<ol type="1">
+<ol>
 <li><code>n == 0</code>: 显然只有一种划分方式</li>
 <li><code>m == 0</code>: 看情况，如果<code>n == 0</code>那么就有一种，反之则没有</li>
 <li><code>n == 1</code>: 有且仅有一种</li>
 <li><code>m == 1</code>: 有且仅有一种</li>
 </ol>
 <p>至此我们可以写出递归基来了:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (m == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> (n == <span class="number">0</span>)? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span> || m == <span class="number">1</span>)<span class="comment">//这两种情况都只有1种分法</span></span><br><span class="line">  	<span class="keyword">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (m == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> (n == <span class="number">0</span>)? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span> || m == <span class="number">1</span>)<span class="comment">//这两种情况都只有1种分法</span></span><br><span class="line">  	<span class="keyword">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <p>经过以上分析我们可以写出整个算法程序:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">partiAsMaxIsMSamePermited</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (m == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> (n == <span class="number">0</span>)? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span> || m == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (n &lt; m)</span><br><span class="line">        <span class="keyword">return</span> partition(n, n);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> partition(n, m - <span class="number">1</span>) + partition(n - m, m);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然而以上程序可以继续简化，注意到<strong>对0的判断其实只是为了防止 <code>n == m</code> 这种情况的发生</strong>。因此完全可以简化逻辑判断:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">partiAsMaxIsMSamePermited</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span> || m == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (n &lt;= m)</span><br><span class="line">        <span class="keyword">return</span> partition(n, n - <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> partition(n, m - <span class="number">1</span>) + partition(n - m, m);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="改写成非递归形式">改写成非递归形式</h3>
-<p>我们<strong>可以运用动态规划的思想利用一个二维数组来模拟递归过程，从而将递归转换为非递归格式</strong>。</p>
+<h3 id="改写成非递归形式"><a href="#改写成非递归形式" class="headerlink" title="改写成非递归形式"></a>改写成非递归形式</h3><p>我们<strong>可以运用动态规划的思想利用一个二维数组来模拟递归过程，从而将递归转换为非递归格式</strong>。 </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">pSPDynamicPrgramming</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[][] res = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">    <span class="comment">//构造递归基，注意i从1开始,相当于把所有索引含0的抛弃掉</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        res[i][<span class="number">1</span>] = res[<span class="number">1</span>][i] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//对m进行预处理</span></span><br><span class="line">    m = (m &gt; n)? n : m;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= m; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &lt;= j)</span><br><span class="line">                res[i][j] = res[i][i-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                res[i][j] = res[i][j-<span class="number">1</span>] + res[i-j][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res[n][m];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个技巧非常好用，一定要掌握。<strong>以后遇到类似的递推形式的递归程序，也可以使用相似的方法来转换为非递归程序</strong>。</p>
-<h2 id="各个加数不允许相同">2.2 各个加数不允许相同</h2>
-<p>这种情况下与之前相比不同之处在于递归式不一样了。此前我们的递归式如下:</p>
+<p>这个技巧非常好用，一定要掌握。<strong>以后遇到类似的递推形式的递归程序，也可以使用相似的方法来转换为非递归程序</strong>。 </p>
+<h2 id="2-2-各个加数不允许相同"><a href="#2-2-各个加数不允许相同" class="headerlink" title="2.2 各个加数不允许相同"></a>2.2 各个加数不允许相同</h2><p>这种情况下与之前相比不同之处在于递归式不一样了。此前我们的递归式如下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n, m) = f(n, m-<span class="number">1</span>) + f(n-m, m)</span><br></pre></td></tr></table></figure>
 <p>而现在不允许相同后，递归式子成了:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n, m) = f(n, m-<span class="number">1</span>) + f(n-m, m-<span class="number">1</span>) <span class="comment">//注意m变成了m-1</span></span><br></pre></td></tr></table></figure>
-<p>道理也好懂。我们之前也讲到过，后面的式子<strong>代表了最大数m被用到了的情况</strong>，那么既然已经被用到了，在之后就不可以继续出现，故而将上限减一。</p>
+<p>道理也好懂。我们之前也讲到过，后面的式子<strong>代表了最大数m被用到了的情况</strong>，那么既然已经被用到了，在之后就不可以继续出现，故而将上限减一。  </p>
 <p>那么现在来看一看递归基的问题。此前我们的递归基是这样的:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (n == <span class="number">1</span> || m == <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 <p>现在来分析一下这种情况下的递归基:</p>
 <ul>
 <li><code>n == 1</code>: 显然由于m &gt;= 1，无论如何都只有一种分法</li>
-<li><code>m == 1</code>: 这时情况就和之前不一样了
-<ul>
+<li><code>m == 1</code>: 这时情况就和之前不一样了<ul>
 <li>如果<code>n == 1</code>，那么刚好一种情况</li>
 <li>反之，<code>n &gt;= 1</code>，由于不允许有相同数，因此无法划分，返回0</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p>经过分析，递归基如下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(n == <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(m == <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <p>整个程序全貌如下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">partitionSameForbiden</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//可以看到只更改了递归基</span></span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(m == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//一下内容和之前的相同</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt;= m)</span><br><span class="line">        <span class="keyword">return</span> partitionSameForbiden(n, n - <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> partitionSameForbiden(n, m - <span class="number">1</span>) + partitionSameForbiden(n - m, m - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="改为非递归形式动态规划">改为非递归形式(动态规划)</h3>
-<p>递归形式有利于我们分析，不过为了执行效率，我们现在就需要改成非递归了。方法同上:</p>
+<h3 id="改为非递归形式-动态规划"><a href="#改为非递归形式-动态规划" class="headerlink" title="改为非递归形式(动态规划)"></a>改为非递归形式(动态规划)</h3><p>递归形式有利于我们分析，不过为了执行效率，我们现在就需要改成非递归了。方法同上:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">pSFDynamicPrgramming</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[][] res = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">    <span class="comment">//构造递归基</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        res[i][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        res[<span class="number">1</span>][i] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    m = (m &gt; n)? n : m;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">1</span>; j &lt;= m; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &lt;= j)</span><br><span class="line">                res[i][j] = res[i][i-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                res[i][j] = res[i][j-<span class="number">1</span>] + res[i-j][j-<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res[n][m];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="指定数目">3. 指定数目</h1>
-<p>这次我们变换策略，要求找出<strong>将n划分为k个部分的个数</strong>。即对于指定的数n，必须要求<strong>由k个数相加得到</strong>。</p>
-<h2 id="刚好划分为k个数">3.1 刚好划分为k个数</h2>
-<p>首先说明一个规律:</p>
+<h1 id="3-指定数目"><a href="#3-指定数目" class="headerlink" title="3. 指定数目"></a>3. 指定数目</h1><p>这次我们变换策略，要求找出<strong>将n划分为k个部分的个数</strong>。即对于指定的数n，必须要求<strong>由k个数相加得到</strong>。</p>
+<h2 id="3-1-刚好划分为k个数"><a href="#3-1-刚好划分为k个数" class="headerlink" title="3.1 刚好划分为k个数"></a>3.1 刚好划分为k个数</h2><p>首先说明一个规律:</p>
 <p>正如之前一样，这里我们也可以利用递归的思想来解决。</p>
-<ol type="1">
-<li><p>平凡情况可以怎么进行分割?</p>
-<p>对于一个一般的情况<code>f(n, k)</code>我们应该怎么递归的将其分解呢？我们会<strong>先试图从总体中拿走一个子问题，将问题的规模削减</strong>。 再上一个问题中，我们把“有没有用到m”作为一个子问题将整体分割。这里我们不妨<strong>将“在这k个数中有没有用到1”作为一个</strong>子问题。</p>
+<ol>
+<li><p>平凡情况可以怎么进行分割?  </p>
+<p>对于一个一般的情况<code>f(n, k)</code>我们应该怎么递归的将其分解呢？我们会<strong>先试图从总体中拿走一个子问题，将问题的规模削减</strong>。 再上一个问题中，我们把“有没有用到m”作为一个子问题将整体分割。这里我们不妨<strong>将“在这k个数中有没有用到1”作为一个</strong>子问题。  </p>
 <ul>
-<li><p>如果用到了1:</p>
+<li><p>如果用到了1:  </p>
 <p>显然问题的规模就缩减成了: <strong>我们先用到了1，然后在试图用k-1个数来组成n-1</strong>。即:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n, k) = f(n-<span class="number">1</span>, k-<span class="number">1</span>)</span><br></pre></td></tr></table></figure></li>
-<li><p>如果没有用到1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n, k) = f(n-<span class="number">1</span>, k-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果没有用到1:  </p>
 <p>这就要<strong>保证每个数都&gt;=2</strong>。为此我们可以这么做：</p>
-<ol type="1">
+<ol>
 <li>从n中拿出k，分给k个数。使他们都为1</li>
 <li><strong>在都为1的基础上</strong>，在划分剩下的n-k，以此保证这k个数都至少为2</li>
 </ol>
 <p>也就是说:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n, k) = f(n-k, k)</span><br></pre></td></tr></table></figure></li>
-</ul></li>
-<li><p>递归基是什么</p>
-<ol type="1">
-<li><p><code>n == 1</code>时:</p>
-<p>若<code>k == 1</code>，则结果为1；否则为0</p></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n, k) = f(n-k, k)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>递归基是什么  </p>
+<ol>
+<li><p><code>n == 1</code>时:  </p>
+<p>若<code>k == 1</code>，则结果为1；否则为0</p>
+</li>
 <li><p><code>k == 1</code>时:</p>
-<p>仅在<code>n == 1</code>时才为1</p></li>
-</ol></li>
+<p>仅在<code>n == 1</code>时才为1</p>
+</li>
+</ol>
+</li>
 <li><p>其他注意:</p>
-<p>若<code>n &lt; k</code>，则结果必然为0</p>
-<p>若<code>n == k</code>，则结果必然为1</p></li>
+<p>若<code>n &lt; k</code>，则结果必然为0  </p>
+<p>若<code>n == k</code>，则结果必然为1</p>
+</li>
 </ol>
 <p>这样我们就可以写成基本的递归式了:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">partiAtk</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span> || k == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> (n == <span class="number">0</span> &amp;&amp; k == <span class="number">0</span>)? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (n &lt;= k)</span><br><span class="line">        <span class="keyword">return</span> (n == k)? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> partiAtk(n-<span class="number">1</span>, k-<span class="number">1</span>) + partiAtk(n-k, k);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="改为动态规划">改为动态规划</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">partiAtkDP</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (k &gt; n)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>[][] res = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">    res[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;<span class="comment">//递归基条件</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; ++j)<span class="comment">//注意i &lt; k的部分忽略掉</span></span><br><span class="line">        &#123;</span><br><span class="line">            res[i][j] = res[i-<span class="number">1</span>][j-<span class="number">1</span>] + res[i-j][j];<span class="comment">//i == j 时必然为1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res[n][k];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="一个有趣的事实">一个有趣的事实</h3>
-<p>事实上，可以证明<strong>将n刚好划分为k个部分这个问题和n刚好划分为最大加数刚好为k(可重用)问题是同解</strong>。</p>
+<h3 id="改为动态规划"><a href="#改为动态规划" class="headerlink" title="改为动态规划"></a>改为动态规划</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">partiAtkDP</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (k &gt; n)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>[][] res = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">    res[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;<span class="comment">//递归基条件</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; ++j)<span class="comment">//注意i &lt; k的部分忽略掉</span></span><br><span class="line">        &#123;</span><br><span class="line">            res[i][j] = res[i-<span class="number">1</span>][j-<span class="number">1</span>] + res[i-j][j];<span class="comment">//i == j 时必然为1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res[n][k];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一个有趣的事实"><a href="#一个有趣的事实" class="headerlink" title="一个有趣的事实"></a>一个有趣的事实</h3><p>事实上，可以证明<strong>将n刚好划分为k个部分这个问题和n刚好划分为最大加数刚好为k(可重用)问题是同解</strong>。  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面这两个问题输出相同</span></span><br><span class="line">System.out.println(i + <span class="string">","</span> + j + <span class="string">": "</span> + partiAtkDP(i, j));</span><br><span class="line">System.out.println(i + <span class="string">","</span> + j + <span class="string">": "</span> + (pSPNoneRecursion(i, j) - pSPNoneRecursion(i, j-<span class="number">1</span>)));</span><br></pre></td></tr></table></figure>
-<h2 id="最大不超过k个数">3.2 最大不超过k个数</h2>
-<p>显然最大不超过k个数就相当于将上题中的函数结果从1累加到k所得到的值，换而言之则有:</p>
-<p><span class="math display">\[
-Result = \sum^{k}_{i}partiAtk(n, i)
-\]</span></p>
-<p>然而基于我们之前的到的一个有趣的结论可以推导出另一个更有趣的结论:</p>
+<h2 id="3-2-最大不超过k个数"><a href="#3-2-最大不超过k个数" class="headerlink" title="3.2 最大不超过k个数"></a>3.2 最大不超过k个数</h2><p>显然最大不超过k个数就相当于将上题中的函数结果从1累加到k所得到的值，换而言之则有:</p>
+<script type="math/tex; mode=display">
+Result = \sum^{k}_{i}partiAtk(n, i)</script><p>然而基于我们之前的到的一个有趣的结论可以推导出另一个更有趣的结论:</p>
 <blockquote>
 <p>将n划分为最大不超过k个数相加 = 将n划分为最大加数不超过k(可重用)</p>
 </blockquote>
-<p><span class="math display">\[
-Result = \sum^{m}_{k = 1}partiAtk(n, k) = partiAsMaxIsM(n, m)
-\]</span></p>
-<p>即</p>
-<p><span class="math display">\[
-f(n, m) = f(n, m-1) + f(n - m, m)
-\]</span></p>
-<p>所以我们想要解决这个问题的话，只要把最开始的经典问题的代码套过来就可以了。</p>
-<h1 id="具体问题分苹果模型">4. 具体问题：分苹果模型</h1>
-<p>这是一个极其常见的问题，它包括了许多的变形，大致的样子如下:</p>
+<script type="math/tex; mode=display">
+Result = \sum^{m}_{k = 1}partiAtk(n, k) = partiAsMaxIsM(n, m)</script><p>即</p>
+<script type="math/tex; mode=display">
+f(n, m) = f(n, m-1) + f(n - m, m)</script><p>所以我们想要解决这个问题的话，只要把最开始的经典问题的代码套过来就可以了。</p>
+<h1 id="4-具体问题：分苹果模型"><a href="#4-具体问题：分苹果模型" class="headerlink" title="4. 具体问题：分苹果模型"></a>4. 具体问题：分苹果模型</h1><p>这是一个极其常见的问题，它包括了许多的变形，大致的样子如下:</p>
 <blockquote>
-<p>把M个同样的苹果放在N个同样的盘子里，允许有的盘子空着不放，问共有多少种不同的分法？（用K表示）5，1，1和1，5，1 是同一种分法<br>
-1&lt;=M，N&lt;=10</p>
+<p>把M个同样的苹果放在N个同样的盘子里，允许有的盘子空着不放，问共有多少种不同的分法？（用K表示）5，1，1和1，5，1 是同一种分法<br>1&lt;=M，N&lt;=10</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> store[<span class="number">11</span>][<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (store[m][n] == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">1</span> || n == <span class="number">1</span>)</span><br><span class="line">            store[m][n] = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//把5个苹果放在6个盘子里和放在5个盘子里是一样的</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (m &lt; n)</span><br><span class="line">            store[m][n] = f(m, m);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (m == n)</span><br><span class="line">            store[m][n] = f(m, n - <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            store[m][n] = f(m, n - <span class="number">1</span>) + f(m - n, n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> store[m][n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    <span class="built_in">memset</span>(store, <span class="number">-1</span>, <span class="keyword">sizeof</span>(store));</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; m &gt;&gt; n)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; f(m, n) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -823,7 +815,7 @@ f(n, m) = f(n, m-1) + f(n - m, m)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整数划分"><span class="nav-text">1. 整数划分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#经典整数划分问题"><span class="nav-text">2. 经典整数划分问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#各个加数允许相同"><span class="nav-text">2.1 各个加数允许相同</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改写成非递归形式"><span class="nav-text">改写成非递归形式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各个加数不允许相同"><span class="nav-text">2.2 各个加数不允许相同</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改为非递归形式动态规划"><span class="nav-text">改为非递归形式(动态规划)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指定数目"><span class="nav-text">3. 指定数目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#刚好划分为k个数"><span class="nav-text">3.1 刚好划分为k个数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改为动态规划"><span class="nav-text">改为动态规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个有趣的事实"><span class="nav-text">一个有趣的事实</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大不超过k个数"><span class="nav-text">3.2 最大不超过k个数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体问题分苹果模型"><span class="nav-text">4. 具体问题：分苹果模型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-整数划分"><span class="nav-text">1. 整数划分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-经典整数划分问题"><span class="nav-text">2. 经典整数划分问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-各个加数允许相同"><span class="nav-text">2.1 各个加数允许相同</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改写成非递归形式"><span class="nav-text">改写成非递归形式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-各个加数不允许相同"><span class="nav-text">2.2 各个加数不允许相同</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改为非递归形式-动态规划"><span class="nav-text">改为非递归形式(动态规划)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-指定数目"><span class="nav-text">3. 指定数目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-刚好划分为k个数"><span class="nav-text">3.1 刚好划分为k个数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改为动态规划"><span class="nav-text">改为动态规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个有趣的事实"><span class="nav-text">一个有趣的事实</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-最大不超过k个数"><span class="nav-text">3.2 最大不超过k个数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-具体问题：分苹果模型"><span class="nav-text">4. 具体问题：分苹果模型</span></a></li></ol></div>
             
 
           </div>
