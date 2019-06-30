@@ -96,12 +96,12 @@
 
 
 
-  <meta name="description" content="1. 引例从一个简单的问题引入:  电影票每张 50 元，如果有 $m + n$ 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 $m + n$ 个人排成一列，顺序购票?  乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。 实际上，这可以说是一类">
+  <meta name="description" content="1. 引例 从一个简单的问题引入:  电影票每张 50 元，如果有 \(m + n\) 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 \(m + n\) 个人排成一列，顺序购票?  乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卡特兰数">
 <meta property="og:url" content="http://yoursite.com/2019/05/26/卡特兰数/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="1. 引例从一个简单的问题引入:  电影票每张 50 元，如果有 $m + n$ 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 $m + n$ 个人排成一列，顺序购票?  乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。 实际上，这可以说是一类">
+<meta property="og:description" content="1. 引例 从一个简单的问题引入:  电影票每张 50 元，如果有 \(m + n\) 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 \(m + n\) 个人排成一列，顺序购票?  乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/05/26/卡特兰数/Catalan.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/26/卡特兰数/x.jpg">
@@ -110,7 +110,7 @@
 <meta property="og:updated_time" content="2019-05-26T10:41:49.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卡特兰数">
-<meta name="twitter:description" content="1. 引例从一个简单的问题引入:  电影票每张 50 元，如果有 $m + n$ 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 $m + n$ 个人排成一列，顺序购票?  乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。 实际上，这可以说是一类">
+<meta name="twitter:description" content="1. 引例 从一个简单的问题引入:  电影票每张 50 元，如果有 \(m + n\) 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 \(m + n\) 个人排成一列，顺序购票?  乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/26/卡特兰数/Catalan.png">
 
 
@@ -434,61 +434,67 @@
       
 
       
-        <h1 id="1-引例"><a href="#1-引例" class="headerlink" title="1. 引例"></a>1. 引例</h1><p>从一个简单的问题引入:</p>
+        <h1 id="引例">1. 引例</h1>
+<p>从一个简单的问题引入:</p>
 <blockquote>
-<p>电影票每张 50 元，如果有 $m + n$ 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 $m + n$ 个人排成一列，顺序购票?</p>
+<p>电影票每张 50 元，如果有 <span class="math inline">\(m + n\)</span> 个人排队买票，其中 m 个人各持有 50元 面值的钞票 1 张，另外 n 个人各持有 100 元面值的钞票 1 张，而票房没有预备找零．有多少种方法可以将这 <span class="math inline">\(m + n\)</span> 个人排成一列，顺序购票?</p>
 </blockquote>
 <p>乍一看，这个问题完全就是一个最简单的全排列问题，只要将所有可能排列下来，然后逐个检查就行了。</p>
 <p>实际上，这可以说是一类十分经典的问题，我们可以将上述问题抽象为这样一个泛化的问题:</p>
 <blockquote>
-<p>假如有M种操作a，以及N种操作b。现在要求顺序执行这总共 $m + n$ 种操作，且要求：<strong>在整个操作的任何一个阶段时，已经执行过的 a 操作数量不能大于已经执行过的 b 操作</strong></p>
+<p>假如有M种操作a，以及N种操作b。现在要求顺序执行这总共 <span class="math inline">\(m + n\)</span> 种操作，且要求：<strong>在整个操作的任何一个阶段时，已经执行过的 a 操作数量不能大于已经执行过的 b 操作</strong></p>
 </blockquote>
 <p>上述问题的演变模型有很多，我们举几个例子:</p>
-<ol>
-<li><p>进出栈<br>一个栈(无穷大)的进栈序列为1,2,3,..n,有多少个不同的出栈序列?</p>
-</li>
-<li><p>方格移动<br>在一个 $m\times n$ 的网格中，从左下角的原点 $O(0,0)$ 出发，每次向右或向上移动，要求任意时刻点不得在 $y = x$ 这条线之上。  </p>
-</li>
+<ol type="1">
+<li><p>进出栈<br>
+一个栈(无穷大)的进栈序列为1,2,3,..n,有多少个不同的出栈序列?</p></li>
+<li><p>方格移动<br>
+在一个 <span class="math inline">\(m\times n\)</span> 的网格中，从左下角的原点 <span class="math inline">\(O(0,0)\)</span> 出发，每次向右或向上移动，要求任意时刻点不得在 <span class="math inline">\(y = x\)</span> 这条线之上。</p></li>
 </ol>
-<p><img src="/2019/05/26/卡特兰数/Catalan.png" alt></p>
-<ol>
-<li><p>括号匹配  </p>
-<p>求由n对括号形成的合法括号表达式的个数</p>
-</li>
+<p><img src="/2019/05/26/卡特兰数/Catalan.png"></p>
+<ol start="3" type="1">
+<li><p>括号匹配</p>
+<p>求由n对括号形成的合法括号表达式的个数</p></li>
 </ol>
 <p>以上问题的解均和一个数有关：<strong>卡特兰数(Catalan)</strong>。</p>
-<h1 id="2-卡特兰数"><a href="#2-卡特兰数" class="headerlink" title="2. 卡特兰数"></a>2. 卡特兰数</h1><h2 id="2-1-分析"><a href="#2-1-分析" class="headerlink" title="2.1 分析"></a>2.1 分析</h2><p>什么是卡特兰数？在谈卡特兰数前先让我们分析一下之前的问题的求解。首先我们以最简单出栈入栈问题为例:</p>
+<h1 id="卡特兰数">2. 卡特兰数</h1>
+<h2 id="分析">2.1 分析</h2>
+<p>什么是卡特兰数？在谈卡特兰数前先让我们分析一下之前的问题的求解。首先我们以最简单出栈入栈问题为例:</p>
 <p>首先，每一种进出栈的顺序都与出栈序列一一对应．也就是说，如果我们用+1表示进栈，−1表示出栈，那么题中示例中的出栈序列1,3,4,2与进出栈顺序:</p>
 <blockquote>
 <p>+1,+1,−1,+1,+1,−1,−1,−1,</p>
 </blockquote>
 <p>是对应的。</p>
-<p>那么对n个数的序列，总的进出栈顺序是给 $2n$ 个里面挑 $n$ 个填入 1 其余的是 -1，共 ${\large C}_{2n}^{n}$ 种吗？</p>
+<p>那么对n个数的序列，总的进出栈顺序是给 <span class="math inline">\(2n\)</span> 个里面挑 <span class="math inline">\(n\)</span> 个填入 1 其余的是 -1，共 <span class="math inline">\({\large C}_{2n}^{n}\)</span> 种吗？</p>
 <p>答案是否定的，这是<strong>因为出栈的前提是有进栈动作，于是要求每个排列中的前若干项和均不为负数</strong>，也就是说诸如排列:</p>
 <blockquote>
 <p>1,−1,−1,1,1,−1,−1,1</p>
 </blockquote>
-<p>这样的是无效的。也就是说<strong>真正的答案 =  ${\large C}_{2n}^{n} - \text{不合法的排列数量}$</strong>。</p>
+<p>这样的是无效的。也就是说<strong>真正的答案 = <span class="math inline">\({\large C}_{2n}^{n} - \text{不合法的排列数量}\)</span></strong>。</p>
 <p>所以现在的问题就是：不合法的排列有几种？</p>
-<h2 id="2-2-不合法的排列数"><a href="#2-2-不合法的排列数" class="headerlink" title="2.2 不合法的排列数"></a>2.2 不合法的排列数</h2><p>那么如何计算不合法的排列数量呢？这里我们使用一种折线发。前面讲到过，出入栈和从 $(0, 0)$ 到 $(n, n)$ 问题是等价的。</p>
-<p><img src="/2019/05/26/卡特兰数/x.jpg" alt></p>
-<p>由于没找到合适的图，所以放了一张以$y = 0$ 为分界线的图，不过原理都是一样的。</p>
+<h2 id="不合法的排列数">2.2 不合法的排列数</h2>
+<p>那么如何计算不合法的排列数量呢？这里我们使用一种折线发。前面讲到过，出入栈和从 <span class="math inline">\((0, 0)\)</span> 到 <span class="math inline">\((n, n)\)</span> 问题是等价的。</p>
+<p><img src="/2019/05/26/卡特兰数/x.jpg"></p>
+<p>由于没找到合适的图，所以放了一张以<span class="math inline">\(y = 0\)</span> 为分界线的图，不过原理都是一样的。</p>
 <p>我们不妨来看一种不合法的情况，对应的折线是这样的:</p>
-<p><img src="/2019/05/26/卡特兰数/y.jpg" alt></p>
-<p>我们可以看到，<strong>任何一个不合法的折线一定会经过 $y = x + 1$ (对应图中的 $y = -1$ )，我们将第一个与这条线的点之后的部分以 $y = x + 1$ (对应图中的 $y = -1$ )为对称轴做一个对称变化，可以发现最后的落点一定会是 $(n - 1, n + 1)$ (对应图中的 $(2n, -2)$ )</strong>。</p>
-<p>这说明什么？这说明<strong>在2n步选择中，有n - 1步选了向右，所有的选法加起来就是 $\large C_{2n}^{n - 1}$ </strong>。</p>
-<p>因此无效的排列总共有  $\large C_{2n}^{n - 1}$ 种。</p>
-<h2 id="2-3-卡特兰数"><a href="#2-3-卡特兰数" class="headerlink" title="2.3 卡特兰数"></a>2.3 卡特兰数</h2><p>结合上面两节，我们现在可以知道了，一共的排列方法种类数量为:</p>
-<script type="math/tex; mode=display">
-\Large C_n = \Large C_{2n}^{n} - \Large C_{2n}^{n - 1} = \frac{1}{n + 1}\Large C_{2n}^{n}</script><p>这个 $\Large C_n$ 就被称为卡特兰数。</p>
-<h1 id="3-变形的卡特兰数"><a href="#3-变形的卡特兰数" class="headerlink" title="3. 变形的卡特兰数"></a>3. 变形的卡特兰数</h1><p>然而到目前为止，我们还是无法解决一开始提出的那个问题。因为刚才我们一直讨论的卡特兰数有一个要求：<strong>两种操作的数量相同，都是n</strong>。</p>
+<p><img src="/2019/05/26/卡特兰数/y.jpg"></p>
+<p>我们可以看到，<strong>任何一个不合法的折线一定会经过 <span class="math inline">\(y = x + 1\)</span> (对应图中的 <span class="math inline">\(y = -1\)</span> )，我们将第一个与这条线的点之后的部分以 <span class="math inline">\(y = x + 1\)</span> (对应图中的 <span class="math inline">\(y = -1\)</span> )为对称轴做一个对称变化，可以发现最后的落点一定会是 <span class="math inline">\((n - 1, n + 1)\)</span> (对应图中的 <span class="math inline">\((2n, -2)\)</span> )</strong>。</p>
+<p>这说明什么？这说明<strong>在2n步选择中，有n - 1步选了向右，所有的选法加起来就是 <span class="math inline">\(\large C_{2n}^{n - 1}\)</span> </strong>。</p>
+<p>因此无效的排列总共有 <span class="math inline">\(\large C_{2n}^{n - 1}\)</span> 种。</p>
+<h2 id="卡特兰数-1">2.3 卡特兰数</h2>
+<p>结合上面两节，我们现在可以知道了，一共的排列方法种类数量为: <span class="math display">\[
+\Large C_n = \Large C_{2n}^{n} - \Large C_{2n}^{n - 1} = \frac{1}{n + 1}\Large C_{2n}^{n}
+\]</span> 这个 <span class="math inline">\(\Large C_n\)</span> 就被称为卡特兰数。</p>
+<h1 id="变形的卡特兰数">3. 变形的卡特兰数</h1>
+<p>然而到目前为止，我们还是无法解决一开始提出的那个问题。因为刚才我们一直讨论的卡特兰数有一个要求：<strong>两种操作的数量相同，都是n</strong>。</p>
 <p>那么，当操作不同时该怎么办呢？</p>
 <p>其实这个问题很简单，刚才我们不是走了一个正方形的棋盘吗？现在换成矩形就行了:</p>
-<p><img src="/2019/05/26/卡特兰数/z.png" alt></p>
-<p>稍加思索我们发现，这个和之前的没有任何区别。假设<strong>宽为m，高为n，且有 m &gt; n，那么经过对称处理后终点落在了 $(n - 1, m + 1)$</strong>。</p>
-<p>也就是说，最终结果为:</p>
-<script type="math/tex; mode=display">
-\Large C_{m + n}^{n} - \Large C_{m + n}^{n - 1}</script>
+<p><img src="/2019/05/26/卡特兰数/z.png"></p>
+<p>稍加思索我们发现，这个和之前的没有任何区别。假设<strong>宽为m，高为n，且有 m &gt; n，那么经过对称处理后终点落在了 <span class="math inline">\((n - 1, m + 1)\)</span></strong>。</p>
+<p>也就是说，最终结果为: <span class="math display">\[
+\Large C_{m + n}^{n} - \Large C_{m + n}^{n - 1}
+\]</span></p>
+
       
     </div>
 
@@ -599,7 +605,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -660,7 +666,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -701,7 +711,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -737,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-引例"><span class="nav-text">1. 引例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-卡特兰数"><span class="nav-text">2. 卡特兰数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-分析"><span class="nav-text">2.1 分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-不合法的排列数"><span class="nav-text">2.2 不合法的排列数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-卡特兰数"><span class="nav-text">2.3 卡特兰数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-变形的卡特兰数"><span class="nav-text">3. 变形的卡特兰数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引例"><span class="nav-text">1. 引例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#卡特兰数"><span class="nav-text">2. 卡特兰数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">2.1 分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不合法的排列数"><span class="nav-text">2.2 不合法的排列数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卡特兰数-1"><span class="nav-text">2.3 卡特兰数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变形的卡特兰数"><span class="nav-text">3. 变形的卡特兰数</span></a></li></ol></div>
             
 
           </div>

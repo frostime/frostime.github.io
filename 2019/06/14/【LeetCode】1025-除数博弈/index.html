@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="1. 题目描述爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。 最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作： 选出任一 x，满足 0 &amp;lt; x &amp;lt; N 且 N % x == 0 。 用 N - x 替换黑板上的数字 N 。 如果玩家无法执行这些操作，就会输掉游戏。 只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个玩家都以最佳状">
+  <meta name="description" content="1. 题目描述 爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。 最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作： 选出任一 x，满足 0 &amp;lt; x &amp;lt; N 且 N % x == 0 。 用 N - x 替换黑板上的数字 N 。 如果玩家无法执行这些操作，就会输掉游戏。 只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个">
 <meta name="keywords" content="动态规划,博弈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【LeetCode】1025 除数博弈">
 <meta property="og:url" content="http://yoursite.com/2019/06/14/【LeetCode】1025-除数博弈/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="1. 题目描述爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。 最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作： 选出任一 x，满足 0 &amp;lt; x &amp;lt; N 且 N % x == 0 。 用 N - x 替换黑板上的数字 N 。 如果玩家无法执行这些操作，就会输掉游戏。 只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个玩家都以最佳状">
+<meta property="og:description" content="1. 题目描述 爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。 最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作： 选出任一 x，满足 0 &amp;lt; x &amp;lt; N 且 N % x == 0 。 用 N - x 替换黑板上的数字 N 。 如果玩家无法执行这些操作，就会输掉游戏。 只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-06-14T10:39:49.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【LeetCode】1025 除数博弈">
-<meta name="twitter:description" content="1. 题目描述爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。 最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作： 选出任一 x，满足 0 &amp;lt; x &amp;lt; N 且 N % x == 0 。 用 N - x 替换黑板上的数字 N 。 如果玩家无法执行这些操作，就会输掉游戏。 只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个玩家都以最佳状">
+<meta name="twitter:description" content="1. 题目描述 爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。 最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作： 选出任一 x，满足 0 &amp;lt; x &amp;lt; N 且 N % x == 0 。 用 N - x 替换黑板上的数字 N 。 如果玩家无法执行这些操作，就会输掉游戏。 只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个">
 
 
 
@@ -423,30 +423,32 @@
       
 
       
-        <h1 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1. 题目描述"></a>1. 题目描述</h1><p>爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。</p>
+        <h1 id="题目描述">1. 题目描述</h1>
+<p>爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。</p>
 <p>最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作：</p>
 <pre><code>选出任一 x，满足 0 &lt; x &lt; N 且 N % x == 0 。
-用 N - x 替换黑板上的数字 N 。
-</code></pre><p>如果玩家无法执行这些操作，就会输掉游戏。</p>
+用 N - x 替换黑板上的数字 N 。</code></pre>
+<p>如果玩家无法执行这些操作，就会输掉游戏。</p>
 <p>只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个玩家都以最佳状态参与游戏。</p>
 <p>示例 1：</p>
 <pre><code>输入：2
 输出：true
-解释：爱丽丝选择 1，鲍勃无法进行操作。
-</code></pre><p>示例 2：</p>
+解释：爱丽丝选择 1，鲍勃无法进行操作。</code></pre>
+<p>示例 2：</p>
 <pre><code>输入：3
 输出：false
-解释：爱丽丝选择 1，鲍勃也选择 1，然后爱丽丝无法进行操作。
-</code></pre><p>提示：</p>
-<pre><code>1 &lt;= N &lt;= 1000
-</code></pre><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/divisor-game" target="_blank" rel="noopener">https://leetcode-cn.com/problems/divisor-game</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+解释：爱丽丝选择 1，鲍勃也选择 1，然后爱丽丝无法进行操作。</code></pre>
+<p>提示：</p>
+<pre><code>1 &lt;= N &lt;= 1000</code></pre>
+<p>来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/divisor-game 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 <blockquote>
-<p>来源：力扣（LeetCode）链接：<a href="https://leetcode-cn.com/problems/divisor-game" target="_blank" rel="noopener">https://leetcode-cn.com/problems/divisor-game</a></p>
+<p>来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/divisor-game</p>
 </blockquote>
-<h1 id="2-动态规划法"><a href="#2-动态规划法" class="headerlink" title="2. 动态规划法"></a>2. 动态规划法</h1><p>乍一看，这不就是巴什博弈么？仔细观察才发现还是有些不同的，巴什博弈中对于取石子的数量没有约束，而这里要求必须是整除。</p>
+<h1 id="动态规划法">2. 动态规划法</h1>
+<p>乍一看，这不就是巴什博弈么？仔细观察才发现还是有些不同的，巴什博弈中对于取石子的数量没有约束，而这里要求必须是整除。</p>
 <p>由于这道题是我在动态规划专题里看到的，所以第一反应就是怎么使用动规。试过以后才发现动态规化还挺合适这一类博弈问题的(当然，并非最优解答)。</p>
 <p>首先来总结一下这一类博弈问题的基本特点吧。</p>
-<ol>
+<ol type="1">
 <li>可以用某个整数值来表征当前的局面；例如 n = 10 表示黑板上的数字是 10</li>
 <li>固定的局面对应了固定的结果，且上下文无关；例如 n = 10 的时候先手必败，那就意味着不管是一开始就是 10 还是从其他局面转移到当前局面，处身于当前局面的先手必败（即具有了<strong>状态转移的特性</strong>）</li>
 <li>各个局面之间具有很强烈的序列关系</li>
@@ -455,16 +457,17 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for 局面 i = 1:n</span><br><span class="line">    for each action</span><br><span class="line">        i --action--&gt; j，且 j &lt; i</span><br><span class="line">        if 局面 j 对先手而言是必败局</span><br><span class="line">            局面 i 对先手是必胜局</span><br><span class="line">            break</span><br><span class="line">    else</span><br><span class="line">        不管做什么动作，都会变成对于对手而言的必胜局</span><br><span class="line">        所以 i 对先手是必败局</span><br></pre></td></tr></table></figure>
 <p>有了这样的分析，我们就有了 AC 代码:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">divisorGame</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">bool</span> alice[N + <span class="number">1</span>];</span><br><span class="line">        alice[<span class="number">1</span>] = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">bool</span> ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= N; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            ans = <span class="literal">false</span>;</span><br><span class="line">            <span class="comment">//遍历所有合法的动作</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt; i; ++x)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//如果有一个 x 能够使得对方陷入 false 的境遇，那么当前的状况就是 true 的</span></span><br><span class="line">                <span class="keyword">if</span> (i % x == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (alice[i - x] == <span class="literal">false</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        ans = <span class="literal">true</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            alice[i] = ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> alice[N];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="3-归纳总结法"><a href="#3-归纳总结法" class="headerlink" title="3. 归纳总结法"></a>3. 归纳总结法</h1><p>我们说了，上面的动态规划方法并不是最优的解。这种博弈问题一般经过严密的数学分析后都可以变得及其简单。</p>
+<h1 id="归纳总结法">3. 归纳总结法</h1>
+<p>我们说了，上面的动态规划方法并不是最优的解。这种博弈问题一般经过严密的数学分析后都可以变得及其简单。</p>
 <p>首先模拟一下:</p>
 <pre><code>游戏开始时，
 假设N=1，爱丽丝失败；
 假设N=2，她可以选择x=1，来使鲍勃遇到的N=2-1=1，无法操作，爱丽丝获胜；
 假设N=3，她只能选择x=1，鲍勃遇到的N=2，鲍勃获胜；
 假设N=4，她可以选择x=1，来使鲍勃遇到的N=3，爱丽丝获胜；
-······
-</code></pre><p>我们</p>
-<ol>
+······</code></pre>
+<p>我们</p>
+<ol type="1">
 <li>注意到 N = 2 是一个必胜局面。</li>
 <li>奇数的因子只能是奇数，偶数的因子可以是奇数或偶数。</li>
 </ol>
@@ -593,7 +596,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -654,7 +657,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -695,7 +702,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -731,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-题目描述"><span class="nav-text">1. 题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-动态规划法"><span class="nav-text">2. 动态规划法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-归纳总结法"><span class="nav-text">3. 归纳总结法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">1. 题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划法"><span class="nav-text">2. 动态规划法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#归纳总结法"><span class="nav-text">3. 归纳总结法</span></a></li></ol></div>
             
 
           </div>

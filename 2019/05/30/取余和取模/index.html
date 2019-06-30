@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="无论是取余还是取模公式皆为 $r = a - (a / b) * b$， 区别在对商 $a / b$ 的取整处理上：  取余使用 fix()，即趋于零取整 取模使用 floor() ，即趋于负无穷大取整  两操作数同号时，取余和取模效果相同。异号时结果就会有差别。 例如:  4 / (-3) \approx -1.3 取余(C/C++, Java 中的%)    4 / (-3) = -1 \Ri">
+  <meta name="description" content="无论是取余还是取模公式皆为 \(r = a - (a / b) * b\)， 区别在对商 \(a / b\) 的取整处理上：  取余使用 fix()，即趋于零取整 取模使用 floor() ，即趋于负无穷大取整  两操作数同号时，取余和取模效果相同。异号时结果就会有差别。 例如: \[ 4 / (-3) \approx -1.3 \]  取余(C/C++, Java 中的%)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="取余和取模">
 <meta property="og:url" content="http://yoursite.com/2019/05/30/取余和取模/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="无论是取余还是取模公式皆为 $r = a - (a / b) * b$， 区别在对商 $a / b$ 的取整处理上：  取余使用 fix()，即趋于零取整 取模使用 floor() ，即趋于负无穷大取整  两操作数同号时，取余和取模效果相同。异号时结果就会有差别。 例如:  4 / (-3) \approx -1.3 取余(C/C++, Java 中的%)    4 / (-3) = -1 \Ri">
+<meta property="og:description" content="无论是取余还是取模公式皆为 \(r = a - (a / b) * b\)， 区别在对商 \(a / b\) 的取整处理上：  取余使用 fix()，即趋于零取整 取模使用 floor() ，即趋于负无穷大取整  两操作数同号时，取余和取模效果相同。异号时结果就会有差别。 例如: \[ 4 / (-3) \approx -1.3 \]  取余(C/C++, Java 中的%)">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-30T14:23:11.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="取余和取模">
-<meta name="twitter:description" content="无论是取余还是取模公式皆为 $r = a - (a / b) * b$， 区别在对商 $a / b$ 的取整处理上：  取余使用 fix()，即趋于零取整 取模使用 floor() ，即趋于负无穷大取整  两操作数同号时，取余和取模效果相同。异号时结果就会有差别。 例如:  4 / (-3) \approx -1.3 取余(C/C++, Java 中的%)    4 / (-3) = -1 \Ri">
+<meta name="twitter:description" content="无论是取余还是取模公式皆为 \(r = a - (a / b) * b\)， 区别在对商 \(a / b\) 的取整处理上：  取余使用 fix()，即趋于零取整 取模使用 floor() ，即趋于负无穷大取整  两操作数同号时，取余和取模效果相同。异号时结果就会有差别。 例如: \[ 4 / (-3) \approx -1.3 \]  取余(C/C++, Java 中的%)">
 
 
 
@@ -422,21 +422,24 @@
       
 
       
-        <p>无论是取余还是取模公式皆为 $r = a - (a / b) * b$， 区别在对商 $a / b$ 的取整处理上：</p>
+        <p>无论是取余还是取模公式皆为 <span class="math inline">\(r = a - (a / b) * b\)</span>， 区别在对商 <span class="math inline">\(a / b\)</span> 的取整处理上：</p>
 <ul>
 <li><strong>取余使用 fix()，即趋于零取整</strong></li>
 <li><strong>取模使用 floor() ，即趋于负无穷大取整</strong></li>
 </ul>
 <p><strong>两操作数同号时，取余和取模效果相同。异号时结果就会有差别</strong>。</p>
 <p>例如:</p>
-<script type="math/tex; mode=display">
-4 / (-3) \approx -1.3</script><ul>
-<li><p>取余(<strong>C/C++, Java 中的%</strong>)  </p>
-<script type="math/tex; mode=display">
-4 / (-3) = -1 \Rightarrow 4 \% (-3) = 4 - ((-1)*(-3)) = 1</script></li>
-<li><p>取模(<strong>Python 中的%</strong>)</p>
-<script type="math/tex; mode=display">
-4 / (-3) = -2 \Rightarrow 4 \% (-3) = 4 - ((-2)*(-3)) = -2</script></li>
+<p><span class="math display">\[
+4 / (-3) \approx -1.3
+\]</span></p>
+<ul>
+<li><p>取余(<strong>C/C++, Java 中的%</strong>)<br>
+<span class="math display">\[
+4 / (-3) = -1 \Rightarrow 4 \% (-3) = 4 - ((-1)*(-3)) = 1
+\]</span></p></li>
+<li><p>取模(<strong>Python 中的%</strong>) <span class="math display">\[
+4 / (-3) = -2 \Rightarrow 4 \% (-3) = 4 - ((-2)*(-3)) = -2
+\]</span></p></li>
 </ul>
 <p><strong>在大多数语言如C/C++，Java中，运算符%是取余运算；少数语言如Python中，%为取模运算</strong>。</p>
 
@@ -541,7 +544,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -602,7 +605,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -643,7 +650,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

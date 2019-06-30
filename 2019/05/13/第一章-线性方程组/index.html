@@ -96,20 +96,20 @@
 
 
 
-  <meta name="description" content="1 线性方程组1.1 基本概念 线性方程(Linear Equation)A linear equation in the variables $x_1, \cdots , x_n$ is an equation that can be written in the form:  a_1x_1 + a_2x_2 + \cdots + a_nx_n = b 线性方程组(System of Linea">
+  <meta name="description" content="1 线性方程组 1.1 基本概念  线性方程(Linear Equation) A linear equation in the variables \(x_1, \cdots , x_n\) is an equation that can be written in the form: \[ a_1x_1 + a_2x_2 + \cdots + a_nx_n = b \] 线性方程">
 <meta name="keywords" content="线性代数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一章 线性方程组">
 <meta property="og:url" content="http://yoursite.com/2019/05/13/第一章-线性方程组/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="1 线性方程组1.1 基本概念 线性方程(Linear Equation)A linear equation in the variables $x_1, \cdots , x_n$ is an equation that can be written in the form:  a_1x_1 + a_2x_2 + \cdots + a_nx_n = b 线性方程组(System of Linea">
+<meta property="og:description" content="1 线性方程组 1.1 基本概念  线性方程(Linear Equation) A linear equation in the variables \(x_1, \cdots , x_n\) is an equation that can be written in the form: \[ a_1x_1 + a_2x_2 + \cdots + a_nx_n = b \] 线性方程">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/05/13/第一章-线性方程组/SolveLS.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/13/第一章-线性方程组/1-NoSolution.png">
 <meta property="og:updated_time" content="2019-05-15T06:00:02.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一章 线性方程组">
-<meta name="twitter:description" content="1 线性方程组1.1 基本概念 线性方程(Linear Equation)A linear equation in the variables $x_1, \cdots , x_n$ is an equation that can be written in the form:  a_1x_1 + a_2x_2 + \cdots + a_nx_n = b 线性方程组(System of Linea">
+<meta name="twitter:description" content="1 线性方程组 1.1 基本概念  线性方程(Linear Equation) A linear equation in the variables \(x_1, \cdots , x_n\) is an equation that can be written in the form: \[ a_1x_1 + a_2x_2 + \cdots + a_nx_n = b \] 线性方程">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/13/第一章-线性方程组/SolveLS.png">
 
 
@@ -445,22 +445,26 @@
       
 
       
-        <h1 id="1-线性方程组"><a href="#1-线性方程组" class="headerlink" title="1 线性方程组"></a>1 线性方程组</h1><h2 id="1-1-基本概念"><a href="#1-1-基本概念" class="headerlink" title="1.1 基本概念"></a>1.1 基本概念</h2><ul>
-<li><p>线性方程(Linear Equation)<br>A linear equation in the variables $x_1, \cdots , x_n$ is an equation that can be written in the form:</p>
-<script type="math/tex; mode=display">
-a_1x_1 + a_2x_2 + \cdots + a_nx_n = b</script></li>
-<li><p>线性方程组(System of Linear Equations/Linear System)<br>A system of linear equations (or a linear system) is a collection of one or more linear equations involving the same variables</p>
-</li>
-<li><p>解(Solution):<br>A solution of the system is a list $(s_1, s_2, \dots, s_n)$ of numbers that makes each equation a true statement when the values $(s_1, s_2, \dots, s_n)$ are substituted for $(x_1, x_2, \dots, x_n)$,respectively.</p>
-</li>
-<li><p>解集(Solution Set)<br>The set of all possible solutions is called the solution set of the linear system</p>
-</li>
-<li><p>线性方程组的等价<br>Two linear systems are called <strong>equivalent</strong> if they <strong>have the same solution set</strong>.<br>That is, each solution of the first system is a solution of the second system, and each solution of the second system is a solution of the first.</p>
-</li>
+        <h1 id="线性方程组">1 线性方程组</h1>
+<h2 id="基本概念">1.1 基本概念</h2>
+<ul>
+<li><p>线性方程(Linear Equation)<br>
+A linear equation in the variables <span class="math inline">\(x_1, \cdots , x_n\)</span> is an equation that can be written in the form: <span class="math display">\[
+a_1x_1 + a_2x_2 + \cdots + a_nx_n = b
+\]</span></p></li>
+<li><p>线性方程组(System of Linear Equations/Linear System)<br>
+A system of linear equations (or a linear system) is a collection of one or more linear equations involving the same variables</p></li>
+<li><p>解(Solution):<br>
+A solution of the system is a list <span class="math inline">\((s_1, s_2, \dots, s_n)\)</span> of numbers that makes each equation a true statement when the values <span class="math inline">\((s_1, s_2, \dots, s_n)\)</span> are substituted for <span class="math inline">\((x_1, x_2, \dots, x_n)\)</span>,respectively.</p></li>
+<li><p>解集(Solution Set)<br>
+The set of all possible solutions is called the solution set of the linear system</p></li>
+<li><p>线性方程组的等价<br>
+Two linear systems are called <strong>equivalent</strong> if they <strong>have the same solution set</strong>.<br>
+That is, each solution of the first system is a solution of the second system, and each solution of the second system is a solution of the first.</p></li>
 </ul>
 <p><br><br></p>
 <p><span id="ThreeSS">线性方程组的解有三种情况:</span></p>
-<ol>
+<ol type="1">
 <li>无解</li>
 <li>有唯一解</li>
 <li>有无穷多种解</li>
@@ -470,56 +474,65 @@ a_1x_1 + a_2x_2 + \cdots + a_nx_n = b</script></li>
 <li>若线性方程组无解，则称之为<strong>相容的(Consisitent)</strong></li>
 <li>若线性方程组有解(唯一或者无穷)，则称之为<strong>不相容的(Inconsistent)</strong></li>
 </ul>
-<h2 id="1-2-矩阵记号"><a href="#1-2-矩阵记号" class="headerlink" title="1.2 矩阵记号"></a>1.2 矩阵记号</h2><p>The essential information of a linear system can be recorded compactly in a rectangular array called a <strong>matrix</strong>.</p>
+<h2 id="矩阵记号">1.2 矩阵记号</h2>
+<p>The essential information of a linear system can be recorded compactly in a rectangular array called a <strong>matrix</strong>.</p>
 <p>例如对于一个Linear System:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \left\{
 \begin{aligned}
-&& x_1 - 2x_2 + x_3 & = 0\\
-&& 2x_2 - 8x_3 & = 8\\
-&& -4x_1 + 5x_2 + 9x_3 & = -9
+&amp;&amp; x_1 - 2x_2 + x_3 &amp; = 0\\
+&amp;&amp; 2x_2 - 8x_3 &amp; = 8\\
+&amp;&amp; -4x_1 + 5x_2 + 9x_3 &amp; = -9
 \end{aligned}
-\right. \tag{1}</script><p>有两种表示方式:</p>
-<ol>
-<li>系数矩阵(Coefficient Matrix)<script type="math/tex; mode=display">
+\right. \tag{1}
+\]</span></p>
+<p>有两种表示方式:</p>
+<ol type="1">
+<li>系数矩阵(Coefficient Matrix) <span class="math display">\[
 \left[
 \begin{array}{rrr}
- 1 & -2 & 1 \\
- 0 & 2 & -8 \\
- -4 & 5 & 9
+ 1 &amp; -2 &amp; 1 \\
+ 0 &amp; 2 &amp; -8 \\
+ -4 &amp; 5 &amp; 9
 \end{array}
-\right] \tag{2}</script></li>
-<li>增广矩阵(Augmented Matrix)<script type="math/tex; mode=display">
+\right] \tag{2}
+\]</span></li>
+<li>增广矩阵(Augmented Matrix) <span class="math display">\[
 \left[
 \begin{array}{rrrr}
- 1 & -2 & 1 & 0 \\
- 0 & 2 & -8 & 8 \\
- -4 & 5 & 9 & -9
+ 1 &amp; -2 &amp; 1 &amp; 0 \\
+ 0 &amp; 2 &amp; -8 &amp; 8 \\
+ -4 &amp; 5 &amp; 9 &amp; -9
 \end{array}
-\right] \tag{3}</script></li>
+\right] \tag{3}
+\]</span></li>
 </ol>
-<p>一般描述一个矩阵的大小时，使用行列来表述。如果矩阵有 $m$ 行 $n$ 列，就表示为 $m \times n$，读作 “m-by-n matrix” 。</p>
-<h2 id="1-3-求解线性方程组-简写做LS"><a href="#1-3-求解线性方程组-简写做LS" class="headerlink" title="1.3 求解线性方程组(简写做LS)"></a>1.3 求解线性方程组(简写做LS)</h2><p>求解 Linear System 的基本思路就是用一个等价但是又容易求解的 LS 来替换原来的 LS ，然后在求解新的 LS。</p>
+<p>一般描述一个矩阵的大小时，使用行列来表述。如果矩阵有 <span class="math inline">\(m\)</span> 行 <span class="math inline">\(n\)</span> 列，就表示为 <span class="math inline">\(m \times n\)</span>，读作 &quot;m-by-n matrix&quot; 。</p>
+<h2 id="求解线性方程组简写做ls">1.3 求解线性方程组(简写做LS)</h2>
+<p>求解 Linear System 的基本思路就是用一个等价但是又容易求解的 LS 来替换原来的 LS ，然后在求解新的 LS。</p>
 <p>基本的方法是消元法。</p>
-<h3 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h3><p>求解线性方程组$\pod 1$</p>
-<script type="math/tex; mode=display">
+<h3 id="例1">例1</h3>
+<p>求解线性方程组<span class="math inline">\(\pod 1\)</span></p>
+<p><span class="math display">\[
 \begin{aligned}
-&&x_{1}-2 x_{2}+x_{3}=& 0 \\
-&&2x_{2}-8 x_{3}=& 8 \\
-&&-4 x_{1}+5 x_{2}+9 x_{3}=&-9
+&amp;&amp;x_{1}-2 x_{2}+x_{3}=&amp; 0 \\
+&amp;&amp;2x_{2}-8 x_{3}=&amp; 8 \\
+&amp;&amp;-4 x_{1}+5 x_{2}+9 x_{3}=&amp;-9
 \end{aligned}
 %\quad是空格
 \quad
 \left[
 \begin{array}{rrrr}
-{1} & {-2} & {1} & {0} \\
-{0} & {2} & {-8} & {8} \\
-{-4} & {5} & {9} & {-9}
+{1} &amp; {-2} &amp; {1} &amp; {0} \\
+{0} &amp; {2} &amp; {-8} &amp; {8} \\
+{-4} &amp; {5} &amp; {9} &amp; {-9}
 \end{array}
-\right]</script><ul>
+\right]
+\]</span></p>
+<ul>
 <li>Step1</li>
 </ul>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
 4 \cdot \text{[equation 1]}\\
 + \text{[equation 3]}\\
@@ -528,47 +541,51 @@ a_1x_1 + a_2x_2 + \cdots + a_nx_n = b</script></li>
 \end{aligned}
 \quad
 \begin{array}{r}
-4x_{1}-8 x_{2}+4x_{3} = &0 \\
--4 x_{1}+5 x_{2}+9 x_{3} = &-9\\
+4x_{1}-8 x_{2}+4x_{3} = &amp;0 \\
+-4 x_{1}+5 x_{2}+9 x_{3} = &amp;-9\\
 \hline
--3x_2 + 13x_3 = &-9
+-3x_2 + 13x_3 = &amp;-9
 \end{array}
 \\
 \Downarrow{经过变换}
 \\
 \begin{aligned}
-x_{1} - 2x_{2} + x_{3}=& 0 \\
-2x_{2} - 8x_{3}=& 8 \\
--3x_{2} + 13x_{3}=&-9
+x_{1} - 2x_{2} + x_{3}=&amp; 0 \\
+2x_{2} - 8x_{3}=&amp; 8 \\
+-3x_{2} + 13x_{3}=&amp;-9
 \end{aligned}
 %\quad是空格
 \quad
 \left[
 \begin{array}{rrrr}
-{1} & {-2} & {1} & {0} \\
-{0} & {2} & {-8} & {8} \\
-{0} & {-3} & {13} & {-9}
+{1} &amp; {-2} &amp; {1} &amp; {0} \\
+{0} &amp; {2} &amp; {-8} &amp; {8} \\
+{0} &amp; {-3} &amp; {13} &amp; {-9}
 \end{array}
-\right]</script><ul>
+\right]
+\]</span></p>
+<ul>
 <li>Step2</li>
 </ul>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-x_{1} - 2x_{2} + x_{3}=& 0 \\
-x_{2} - 4x_{3}=& 4 \\
--3x_{2} + 13x_{3}=&-9
+x_{1} - 2x_{2} + x_{3}=&amp; 0 \\
+x_{2} - 4x_{3}=&amp; 4 \\
+-3x_{2} + 13x_{3}=&amp;-9
 \end{aligned}
 \quad
 \left[
 \begin{array}{rrrr}
-{1} & {-2} & {1} & {0} \\
-{0} & {1} & {-4} & {4} \\
-{0} & {-3} & {13} & {-9}
+{1} &amp; {-2} &amp; {1} &amp; {0} \\
+{0} &amp; {1} &amp; {-4} &amp; {4} \\
+{0} &amp; {-3} &amp; {13} &amp; {-9}
 \end{array}
-\right]</script><ul>
+\right]
+\]</span></p>
+<ul>
 <li>Step3</li>
 </ul>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
 3 \cdot \text{[equation 2]}\\
 + \text{[equation 3]}\\
@@ -577,57 +594,59 @@ x_{2} - 4x_{3}=& 4 \\
 \end{aligned}
 \quad
 \begin{array}{rr}
-3x_{2} - 12x_{3} = &12 \\
--3x_{2} + 13x_{3} = &-9\\
+3x_{2} - 12x_{3} = &amp;12 \\
+-3x_{2} + 13x_{3} = &amp;-9\\
 \hline
-x_3 = & 3
+x_3 = &amp; 3
 \end{array}
 \\
 \Downarrow{经过变换}
 \\
 \begin{aligned}
-x_{1} - 2x_{2} + x_{3}=& 0 \\
-x_{2} - 4x_{3}=& 4 \\
-x_{3}=&3
+x_{1} - 2x_{2} + x_{3}=&amp; 0 \\
+x_{2} - 4x_{3}=&amp; 4 \\
+x_{3}=&amp;3
 \end{aligned}
 \quad
 \left[
 \begin{array}{rrrr}
-{1} & {-2} & {1} & {0} \\
-{0} & {1} & {-4} & {4} \\
-{0} & {0} & {1} & {3}
+{1} &amp; {-2} &amp; {1} &amp; {0} \\
+{0} &amp; {1} &amp; {-4} &amp; {4} \\
+{0} &amp; {0} &amp; {1} &amp; {3}
 \end{array}
-\right]</script><ul>
+\right]
+\]</span></p>
+<ul>
 <li>Step4 类似的手段，从下往上一次消元</li>
 </ul>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-x_{1} - 2x_{2} + x_{3}=& 0 \\
-x_{2} - 4x_{3}=& 4 \\
-x_{3}=&3
+x_{1} - 2x_{2} + x_{3}=&amp; 0 \\
+x_{2} - 4x_{3}=&amp; 4 \\
+x_{3}=&amp;3
 \end{aligned}
 \quad
 \left[
 \begin{array}{rrrr}
-{1} & {-2} & {1} & {0} \\
-{0} & {1} & {-4} & {4} \\
-{0} & {0} & {1} & {3}
+{1} &amp; {-2} &amp; {1} &amp; {0} \\
+{0} &amp; {1} &amp; {-4} &amp; {4} \\
+{0} &amp; {0} &amp; {1} &amp; {3}
 \end{array}
 \right]
 \\
 \Downarrow{消去1, 2中的x_3}
 \\
 \begin{aligned}
-x_{1}-2 x_{2} &=-3\\
-x_{2} &=16\\
-x_{3} &=3
+x_{1}-2 x_{2} &amp;=-3\\
+x_{2} &amp;=16\\
+x_{3} &amp;=3
 \end{aligned}
 \quad
 \left[
 \begin{array}{rrrr}
-{1} & {-2} & {0} & {-3} \\
-{0} & {1} & {0} & {16} \\
-{0} & {0} & {1} & {3}
+{1} &amp; {-2} &amp; {0} &amp; {-3} \\
+{0} &amp; {1} &amp; {0} &amp; {16} \\
+{0} &amp; {0} &amp; {1} &amp; {3}
 \end{array}
 \right]
 \\
@@ -635,21 +654,24 @@ x_{3} &=3
 \\
 \left\{
     \begin{aligned}
-    x_{1} &=29\\
-    x_{2} &=16\\
-    x_{3} &=3
+    x_{1} &amp;=29\\
+    x_{2} &amp;=16\\
+    x_{3} &amp;=3
     \end{aligned}
 \right.
 \quad
 \left[
     \begin{array}{cccc}
-    {1}& {0} & {0} & {29} \\
-    {0} & {1} & {0} & {16} \\
-    {0} & {0} & {1} & {3}
+    {1}&amp; {0} &amp; {0} &amp; {29} \\
+    {0} &amp; {1} &amp; {0} &amp; {16} \\
+    {0} &amp; {0} &amp; {1} &amp; {3}
     \end{array}
-\right]</script><p>最后求得，方程的解为 $\pod{29, 16, 3}$ ，如图所示:</p>
+\right]
+\]</span></p>
+<p>最后求得，方程的解为 <span class="math inline">\(\pod{29, 16, 3}\)</span> ，如图所示:</p>
 <p><img src="/2019/05/13/第一章-线性方程组/SolveLS.png" alt="Solution"></p>
-<h3 id="针对例一的说明"><a href="#针对例一的说明" class="headerlink" title="针对例一的说明"></a>针对例一的说明</h3><p>例一中的例子充分说明了<strong>对线性方程的变换对应与对增广矩阵的行变换</strong>。</p>
+<h3 id="针对例一的说明">针对例一的说明</h3>
+<p>例一中的例子充分说明了<strong>对线性方程的变换对应与对增广矩阵的行变换</strong>。</p>
 <blockquote>
 <p>初等行变换(Elementary Row Operations)</p>
 <ul>
@@ -663,36 +685,45 @@ x_{3} &=3
 <blockquote>
 <p>若两个 LS 的增广矩阵是行等价的，则它们具有<strong>相同的解集</strong></p>
 </blockquote>
-<h2 id="1-4-存在与唯一性问题-Existence-and-Uniqueness"><a href="#1-4-存在与唯一性问题-Existence-and-Uniqueness" class="headerlink" title="1.4 存在与唯一性问题(Existence and Uniqueness)"></a>1.4 存在与唯一性问题(Existence and Uniqueness)</h2><p>之前说过，一个方程组的解集可能有<a href="#ThreeSS">三种情况</a>，为了研究这一问题，我们需要提出两个基本的问题:</p>
-<ol>
+<h2 id="存在与唯一性问题existence-and-uniqueness">1.4 存在与唯一性问题(Existence and Uniqueness)</h2>
+<p>之前说过，一个方程组的解集可能有<a href="#ThreeSS">三种情况</a>，为了研究这一问题，我们需要提出两个基本的问题:</p>
+<ol type="1">
 <li>方程组是否相容?</li>
 <li>方程组若有解，那解是否唯一?</li>
 </ol>
 <p>这两个问题会贯穿整个线性代数课程。在本节和下节，我们将会说明如何<strong>通过行变换来回答这个问题</strong>。</p>
-<h3 id="例1-1"><a href="#例1-1" class="headerlink" title="例1"></a>例1</h3><p>下列方程组是否有解?</p>
-<script type="math/tex; mode=display">
+<h3 id="例1-1">例1</h3>
+<p>下列方程组是否有解?</p>
+<p><span class="math display">\[
 \left\{
 \begin{aligned}
     x_1 - 2x_2 + x_3 = 0\\
     2x_2 - 8x_3 = 8\\
     -4x_1 + 5x_2 + 9x_3 = -9
 \end{aligned}
-\right.</script><p>经过行变换，可得增广矩阵的等价形式:</p>
-<script type="math/tex; mode=display">
+\right.
+\]</span> 经过行变换，可得增广矩阵的等价形式: <span class="math display">\[
 \left[
 \begin{array}{rrr}
-    1 & -2 & 1 & 0\\
-    0 & 1 & -4 & 4\\
-    0 & 0 & 1 & 3
+    1 &amp; -2 &amp; 1 &amp; 0\\
+    0 &amp; 1 &amp; -4 &amp; 4\\
+    0 &amp; 0 &amp; 1 &amp; 3
 \end{array}
-\right]</script><p>可以看出有唯一解。</p>
-<h3 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h3><script type="math/tex; mode=display">
+\right]
+\]</span> 可以看出有唯一解。</p>
+<h3 id="例2">例2</h3>
+<p><span class="math display">\[
 \left\{
-\begin{aligned} x_{2}-4 x_{3} &=8 \\ 2 x_{1}-3 x_{2}+2 x_{3} &=1 \\ 5 x_{1}-8 x_{2}+7 x_{3} &=1 \end{aligned}
-\right.</script><p>变换得到:</p>
-<script type="math/tex; mode=display">
-\left[ \begin{array}{rrrr}{2} & {-3} & {2} & {1} \\ {0} & {1} & {-4} & {8} \\ {0} & {0} & {0} & {5 / 2}\end{array}\right]</script><p>显然无解。我们不妨看一看图，就可以知道，无解的原因是没有点同时落在三个平面上:</p>
-<p><img src="/2019/05/13/第一章-线性方程组/1-NoSolution.png" alt="无解"></p>
+\begin{aligned} x_{2}-4 x_{3} &amp;=8 \\ 2 x_{1}-3 x_{2}+2 x_{3} &amp;=1 \\ 5 x_{1}-8 x_{2}+7 x_{3} &amp;=1 \end{aligned}
+\right.
+\]</span></p>
+<p>变换得到: <span class="math display">\[
+\left[ \begin{array}{rrrr}{2} &amp; {-3} &amp; {2} &amp; {1} \\ {0} &amp; {1} &amp; {-4} &amp; {8} \\ {0} &amp; {0} &amp; {0} &amp; {5 / 2}\end{array}\right]
+\]</span></p>
+<p>显然无解。我们不妨看一看图，就可以知道，无解的原因是没有点同时落在三个平面上:</p>
+<figure>
+<img src="/2019/05/13/第一章-线性方程组/1-NoSolution.png" alt="无解"><figcaption>无解</figcaption>
+</figure>
 
       
     </div>
@@ -810,7 +841,7 @@ x_{3} &=3
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -871,7 +902,11 @@ x_{3} &=3
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -912,7 +947,9 @@ x_{3} &=3
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -948,7 +985,7 @@ x_{3} &=3
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-线性方程组"><span class="nav-text">1 线性方程组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-基本概念"><span class="nav-text">1.1 基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-矩阵记号"><span class="nav-text">1.2 矩阵记号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-求解线性方程组-简写做LS"><span class="nav-text">1.3 求解线性方程组(简写做LS)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例1"><span class="nav-text">例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对例一的说明"><span class="nav-text">针对例一的说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-存在与唯一性问题-Existence-and-Uniqueness"><span class="nav-text">1.4 存在与唯一性问题(Existence and Uniqueness)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例1-1"><span class="nav-text">例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例2"><span class="nav-text">例2</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性方程组"><span class="nav-text">1 线性方程组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-text">1.1 基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵记号"><span class="nav-text">1.2 矩阵记号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求解线性方程组简写做ls"><span class="nav-text">1.3 求解线性方程组(简写做LS)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例1"><span class="nav-text">例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对例一的说明"><span class="nav-text">针对例一的说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在与唯一性问题existence-and-uniqueness"><span class="nav-text">1.4 存在与唯一性问题(Existence and Uniqueness)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例1-1"><span class="nav-text">例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例2"><span class="nav-text">例2</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

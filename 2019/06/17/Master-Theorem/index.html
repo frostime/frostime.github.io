@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="1. 描述 在算法分析中，主定理（英语：master theorem）提供了用渐近符号表示许多由分治法得到的递推关系式的方法。  假设有递推关系式  T(n) = a\times T(\frac{n}{b}) + f(n)其中:  $n$ 为问题规模 $a$ 为递推的子问题数量，$a&amp;gt;0$ $\frac{n}{b}$ 为每个子问题的规模（假设每个子问题的规模基本一样）, $b&amp;gt;0$ $">
+  <meta name="description" content="1. 描述  在算法分析中，主定理（英语：master theorem）提供了用渐近符号表示许多由分治法得到的递推关系式的方法。  假设有递推关系式 \[ T(n) = a\times T(\frac{n}{b}) + f(n) \] 其中:  \(n\) 为问题规模 \(a\) 为递推的子问题数量，\(a&amp;gt;0\) \(\frac{n}{b}\) 为每个子问题的规模（">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Master Theorem">
 <meta property="og:url" content="http://yoursite.com/2019/06/17/Master-Theorem/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="1. 描述 在算法分析中，主定理（英语：master theorem）提供了用渐近符号表示许多由分治法得到的递推关系式的方法。  假设有递推关系式  T(n) = a\times T(\frac{n}{b}) + f(n)其中:  $n$ 为问题规模 $a$ 为递推的子问题数量，$a&amp;gt;0$ $\frac{n}{b}$ 为每个子问题的规模（假设每个子问题的规模基本一样）, $b&amp;gt;0$ $">
+<meta property="og:description" content="1. 描述  在算法分析中，主定理（英语：master theorem）提供了用渐近符号表示许多由分治法得到的递推关系式的方法。  假设有递推关系式 \[ T(n) = a\times T(\frac{n}{b}) + f(n) \] 其中:  \(n\) 为问题规模 \(a\) 为递推的子问题数量，\(a&amp;gt;0\) \(\frac{n}{b}\) 为每个子问题的规模（">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-06-17T09:44:36.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Master Theorem">
-<meta name="twitter:description" content="1. 描述 在算法分析中，主定理（英语：master theorem）提供了用渐近符号表示许多由分治法得到的递推关系式的方法。  假设有递推关系式  T(n) = a\times T(\frac{n}{b}) + f(n)其中:  $n$ 为问题规模 $a$ 为递推的子问题数量，$a&amp;gt;0$ $\frac{n}{b}$ 为每个子问题的规模（假设每个子问题的规模基本一样）, $b&amp;gt;0$ $">
+<meta name="twitter:description" content="1. 描述  在算法分析中，主定理（英语：master theorem）提供了用渐近符号表示许多由分治法得到的递推关系式的方法。  假设有递推关系式 \[ T(n) = a\times T(\frac{n}{b}) + f(n) \] 其中:  \(n\) 为问题规模 \(a\) 为递推的子问题数量，\(a&amp;gt;0\) \(\frac{n}{b}\) 为每个子问题的规模（">
 
 
 
@@ -429,46 +429,59 @@
       
 
       
-        <h1 id="1-描述"><a href="#1-描述" class="headerlink" title="1. 描述"></a>1. 描述</h1><blockquote>
+        <h1 id="描述">1. 描述</h1>
+<blockquote>
 <p>在算法分析中，主定理（英语：master theorem）提供了用渐近符号表示许多由分治法得到的递推关系式的方法。</p>
 </blockquote>
 <p>假设有递推关系式</p>
-<script type="math/tex; mode=display">
-T(n) = a\times T(\frac{n}{b}) + f(n)</script><p>其中:</p>
+<p><span class="math display">\[
+T(n) = a\times T(\frac{n}{b}) + f(n)
+\]</span></p>
+<p>其中:</p>
 <ul>
-<li>$n$ 为问题规模</li>
-<li>$a$ 为递推的子问题数量，$a&gt;0$</li>
-<li>$\frac{n}{b}$ 为每个子问题的规模（假设每个子问题的规模基本一样）, $b&gt;0$</li>
-<li>$f(n)$ 为递推以外进行的计算工作</li>
+<li><span class="math inline">\(n\)</span> 为问题规模</li>
+<li><span class="math inline">\(a\)</span> 为递推的子问题数量，<span class="math inline">\(a&gt;0\)</span></li>
+<li><span class="math inline">\(\frac{n}{b}\)</span> 为每个子问题的规模（假设每个子问题的规模基本一样）, <span class="math inline">\(b&gt;0\)</span></li>
+<li><span class="math inline">\(f(n)\)</span> 为递推以外进行的计算工作</li>
 </ul>
 <p>则：</p>
-<ol>
-<li>若 $\exists\epsilon &gt; 0, f(n)=O(n^{\log_{b}a - \epsilon})$ <strong>(即 $f(n)=o(n^{\log_{b}a})$)</strong></li>
+<ol type="1">
+<li>若 <span class="math inline">\(\exists\epsilon &gt; 0, f(n)=O(n^{\log_{b}a - \epsilon})\)</span> <strong>(即 <span class="math inline">\(f(n)=o(n^{\log_{b}a})\)</span>)</strong></li>
 </ol>
-<script type="math/tex; mode=display">
-T(n)=\Theta(n^{\log_{b}a})</script><ol>
-<li>若 $f(n)=\Theta(n^{\log_{b}a})$</li>
+<p><span class="math display">\[
+T(n)=\Theta(n^{\log_{b}a})
+\]</span></p>
+<ol start="2" type="1">
+<li>若 <span class="math inline">\(f(n)=\Theta(n^{\log_{b}a})\)</span></li>
 </ol>
-<script type="math/tex; mode=display">
-T(n)=\Theta(n^{\log_{b}a}\log_{}n)</script><ol>
-<li>若 $\exists\epsilon &gt; 0,f(n)=O(n^{\log_{b}a +\epsilon})$<strong>(即$f(n)=\omega (n^{\log_{b}a})$)</strong>, 且对于 $\forall c&lt;1$，$n$ 足够大，有 $aT(\frac{n}{b}) &lt; cf(n)$</li>
+<p><span class="math display">\[
+T(n)=\Theta(n^{\log_{b}a}\log_{}n)
+\]</span></p>
+<ol start="3" type="1">
+<li>若 <span class="math inline">\(\exists\epsilon &gt; 0,f(n)=O(n^{\log_{b}a +\epsilon})\)</span><strong>(即<span class="math inline">\(f(n)=\omega (n^{\log_{b}a})\)</span>)</strong>, 且对于 <span class="math inline">\(\forall c&lt;1\)</span>，<span class="math inline">\(n\)</span> 足够大，有 <span class="math inline">\(aT(\frac{n}{b}) &lt; cf(n)\)</span></li>
 </ol>
-<script type="math/tex; mode=display">
-T(n)=\Theta(f(n))</script><p>但是要注意，<strong>这里大于必须是多项式的大于。比如如果说 $n^{\log_{a}{b}}$ 是 $n$ 而 $f(n)$是$n\log_{}{n}$ 时，虽然可以比出大小，那由于不是多项式级的差距，所以不能适用于主定理。</strong></p>
-<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><ol>
-<li>计算 $n^{\log_{b}a}$</li>
-<li>将 $f(n)$ 与 $n^{\log_{b}a}$ 进行比较</li>
+<p><span class="math display">\[
+T(n)=\Theta(f(n))
+\]</span></p>
+<p>但是要注意，<strong>这里大于必须是多项式的大于。比如如果说 <span class="math inline">\(n^{\log_{a}{b}}\)</span> 是 <span class="math inline">\(n\)</span> 而 <span class="math inline">\(f(n)\)</span>是<span class="math inline">\(n\log_{}{n}\)</span> 时，虽然可以比出大小，那由于不是多项式级的差距，所以不能适用于主定理。</strong></p>
+<h1 id="使用">2. 使用</h1>
+<ol type="1">
+<li>计算 <span class="math inline">\(n^{\log_{b}a}\)</span></li>
+<li>将 <span class="math inline">\(f(n)\)</span> 与 <span class="math inline">\(n^{\log_{b}a}\)</span> 进行比较</li>
 <li>得出结论</li>
 </ol>
-<h1 id="3-举例"><a href="#3-举例" class="headerlink" title="3. 举例"></a>3. 举例</h1><p>分析一下算法复杂度<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二分递归求数组之和,范围[low, high]</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Sum</span><span class="params">(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (low == high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">array</span>[low];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (low + high) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> Sum(<span class="built_in">array</span>, low, mid) + Sum(<span class="built_in">array</span>, mid, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="举例">3. 举例</h1>
+<p>分析一下算法复杂度 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二分递归求数组之和,范围[low, high]</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Sum</span><span class="params">(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (low == high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">array</span>[low];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (low + high) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> Sum(<span class="built_in">array</span>, low, mid) + Sum(<span class="built_in">array</span>, mid, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>分析:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-& \text{可知}\ T(n) = 2T(\frac{n}{2}) + O(1),\ a= 2,\ b = 2\\
-& \therefore n^{\log_{b}a} = n\\
-& f(n)=O(1)= o(n)\\
-& \therefore T(n) = \Theta(n)
-\end{aligned}</script>
+&amp; \text{可知}\ T(n) = 2T(\frac{n}{2}) + O(1),\ a= 2,\ b = 2\\
+&amp; \therefore n^{\log_{b}a} = n\\
+&amp; f(n)=O(1)= o(n)\\
+&amp; \therefore T(n) = \Theta(n)
+\end{aligned}
+\]</span></p>
+
       
     </div>
 
@@ -579,7 +592,7 @@ T(n)=\Theta(f(n))</script><p>但是要注意，<strong>这里大于必须是多�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -640,7 +653,11 @@ T(n)=\Theta(f(n))</script><p>但是要注意，<strong>这里大于必须是多�
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -681,7 +698,9 @@ T(n)=\Theta(f(n))</script><p>但是要注意，<strong>这里大于必须是多�
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -717,7 +736,7 @@ T(n)=\Theta(f(n))</script><p>但是要注意，<strong>这里大于必须是多�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-描述"><span class="nav-text">1. 描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-使用"><span class="nav-text">2. 使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-举例"><span class="nav-text">3. 举例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#描述"><span class="nav-text">1. 描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-text">2. 使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#举例"><span class="nav-text">3. 举例</span></a></li></ol></div>
             
 
           </div>

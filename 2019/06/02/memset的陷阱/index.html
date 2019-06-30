@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="以前用过 memset，以为唯一的坑就是最后一个参数，没想到还有坑。 从下面的代码说起。 12345678910int road[10001];int main()&amp;#123;    while (cin &amp;gt;&amp;gt; L &amp;gt;&amp;gt; M)    &amp;#123;        //我们希望把 road 前 L 个元素设置为 1        memset(road, 1, sizeof(i">
+  <meta name="description" content="以前用过 memset，以为唯一的坑就是最后一个参数，没想到还有坑。 从下面的代码说起。 12345678910int road[10001];int main()&amp;#123;    while (cin &amp;gt;&amp;gt; L &amp;gt;&amp;gt; M)    &amp;#123;        //我们希望把 road 前 L 个元素设置为 1        memset(road, 1, sizeof">
 <meta name="keywords" content="踩坑笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【C++】memset的陷阱">
 <meta property="og:url" content="http://yoursite.com/2019/06/02/memset的陷阱/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="以前用过 memset，以为唯一的坑就是最后一个参数，没想到还有坑。 从下面的代码说起。 12345678910int road[10001];int main()&amp;#123;    while (cin &amp;gt;&amp;gt; L &amp;gt;&amp;gt; M)    &amp;#123;        //我们希望把 road 前 L 个元素设置为 1        memset(road, 1, sizeof(i">
+<meta property="og:description" content="以前用过 memset，以为唯一的坑就是最后一个参数，没想到还有坑。 从下面的代码说起。 12345678910int road[10001];int main()&amp;#123;    while (cin &amp;gt;&amp;gt; L &amp;gt;&amp;gt; M)    &amp;#123;        //我们希望把 road 前 L 个元素设置为 1        memset(road, 1, sizeof">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-06-28T08:55:27.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【C++】memset的陷阱">
-<meta name="twitter:description" content="以前用过 memset，以为唯一的坑就是最后一个参数，没想到还有坑。 从下面的代码说起。 12345678910int road[10001];int main()&amp;#123;    while (cin &amp;gt;&amp;gt; L &amp;gt;&amp;gt; M)    &amp;#123;        //我们希望把 road 前 L 个元素设置为 1        memset(road, 1, sizeof(i">
+<meta name="twitter:description" content="以前用过 memset，以为唯一的坑就是最后一个参数，没想到还有坑。 从下面的代码说起。 12345678910int road[10001];int main()&amp;#123;    while (cin &amp;gt;&amp;gt; L &amp;gt;&amp;gt; M)    &amp;#123;        //我们希望把 road 前 L 个元素设置为 1        memset(road, 1, sizeof">
 
 
 
@@ -458,9 +458,9 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fill</span> <span class="params">(ForwardIterator first, ForwardIterator last, <span class="keyword">const</span> T&amp; val)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>当然这个会稍微慢一点。</p>
 <p>以后用 <code>memset</code> 需要注意了:</p>
-<ol>
+<ol type="1">
 <li>如果是针对 <code>char</code> 这样的单字节数组，哪么先设置什么就设置什么</li>
-<li>如果是 <code>int</code>，那只有 0 和 -1  是有效的</li>
+<li>如果是 <code>int</code>，那只有 0 和 -1 是有效的</li>
 </ol>
 
       
@@ -570,7 +570,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -631,7 +631,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -672,7 +676,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

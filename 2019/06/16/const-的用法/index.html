@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="1. const对象的链接性1.1 默认状况 默认情况下，const对象被设定为内部链接，即仅在文件内有效。 当多个文件出现同名的const变量时，等同于在不同文件中分别定义了独立的变量。  1.2 实现外部链接的方法 对于const变量，*不管是声明还是定义 都添加extern关键字。即可实现外部链接性。  1234//file1.cpp定义并初始化了一个常量，该常量能被其他文件访问extern">
+  <meta name="description" content="1. const对象的链接性 1.1 默认状况  默认情况下，const对象被设定为内部链接，即仅在文件内有效。 当多个文件出现同名的const变量时，等同于在不同文件中分别定义了独立的变量。  1.2 实现外部链接的方法  对于const变量，**不管是声明还是定义* 都添加extern关键字。即可实现外部链接性。  1234//file1.cpp定义并初始化了一个常量，该常">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【C++】const 的用法">
 <meta property="og:url" content="http://yoursite.com/2019/06/16/const-的用法/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="1. const对象的链接性1.1 默认状况 默认情况下，const对象被设定为内部链接，即仅在文件内有效。 当多个文件出现同名的const变量时，等同于在不同文件中分别定义了独立的变量。  1.2 实现外部链接的方法 对于const变量，*不管是声明还是定义 都添加extern关键字。即可实现外部链接性。  1234//file1.cpp定义并初始化了一个常量，该常量能被其他文件访问extern">
+<meta property="og:description" content="1. const对象的链接性 1.1 默认状况  默认情况下，const对象被设定为内部链接，即仅在文件内有效。 当多个文件出现同名的const变量时，等同于在不同文件中分别定义了独立的变量。  1.2 实现外部链接的方法  对于const变量，**不管是声明还是定义* 都添加extern关键字。即可实现外部链接性。  1234//file1.cpp定义并初始化了一个常量，该常">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-06-28T08:55:04.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【C++】const 的用法">
-<meta name="twitter:description" content="1. const对象的链接性1.1 默认状况 默认情况下，const对象被设定为内部链接，即仅在文件内有效。 当多个文件出现同名的const变量时，等同于在不同文件中分别定义了独立的变量。  1.2 实现外部链接的方法 对于const变量，*不管是声明还是定义 都添加extern关键字。即可实现外部链接性。  1234//file1.cpp定义并初始化了一个常量，该常量能被其他文件访问extern">
+<meta name="twitter:description" content="1. const对象的链接性 1.1 默认状况  默认情况下，const对象被设定为内部链接，即仅在文件内有效。 当多个文件出现同名的const变量时，等同于在不同文件中分别定义了独立的变量。  1.2 实现外部链接的方法  对于const变量，**不管是声明还是定义* 都添加extern关键字。即可实现外部链接性。  1234//file1.cpp定义并初始化了一个常量，该常">
 
 
 
@@ -441,58 +441,84 @@
       
 
       
-        <h1 id="1-const对象的链接性"><a href="#1-const对象的链接性" class="headerlink" title="1. const对象的链接性"></a>1. <code>const</code>对象的链接性</h1><h2 id="1-1-默认状况"><a href="#1-1-默认状况" class="headerlink" title="1.1 默认状况"></a>1.1 默认状况</h2><ul>
+        <h1 id="const对象的链接性">1. <code>const</code>对象的链接性</h1>
+<h2 id="默认状况">1.1 默认状况</h2>
+<ul>
 <li>默认情况下，<code>const</code><strong>对象被设定为内部链接</strong>，<strong>即仅在文件内有效</strong>。</li>
 <li>当多个文件出现同名的<code>const</code>变量时，<strong>等同于在不同文件中分别定义了独立的变量</strong>。</li>
 </ul>
-<h2 id="1-2-实现外部链接的方法"><a href="#1-2-实现外部链接的方法" class="headerlink" title="1.2 实现外部链接的方法"></a>1.2 实现外部链接的方法</h2><blockquote>
-<p>对于<code>const</code>变量，<em>*不管是声明还是定义</em> 都添加<code>extern</code>关键字。即可实现外部链接性。</p>
+<h2 id="实现外部链接的方法">1.2 实现外部链接的方法</h2>
+<blockquote>
+<p>对于<code>const</code>变量，**不管是声明还是定义* 都添加<code>extern</code>关键字。即可实现外部链接性。</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//file1.cpp定义并初始化了一个常量，该常量能被其他文件访问</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> SIZE = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//file2.h文件下声明</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> SIZE;<span class="comment">//与之前定义的变量为同一个</span></span><br></pre></td></tr></table></figure>
-<h1 id="2-对const的引用"><a href="#2-对const的引用" class="headerlink" title="2 对const的引用"></a>2 对<code>const</code>的引用</h1><blockquote>
-<p>对<code>const</code>的引用即常量引用。<br>它<strong>对且仅对</strong>引用<strong>可参与的操作</strong>进行了限定。<strong>对于引用的对象本身是否是一个常量未作限定</strong>。</p>
+<h1 id="对const的引用">2 对<code>const</code>的引用</h1>
+<blockquote>
+<p>对<code>const</code>的引用即常量引用。<br>
+它<strong>对且仅对</strong>引用<strong>可参与的操作</strong>进行了限定。<strong>对于引用的对象本身是否是一个常量未作限定</strong>。</p>
 </blockquote>
-<h2 id="2-1-const引用的初始化"><a href="#2-1-const引用的初始化" class="headerlink" title="2.1  const引用的初始化"></a>2.1  <code>const</code>引用的初始化</h2><p>一般而言，引用的对象必须与引用类型严格匹配。  </p>
+<h2 id="const引用的初始化">2.1 <code>const</code>引用的初始化</h2>
+<p>一般而言，引用的对象必须与引用类型严格匹配。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">double</span> d = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;r = i;<span class="comment">//正确</span></span><br><span class="line"><span class="keyword">int</span> &amp;ra = d;<span class="comment">//错误</span></span><br><span class="line"><span class="keyword">int</span> &amp;rb = <span class="number">3.14</span>;<span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
 <p>但是，<code>const</code>引用是个例外，<strong>它允许使用任意表达式作为初始值</strong>，<strong>只要该表达式的结果能转换成引用的类型即可</strong>。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">double</span> d = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;ra = i;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;rb = <span class="number">42</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;rc = i * <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;rd = d;<span class="comment">//注意</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-2-内部机制"><a href="#2-2-内部机制" class="headerlink" title="2.2 内部机制"></a>2.2 内部机制</h2><p>对于<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> d = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;rd = d;</span><br></pre></td></tr></table></figure></p>
-<p>之所以可以行得通，是因为编译器把上述代码变为了一下的形式：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> temp = d;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;rd = temp;</span><br></pre></td></tr></table></figure></p>
-<p>可以看出<code>const</code><strong>引用可以绑定临时变量</strong>，这是它的一个重要的不同点。而普通的引用是不可以这么做的，因此：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;ra = <span class="number">3</span> * (<span class="number">2</span> + <span class="number">4</span>);<span class="comment">//生成临时变量，可以</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;rb = fun();<span class="comment">//fun()为返回一个int临时变量的函数，可以</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="3-const与指针"><a href="#3-const与指针" class="headerlink" title="3. const与指针"></a>3. <code>const</code>与指针</h1><h2 id="3-1-指向常量的指针"><a href="#3-1-指向常量的指针" class="headerlink" title="3.1 指向常量的指针"></a>3.1 指向常量的指针</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>不能通过该指针改变指向的量的值（不管它是不是常量）。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> PI = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *p = &amp;PI;<span class="comment">//不一定非要指向常量</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="基本原则"><a href="#基本原则" class="headerlink" title="基本原则"></a>基本原则</h3><blockquote>
-<p>一般而言，指针的类型一定要与指向的对象严格匹配，除了两种例外。第一个就是<strong>允许令一个指向常量的指针指向一个非常量对象。</strong><br>指向常量的指针并不要求其指向的对象一定为常量，但普通指针一定不能指向常量。<br>可以这么想：<strong>所谓“指向常量的指针（或引用）”只不过是自以为是罢了，它们觉得自己指向了一个常量，因而自觉地不去改变对象的之</strong>。<br>——《C++ Primer》</p>
+<h2 id="内部机制">2.2 内部机制</h2>
+<p>对于 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> d = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;rd = d;</span><br></pre></td></tr></table></figure></p>
+<p>之所以可以行得通，是因为编译器把上述代码变为了一下的形式： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> temp = d;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;rd = temp;</span><br></pre></td></tr></table></figure></p>
+<p>可以看出<code>const</code><strong>引用可以绑定临时变量</strong>，这是它的一个重要的不同点。而普通的引用是不可以这么做的，因此： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;ra = <span class="number">3</span> * (<span class="number">2</span> + <span class="number">4</span>);<span class="comment">//生成临时变量，可以</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;rb = fun();<span class="comment">//fun()为返回一个int临时变量的函数，可以</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="const与指针">3. <code>const</code>与指针</h1>
+<h2 id="指向常量的指针">3.1 指向常量的指针</h2>
+<h3 id="基本概念">基本概念</h3>
+<p>不能通过该指针改变指向的量的值（不管它是不是常量）。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> PI = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *p = &amp;PI;<span class="comment">//不一定非要指向常量</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="基本原则">基本原则</h3>
+<blockquote>
+<p>一般而言，指针的类型一定要与指向的对象严格匹配，除了两种例外。第一个就是<strong>允许令一个指向常量的指针指向一个非常量对象。</strong><br>
+指向常量的指针并不要求其指向的对象一定为常量，但普通指针一定不能指向常量。<br>
+可以这么想：<strong>所谓“指向常量的指针（或引用）”只不过是自以为是罢了，它们觉得自己指向了一个常量，因而自觉地不去改变对象的之</strong>。<br>
+——《C++ Primer》</p>
 </blockquote>
-<h2 id="3-2-const指针"><a href="#3-2-const指针" class="headerlink" title="3.2 const指针"></a>3.2 <code>const</code>指针</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><p>指针本身是常量，不能变更自己指向的对象。且<strong>必须初始化</strong>。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;i;<span class="comment">//p不可改变，必须一直指向n</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="3-3-区分"><a href="#3-3-区分" class="headerlink" title="3.3 区分"></a>3.3 区分</h2><p>技巧：</p>
+<h2 id="const指针">3.2 <code>const</code>指针</h2>
+<h3 id="基本概念-1">基本概念</h3>
+<p>指针本身是常量，不能变更自己指向的对象。且<strong>必须初始化</strong>。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;i;<span class="comment">//p不可改变，必须一直指向n</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="区分">3.3 区分</h2>
+<p>技巧：</p>
 <ul>
 <li>以<code>*</code>符号为界，看<code>const</code>在左还是在右。</li>
 <li>只需从右向左阅读r的定义，离变量名最近的符号对变量的类型有最直接的影响, 并以此来分析。</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = &amp;n;<span class="comment">//指向常量的指针</span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *p = &amp;n;<span class="comment">//指向常量的指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> p = &amp;n;<span class="comment">//常指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;n;<span class="comment">//指向常量的常指针</span></span><br></pre></td></tr></table></figure>
-<h1 id="4-顶层const与底层const"><a href="#4-顶层const与底层const" class="headerlink" title="4. 顶层const与底层const"></a>4. 顶层<code>const</code>与底层<code>const</code></h1><h2 id="4-1-概念"><a href="#4-1-概念" class="headerlink" title="4.1 概念"></a>4.1 概念</h2><p>大多数情况下，这对概念是<strong>针对指针而言的</strong>。</p>
+<h1 id="顶层const与底层const">4. 顶层<code>const</code>与底层<code>const</code></h1>
+<h2 id="概念">4.1 概念</h2>
+<p>大多数情况下，这对概念是<strong>针对指针而言的</strong>。</p>
 <ul>
-<li>顶层<code>const</code><br>若指针本身为常量（即常指针），则称为顶层<code>const</code>。<br>更一般的，顶层<code>const</code>可以表示任意的对象其本身是常量。</li>
+<li>顶层<code>const</code> 若指针本身为常量（即常指针），则称为顶层<code>const</code>。<br>
+更一般的，顶层<code>const</code>可以表示任意的对象其本身是常量。</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> p1 = &amp;i;<span class="comment">//不能改变p1的值，这是一个顶层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ci =<span class="number">42</span>;<span class="comment">//不能改变ci的值，这是一个顶层const</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>底层<code>const</code><br>若指针所指的对象为一个常量，则成为底层<code>const</code>。</li>
+<li>底层<code>const</code> 若指针所指的对象为一个常量，则成为底层<code>const</code>。</li>
 </ul>
 <blockquote>
-<p>注意：指向“常量”的指针不代表它所指向的内容一定是常量，只是代表不能通过解引用符（操作符<em>）来改变它所指向的内容。如 <em>*<code>const</code>引用为底层const</em></em>。</p>
+<p>注意：指向“常量”的指针不代表它所指向的内容一定是常量，只是代表不能通过解引用符（操作符*）来改变它所指向的内容。如 <strong><code>const</code>引用为底层const</strong>。</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p2 = &amp;ci;<span class="comment">//允许改变p2的值，这是一个底层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r = ci;<span class="comment">//用于声明引用的const为底层const</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-2-记忆技巧"><a href="#4-2-记忆技巧" class="headerlink" title="4.2 记忆技巧"></a>4.2 记忆技巧</h2><blockquote>
-<p>将<code>const</code>考虑成向右结合<br>如果<code>const</code>右结合修饰的为类型或者<code>*</code>，那这个<code>const</code>就是一个底层<code>const</code>，即指向常量的指针。<strong>（底层比较隐晦，从你看到的对象开始，要再转一道才可以）</strong><br>如果<code>const</code>右结合修饰的为标识符，那这个<code>const</code>就是一个顶层<code>const</code>，即常指针或普通常量。<strong>（顶层比较显眼，你看到对象就是）</strong></p>
+<h2 id="记忆技巧">4.2 记忆技巧</h2>
+<blockquote>
+<p>将<code>const</code>考虑成向右结合<br>
+如果<code>const</code>右结合修饰的为类型或者<code>*</code>，那这个<code>const</code>就是一个底层<code>const</code>，即指向常量的指针。<strong>（底层比较隐晦，从你看到的对象开始，要再转一道才可以）</strong><br>
+如果<code>const</code>右结合修饰的为标识符，那这个<code>const</code>就是一个顶层<code>const</code>，即常指针或普通常量。<strong>（顶层比较显眼，你看到对象就是）</strong></p>
 </blockquote>
-<h2 id="4-3-作用"><a href="#4-3-作用" class="headerlink" title="4.3 作用"></a>4.3 作用</h2><p>为什么要区分顶层和底层呢？这是因为在拷贝赋值时，<code>const</code>是顶层还是底层对拷贝是否合法起决定性作用。</p>
+<h2 id="作用">4.3 作用</h2>
+<p>为什么要区分顶层和底层呢？这是因为在拷贝赋值时，<code>const</code>是顶层还是底层对拷贝是否合法起决定性作用。</p>
 <p>有以下规则：</p>
-<ol>
-<li>顶层<code>const</code>对拷贝赋值不起影响。  </li>
+<ol type="1">
+<li>顶层<code>const</code>对拷贝赋值不起影响。<br>
+</li>
 <li><strong>左值若无底层<code>const</code>, 则右值有无底层<code>const</code>都无所谓。</strong></li>
 <li><strong>左值若有底层<code>const</code>, 则右值一定不可有底层<code>const</code>。</strong></li>
 </ol>
-<p>简而言之一句话：<strong>变量指针或引用不可指向常量</strong>。<br>举例：</p>
+<p>简而言之一句话：<strong>变量指针或引用不可指向常量</strong>。<br>
+举例：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ci = <span class="number">5</span>;<span class="comment">//顶层const</span></span><br><span class="line">i = ci;<span class="comment">//正确，右值n有一个顶层const，对拷贝不造成影响</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> p1 = &amp;i;<span class="comment">//p1有顶层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p2 = &amp;ci;<span class="comment">//p2有底层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *<span class="keyword">const</span> p3 = p2;</span><br><span class="line">p2 = p3;<span class="comment">//正确，p3的顶层const不影响， 二者都有底层const</span></span><br><span class="line"></span><br><span class="line">p2 = p3;<span class="comment">//正确，都有底层const</span></span><br><span class="line"><span class="keyword">int</span> *p = p3;<span class="comment">//错误，p无底层const而p3有</span></span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> px = &amp;ci;<span class="comment">//错误，&amp;ci 将const int 转换为 const int *,有底层const，而左值没有</span></span><br><span class="line"><span class="keyword">int</span> &amp;r = ci;<span class="comment">//错误，变量引用不可绑定到常量上（int类型数据无底层const的说法）</span></span><br></pre></td></tr></table></figure>
 
       
@@ -605,7 +631,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -666,7 +692,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -707,7 +737,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -743,7 +775,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-const对象的链接性"><span class="nav-text">1. const对象的链接性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-默认状况"><span class="nav-text">1.1 默认状况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-实现外部链接的方法"><span class="nav-text">1.2 实现外部链接的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-对const的引用"><span class="nav-text">2 对const的引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-const引用的初始化"><span class="nav-text">2.1  const引用的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-内部机制"><span class="nav-text">2.2 内部机制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-const与指针"><span class="nav-text">3. const与指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-指向常量的指针"><span class="nav-text">3.1 指向常量的指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本原则"><span class="nav-text">基本原则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-const指针"><span class="nav-text">3.2 const指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念-1"><span class="nav-text">基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-区分"><span class="nav-text">3.3 区分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-顶层const与底层const"><span class="nav-text">4. 顶层const与底层const</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-概念"><span class="nav-text">4.1 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-记忆技巧"><span class="nav-text">4.2 记忆技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-作用"><span class="nav-text">4.3 作用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#const对象的链接性"><span class="nav-text">1. const对象的链接性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#默认状况"><span class="nav-text">1.1 默认状况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现外部链接的方法"><span class="nav-text">1.2 实现外部链接的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对const的引用"><span class="nav-text">2 对const的引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#const引用的初始化"><span class="nav-text">2.1 const引用的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部机制"><span class="nav-text">2.2 内部机制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#const与指针"><span class="nav-text">3. const与指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#指向常量的指针"><span class="nav-text">3.1 指向常量的指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本原则"><span class="nav-text">基本原则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const指针"><span class="nav-text">3.2 const指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念-1"><span class="nav-text">基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区分"><span class="nav-text">3.3 区分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#顶层const与底层const"><span class="nav-text">4. 顶层const与底层const</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-text">4.1 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记忆技巧"><span class="nav-text">4.2 记忆技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用"><span class="nav-text">4.3 作用</span></a></li></ol></li></ol></div>
             
 
           </div>

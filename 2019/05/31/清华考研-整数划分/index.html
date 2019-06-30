@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="1. 题目描述 题目描述   一个整数总可以拆分为2的幂的和，例如： 7=1+2+4 7=1+2+2+2 7=1+1+1+4 7=1+1+1+2+2 7=1+1+1+1+1+2 7=1+1+1+1+1+1+1 总共有六种不同的拆分方式。 再比如：4可以拆分成：4 = 4，4 = 1 + 1 + 1 + 1，4 = 2 + 2，4=1+1+2。 用f(n)表示n的不同拆分的种数，例如f(7)=6.">
+  <meta name="description" content="1. 题目描述  题目描述   一个整数总可以拆分为2的幂的和，例如： 7=1+2+4 7=1+2+2+2 7=1+1+1+4 7=1+1+1+2+2 7=1+1+1+1+1+2 7=1+1+1+1+1+1+1 总共有六种不同的拆分方式。 再比如：4可以拆分成：4 = 4，4 = 1 + 1 + 1 + 1，4 = 2 + 2，4=1+1+2。 用f(n)表示n的不同拆分的种数，例如f(">
 <meta name="keywords" content="动态规划,组合问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【清华考研】整数划分">
 <meta property="og:url" content="http://yoursite.com/2019/05/31/清华考研-整数划分/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="1. 题目描述 题目描述   一个整数总可以拆分为2的幂的和，例如： 7=1+2+4 7=1+2+2+2 7=1+1+1+4 7=1+1+1+2+2 7=1+1+1+1+1+2 7=1+1+1+1+1+1+1 总共有六种不同的拆分方式。 再比如：4可以拆分成：4 = 4，4 = 1 + 1 + 1 + 1，4 = 2 + 2，4=1+1+2。 用f(n)表示n的不同拆分的种数，例如f(7)=6.">
+<meta property="og:description" content="1. 题目描述  题目描述   一个整数总可以拆分为2的幂的和，例如： 7=1+2+4 7=1+2+2+2 7=1+1+1+4 7=1+1+1+2+2 7=1+1+1+1+1+2 7=1+1+1+1+1+1+1 总共有六种不同的拆分方式。 再比如：4可以拆分成：4 = 4，4 = 1 + 1 + 1 + 1，4 = 2 + 2，4=1+1+2。 用f(n)表示n的不同拆分的种数，例如f(">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-06-14T09:41:58.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【清华考研】整数划分">
-<meta name="twitter:description" content="1. 题目描述 题目描述   一个整数总可以拆分为2的幂的和，例如： 7=1+2+4 7=1+2+2+2 7=1+1+1+4 7=1+1+1+2+2 7=1+1+1+1+1+2 7=1+1+1+1+1+1+1 总共有六种不同的拆分方式。 再比如：4可以拆分成：4 = 4，4 = 1 + 1 + 1 + 1，4 = 2 + 2，4=1+1+2。 用f(n)表示n的不同拆分的种数，例如f(7)=6.">
+<meta name="twitter:description" content="1. 题目描述  题目描述   一个整数总可以拆分为2的幂的和，例如： 7=1+2+4 7=1+2+2+2 7=1+1+1+4 7=1+1+1+2+2 7=1+1+1+1+1+2 7=1+1+1+1+1+1+1 总共有六种不同的拆分方式。 再比如：4可以拆分成：4 = 4，4 = 1 + 1 + 1 + 1，4 = 2 + 2，4=1+1+2。 用f(n)表示n的不同拆分的种数，例如f(">
 
 
 
@@ -435,38 +435,47 @@
       
 
       
-        <h1 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1. 题目描述"></a>1. 题目描述</h1><ul>
+        <h1 id="题目描述">1. 题目描述</h1>
+<ul>
 <li>题目描述</li>
 </ul>
 <blockquote>
 <p>一个整数总可以拆分为2的幂的和，例如： 7=1+2+4 7=1+2+2+2 7=1+1+1+4 7=1+1+1+2+2 7=1+1+1+1+1+2 7=1+1+1+1+1+1+1 总共有六种不同的拆分方式。 再比如：4可以拆分成：4 = 4，4 = 1 + 1 + 1 + 1，4 = 2 + 2，4=1+1+2。 用f(n)表示n的不同拆分的种数，例如f(7)=6. 要求编写程序，读入n(不超过1000000)，输出f(n)%1000000000。</p>
 </blockquote>
 <ul>
-<li><p>输入描述<br>每组输入包括一个整数：N(1&lt;=N&lt;=1000000)。</p>
-</li>
-<li><p>输出描述<br>对于每组数据，输出f(n)%1000000000。</p>
-</li>
+<li><p>输入描述 每组输入包括一个整数：N(1&lt;=N&lt;=1000000)。</p></li>
+<li><p>输出描述 对于每组数据，输出f(n)%1000000000。</p></li>
 </ul>
 <p><a href="https://www.nowcoder.com/practice/376537f4609a49d296901db5139639ec?tpId=40&amp;tqId=21339&amp;tPage=1&amp;rp=1&amp;ru=/ta/kaoyan&amp;qru=/ta/kaoyan/question-ranking" target="_blank" rel="noopener">题目链接</a></p>
-<h1 id="2-初步分析与实现"><a href="#2-初步分析与实现" class="headerlink" title="2. 初步分析与实现"></a>2. 初步分析与实现</h1><h2 id="2-1-递推式"><a href="#2-1-递推式" class="headerlink" title="2.1 递推式"></a>2.1 递推式</h2><p>这道题其实就是以前讲过的整数划分问题的一个变种。这道题的递推公式就是稍微变了一下而已，我们令 $f(n, m)$ 表示用最大为 m 的数来组成 n，则有公式:</p>
-<script type="math/tex; mode=display">
+<h1 id="初步分析与实现">2. 初步分析与实现</h1>
+<h2 id="递推式">2.1 递推式</h2>
+<p>这道题其实就是以前讲过的整数划分问题的一个变种。这道题的递推公式就是稍微变了一下而已，我们令 <span class="math inline">\(f(n, m)\)</span> 表示用最大为 m 的数来组成 n，则有公式:</p>
+<p><span class="math display">\[
 \begin{cases}
-&f(n, m) = f(n, \frac{m}{2}) + f(n - m, m)\\
-&m = 2^i
-\end{cases}</script><p>简单地分析一下初始条件，可以得到初版的代码。</p>
+&amp;f(n, m) = f(n, \frac{m}{2}) + f(n - m, m)\\
+&amp;m = 2^i
+\end{cases}
+\]</span></p>
+<p>简单地分析一下初始条件，可以得到初版的代码。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">resolve</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">0</span> || m &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span> || m == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == m)</span><br><span class="line">        <span class="keyword">return</span> resolve(n, m / <span class="number">2</span>) % C + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; m)</span><br><span class="line">    &#123;</span><br><span class="line">        m = (<span class="keyword">int</span>)log2(<span class="number">1.0</span> * n);</span><br><span class="line">        m = exp2(<span class="number">1.0</span> * m);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> a = resolve(n, m / <span class="number">2</span>) % C;</span><br><span class="line">    <span class="keyword">int</span> b = resolve(n - m, m) % C;</span><br><span class="line">    <span class="keyword">return</span> (a + b) % C;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>纯递归的方式肯定会超时，需要变成动态规化的形式。</p>
-<h2 id="2-2-DP初版"><a href="#2-2-DP初版" class="headerlink" title="2.2 DP初版"></a>2.2 DP初版</h2><p>这个式子直接变成动态规划的形式有点麻烦，因为 $m$ 需要为 2 的阶乘，这就意味着如果我们令 $dp[n][m] = f(n, m)$，那么二维数组 <code>dp</code> 中会有一大部分空间被浪费，所以我们做一点空间压缩，令:</p>
-<script type="math/tex; mode=display">
-dp[n][2^j] = f(n, m)</script><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> C = <span class="number">1000000000</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000001</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = (<span class="keyword">int</span>)log2(<span class="number">1.0</span> * N) + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> dp[N][M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DP</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//n == 1, 2 ^ m = 1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; ++i)</span><br><span class="line">        dp[<span class="number">0</span>][i] = dp[<span class="number">1</span>][i] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; ++i)</span><br><span class="line">        dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="keyword">int</span> m, logM;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; M; ++j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">2</span>; n &lt; N; ++n)</span><br><span class="line">        &#123;</span><br><span class="line">            logM = j;</span><br><span class="line">            m = (<span class="keyword">int</span>)exp2(logM);</span><br><span class="line">            <span class="keyword">if</span> (n &lt; m)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            a = dp[n][j - <span class="number">1</span>] % C;</span><br><span class="line">            b = dp[n - m][j] % C;</span><br><span class="line">            dp[n][j] = (a + b) % C;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="3-使用滚动数组"><a href="#3-使用滚动数组" class="headerlink" title="3. 使用滚动数组"></a>3. 使用滚动数组</h1><p>那么这道题就这么结了吗？并非如此，如果用上面的代码跑一下会发现结果是内存超限了。原因在于即使压缩了空间，这个二维数组还是太大了。所以需要进一步压缩空间，这里就需要用到名为<strong>滚动数组</strong>的技巧了。</p>
-<h2 id="3-1-滚动数组介绍"><a href="#3-1-滚动数组介绍" class="headerlink" title="3.1 滚动数组介绍"></a>3.1 滚动数组介绍</h2><p>滚动数组的作用在于优化空间，主要应用在递推或动态规划中（如01背包问题）。因为DP题目是一个自底向上的扩展过程，我们常常需要用到的是连续的解，前面的解往往可以舍去。所以用滚动数组优化是很有效的。利用滚动数组的话在N很大的情况下可以达到压缩存储的作用。</p>
+<h2 id="dp初版">2.2 DP初版</h2>
+<p>这个式子直接变成动态规划的形式有点麻烦，因为 <span class="math inline">\(m\)</span> 需要为 2 的阶乘，这就意味着如果我们令 <span class="math inline">\(dp[n][m] = f(n, m)\)</span>，那么二维数组 <code>dp</code> 中会有一大部分空间被浪费，所以我们做一点空间压缩，令:</p>
+<p><span class="math display">\[
+dp[n][2^j] = f(n, m)
+\]</span></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> C = <span class="number">1000000000</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000001</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = (<span class="keyword">int</span>)log2(<span class="number">1.0</span> * N) + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> dp[N][M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DP</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//n == 1, 2 ^ m = 1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; ++i)</span><br><span class="line">        dp[<span class="number">0</span>][i] = dp[<span class="number">1</span>][i] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; ++i)</span><br><span class="line">        dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="keyword">int</span> m, logM;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; M; ++j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">2</span>; n &lt; N; ++n)</span><br><span class="line">        &#123;</span><br><span class="line">            logM = j;</span><br><span class="line">            m = (<span class="keyword">int</span>)exp2(logM);</span><br><span class="line">            <span class="keyword">if</span> (n &lt; m)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            a = dp[n][j - <span class="number">1</span>] % C;</span><br><span class="line">            b = dp[n - m][j] % C;</span><br><span class="line">            dp[n][j] = (a + b) % C;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用滚动数组">3. 使用滚动数组</h1>
+<p>那么这道题就这么结了吗？并非如此，如果用上面的代码跑一下会发现结果是内存超限了。原因在于即使压缩了空间，这个二维数组还是太大了。所以需要进一步压缩空间，这里就需要用到名为<strong>滚动数组</strong>的技巧了。</p>
+<h2 id="滚动数组介绍">3.1 滚动数组介绍</h2>
+<p>滚动数组的作用在于优化空间，主要应用在递推或动态规划中（如01背包问题）。因为DP题目是一个自底向上的扩展过程，我们常常需要用到的是连续的解，前面的解往往可以舍去。所以用滚动数组优化是很有效的。利用滚动数组的话在N很大的情况下可以达到压缩存储的作用。</p>
 <p>举一个简单的例子，斐波那契数列。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> Fib[<span class="number">25</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Fib[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    Fib[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    Fib[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; ++i)</span><br><span class="line">        Fib[i] = Fib[i - <span class="number">1</span>] + Fib[i - <span class="number">2</span>];</span><br><span class="line">    <span class="keyword">return</span> Fib[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们发现实际上要用到的空间远远没有 n 个，利用滚动数组优化后代码为:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> Fib[<span class="number">3</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Fib[<span class="number">1</span>] = <span class="number">0</span>; </span><br><span class="line">    Fib[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        Fib[<span class="number">0</span>] = Fib[<span class="number">1</span>]; </span><br><span class="line">        Fib[<span class="number">1</span>] = Fib[<span class="number">2</span>];</span><br><span class="line">        Fib[<span class="number">2</span>] = Fib[<span class="number">0</span>] + Fib[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Fib[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个“滚动”可以说是很形象了。</p>
-<h2 id="3-2-使用滚动数组优化"><a href="#3-2-使用滚动数组优化" class="headerlink" title="3.2 使用滚动数组优化"></a>3.2 使用滚动数组优化</h2><p>要使用滚动数组优化空间，我们就需要搞清楚哪些空间是用得到的，哪些是用不到的，仔细观察状态转移式子:</p>
+<h2 id="使用滚动数组优化">3.2 使用滚动数组优化</h2>
+<p>要使用滚动数组优化空间，我们就需要搞清楚哪些空间是用得到的，哪些是用不到的，仔细观察状态转移式子:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = dp[n][j - <span class="number">1</span>] % C;</span><br><span class="line">b = dp[n - m][j] % C;</span><br><span class="line">dp[n][j] = (a + b) % C;</span><br></pre></td></tr></table></figure>
 <p>我们发现，在写入 <code>dp[n][j]</code>，时需要的老信息只有两个:</p>
 <ul>
@@ -594,7 +603,7 @@ dp[n][2^j] = f(n, m)</script><figure class="highlight cpp"><table><tr><td class=
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -655,7 +664,11 @@ dp[n][2^j] = f(n, m)</script><figure class="highlight cpp"><table><tr><td class=
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -696,7 +709,9 @@ dp[n][2^j] = f(n, m)</script><figure class="highlight cpp"><table><tr><td class=
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -732,7 +747,7 @@ dp[n][2^j] = f(n, m)</script><figure class="highlight cpp"><table><tr><td class=
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-题目描述"><span class="nav-text">1. 题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-初步分析与实现"><span class="nav-text">2. 初步分析与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-递推式"><span class="nav-text">2.1 递推式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-DP初版"><span class="nav-text">2.2 DP初版</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-使用滚动数组"><span class="nav-text">3. 使用滚动数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-滚动数组介绍"><span class="nav-text">3.1 滚动数组介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-使用滚动数组优化"><span class="nav-text">3.2 使用滚动数组优化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">1. 题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初步分析与实现"><span class="nav-text">2. 初步分析与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#递推式"><span class="nav-text">2.1 递推式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dp初版"><span class="nav-text">2.2 DP初版</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用滚动数组"><span class="nav-text">3. 使用滚动数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动数组介绍"><span class="nav-text">3.1 滚动数组介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用滚动数组优化"><span class="nav-text">3.2 使用滚动数组优化</span></a></li></ol></li></ol></div>
             
 
           </div>

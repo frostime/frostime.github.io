@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="1. 素数的性质1.1 性质一: 分布 \lim_{x\to \infty}\pi(x) = \lim_{x\to \infty}\frac{x}{\ln{x}}其中 $\pi(x)$ 表示不大于x的所有素数的个数。在 x 比较大时，通常这个误差不超过 15%。 1.2 性质二: 6的倍数 任意大于等于5的素数都与6的倍数相邻  例如:  23 + 1 = 4  617 + 1 = 3  631">
+  <meta name="description" content="1. 素数的性质 1.1 性质一: 分布 \[ \lim_{x\to \infty}\pi(x) = \lim_{x\to \infty}\frac{x}{\ln{x}} \] 其中 \(\pi(x)\) 表示不大于x的所有素数的个数。在 x 比较大时，通常这个误差不超过 15%。 1.2 性质二: 6的倍数  任意大于等于5的素数都与6的倍数相邻  例如: &amp;gt; 23 +">
 <meta property="og:type" content="article">
 <meta property="og:title" content="质数相关算法">
 <meta property="og:url" content="http://yoursite.com/2019/05/26/质数相关算法/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="1. 素数的性质1.1 性质一: 分布 \lim_{x\to \infty}\pi(x) = \lim_{x\to \infty}\frac{x}{\ln{x}}其中 $\pi(x)$ 表示不大于x的所有素数的个数。在 x 比较大时，通常这个误差不超过 15%。 1.2 性质二: 6的倍数 任意大于等于5的素数都与6的倍数相邻  例如:  23 + 1 = 4  617 + 1 = 3  631">
+<meta property="og:description" content="1. 素数的性质 1.1 性质一: 分布 \[ \lim_{x\to \infty}\pi(x) = \lim_{x\to \infty}\frac{x}{\ln{x}} \] 其中 \(\pi(x)\) 表示不大于x的所有素数的个数。在 x 比较大时，通常这个误差不超过 15%。 1.2 性质二: 6的倍数  任意大于等于5的素数都与6的倍数相邻  例如: &amp;gt; 23 +">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/05/26/质数相关算法/筛法.gif">
 <meta property="og:updated_time" content="2019-06-09T07:38:34.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="质数相关算法">
-<meta name="twitter:description" content="1. 素数的性质1.1 性质一: 分布 \lim_{x\to \infty}\pi(x) = \lim_{x\to \infty}\frac{x}{\ln{x}}其中 $\pi(x)$ 表示不大于x的所有素数的个数。在 x 比较大时，通常这个误差不超过 15%。 1.2 性质二: 6的倍数 任意大于等于5的素数都与6的倍数相邻  例如:  23 + 1 = 4  617 + 1 = 3  631">
+<meta name="twitter:description" content="1. 素数的性质 1.1 性质一: 分布 \[ \lim_{x\to \infty}\pi(x) = \lim_{x\to \infty}\frac{x}{\ln{x}} \] 其中 \(\pi(x)\) 表示不大于x的所有素数的个数。在 x 比较大时，通常这个误差不超过 15%。 1.2 性质二: 6的倍数  任意大于等于5的素数都与6的倍数相邻  例如: &amp;gt; 23 +">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/26/质数相关算法/筛法.gif">
 
 
@@ -443,34 +443,46 @@
       
 
       
-        <h1 id="1-素数的性质"><a href="#1-素数的性质" class="headerlink" title="1. 素数的性质"></a>1. 素数的性质</h1><h2 id="1-1-性质一-分布"><a href="#1-1-性质一-分布" class="headerlink" title="1.1 性质一: 分布"></a>1.1 性质一: 分布</h2><script type="math/tex; mode=display">
-\lim_{x\to \infty}\pi(x) = \lim_{x\to \infty}\frac{x}{\ln{x}}</script><p>其中 $\pi(x)$ 表示<strong>不大于x的所有素数的个数</strong>。在 x 比较大时，通常这个误差不超过 15%。</p>
-<h2 id="1-2-性质二-6的倍数"><a href="#1-2-性质二-6的倍数" class="headerlink" title="1.2 性质二: 6的倍数"></a>1.2 性质二: 6的倍数</h2><blockquote>
+        <h1 id="素数的性质">1. 素数的性质</h1>
+<h2 id="性质一-分布">1.1 性质一: 分布</h2>
+<p><span class="math display">\[
+\lim_{x\to \infty}\pi(x) = \lim_{x\to \infty}\frac{x}{\ln{x}}
+\]</span></p>
+<p>其中 <span class="math inline">\(\pi(x)\)</span> 表示<strong>不大于x的所有素数的个数</strong>。在 x 比较大时，通常这个误差不超过 15%。</p>
+<h2 id="性质二-6的倍数">1.2 性质二: 6的倍数</h2>
+<blockquote>
 <p><span style="color: red"><strong>任意大于等于5的素数都与6的倍数相邻</strong></span></p>
 </blockquote>
-<p>例如:</p>
+<p>例如: &gt; 23 + 1 = 4 * 6<br>
+&gt; 17 + 1 = 3 * 6<br>
+&gt; 31 - 1 = 5 * 6</p>
+<h2 id="性质三-质因数分解">1.3 性质三: 质因数分解</h2>
 <blockquote>
-<p>23 + 1 = 4 <em> 6<br>17 + 1 = 3 </em> 6<br>31 - 1 = 5 * 6</p>
-</blockquote>
-<h2 id="1-3-性质三-质因数分解"><a href="#1-3-性质三-质因数分解" class="headerlink" title="1.3 性质三: 质因数分解"></a>1.3 性质三: 质因数分解</h2><blockquote>
 <p>任何一个<span style="color: red"><strong>大于1的自然数都可以分解成几个素数连乘积</strong></span>的形式，而且这种分解是<strong>唯一</strong>的</p>
 </blockquote>
-<h2 id="1-4-性质四-梅森数"><a href="#1-4-性质四-梅森数" class="headerlink" title="1.4 性质四: 梅森数"></a>1.4 性质四: 梅森数</h2><blockquote>
-<p>如果 $2^{p}-1$ 是素数，那么P一定也是个素数</p>
+<h2 id="性质四-梅森数">1.4 性质四: 梅森数</h2>
+<blockquote>
+<p>如果 <span class="math inline">\(2^{p}-1\)</span> 是素数，那么P一定也是个素数</p>
 </blockquote>
-<h2 id="1-5-性质四：费马小定理"><a href="#1-5-性质四：费马小定理" class="headerlink" title="1.5 性质四：费马小定理"></a>1.5 性质四：费马小定理</h2><blockquote>
-<p>假如 $a$ 是一个整数， $p$ 是一个质数，那么 $a^p - a$是 $p$ 的倍数，$a^p$ 和 $a$ 对于模 $p$ 同余。。可以表示为。</p>
+<h2 id="性质四费马小定理">1.5 性质四：费马小定理</h2>
+<blockquote>
+<p>假如 <span class="math inline">\(a\)</span> 是一个整数， <span class="math inline">\(p\)</span> 是一个质数，那么 <span class="math inline">\(a^p - a\)</span>是 <span class="math inline">\(p\)</span> 的倍数，<span class="math inline">\(a^p\)</span> 和 <span class="math inline">\(a\)</span> 对于模 <span class="math inline">\(p\)</span> 同余。。可以表示为。</p>
 </blockquote>
-<script type="math/tex; mode=display">
-a^p \equiv = a\ (mod p)</script><p>特别的, 如果 a 和 p 互质，这个定理也可以写成:</p>
-<script type="math/tex; mode=display">
-a^{p-1} \equiv = 1\ (mod p)</script><h1 id="2-判断质数"><a href="#2-判断质数" class="headerlink" title="2. 判断质数"></a>2. 判断质数</h1><p>判断质数的算法是最古老也是最常用的。</p>
-<h2 id="2-1-最简单的方法：试除法"><a href="#2-1-最简单的方法：试除法" class="headerlink" title="2.1 最简单的方法：试除法"></a>2.1 最简单的方法：试除法</h2><p>最直观的方法被称为试除法，即给定一个数n，不断的试探从2~n之间的数是否可以整除n。  </p>
+<p><span class="math display">\[
+a^p \equiv = a\ (mod p)
+\]</span></p>
+<p>特别的, 如果 a 和 p 互质，这个定理也可以写成: <span class="math display">\[
+a^{p-1} \equiv = 1\ (mod p)
+\]</span></p>
+<h1 id="判断质数">2. 判断质数</h1>
+<p>判断质数的算法是最古老也是最常用的。</p>
+<h2 id="最简单的方法试除法">2.1 最简单的方法：试除法</h2>
+<p>最直观的方法被称为试除法，即给定一个数n，不断的试探从2~n之间的数是否可以整除n。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPrime1</span><span class="params">(<span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>不过以上算法也有一些可以改进的地方:</p>
 <ul>
-<li>我们无须一直试到 $n$，反之到 $\sqrt{n}$ 就可以了</li>
-<li>除了 2 以外，所有可能的质因数都是奇数。所以可以先尝试 2，然后再尝试从 3 开始一直到 $\sqrt{n}$ 的所有奇数</li>
+<li>我们无须一直试到 <span class="math inline">\(n\)</span>，反之到 <span class="math inline">\(\sqrt{n}\)</span> 就可以了</li>
+<li>除了 2 以外，所有可能的质因数都是奇数。所以可以先尝试 2，然后再尝试从 3 开始一直到 <span class="math inline">\(\sqrt{n}\)</span> 的所有奇数</li>
 </ul>
 <p>由此我们可以给出一个基本的解答:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPrime2</span><span class="params">(<span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  	<span class="comment">//把2单独拿出来判断</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> n == <span class="number">2</span>;</span><br><span class="line">  	<span class="comment">//筛除偶数</span></span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">  	<span class="comment">//只看奇数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i * i &lt;= n; i += <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -484,108 +496,109 @@ a^{p-1} \equiv = 1\ (mod p)</script><h1 id="2-判断质数"><a href="#2-判断�
 <blockquote>
 <p>大于1的自然数都可以分解成几个素数连乘积</p>
 </blockquote>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-& \because \text{n为合数} \Rightarrow \exists x, y(x \leqslant \sqrt{n} \land y \geqslant \sqrt{n} \land x * y = n)\\
-& \text{又} \because x \text{可分解为（质数a * 某个数b），且a必然小于等于} \sqrt{n}\\
-& \therefore \text{若n为合数} \Rightarrow \text{n必有一个小于等于}\sqrt{n}\text{的质因子a}\\
-& \therefore \text{若对于一个数n，}\not\exists x(x \leqslant \sqrt{n} \land \text{x是质数}\land \text{x是n的因子}) \Rightarrow \text{n为质数}
-\end{aligned}</script><p>根据以上推理，可以得出结论:</p>
-<script type="math/tex; mode=display">
+&amp; \because \text{n为合数} \Rightarrow \exists x, y(x \leqslant \sqrt{n} \land y \geqslant \sqrt{n} \land x * y = n)\\
+&amp; \text{又} \because x \text{可分解为（质数a * 某个数b），且a必然小于等于} \sqrt{n}\\
+&amp; \therefore \text{若n为合数} \Rightarrow \text{n必有一个小于等于}\sqrt{n}\text{的质因子a}\\
+&amp; \therefore \text{若对于一个数n，}\not\exists x(x \leqslant \sqrt{n} \land \text{x是质数}\land \text{x是n的因子}) \Rightarrow \text{n为质数}
+\end{aligned}
+\]</span> 根据以上推理，可以得出结论:</p>
+<p><span class="math display">\[
 \begin{aligned}
-& \text{若}\exists S, \forall x(x \leqslant \sqrt{n}\land \text{x是质数} \land x \in S)\\
-& \text{且对于}\forall x\in S \text{都有} n\ mod\ x \neq 0\\
-& \text{则n必为质数}
-\end{aligned}</script><p>好消息是，上面的集合 $S$ 我们是可以找到的。<strong>这个集合S就是从6一直到 $\sqrt{n}$ 的路上，所有同 $6k$ 相邻的数。这个集合必然包含了所有的质数和一部分其余的合数</strong>。有了以上的数学基础我们就可以写成试除法中(也许是)最高效的算法了:</p>
+&amp; \text{若}\exists S, \forall x(x \leqslant \sqrt{n}\land \text{x是质数} \land x \in S)\\
+&amp; \text{且对于}\forall x\in S \text{都有} n\ mod\ x \neq 0\\
+&amp; \text{则n必为质数}
+\end{aligned}
+\]</span></p>
+<p>好消息是，上面的集合 <span class="math inline">\(S\)</span> 我们是可以找到的。<strong>这个集合S就是从6一直到 <span class="math inline">\(\sqrt{n}\)</span> 的路上，所有同 <span class="math inline">\(6k\)</span> 相邻的数。这个集合必然包含了所有的质数和一部分其余的合数</strong>。有了以上的数学基础我们就可以写成试除法中(也许是)最高效的算法了:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPrime3</span><span class="params">(<span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">return</span> n == <span class="number">2</span> || n == <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span> || n % <span class="number">3</span> == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ((n - <span class="number">1</span>) % <span class="number">6</span> != <span class="number">0</span> &amp;&amp; (n + <span class="number">1</span>) % <span class="number">6</span> != <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">//考察 6 周围的数了</span></span><br><span class="line">    <span class="comment">//注意，有一个很特殊的地方是小于25的6邻侧数都不会进入这个分支，但它们刚好都是质数，所以歪打正着</span></span><br><span class="line">    <span class="comment">//i 不能从 6 开始，然后判定 n % (i ± 1)，否则 25 和35就会被判定为质数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">5</span>; i * i &lt;= n; i += <span class="number">6</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n % (i) == <span class="number">0</span> || n % (i + <span class="number">2</span>) == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="3-质数构造算法-筛法"><a href="#3-质数构造算法-筛法" class="headerlink" title="3. 质数构造算法(筛法)"></a>3. 质数构造算法(筛法)</h1><p>很多情况下我们面临着构造质数的需求:</p>
+<h1 id="质数构造算法筛法">3. 质数构造算法(筛法)</h1>
+<p>很多情况下我们面临着构造质数的需求:</p>
 <blockquote>
-<ol>
+<ol type="1">
 <li><p>给定一个数n，请求出所有小于n的质数</p>
-<p>例如: n = 10，则打印出 2 3 5 7 </p>
-</li>
+<p>例如: n = 10，则打印出 2 3 5 7</p></li>
 <li><p>给定一个数n，请求出前n个质数</p>
-<p>例如: n = 10，则打印出 2 3 5 7 11 13 17 19 23 29</p>
-</li>
+<p>例如: n = 10，则打印出 2 3 5 7 11 13 17 19 23 29</p></li>
 </ol>
 </blockquote>
 <p>这时我们会用到一种叫做埃拉托斯特尼(Eratosthenes)筛选法的算法。这个算法的作用是<strong>求出0~n之间的所有质数</strong>。大体思想如下:</p>
-<ol>
+<ol type="1">
 <li>构造一个长度为n的序列，代表了从1到n所有的数据</li>
 <li>因为0，1不是质数，所以我们从2开始，令其为x</li>
 <li>将所有x的倍数剔除掉</li>
 <li>将x赋值为大于原x的最小的质数</li>
 <li>重复步骤3，4</li>
 </ol>
-<p><img src="/2019/05/26/质数相关算法/筛法.gif" alt></p>
+<p><img src="/2019/05/26/质数相关算法/筛法.gif"></p>
 <p>这里有几个问题</p>
-<ol>
-<li><p>怎么找到下一个最小的质数？  </p>
-<p>其实这个问题很简单。不妨假设a，b分别为相邻两个质数。则由于我们是从前往后不断筛选，则在a处理完了以后，<strong>它的下一个未被剔除的元素就是b</strong></p>
-</li>
-<li><p>这个表要怎么构建？  </p>
-<p>通常我们是构建一个长度为n的布尔型数组，这样比较节省空间  </p>
-<p>但是还有一个更节省空间的办法:<strong>使用一个长度为n的二进制串</strong></p>
-</li>
+<ol type="1">
+<li><p>怎么找到下一个最小的质数？</p>
+<p>其实这个问题很简单。不妨假设a，b分别为相邻两个质数。则由于我们是从前往后不断筛选，则在a处理完了以后，<strong>它的下一个未被剔除的元素就是b</strong></p></li>
+<li><p>这个表要怎么构建？</p>
+<p>通常我们是构建一个长度为n的布尔型数组，这样比较节省空间</p>
+<p>但是还有一个更节省空间的办法:<strong>使用一个长度为n的二进制串</strong></p></li>
 </ol>
 <p>实现如下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//所有使得isPrime[i]为true的i即为质数</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">eratosthenes</span><span class="params">(<span class="keyword">int</span> range)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span>[] isPrime = <span class="keyword">new</span> <span class="keyword">boolean</span>[range + <span class="number">1</span>];</span><br><span class="line">    Arrays.fill(isPrime, <span class="keyword">true</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= Math.sqrt(range); ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (isPrime[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i * i; j &lt;= range; j += i)</span><br><span class="line">                isPrime[j] = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>有两点需要注意:</p>
-<ol>
-<li><p><code>j</code>从 $i ^ 2$ 开始:  </p>
-<p>其实按照我们之前的分析，<code>j</code> 理应从 <code>2 * i</code> 开始，但是要注意到在迭代到 <code>i</code> 之前，那些 <code>2 * i</code> 、 <code>3 * i</code> 等等都已经被筛选掉了。所以直接从 <code>i^2</code> 开始即可</p>
-</li>
-<li><p><code>i</code> 一直到 <code>sqrt(range)</code> 就可以了  </p>
-<p>有了1的基础，不难证明当 <code>i &gt; sqrt(range)</code> 时，第二重循环已经是在做无用功了</p>
-</li>
+<ol type="1">
+<li><p><code>j</code>从 <span class="math inline">\(i ^ 2\)</span> 开始:</p>
+<p>其实按照我们之前的分析，<code>j</code> 理应从 <code>2 * i</code> 开始，但是要注意到在迭代到 <code>i</code> 之前，那些 <code>2 * i</code> 、 <code>3 * i</code> 等等都已经被筛选掉了。所以直接从 <code>i^2</code> 开始即可</p></li>
+<li><p><code>i</code> 一直到 <code>sqrt(range)</code> 就可以了</p>
+<p>有了1的基础，不难证明当 <code>i &gt; sqrt(range)</code> 时，第二重循环已经是在做无用功了</p></li>
 </ol>
-<p>该算法复杂度为:  $O(n\log{n})$ </p>
-<h1 id="4-求最大质因数"><a href="#4-求最大质因数" class="headerlink" title="4. 求最大质因数"></a>4. 求最大质因数</h1><h2 id="4-1-引论题目"><a href="#4-1-引论题目" class="headerlink" title="4.1 引论题目"></a>4.1 引论题目</h2><blockquote>
+<p>该算法复杂度为: <span class="math inline">\(O(n\log{n})\)</span></p>
+<h1 id="求最大质因数">4. 求最大质因数</h1>
+<h2 id="引论题目">4.1 引论题目</h2>
+<blockquote>
 <p>The prime factors of 13195 are 5, 7, 13 and 29.</p>
 <p>What is the largest prime factor of the number 600851475143 ?</p>
 </blockquote>
-<h2 id="4-2-一个不好的思路"><a href="#4-2-一个不好的思路" class="headerlink" title="4.2 一个不好的思路"></a>4.2 一个不好的思路</h2><p>寻找最大质因数一个最简单的思路如下:</p>
+<h2 id="一个不好的思路">4.2 一个不好的思路</h2>
+<p>寻找最大质因数一个最简单的思路如下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">long</span> i = n; i &gt;= <span class="number">2</span>; --i)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (isPrime(i))</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是在这一题中，情况很特殊，由于n十分大，如果按照上面的方法来时间花费极大。而且我们还不得不额外编写用于判断质数的算法。<br>可想而知对于n极大的数而言以上算法的效率很低。</p>
-<h2 id="4-3-一个更高效的算法"><a href="#4-3-一个更高效的算法" class="headerlink" title="4.3 一个更高效的算法"></a>4.3 一个更高效的算法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">maxPrimeFactor</span><span class="params">(<span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n % i == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n = n / i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (i-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上算法就是利用短除法求解最大质因数的算法，抛开那个什么短除法不谈，我们仔细现象，就会发现它本质上其实和筛法有异曲同工之妙。通过简单的数学分析我们可以证明它的工作原理和几个特性：  </p>
-<ol>
-<li><p><code>while</code> 循环的工作本质上就是在范围n内筛选剔除掉所有 <code>i</code> 的倍数  </p>
-</li>
-<li><p>可以证明<strong>每次进入 <code>while</code> 循环时，<code>i</code> 必然为n的一个质因子</strong>  </p>
-<p>可以用反证法证明:  </p>
-<p>假设当前的<code>i == y</code>，且<code>y</code>是一个合数，它的上一个质数是<code>x</code>，下一个质数是<code>z</code>，则:  </p>
-<ol>
+<p>但是在这一题中，情况很特殊，由于n十分大，如果按照上面的方法来时间花费极大。而且我们还不得不额外编写用于判断质数的算法。<br>
+可想而知对于n极大的数而言以上算法的效率很低。</p>
+<h2 id="一个更高效的算法">4.3 一个更高效的算法</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">maxPrimeFactor</span><span class="params">(<span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n % i == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n = n / i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (i-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上算法就是利用短除法求解最大质因数的算法，抛开那个什么短除法不谈，我们仔细现象，就会发现它本质上其实和筛法有异曲同工之妙。通过简单的数学分析我们可以证明它的工作原理和几个特性：</p>
+<ol type="1">
+<li><p><code>while</code> 循环的工作本质上就是在范围n内筛选剔除掉所有 <code>i</code> 的倍数</p></li>
+<li><p>可以证明<strong>每次进入 <code>while</code> 循环时，<code>i</code> 必然为n的一个质因子</strong></p>
+<p>可以用反证法证明:</p>
+<p>假设当前的<code>i == y</code>，且<code>y</code>是一个合数，它的上一个质数是<code>x</code>，下一个质数是<code>z</code>，则:</p>
+<ol type="1">
 <li><code>n % y == 0</code></li>
 <li>由合数的分解性质可得，必然存在一个质数<code>a &lt; y</code>，使得<code>y % a == 0</code></li>
-<li>综合1、2两点可得必然存在质数<code>a &lt; y</code>，使得<code>n % a == 0</code>  </li>
-<li>然而由于在<code>i == y</code>之前所有的质因子已经被剔除，这就与3产生了矛盾  </li>
+<li>综合1、2两点可得必然存在质数<code>a &lt; y</code>，使得<code>n % a == 0</code><br>
+</li>
+<li>然而由于在<code>i == y</code>之前所有的质因子已经被剔除，这就与3产生了矛盾<br>
+</li>
 <li>所以原命题为假，<code>i</code>不可能为合数，必然是<code>n</code>的一个质因子</li>
+</ol></li>
+<li><p>若n是一个质数:</p>
+<p>则可以证明当且仅的<code>i == n</code>时，才会进入<code>while</code>循环，执行一遍以后算法退出，此时<code>i == n+1</code>，所以只需返回<code>i-1</code>即可</p></li>
+<li><p>若n是一个合数:</p>
+<p>由于进入<code>while</code>循环的<code>i</code>是原始的<code>n</code>从小到大的质因子，因此整个<code>for</code>循环相当于不断在做质因数分解，直到最后一步，退化成了情况3，这时的<code>i</code>就是最大质因数。</p>
+<p>然而在退出<code>for</code>循环时，<code>i</code>又会多加一，所以最后要减回来</p></li>
 </ol>
-</li>
-<li><p>若n是一个质数:  </p>
-<p>则可以证明当且仅的<code>i == n</code>时，才会进入<code>while</code>循环，执行一遍以后算法退出，此时<code>i == n+1</code>，所以只需返回<code>i-1</code>即可</p>
-</li>
-<li><p>若n是一个合数:  </p>
-<p>由于进入<code>while</code>循环的<code>i</code>是原始的<code>n</code>从小到大的质因子，因此整个<code>for</code>循环相当于不断在做质因数分解，直到最后一步，退化成了情况3，这时的<code>i</code>就是最大质因数。  </p>
-<p>然而在退出<code>for</code>循环时，<code>i</code>又会多加一，所以最后要减回来</p>
-</li>
-</ol>
-<h1 id="5-分解质因数"><a href="#5-分解质因数" class="headerlink" title="5. 分解质因数"></a>5. 分解质因数</h1><p>事实上从我们前面一个算法的分析来看，我们很容易发现，实际上那就是在分解质因数。所以基本上把前面一个算法拷贝过来就行了:</p>
+<h1 id="分解质因数">5. 分解质因数</h1>
+<p>事实上从我们前面一个算法的分析来看，我们很容易发现，实际上那就是在分解质因数。所以基本上把前面一个算法拷贝过来就行了:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">resolvePrimeFactor</span><span class="params">(<span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> i = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n % i == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n /= i;</span><br><span class="line">            System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>现在我们来看另一个问题，这个算法的效率怎么样？  </p>
-<p>实际上，尽管用到了二重循环，然而算法复杂度却甚至小于 $O(n)$ ，具体而言:</p>
-<ol>
-<li><p>若n是一个质数:  </p>
-<p>这是最糟糕的情况，算法复杂度为 $O(n)$   </p>
-</li>
-<li><p>若n是一个合数:  </p>
-<p>我们注意到<code>n</code>在这个过程中是不断被缩小的，且 <strong><code>while</code>循环执行的次数恰好等于n的质因子数目</strong>。这种情况下就要取决于n本身的性质了。  </p>
-<p>最好的情况下，n是一个2的幂，这时算法的复杂度直接降到了 $O(\log{n})$ 。  </p>
-<p>对于一般情况下，可能要取决于n的最大质因子<code>k</code>，可以发现这种情况下，复杂度因为 $o(k)$  ，考虑到一般<code>k &lt;&lt; n</code>，这也是可以接受的</p>
-</li>
+<p>现在我们来看另一个问题，这个算法的效率怎么样？</p>
+<p>实际上，尽管用到了二重循环，然而算法复杂度却甚至小于 <span class="math inline">\(O(n)\)</span> ，具体而言:</p>
+<ol type="1">
+<li><p>若n是一个质数:</p>
+<p>这是最糟糕的情况，算法复杂度为 <span class="math inline">\(O(n)\)</span></p></li>
+<li><p>若n是一个合数:</p>
+<p>我们注意到<code>n</code>在这个过程中是不断被缩小的，且 <strong><code>while</code>循环执行的次数恰好等于n的质因子数目</strong>。这种情况下就要取决于n本身的性质了。</p>
+<p>最好的情况下，n是一个2的幂，这时算法的复杂度直接降到了 <span class="math inline">\(O(\log{n})\)</span> 。</p>
+<p>对于一般情况下，可能要取决于n的最大质因子<code>k</code>，可以发现这种情况下，复杂度因为 <span class="math inline">\(o(k)\)</span> ，考虑到一般<code>k &lt;&lt; n</code>，这也是可以接受的</p></li>
 </ol>
-<h2 id="5-1-质因数的个数及其优化版"><a href="#5-1-质因数的个数及其优化版" class="headerlink" title="5.1 质因数的个数及其优化版"></a>5.1 质因数的个数及其优化版</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n % i == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n /= i;</span><br><span class="line">            ++cnt;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"质因数个数: "</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="质因数的个数及其优化版">5.1 质因数的个数及其优化版</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n % i == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n /= i;</span><br><span class="line">            ++cnt;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"质因数个数: "</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>再进一步优化</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i * i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n % i == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n /= i;</span><br><span class="line">            ++cnt;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n != <span class="number">0</span>)</span><br><span class="line">        ++cnt;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"质因数个数: "</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -699,7 +712,7 @@ a^{p-1} \equiv = 1\ (mod p)</script><h1 id="2-判断质数"><a href="#2-判断�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -760,7 +773,11 @@ a^{p-1} \equiv = 1\ (mod p)</script><h1 id="2-判断质数"><a href="#2-判断�
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -801,7 +818,9 @@ a^{p-1} \equiv = 1\ (mod p)</script><h1 id="2-判断质数"><a href="#2-判断�
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -837,7 +856,7 @@ a^{p-1} \equiv = 1\ (mod p)</script><h1 id="2-判断质数"><a href="#2-判断�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-素数的性质"><span class="nav-text">1. 素数的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-性质一-分布"><span class="nav-text">1.1 性质一: 分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-性质二-6的倍数"><span class="nav-text">1.2 性质二: 6的倍数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-性质三-质因数分解"><span class="nav-text">1.3 性质三: 质因数分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-性质四-梅森数"><span class="nav-text">1.4 性质四: 梅森数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-性质四：费马小定理"><span class="nav-text">1.5 性质四：费马小定理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-判断质数"><span class="nav-text">2. 判断质数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-最简单的方法：试除法"><span class="nav-text">2.1 最简单的方法：试除法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-质数构造算法-筛法"><span class="nav-text">3. 质数构造算法(筛法)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-求最大质因数"><span class="nav-text">4. 求最大质因数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-引论题目"><span class="nav-text">4.1 引论题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-一个不好的思路"><span class="nav-text">4.2 一个不好的思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-一个更高效的算法"><span class="nav-text">4.3 一个更高效的算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-分解质因数"><span class="nav-text">5. 分解质因数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-质因数的个数及其优化版"><span class="nav-text">5.1 质因数的个数及其优化版</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#素数的性质"><span class="nav-text">1. 素数的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质一-分布"><span class="nav-text">1.1 性质一: 分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质二-6的倍数"><span class="nav-text">1.2 性质二: 6的倍数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质三-质因数分解"><span class="nav-text">1.3 性质三: 质因数分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质四-梅森数"><span class="nav-text">1.4 性质四: 梅森数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质四费马小定理"><span class="nav-text">1.5 性质四：费马小定理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#判断质数"><span class="nav-text">2. 判断质数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的方法试除法"><span class="nav-text">2.1 最简单的方法：试除法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#质数构造算法筛法"><span class="nav-text">3. 质数构造算法(筛法)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求最大质因数"><span class="nav-text">4. 求最大质因数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引论题目"><span class="nav-text">4.1 引论题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个不好的思路"><span class="nav-text">4.2 一个不好的思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个更高效的算法"><span class="nav-text">4.3 一个更高效的算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分解质因数"><span class="nav-text">5. 分解质因数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#质因数的个数及其优化版"><span class="nav-text">5.1 质因数的个数及其优化版</span></a></li></ol></li></ol></div>
             
 
           </div>

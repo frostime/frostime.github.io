@@ -96,13 +96,13 @@
 
 
 
-  <meta name="description" content="这一节介绍基于比较的排序剩下的几个，剩下几个的算法效率都高于前面几个，除了希尔排序之外都是 $O(n\log{n})$ 级别的。 1. 希尔排序1.1 思路 插入排序的算法复杂度为 $O(n^{2})$，但如果序列为正序可提高到 $O(n)$，而且直接插入排序算法比较简单，希尔排序利用这两点得到了一种改进后的插入排序。希尔排序在数组中采用跳跃式分组的策略，通过某个增量将数组元素划分为若干组，然后分">
+  <meta name="description" content="这一节介绍基于比较的排序剩下的几个，剩下几个的算法效率都高于前面几个，除了希尔排序之外都是 \(O(n\log{n})\) 级别的。 1. 希尔排序 1.1 思路 插入排序的算法复杂度为 \(O(n^{2})\)，但如果序列为正序可提高到 \(O(n)\)，而且直接插入排序算法比较简单，希尔排序利用这两点得到了一种改进后的插入排序。 希尔排序在数组中采用跳跃式分组的策略，通过某个增量将数组">
 <meta name="keywords" content="排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="希尔排序、归并排序、快速排序与堆排序">
 <meta property="og:url" content="http://yoursite.com/2019/05/19/希尔排序、归并排序、快速排序与堆排序/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="这一节介绍基于比较的排序剩下的几个，剩下几个的算法效率都高于前面几个，除了希尔排序之外都是 $O(n\log{n})$ 级别的。 1. 希尔排序1.1 思路 插入排序的算法复杂度为 $O(n^{2})$，但如果序列为正序可提高到 $O(n)$，而且直接插入排序算法比较简单，希尔排序利用这两点得到了一种改进后的插入排序。希尔排序在数组中采用跳跃式分组的策略，通过某个增量将数组元素划分为若干组，然后分">
+<meta property="og:description" content="这一节介绍基于比较的排序剩下的几个，剩下几个的算法效率都高于前面几个，除了希尔排序之外都是 \(O(n\log{n})\) 级别的。 1. 希尔排序 1.1 思路 插入排序的算法复杂度为 \(O(n^{2})\)，但如果序列为正序可提高到 \(O(n)\)，而且直接插入排序算法比较简单，希尔排序利用这两点得到了一种改进后的插入排序。 希尔排序在数组中采用跳跃式分组的策略，通过某个增量将数组">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell1.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell2.png">
@@ -118,7 +118,7 @@
 <meta property="og:updated_time" content="2019-06-07T09:57:03.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="希尔排序、归并排序、快速排序与堆排序">
-<meta name="twitter:description" content="这一节介绍基于比较的排序剩下的几个，剩下几个的算法效率都高于前面几个，除了希尔排序之外都是 $O(n\log{n})$ 级别的。 1. 希尔排序1.1 思路 插入排序的算法复杂度为 $O(n^{2})$，但如果序列为正序可提高到 $O(n)$，而且直接插入排序算法比较简单，希尔排序利用这两点得到了一种改进后的插入排序。希尔排序在数组中采用跳跃式分组的策略，通过某个增量将数组元素划分为若干组，然后分">
+<meta name="twitter:description" content="这一节介绍基于比较的排序剩下的几个，剩下几个的算法效率都高于前面几个，除了希尔排序之外都是 \(O(n\log{n})\) 级别的。 1. 希尔排序 1.1 思路 插入排序的算法复杂度为 \(O(n^{2})\)，但如果序列为正序可提高到 \(O(n)\)，而且直接插入排序算法比较简单，希尔排序利用这两点得到了一种改进后的插入排序。 希尔排序在数组中采用跳跃式分组的策略，通过某个增量将数组">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell1.png">
 
 
@@ -454,42 +454,61 @@
       
 
       
-        <p>这一节介绍基于比较的排序剩下的几个，剩下几个的算法效率都高于前面几个，除了希尔排序之外都是 $O(n\log{n})$ 级别的。</p>
-<h1 id="1-希尔排序"><a href="#1-希尔排序" class="headerlink" title="1. 希尔排序"></a>1. 希尔排序</h1><h2 id="1-1-思路"><a href="#1-1-思路" class="headerlink" title="1.1 思路"></a>1.1 思路</h2><p> 插入排序的算法复杂度为 $O(n^{2})$，<strong>但如果序列为正序可提高到 $O(n)$</strong>，而且直接插入排序算法比较简单，希尔排序利用这两点得到了一种改进后的插入排序。<br>希尔排序在数组中采用<strong>跳跃式分组</strong>的策略，<strong>通过某个增量将数组元素划分为若干组，然后分组进行插入排序，随后逐步缩小增量，继续按组进行插入排序操作，直至增量为1</strong>。希尔排序通过这种策略使得整个数组在初始阶段达到从宏观上看基本有序，小的基本在前，大的基本在后。然后缩小增量，到增量为1时，其实多数情况下只需微调即可，不会涉及过多的数据移动。<br>在每趟的排序过程都有一个增量，至少满足一个规则 增量关系 <code>d[1] &gt; d[2] &gt; d[3] &gt;..&gt; d[t] = 1</code> (t趟排序)；<strong>根据增量序列的选取其时间复杂度也会有变化</strong>。</p>
-<h2 id="1-2-演示"><a href="#1-2-演示" class="headerlink" title="1.2 演示"></a>1.2 演示</h2><h3 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h3><ul>
+        <p>这一节介绍基于比较的排序剩下的几个，剩下几个的算法效率都高于前面几个，除了希尔排序之外都是 <span class="math inline">\(O(n\log{n})\)</span> 级别的。</p>
+<h1 id="希尔排序">1. 希尔排序</h1>
+<h2 id="思路">1.1 思路</h2>
+<p>插入排序的算法复杂度为 <span class="math inline">\(O(n^{2})\)</span>，<strong>但如果序列为正序可提高到 <span class="math inline">\(O(n)\)</span></strong>，而且直接插入排序算法比较简单，希尔排序利用这两点得到了一种改进后的插入排序。<br>
+希尔排序在数组中采用<strong>跳跃式分组</strong>的策略，<strong>通过某个增量将数组元素划分为若干组，然后分组进行插入排序，随后逐步缩小增量，继续按组进行插入排序操作，直至增量为1</strong>。希尔排序通过这种策略使得整个数组在初始阶段达到从宏观上看基本有序，小的基本在前，大的基本在后。然后缩小增量，到增量为1时，其实多数情况下只需微调即可，不会涉及过多的数据移动。<br>
+在每趟的排序过程都有一个增量，至少满足一个规则 增量关系 <code>d[1] &gt; d[2] &gt; d[3] &gt;..&gt; d[t] = 1</code> (t趟排序)；<strong>根据增量序列的选取其时间复杂度也会有变化</strong>。</p>
+<h2 id="演示">1.2 演示</h2>
+<h3 id="例一">例一</h3>
+<ul>
 <li>step1</li>
 </ul>
-<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell1.png" alt="step1"></p>
+<figure>
+<img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell1.png" alt="step1"><figcaption>step1</figcaption>
+</figure>
 <ul>
 <li>step2</li>
 </ul>
-<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell2.png" alt="step2"></p>
+<figure>
+<img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell2.png" alt="step2"><figcaption>step2</figcaption>
+</figure>
 <ul>
 <li>step3</li>
 </ul>
-<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell3.png" alt="step3"></p>
+<figure>
+<img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell3.png" alt="step3"><figcaption>step3</figcaption>
+</figure>
 <ul>
-<li>step4<br><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell4.png" alt="step4"></li>
+<li>step4 <img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell4.png" alt="step4"></li>
 </ul>
-<h3 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h3><p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell_exp2.png" alt></p>
-<h2 id="1-3-实现要点"><a href="#1-3-实现要点" class="headerlink" title="1.3 实现要点"></a>1.3 实现要点</h2><h3 id="子序列排序方法"><a href="#子序列排序方法" class="headerlink" title="子序列排序方法"></a>子序列排序方法</h3><p>希尔排序的一个重要性质是，随着排序次数增长，之前的排序成果会保留下来，整个序列的<strong>逆序数会不断减少</strong>。</p>
-<p>又因为，插入排序的运行时间正比于逆序数，所以我们选择它作为底层排序算法。这样算法的整体运行效率会越来越高。  </p>
+<h3 id="例二">例二</h3>
+<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell_exp2.png"></p>
+<h2 id="实现要点">1.3 实现要点</h2>
+<h3 id="子序列排序方法">子序列排序方法</h3>
+<p>希尔排序的一个重要性质是，随着排序次数增长，之前的排序成果会保留下来，整个序列的<strong>逆序数会不断减少</strong>。</p>
+<p>又因为，插入排序的运行时间正比于逆序数，所以我们选择它作为底层排序算法。这样算法的整体运行效率会越来越高。</p>
 <p>详细分析，见<a href="http://www.xuetangx.com/courses/course-v1:TsinghuaX+30240184_2X+sp/courseware/c15aad6e2dac4250934ea61d71deafd9/1af3c1c7ce5d49f99ebf9139bcd5eea4/" target="_blank" rel="noopener">数据结构mooc</a></p>
-<h3 id="增量-步长-取法"><a href="#增量-步长-取法" class="headerlink" title="增量(步长)取法"></a>增量(步长)取法</h3><p>对于步长取法，唯一的要求就是<strong>最后一步必须为1</strong>，不同的取法对于算法效率的影响很大。</p>
-<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell_步长.png" alt></p>
-<h2 id="1-4-实现"><a href="#1-4-实现" class="headerlink" title="1.4 实现"></a>1.4 实现</h2><p>希尔排序虽然复杂，但实现起来很简单，准确来讲<strong>把直接插入算法加个外壳，再把 1 改成 <code>gap</code> 就成了希尔排序</strong>。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 希尔排序</span></span><br><span class="line"><span class="comment"> * 使用 2^n 作为增量，初始为 len / 2，反复整除最后一定可以为1</span></span><br><span class="line"><span class="comment"> * 仔细观察发现，一下代码其实就是把插入排序中的 1 改成 gap </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> gap = len / <span class="number">2</span>; gap &gt; <span class="number">0</span>; gap /= <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//这里基本和插入排序一样了，只是把 1 改成了 gap 而已</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = gap; i &lt; len; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> v = arr[i], j;</span><br><span class="line">            <span class="keyword">for</span> (j = i; j &gt;= gap &amp;&amp; arr[j - gap] &gt; v; j -= gap)</span><br><span class="line">                arr[j] = arr[j - gap];</span><br><span class="line">            arr[j] = v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个算法可能有点迷，让人搞不清它在对谁排序，在这里我说明一下。  </p>
+<h3 id="增量步长取法">增量(步长)取法</h3>
+<p>对于步长取法，唯一的要求就是<strong>最后一步必须为1</strong>，不同的取法对于算法效率的影响很大。</p>
+<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/shell_步长.png"></p>
+<h2 id="实现">1.4 实现</h2>
+<p>希尔排序虽然复杂，但实现起来很简单，准确来讲<strong>把直接插入算法加个外壳，再把 1 改成 <code>gap</code> 就成了希尔排序</strong>。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 希尔排序</span></span><br><span class="line"><span class="comment"> * 使用 2^n 作为增量，初始为 len / 2，反复整除最后一定可以为1</span></span><br><span class="line"><span class="comment"> * 仔细观察发现，一下代码其实就是把插入排序中的 1 改成 gap </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> gap = len / <span class="number">2</span>; gap &gt; <span class="number">0</span>; gap /= <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//这里基本和插入排序一样了，只是把 1 改成了 gap 而已</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = gap; i &lt; len; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> v = arr[i], j;</span><br><span class="line">            <span class="keyword">for</span> (j = i; j &gt;= gap &amp;&amp; arr[j - gap] &gt; v; j -= gap)</span><br><span class="line">                arr[j] = arr[j - gap];</span><br><span class="line">            arr[j] = v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个算法可能有点迷，让人搞不清它在对谁排序，在这里我说明一下。</p>
 <ul>
-<li><p><code>i</code><br>它所定位的是每一个不同的组别，也就是之前图中所看到的矩阵的每一列；而指向了每个组别中的要排序元素，并对其进行相应的操作</p>
-</li>
-<li><p><code>j</code><br>相当于插入排序的<code>j</code>，只不过<code>j</code>的移动是以<code>gap</code>为单位的，因此判断条件中：</p>
+<li><p><code>i</code><br>
+它所定位的是每一个不同的组别，也就是之前图中所看到的矩阵的每一列；而指向了每个组别中的要排序元素，并对其进行相应的操作</p></li>
+<li><code>j</code><br>
+相当于插入排序的<code>j</code>，只不过<code>j</code>的移动是以<code>gap</code>为单位的，因此判断条件中：
 <ul>
-<li><code>arr[j - gap] &gt; v</code><br>相当于插入排序的<code>arr[j - 1] &gt; v</code></li>
-<li><code>j &gt;= gap</code><br>相当于插入排序的<code>j &gt; 0</code>也就是<code>j &gt;= 1</code></li>
+<li><code>arr[j - gap] &gt; v</code><br>
+相当于插入排序的<code>arr[j - 1] &gt; v</code></li>
+<li><code>j &gt;= gap</code><br>
+相当于插入排序的<code>j &gt; 0</code>也就是<code>j &gt;= 1</code></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>但是在这里，有一个不好看懂的就是<strong>该算法的操作并非是一次性将每一组的元素排好序，而是一次只对一组中的一个元素进行排序，然后 <code>i</code> 指针就会移动到下一组</strong>，<strong>等到 <code>i</code> 移动的次数刚好是<code>j</code>的倍数之后，<code>j</code> 就又会指向之前拍过一次序的组别中的下一个元素并对其排序</strong>。  </p>
+<p>但是在这里，有一个不好看懂的就是<strong>该算法的操作并非是一次性将每一组的元素排好序，而是一次只对一组中的一个元素进行排序，然后 <code>i</code> 指针就会移动到下一组</strong>，<strong>等到 <code>i</code> 移动的次数刚好是<code>j</code>的倍数之后，<code>j</code> 就又会指向之前拍过一次序的组别中的下一个元素并对其排序</strong>。</p>
 <p>换而言之，该算法的流程是这样的:</p>
 <pre class="mermaid">graph TD
 start-->step1
@@ -507,8 +526,7 @@ group2:e2-->other2[...]
 other2[...]-->groupn:e2
 
 stepx-->other3[...]</pre>
-而不是
-
+<p>而不是</p>
 <pre class="mermaid">graph TD
 start-->step1
 start-->step2
@@ -525,46 +543,60 @@ group2:e2-->other2[...]
 other2[...]-->group2:en
 
 stepx-->other3[other groups]</pre>
-
 <p>虽然以上二者在效果上是等价的，但是前者在操作上要简便一些(虽然理解上难一些)。</p>
-<h1 id="2-归并排序"><a href="#2-归并排序" class="headerlink" title="2. 归并排序"></a>2. 归并排序</h1><h2 id="2-1-思路"><a href="#2-1-思路" class="headerlink" title="2.1 思路"></a>2.1 思路</h2><p>归并排序是建立在归并操作上的一种有效的排序算法,该算法是采用 <strong>分治法（Divide and Conquer）</strong> 的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。<br><strong>速度仅次于快速排序，为稳定排序算法，一般用于对总体无序，但是各子项相对有序的数列</strong>。</p>
-<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/merge.gif" alt></p>
-<h2 id="2-2-算法分析"><a href="#2-2-算法分析" class="headerlink" title="2.2 算法分析"></a>2.2 算法分析</h2><ul>
-<li><p>空间复杂度：<br>归并的空间复杂度就是那个<strong>临时的数组和递归时压入栈的数据占用的空间</strong>：$n + \log_{}n$；所以空间复杂度为: $O(n)$</p>
-</li>
-<li><p>时间复杂度</p>
+<h1 id="归并排序">2. 归并排序</h1>
+<h2 id="思路-1">2.1 思路</h2>
+<p>归并排序是建立在归并操作上的一种有效的排序算法,该算法是采用 <strong>分治法（Divide and Conquer）</strong> 的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。<br>
+<strong>速度仅次于快速排序，为稳定排序算法，一般用于对总体无序，但是各子项相对有序的数列</strong>。</p>
+<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/merge.gif"></p>
+<h2 id="算法分析">2.2 算法分析</h2>
 <ul>
-<li>最好： $O(n\log_{}n)$</li>
-<li>最坏： $O(n\log_{}n)$</li>
-<li>平均： $O(n\log_{}n)$</li>
+<li><p>空间复杂度：<br>
+归并的空间复杂度就是那个<strong>临时的数组和递归时压入栈的数据占用的空间</strong>：<span class="math inline">\(n + \log_{}n\)</span>；所以空间复杂度为: <span class="math inline">\(O(n)\)</span></p></li>
+<li>时间复杂度
+<ul>
+<li>最好： <span class="math inline">\(O(n\log_{}n)\)</span></li>
+<li>最坏： <span class="math inline">\(O(n\log_{}n)\)</span></li>
+<li>平均： <span class="math inline">\(O(n\log_{}n)\)</span></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>证明：可知 $T(n) = 2T(\frac{n}{2} + \Theta(n)$，由主定理可知:</p>
-<script type="math/tex; mode=display">
+<p>证明：可知 <span class="math inline">\(T(n) = 2T(\frac{n}{2} + \Theta(n)\)</span>，由主定理可知: <span class="math display">\[
 n^{\log_{2}2}=n \land f(n) = \Theta(n)\\
-\therefore T(n) = O(n\log_{}n)</script><ul>
+\therefore T(n) = O(n\log_{}n)
+\]</span></p>
+<ul>
 <li>稳定性：稳定</li>
 </ul>
-<h2 id="2-3-实现"><a href="#2-3-实现" class="headerlink" title="2.3 实现"></a>2.3 实现</h2><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 归并排序，arr[beg:end]，左闭右开</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSortFunc</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> beg, <span class="keyword">int</span> end)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//排除只有一个元素，或者是空表的情况</span></span><br><span class="line">    <span class="comment">//注意这里如果写成 beg &lt; end,会在元素只有一个时无限循环</span></span><br><span class="line">    <span class="keyword">if</span> ((end - beg) &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (beg + end) / <span class="number">2</span>;</span><br><span class="line">        MergeSortFunc(arr, beg, mid);</span><br><span class="line">        MergeSortFunc(arr, mid, end);</span><br><span class="line">        Merge(arr, beg, mid, end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> beg, <span class="keyword">int</span> mid, <span class="keyword">int</span> end)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp[end - beg];</span><br><span class="line">    <span class="keyword">int</span> i = beg, j = mid, k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((i &lt; mid) &amp;&amp; (j &lt; end))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt;= arr[j])</span><br><span class="line">            temp[k++] = arr[i++];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            temp[k++] = arr[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; mid)</span><br><span class="line">        temp[k++] = arr[i++];</span><br><span class="line">    <span class="keyword">while</span> (j &lt; end)</span><br><span class="line">        temp[k++] = arr[j++];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> a = beg, b = <span class="number">0</span>; b &lt; end - beg;)</span><br><span class="line">    &#123;</span><br><span class="line">        arr[a++] = temp[b++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>刚开始的时候我的递归条件是这样的:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (beg &lt; end)</span><br><span class="line">&#123;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="实现-1">2.3 实现</h2>
+<h3 id="源码">源码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 归并排序，arr[beg:end]，左闭右开</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSortFunc</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> beg, <span class="keyword">int</span> end)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//排除只有一个元素，或者是空表的情况</span></span><br><span class="line">    <span class="comment">//注意这里如果写成 beg &lt; end,会在元素只有一个时无限循环</span></span><br><span class="line">    <span class="keyword">if</span> ((end - beg) &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (beg + end) / <span class="number">2</span>;</span><br><span class="line">        MergeSortFunc(arr, beg, mid);</span><br><span class="line">        MergeSortFunc(arr, mid, end);</span><br><span class="line">        Merge(arr, beg, mid, end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> beg, <span class="keyword">int</span> mid, <span class="keyword">int</span> end)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp[end - beg];</span><br><span class="line">    <span class="keyword">int</span> i = beg, j = mid, k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((i &lt; mid) &amp;&amp; (j &lt; end))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt;= arr[j])</span><br><span class="line">            temp[k++] = arr[i++];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            temp[k++] = arr[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; mid)</span><br><span class="line">        temp[k++] = arr[i++];</span><br><span class="line">    <span class="keyword">while</span> (j &lt; end)</span><br><span class="line">        temp[k++] = arr[j++];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> a = beg, b = <span class="number">0</span>; b &lt; end - beg;)</span><br><span class="line">    &#123;</span><br><span class="line">        arr[a++] = temp[b++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="注意">注意</h3>
+<p>刚开始的时候我的递归条件是这样的: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (beg &lt; end)</span><br><span class="line">&#123;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>然后我就陷入了死循环出不来了╮(╯▽╰)╭。</p>
-<p>问题出在我划分区间的方式，还有结束递归条件的设置上。在这里我的区间设定是<code>[beg, end)</code>，这样就会在<code>beg == end</code>时退出递归，想的倒是挺好，不过来看看这种情况:  </p>
-<p>假设在某次递归中，<code>beg</code>代表了<code>index = 1</code>的元素，相应的<code>end</code>代表<code>index = 2</code>，整个区间只有一个元素。这样<code>mid = 1 + 1 / 2 = 1</code>，然后我们就会发现函数一直朝<code>MergeSort(mid, end);</code>的方向递归下去，无法返回了。  </p>
+<p>问题出在我划分区间的方式，还有结束递归条件的设置上。在这里我的区间设定是<code>[beg, end)</code>，这样就会在<code>beg == end</code>时退出递归，想的倒是挺好，不过来看看这种情况:</p>
+<p>假设在某次递归中，<code>beg</code>代表了<code>index = 1</code>的元素，相应的<code>end</code>代表<code>index = 2</code>，整个区间只有一个元素。这样<code>mid = 1 + 1 / 2 = 1</code>，然后我们就会发现函数一直朝<code>MergeSort(mid, end);</code>的方向递归下去，无法返回了。</p>
 <p>所以为了避免这种情况，请记住：</p>
 <blockquote>
-<p><strong>将递归结束条件设置为区间内只有一个元素或者空表！！！</strong>。  </p>
+<p><strong>将递归结束条件设置为区间内只有一个元素或者空表！！！</strong>。</p>
 </blockquote>
-<p>记住这一个原则，然后在根据自己的区间设置规范来调整就行了，比如:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//显然这里是[first, last]</span></span><br><span class="line"><span class="comment">//当first == last 说明只有一个元素结束递归 </span></span><br><span class="line"><span class="keyword">if</span> (first &lt; last)  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="keyword">int</span> mid = (first + last) / <span class="number">2</span>;  </span><br><span class="line">    mergesort(a, first, mid, temp);    <span class="comment">//左边有序  </span></span><br><span class="line">    mergesort(a, mid + <span class="number">1</span>, last, temp); <span class="comment">//右边有序  </span></span><br><span class="line">    mergearray(a, first, mid, last, temp); <span class="comment">//再将二个有序数列合并  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="3-快速排序"><a href="#3-快速排序" class="headerlink" title="3. 快速排序"></a>3. 快速排序</h1><p>快速排序使用分治的思想，通过<strong>一趟排序将待排序列分割成两部分</strong>，<strong>其中一部分记录的关键字均比另一部分记录的关键字小</strong>。之后分别对这两部分记录继续进行排序，以达到整个序列有序的目的。  </p>
-<h2 id="3-1-思路"><a href="#3-1-思路" class="headerlink" title="3.1 思路"></a>3.1 思路</h2><h3 id="快速排序的原理"><a href="#快速排序的原理" class="headerlink" title="快速排序的原理"></a>快速排序的原理</h3><p>假设我们有这样一个序列，它可以分为前后两个子序列，且满足:</p>
-<script type="math/tex; mode=display">
-max(S_{L}) \leqslant min(S_{R})</script><p>这样，如果我们将左右两个序列分别排序(分治的思想)，然后将子序列再连接起来，<strong>则整个序列一定是有序的</strong>。</p>
+<p>记住这一个原则，然后在根据自己的区间设置规范来调整就行了，比如: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//显然这里是[first, last]</span></span><br><span class="line"><span class="comment">//当first == last 说明只有一个元素结束递归 </span></span><br><span class="line"><span class="keyword">if</span> (first &lt; last)  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="keyword">int</span> mid = (first + last) / <span class="number">2</span>;  </span><br><span class="line">    mergesort(a, first, mid, temp);    <span class="comment">//左边有序  </span></span><br><span class="line">    mergesort(a, mid + <span class="number">1</span>, last, temp); <span class="comment">//右边有序  </span></span><br><span class="line">    mergearray(a, first, mid, last, temp); <span class="comment">//再将二个有序数列合并  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="快速排序">3. 快速排序</h1>
+<p>快速排序使用分治的思想，通过<strong>一趟排序将待排序列分割成两部分</strong>，<strong>其中一部分记录的关键字均比另一部分记录的关键字小</strong>。之后分别对这两部分记录继续进行排序，以达到整个序列有序的目的。</p>
+<h2 id="思路-2">3.1 思路</h2>
+<h3 id="快速排序的原理">快速排序的原理</h3>
+<p>假设我们有这样一个序列，它可以分为前后两个子序列，且满足:</p>
+<p><span class="math display">\[
+max(S_{L}) \leqslant min(S_{R})
+\]</span></p>
+<p>这样，如果我们将左右两个序列分别排序(分治的思想)，然后将子序列再连接起来，<strong>则整个序列一定是有序的</strong>。</p>
 <p>快速排序正是运用了这一个事实，<strong>将整个序列不断分为左小右大的两个子序列递归排序，最终使得整体排序完成</strong>。</p>
 <p>可以看到，快排与归并有一定相似之处。不同的是，<strong>归并的关键在于怎么将子序列合起来，快排的关键在于怎么划分出符合要求的子序列</strong>。快排的最大障碍也就在这里。</p>
-<h3 id="轴点"><a href="#轴点" class="headerlink" title="轴点"></a>轴点</h3><p>为了实现这一想法，我们首先要引入一个概念——<strong>轴点(pivot)</strong>。</p>
+<h3 id="轴点">轴点</h3>
+<p>为了实现这一想法，我们首先要引入一个概念——<strong>轴点(pivot)</strong>。</p>
 <p>轴点是在序列中<strong>满足一种特殊要求的元素</strong>：<strong>在轴点左侧区间的所有值都小于轴点的值，右侧区间的所有值都大于轴点的值</strong>。</p>
-<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/pivot.png" alt="Pivot"></p>
+<figure>
+<img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/pivot.png" alt="Pivot"><figcaption>Pivot</figcaption>
+</figure>
 <p>结合以上说明，我们可以得出以下结论:</p>
 <ul>
 <li>以任意一个轴点为界，整个区间呈现左小右大的状态。将轴点左侧和右侧的序列<strong>分别排序，再直接串联起来</strong>，就会得到整体有序的序列。(<strong>正好满足我们的需求</strong>)</li>
@@ -573,9 +605,12 @@ max(S_{L}) \leqslant min(S_{R})</script><p>这样，如果我们将左右两个�
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Iterator pivot;</span><br><span class="line"><span class="keyword">if</span> (end - begin &gt; <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//划分轴点</span></span><br><span class="line">    pivot = Partition(begin, end);</span><br><span class="line">    <span class="comment">//对pivot左侧的前缀排序</span></span><br><span class="line">    QuickSort(begin, pivot);</span><br><span class="line">    <span class="comment">//对pivot右侧的后缀排序(mid不需要排序!)</span></span><br><span class="line">    QuickSort(pivot+<span class="number">1</span>, end);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>由此我们可以得知，<strong>快速排序的核心就是如何找到轴点</strong>。</p>
-<h3 id="构建轴点"><a href="#构建轴点" class="headerlink" title="构建轴点"></a>构建轴点</h3><p>然而一个麻烦的问题在于：<strong>在一个序列中很可能根本就没有先天性的轴点</strong>。比如任意一个乱序序列，每一个元素都不能作为轴点。</p>
+<h3 id="构建轴点">构建轴点</h3>
+<p>然而一个麻烦的问题在于：<strong>在一个序列中很可能根本就没有先天性的轴点</strong>。比如任意一个乱序序列，每一个元素都不能作为轴点。</p>
 <p>因此，<strong>我们需要找到一些候补轴点，通过一系列地处理将它培养成为轴点</strong>。上述算法中的<code>Partition</code>方法的作用就是构造一个有效的轴点。</p>
-<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/partition.png" alt="imag"></p>
+<figure>
+<img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/partition.png" alt="imag"><figcaption>imag</figcaption>
+</figure>
 <p>如图所示:</p>
 <ul>
 <li>用两个指针指向两段</li>
@@ -583,21 +618,24 @@ max(S_{L}) \leqslant min(S_{R})</script><p>这样，如果我们将左右两个�
 <li>最终将选定的轴点的值放入m处</li>
 <li>结束算法</li>
 </ul>
-<h3 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h3><p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/quick1.gif" alt></p>
-<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/quick2.gif" alt></p>
-<h2 id="2-2-算法评估"><a href="#2-2-算法评估" class="headerlink" title="2.2 算法评估"></a>2.2 算法评估</h2><p>快速排序的实际效率取决于选定轴点的最终位置。轴点越接近中点、划分越平均，则算法效率越高。</p>
+<h3 id="演示-1">演示</h3>
+<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/quick1.gif"></p>
+<p><img src="/2019/05/19/希尔排序、归并排序、快速排序与堆排序/quick2.gif"></p>
+<h2 id="算法评估">2.2 算法评估</h2>
+<p>快速排序的实际效率取决于选定轴点的最终位置。轴点越接近中点、划分越平均，则算法效率越高。</p>
 <ul>
 <li>空间复杂度：</li>
-<li>时间复杂度：<ul>
-<li>平均：$O(n\log_{}n)$</li>
-<li>最好：每次都划分在中点 $O(n\log_{}n)$</li>
-<li>最坏：每次都划分在最大(最小点) $O(n^{2})$ (与冒泡排序相当)</li>
-</ul>
-</li>
+<li>时间复杂度：
+<ul>
+<li>平均：<span class="math inline">\(O(n\log_{}n)\)</span></li>
+<li>最好：每次都划分在中点 <span class="math inline">\(O(n\log_{}n)\)</span></li>
+<li>最坏：每次都划分在最大(最小点) <span class="math inline">\(O(n^{2})\)</span> (与冒泡排序相当)</li>
+</ul></li>
 <li>稳定性：不稳定</li>
 <li>输入敏感性：</li>
 </ul>
-<h2 id="2-3-实现-1"><a href="#2-3-实现-1" class="headerlink" title="2.3 实现"></a>2.3 实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 快速排序实现的注意事项：</span></span><br><span class="line"><span class="comment"> * 注意pivot + 1，因为pivot已经排序好了，不需要在加入进去</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSortFunc</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> beg, <span class="keyword">int</span> end)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//空表或者只有一个元素就返回</span></span><br><span class="line">    <span class="keyword">if</span> ((end - beg) &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> pivot = Partition(arr, beg, end);</span><br><span class="line">        QuickSortFunc(arr, beg, pivot);</span><br><span class="line">        <span class="comment">//注意 +1，pivot的顺序是对的，不需要排序</span></span><br><span class="line">        QuickSortFunc(arr, pivot + <span class="number">1</span>, end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> beg, <span class="keyword">int</span> end)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//注意，这里的区间划分:[beg, end)  [beg, last]</span></span><br><span class="line">    <span class="keyword">int</span> last = end - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> i = beg, j = last;</span><br><span class="line">    <span class="keyword">int</span> pivotVal = arr[i];</span><br><span class="line">    <span class="comment">//结束条件为 i 和 j 指向同一位置</span></span><br><span class="line">    <span class="comment">//最后只要将 pivot 放入就可以结束整个算法了</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//右侧区间不断扩展</span></span><br><span class="line">        <span class="comment">//别忘了i &lt; j的条件</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; j &amp;&amp; arr[j] &gt;= pivotVal)</span><br><span class="line">            --j;</span><br><span class="line">        <span class="comment">//扩展结束说明遇到了本该放入左侧区间的元素</span></span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        <span class="comment">//同理</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; j &amp;&amp; arr[i] &lt;= pivotVal)</span><br><span class="line">            ++i;</span><br><span class="line">        arr[j] = arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[i] = pivotVal;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现-2">2.3 实现</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 快速排序实现的注意事项：</span></span><br><span class="line"><span class="comment"> * 注意pivot + 1，因为pivot已经排序好了，不需要在加入进去</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSortFunc</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> beg, <span class="keyword">int</span> end)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//空表或者只有一个元素就返回</span></span><br><span class="line">    <span class="keyword">if</span> ((end - beg) &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> pivot = Partition(arr, beg, end);</span><br><span class="line">        QuickSortFunc(arr, beg, pivot);</span><br><span class="line">        <span class="comment">//注意 +1，pivot的顺序是对的，不需要排序</span></span><br><span class="line">        QuickSortFunc(arr, pivot + <span class="number">1</span>, end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> beg, <span class="keyword">int</span> end)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//注意，这里的区间划分:[beg, end)  [beg, last]</span></span><br><span class="line">    <span class="keyword">int</span> last = end - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> i = beg, j = last;</span><br><span class="line">    <span class="keyword">int</span> pivotVal = arr[i];</span><br><span class="line">    <span class="comment">//结束条件为 i 和 j 指向同一位置</span></span><br><span class="line">    <span class="comment">//最后只要将 pivot 放入就可以结束整个算法了</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//右侧区间不断扩展</span></span><br><span class="line">        <span class="comment">//别忘了i &lt; j的条件</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; j &amp;&amp; arr[j] &gt;= pivotVal)</span><br><span class="line">            --j;</span><br><span class="line">        <span class="comment">//扩展结束说明遇到了本该放入左侧区间的元素</span></span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        <span class="comment">//同理</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; j &amp;&amp; arr[i] &lt;= pivotVal)</span><br><span class="line">            ++i;</span><br><span class="line">        arr[j] = arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[i] = pivotVal;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>附加说明：</p>
 <blockquote>
 <p>注意一下在递归时，与归并算法不同的一点是，这里的 <code>pivot</code> 有独特的含义，是已经就位了的轴点元素，因此<strong>进行子递归是不应该将它放入递归区间</strong>。</p>
@@ -608,7 +646,8 @@ max(S_{L}) \leqslant min(S_{R})</script><p>这样，如果我们将左右两个�
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误，不能将pivot也包括进去</span></span><br><span class="line"><span class="keyword">if</span> (end - beg &gt; <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> pivot = Partition(arr, beg, end);</span><br><span class="line">    QuickSortFunc(arr, beg, pivot);</span><br><span class="line">    QuickSortFunc(arr, pivot, end);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>要是真一个手抖写成了后者，就会陷入无尽的递归而不得脱身╰（‵□′）╯</p>
 <blockquote>
-<p>这里我们将候补轴点的选择统一安排为序列第一个元素，事实上这并不好(就像希尔排序选择2的指数一样不好)。<br>但是如果我们选取的枢轴不是第一个元素，在执行这个算法中，就会存在第一个元素丢失的风险。因此我们不妨这样做:选取第一，中间，最后的元素中中间者作为枢轴元素，<strong>然后将它与第一个元素交换</strong>。</p>
+<p>这里我们将候补轴点的选择统一安排为序列第一个元素，事实上这并不好(就像希尔排序选择2的指数一样不好)。<br>
+但是如果我们选取的枢轴不是第一个元素，在执行这个算法中，就会存在第一个元素丢失的风险。因此我们不妨这样做:选取第一，中间，最后的元素中中间者作为枢轴元素，<strong>然后将它与第一个元素交换</strong>。</p>
 </blockquote>
 
       
@@ -727,7 +766,7 @@ max(S_{L}) \leqslant min(S_{R})</script><p>这样，如果我们将左右两个�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -788,7 +827,11 @@ max(S_{L}) \leqslant min(S_{R})</script><p>这样，如果我们将左右两个�
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -829,7 +872,9 @@ max(S_{L}) \leqslant min(S_{R})</script><p>这样，如果我们将左右两个�
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -865,7 +910,7 @@ max(S_{L}) \leqslant min(S_{R})</script><p>这样，如果我们将左右两个�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-希尔排序"><span class="nav-text">1. 希尔排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-思路"><span class="nav-text">1.1 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-演示"><span class="nav-text">1.2 演示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例一"><span class="nav-text">例一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例二"><span class="nav-text">例二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-实现要点"><span class="nav-text">1.3 实现要点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子序列排序方法"><span class="nav-text">子序列排序方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增量-步长-取法"><span class="nav-text">增量(步长)取法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-实现"><span class="nav-text">1.4 实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-归并排序"><span class="nav-text">2. 归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-思路"><span class="nav-text">2.1 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-算法分析"><span class="nav-text">2.2 算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-实现"><span class="nav-text">2.3 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码"><span class="nav-text">源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-text">注意</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-快速排序"><span class="nav-text">3. 快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-思路"><span class="nav-text">3.1 思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的原理"><span class="nav-text">快速排序的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轴点"><span class="nav-text">轴点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建轴点"><span class="nav-text">构建轴点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#演示"><span class="nav-text">演示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-算法评估"><span class="nav-text">2.2 算法评估</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-实现-1"><span class="nav-text">2.3 实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#希尔排序"><span class="nav-text">1. 希尔排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-text">1.1 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演示"><span class="nav-text">1.2 演示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例一"><span class="nav-text">例一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例二"><span class="nav-text">例二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现要点"><span class="nav-text">1.3 实现要点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子序列排序方法"><span class="nav-text">子序列排序方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增量步长取法"><span class="nav-text">增量(步长)取法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-text">1.4 实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#归并排序"><span class="nav-text">2. 归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路-1"><span class="nav-text">2.1 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析"><span class="nav-text">2.2 算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现-1"><span class="nav-text">2.3 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码"><span class="nav-text">源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-text">注意</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快速排序"><span class="nav-text">3. 快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路-2"><span class="nav-text">3.1 思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的原理"><span class="nav-text">快速排序的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轴点"><span class="nav-text">轴点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建轴点"><span class="nav-text">构建轴点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#演示-1"><span class="nav-text">演示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法评估"><span class="nav-text">2.2 算法评估</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现-2"><span class="nav-text">2.3 实现</span></a></li></ol></li></ol></div>
             
 
           </div>

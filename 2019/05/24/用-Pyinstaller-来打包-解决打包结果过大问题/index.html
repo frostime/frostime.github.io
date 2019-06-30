@@ -96,12 +96,12 @@
 
 
 
-  <meta name="description" content="这段时间应老师的要求，给实验室写了一个基于 PyQt5 的小工具。然而源码发过去人家还不要，一定要打包成可执行软件。 那就打包呗，刚好以前对 Pyinstaller 有一点接触，就用了一下这玩意。这篇博文主要记录一下基本用法和踩得一些坑。 1. 用 Pyinstaller 打包 Python 程序首先我们需要安装 Pyinstaller: 1pip install pyinstaller 用 co">
+  <meta name="description" content="这段时间应老师的要求，给实验室写了一个基于 PyQt5 的小工具。然而源码发过去人家还不要，一定要打包成可执行软件。 那就打包呗，刚好以前对 Pyinstaller 有一点接触，就用了一下这玩意。这篇博文主要记录一下基本用法和踩得一些坑。 1. 用 Pyinstaller 打包 Python 程序 首先我们需要安装 Pyinstaller: 1pip install pyinstaller">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用 Pyinstaller 来打包 + 解决打包结果过大问题">
 <meta property="og:url" content="http://yoursite.com/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="这段时间应老师的要求，给实验室写了一个基于 PyQt5 的小工具。然而源码发过去人家还不要，一定要打包成可执行软件。 那就打包呗，刚好以前对 Pyinstaller 有一点接触，就用了一下这玩意。这篇博文主要记录一下基本用法和踩得一些坑。 1. 用 Pyinstaller 打包 Python 程序首先我们需要安装 Pyinstaller: 1pip install pyinstaller 用 co">
+<meta property="og:description" content="这段时间应老师的要求，给实验室写了一个基于 PyQt5 的小工具。然而源码发过去人家还不要，一定要打包成可执行软件。 那就打包呗，刚好以前对 Pyinstaller 有一点接触，就用了一下这玩意。这篇博文主要记录一下基本用法和踩得一些坑。 1. 用 Pyinstaller 打包 Python 程序 首先我们需要安装 Pyinstaller: 1pip install pyinstaller">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/第一次打包.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/无法运行.png">
@@ -110,7 +110,7 @@
 <meta property="og:updated_time" content="2019-05-24T13:09:34.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用 Pyinstaller 来打包 + 解决打包结果过大问题">
-<meta name="twitter:description" content="这段时间应老师的要求，给实验室写了一个基于 PyQt5 的小工具。然而源码发过去人家还不要，一定要打包成可执行软件。 那就打包呗，刚好以前对 Pyinstaller 有一点接触，就用了一下这玩意。这篇博文主要记录一下基本用法和踩得一些坑。 1. 用 Pyinstaller 打包 Python 程序首先我们需要安装 Pyinstaller: 1pip install pyinstaller 用 co">
+<meta name="twitter:description" content="这段时间应老师的要求，给实验室写了一个基于 PyQt5 的小工具。然而源码发过去人家还不要，一定要打包成可执行软件。 那就打包呗，刚好以前对 Pyinstaller 有一点接触，就用了一下这玩意。这篇博文主要记录一下基本用法和踩得一些坑。 1. 用 Pyinstaller 打包 Python 程序 首先我们需要安装 Pyinstaller: 1pip install pyinstaller">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/第一次打包.png">
 
 
@@ -429,7 +429,8 @@
       
         <p>这段时间应老师的要求，给实验室写了一个基于 PyQt5 的小工具。然而源码发过去人家还不要，一定要打包成可执行软件。</p>
 <p>那就打包呗，刚好以前对 Pyinstaller 有一点接触，就用了一下这玩意。这篇博文主要记录一下基本用法和踩得一些坑。</p>
-<h1 id="1-用-Pyinstaller-打包-Python-程序"><a href="#1-用-Pyinstaller-打包-Python-程序" class="headerlink" title="1. 用 Pyinstaller 打包 Python 程序"></a>1. 用 Pyinstaller 打包 Python 程序</h1><p>首先我们需要安装 Pyinstaller:</p>
+<h1 id="用-pyinstaller-打包-python-程序">1. 用 Pyinstaller 打包 Python 程序</h1>
+<p>首先我们需要安装 Pyinstaller:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller</span><br></pre></td></tr></table></figure>
 <p>用 conda 也行，不过貌似最近清华的 Anaconda 源被封了，也不知道什么时候解禁。</p>
 <p>Pyinstaller 用法很简单，在对应的主调 py 文件的目录下，运行:</p>
@@ -450,11 +451,14 @@
 <p>最后来看看我使用的参数:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller --distpath Release/ -w -i x.ico --clean main.py</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
 <p>如果不指定 <code>--dispatch</code> 的话，最后会默认发布到 <code>dis</code> 目录下，进入目录后，就可以看到打包好的软件:</p>
-<p><img src="/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/第一次打包.png" alt="打包效果"></p>
+<figure>
+<img src="/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/第一次打包.png" alt="打包效果"><figcaption>打包效果</figcaption>
+</figure>
 <p>怎么样，看上去是不是就和正规软件一毛一样了！</p>
 <p>不过还没完，因为软件有可能运行不了。</p>
-<h1 id="2-加入依赖项"><a href="#2-加入依赖项" class="headerlink" title="2. 加入依赖项"></a>2. 加入依赖项</h1><p>当我兴冲冲地去运行程序时，出现了这么一个玩意:</p>
-<p><img src="/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/无法运行.png" alt></p>
+<h1 id="加入依赖项">2. 加入依赖项</h1>
+<p>当我兴冲冲地去运行程序时，出现了这么一个玩意:</p>
+<p><img src="/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/无法运行.png"></p>
 <blockquote>
 <p>Failed to excute script xxx</p>
 </blockquote>
@@ -463,37 +467,40 @@
 <p>OK！到此为止就完——了吗？</p>
 <p>NO！因为我遇到了一个很恶心的问题，打包出来的程序居然足足有 600 多 M！坑人呐这不是！</p>
 <p>我苦思冥想不知道是怎么回事，转眼一看，发现了一些不对劲的地方。</p>
-<p><img src="/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/exm.png" alt="What?"></p>
+<figure>
+<img src="/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/exm.png" alt="What?"><figcaption>What?</figcaption>
+</figure>
 <p>Excuse me? 我啥时候用过 Numpy 了？我转眼一想就明白了，肯定是这货偷偷把一些不相干的库也打包进来了。后来我上网上一查，有知乎大佬说是因为“Anaconda里内置了很多库，<strong>打包的时候打包了很多不必要的模块进去，要用纯净的Python来打包</strong>。”</p>
 <p>我用的方法是使用 pipenv 来打包。</p>
-<h1 id="3-使用-Pipenv"><a href="#3-使用-Pipenv" class="headerlink" title="3. 使用 Pipenv"></a>3. 使用 Pipenv</h1><p>Pipenv 是一款管理虚拟环境的命令行软件，简单来讲，它可以创建一个只在某个目录下的局部 Python 环境，而这个环境是可以和全局环境脱离开的。</p>
+<h1 id="使用-pipenv">3. 使用 Pipenv</h1>
+<p>Pipenv 是一款管理虚拟环境的命令行软件，简单来讲，它可以创建一个只在某个目录下的局部 Python 环境，而这个环境是可以和全局环境脱离开的。</p>
 <p>步骤如下:</p>
-<ol>
+<ol type="1">
 <li>安装 Pipenv</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pipenv</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="2" type="1">
 <li>选一个好目录做我们的虚拟环境，然后在该目录下:</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pipenv install --python 3.7</span><br></pre></td></tr></table></figure>
 <p>这样就可以在目录下创建一个局部的环境了，我这里设为 3.7 是因为我自己用的是 3.7，具体设什么根据自己的情况来定。</p>
-<ol>
+<ol start="3" type="1">
 <li>在命令行下激活环境</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pipenv shell</span><br></pre></td></tr></table></figure>
 <p>输入这个命令，我们就进入到了新建的虚拟环境。如果你这时候使用命令 <code>pip list</code> 并发现里面只有很少的库，这就说明我们成功进入虚拟环境了（有点像 Conda）。</p>
-<ol>
+<ol start="4" type="1">
 <li>安装依赖的库</li>
 </ol>
 <p>在虚拟环境下安装 Pyinstaller 和你自己的脚本依赖的第三方库，比如我的就是：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pipenv install pyinstaller</span><br><span class="line">pipenv install pyqt5</span><br><span class="line">pipenv install pymysql</span><br><span class="line">pipenv install geopy</span><br></pre></td></tr></table></figure>
 <p>再次查看 <code>pip list</code> 时，如果都成功安装好了，我们就可以开始打包了。</p>
-<ol>
+<ol start="5" type="1">
 <li>把你的脚本放到这个目录下面，运行 pyinstaller，方法同前</li>
 </ol>
 <p>这时我们就会用虚拟环境下的 pyinstaller 来打包库，由于这个环境比较纯净，所以即便它想乱打包其他的库也打包不了。</p>
 <p>打包完毕后，你就会发现，很明显干净多了：</p>
-<p><img src="/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/第二次打包.png" alt></p>
+<p><img src="/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/第二次打包.png"></p>
 <p>再一看，一共 90 M，足足缩小了 6 倍多。</p>
 
       
@@ -606,7 +613,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -667,7 +674,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -708,7 +719,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -744,7 +757,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-用-Pyinstaller-打包-Python-程序"><span class="nav-text">1. 用 Pyinstaller 打包 Python 程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-加入依赖项"><span class="nav-text">2. 加入依赖项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-使用-Pipenv"><span class="nav-text">3. 使用 Pipenv</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用-pyinstaller-打包-python-程序"><span class="nav-text">1. 用 Pyinstaller 打包 Python 程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加入依赖项"><span class="nav-text">2. 加入依赖项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-pipenv"><span class="nav-text">3. 使用 Pipenv</span></a></li></ol></div>
             
 
           </div>
