@@ -96,25 +96,24 @@
 
 
 
-  <meta name="description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
-<meta name="keywords" content="Note">
+  <meta name="description" content="1. 说明 任意给定先序、中序、后序、层序遍历中的任意两个，能否重新还原一棵树。 这个题的答案是必须要有中序序列，然后其他三种任意挑选一个。 2. 方法 方法其实都一样：  遍历三种序列，依次找到顶点结点 找到该顶点在中序遍历中的位置，分割左右子树结点的集合  3. 先序+中序 由于先序是“根-左-右”，所以我们从前往后遍历，肯定能先遇到根节点。 假如有： 先序：ABDEC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="信息熵">
-<meta property="og:url" content="http://yoursite.com/2019/05/30/信息熵/index.html">
+<meta property="og:title" content="给定先中后层序遍历中任意两个, 还原树结构">
+<meta property="og:url" content="http://yoursite.com/2019/06/28/给定先中后层序遍历中任意两个-还原树结构/index.html">
 <meta property="og:site_name" content="Frostime">
-<meta property="og:description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
+<meta property="og:description" content="1. 说明 任意给定先序、中序、后序、层序遍历中的任意两个，能否重新还原一棵树。 这个题的答案是必须要有中序序列，然后其他三种任意挑选一个。 2. 方法 方法其实都一样：  遍历三种序列，依次找到顶点结点 找到该顶点在中序遍历中的位置，分割左右子树结点的集合  3. 先序+中序 由于先序是“根-左-右”，所以我们从前往后遍历，肯定能先遇到根节点。 假如有： 先序：ABDEC">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-30T14:52:40.834Z">
+<meta property="og:updated_time" content="2019-06-28T14:42:13.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="信息熵">
-<meta name="twitter:description" content="信息熵 \[ H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}} \] 条件熵 \[ \begin{aligned} &amp;amp;H(Y|X)\\ &amp;amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\ &amp;amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cd">
+<meta name="twitter:title" content="给定先中后层序遍历中任意两个, 还原树结构">
+<meta name="twitter:description" content="1. 说明 任意给定先序、中序、后序、层序遍历中的任意两个，能否重新还原一棵树。 这个题的答案是必须要有中序序列，然后其他三种任意挑选一个。 2. 方法 方法其实都一样：  遍历三种序列，依次找到顶点结点 找到该顶点在中序遍历中的位置，分割左右子树结点的集合  3. 先序+中序 由于先序是“根-左-右”，所以我们从前往后遍历，肯定能先遇到根节点。 假如有： 先序：ABDEC">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/30/信息熵/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/28/给定先中后层序遍历中任意两个-还原树结构/">
 
 
 
@@ -124,7 +123,7 @@
   };
 </script>
 
-  <title>信息熵 | Frostime</title>
+  <title>给定先中后层序遍历中任意两个, 还原树结构 | Frostime</title>
   
 
 
@@ -323,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/信息熵/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/给定先中后层序遍历中任意两个-还原树结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zuo Yiping">
@@ -340,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">信息熵
+          <h1 class="post-title" itemprop="name headline">给定先中后层序遍历中任意两个, 还原树结构
 
               
             
@@ -366,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-05-30 22:47:47 / 修改时间：22:52:40" itemprop="dateCreated datePublished" datetime="2019-05-30T22:47:47+08:00">2019-05-30</time>
+              <time title="创建时间：2019-06-28 22:12:43 / 修改时间：22:42:13" itemprop="dateCreated datePublished" datetime="2019-06-28T22:12:43+08:00">2019-06-28</time>
             
 
             
@@ -388,14 +387,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学/" itemprop="url" rel="index"><span itemprop="name">数学</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/树/" itemprop="url" rel="index"><span itemprop="name">树</span></a></span>
 
                 
                 
@@ -430,83 +429,95 @@
       
 
       
-        <h1 id="信息熵">信息熵</h1>
-<p><span class="math display">\[
-H(X) = -\sum_{i=1}^{m}{P(x_{i})\cdot\log_{2}{P(x_{i})}}
-\]</span></p>
-<h1 id="条件熵">条件熵</h1>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H(Y|X)\\
-&amp;= \sum_{x\in X}{P(x)\cdot H(Y|X=x)}\\
-&amp;= -\sum_{x\in X}\sum_{y\in Y}{P(x, y)\cdot \log_{2}{P(y|x)}}
-\end{aligned}
-\]</span></p>
-<h1 id="信息增益">信息增益</h1>
-<p>信息增益的含义即<strong>在条件X下，信息Y的不确定性的减少程度。</strong></p>
-<p><span class="math display">\[
-InfoGain(Y, X) = H(Y) - H(Y|X)
-\]</span></p>
-<h1 id="例题">例题</h1>
-<p>例如:</p>
-<table>
-<thead>
-<tr class="header">
-<th>X</th>
-<th>Y</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<h2 id="hx-hy"><code>H(X)</code>, <code>H(Y)</code></h2>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H(X) = -(0.5\log_{2}{0.5} + 0.5\log_{2}{0.5}) = 1\\
-&amp;H(Y) = -(0.5\log_{2}{0.5} + 0.25\log_{2}{0.25}\times2 = 1.5
-\end{aligned}
-\]</span></p>
-<h2 id="hyx"><code>H(Y|X)</code></h2>
+        <h1 id="说明">1. 说明</h1>
+<p>任意给定先序、中序、后序、层序遍历中的任意两个，能否重新还原一棵树。</p>
+<p>这个题的答案是必须要有中序序列，然后其他三种任意挑选一个。</p>
+<h1 id="方法">2. 方法</h1>
+<p>方法其实都一样：</p>
 <ul>
-<li>法一</li>
+<li>遍历三种序列，依次找到顶点结点</li>
+<li>找到该顶点在中序遍历中的位置，分割左右子树结点的集合</li>
 </ul>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H(Y|X=1) = 0, H(Y|X=2) = 1\\
-&amp;H(Y|X) = 0.5\times0 + 0.5\times1 = 0.5
-\end{aligned}
-\]</span></p>
-<ul>
-<li>法二</li>
-</ul>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;P(x=1, y=2)\log_{2}{P(y=2|x=1)} = 0.5 \times 0 = 0\\
-&amp;P(x=2, y=3)\log_{2}{P(y=3|x=2)} = 0.25 \times (-1) = -0.25\\
-&amp;P(x=2, y=4)\log_{2}{P(y=4|x=2)} =  0.25 \times (-1) = -0.25\\
-&amp;H(Y|X) = -(0 - 0.25 - 0.25) = 0.5
-\end{aligned}
-\]</span></p>
-<h2 id="infogain"><code>InfoGain</code></h2>
-<p><span class="math display">\[
-InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
-\]</span></p>
+<h1 id="先序中序">3. 先序+中序</h1>
+<p>由于先序是“根-左-右”，所以我们从前往后遍历，肯定能先遇到根节点。</p>
+<p>假如有：</p>
+<pre><code>先序：ABDECFG
+中序: DEBACGF</code></pre>
+<p>下面依次遍历先序结点</p>
+<ol type="1">
+<li>结点 A</li>
+</ol>
+<p>A为根节点，找到中序序列中 A 的位置，分割左右子树集合</p>
+<blockquote>
+<p>DEB A CGF</p>
+</blockquote>
+<pre class="mermaid">graph TD
+A --> L(DEB)
+A --> R(CGF)</pre>
+<ol start="2" type="1">
+<li>结点 B</li>
+</ol>
+<blockquote>
+<p>DE B A</p>
+</blockquote>
+<p>B 为根节点，直接和 A 相连；且 B 在 A 的左子树；B 的左子树结点集合为 {D, E}；B 没有右子树</p>
+<p>所以</p>
+<pre class="mermaid">graph TD
+A --> B
+B --> L(DE)
+B --> 1[null]
+A --> R(CGF)</pre>
+<ol start="3" type="1">
+<li>结点 D、E</li>
+</ol>
+<blockquote>
+<p>D E B</p>
+</blockquote>
+<p>先是 D，直接和 B 相连，E 在 D 的右子树上</p>
+<pre class="mermaid">graph TD
+A --> B
+B --> D
+D --> 1[null]
+D --> E
+B --> x[null]
+A --> R(CGF)</pre>
+<ol start="4" type="1">
+<li>结点 C</li>
+</ol>
+<blockquote>
+<p>C GF</p>
+</blockquote>
+<p>C 直接和 A 相连，它没有左子树，右子树的结点集合为 {G, F}。</p>
+<pre class="mermaid">graph TD
+A --> B
+B --> D
+D --> 1[null]
+D --> E
+B --> x[null]
+A --> C
+C --> y[null]
+C --> z[GF]</pre>
+<ol start="5" type="1">
+<li>结点 F、G</li>
+</ol>
+<p>同理</p>
+<pre class="mermaid">graph TD
+A --> B
+B --> D
+D --> 1[null]
+D --> E
+B --> x[null]
+A --> C
+C --> y[null]
+C --> F
+F --> G
+F --> z[null]</pre>
+<p>其他的也差不多，后序遍历就是从后往前，层序遍历同样从前往后。</p>
+<h1 id="例题">4. 例题</h1>
+<blockquote>
+<p>给定一棵二叉树的前序遍历和中序遍历，求其后序遍历（提示：给定前序遍历与中序遍历能够唯一确定后序遍历）。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> preorder, inorder;</span><br><span class="line"><span class="keyword">int</span> cur;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Build</span><span class="params">(<span class="keyword">int</span> first, <span class="keyword">int</span> last)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch = preorder[cur];</span><br><span class="line">    <span class="keyword">int</span> at;</span><br><span class="line">    <span class="comment">//在中序遍历中找到根节点的位置，一定可以找到</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = first; i &lt;= last; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (inorder[i] == ch)</span><br><span class="line">        &#123;</span><br><span class="line">            at = i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//不是在第一个位置找到，就说明一定有左子树，先左后右</span></span><br><span class="line">    <span class="keyword">if</span> (at != first)</span><br><span class="line">    &#123;</span><br><span class="line">        ++cur;</span><br><span class="line">        Build(first, at - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (at != last)</span><br><span class="line">    &#123;</span><br><span class="line">        ++cur;</span><br><span class="line">        Build(at + <span class="number">1</span>, last);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ch;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; preorder &gt;&gt; inorder)</span><br><span class="line">    &#123;</span><br><span class="line">        cur = <span class="number">0</span>;</span><br><span class="line">        Build(<span class="number">0</span>, inorder.length() - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -528,12 +539,6 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Note/" rel="tag"># Note</a>
-          
-        </div>
-      
 
       
       
@@ -543,8 +548,8 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/30/正则表达式/" rel="next" title="正则表达式">
-                <i class="fa fa-chevron-left"></i> 正则表达式
+              <a href="/2019/06/28/【C-】局部变量的地址/" rel="next" title="【C++】局部变量的地址">
+                <i class="fa fa-chevron-left"></i> 【C++】局部变量的地址
               </a>
             
           </div>
@@ -552,10 +557,6 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/31/清华考研-整数划分/" rel="prev" title="【清华考研】整数划分">
-                【清华考研】整数划分 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -762,7 +763,7 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息熵"><span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件熵"><span class="nav-text">条件熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信息增益"><span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题"><span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hx-hy"><span class="nav-text">H(X), H(Y)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hyx"><span class="nav-text">H(Y|X)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#infogain"><span class="nav-text">InfoGain</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-text">1. 说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法"><span class="nav-text">2. 方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#先序中序"><span class="nav-text">3. 先序+中序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题"><span class="nav-text">4. 例题</span></a></li></ol></div>
             
 
           </div>
@@ -916,76 +917,7 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
   
 
 
-  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
-
-
-  
-  
-
-
-  
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1004,7 +936,29 @@ InfoGain(Y, X) = H(Y) - H(Y|X) = 1.5 - 0.5 = 1
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-    
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
   
 
 
