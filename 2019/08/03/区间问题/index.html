@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="区间问题是在 OJ 中非常常见的一类贪心算法的问题，这里我做一个总结。 1. 最大不相交覆盖区间问题 1.1 问题描述  在数轴上有 n 个区间 \([a_i, b_i]\)，请从中选取尽可能多的区间，使它们互相之间没有交点(端点不算)  这一类的问题十分常见，在一些活动安排上有很多使用，因而又称会场安排问题。 例题：洛谷的 P1803 凌乱的yyy / 线段覆盖。 题目描述 -">
+<meta name="keywords" content="贪心">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区间问题">
+<meta property="og:url" content="http://yoursite.com/2019/08/03/区间问题/index.html">
+<meta property="og:site_name" content="Frostime">
+<meta property="og:description" content="区间问题是在 OJ 中非常常见的一类贪心算法的问题，这里我做一个总结。 1. 最大不相交覆盖区间问题 1.1 问题描述  在数轴上有 n 个区间 \([a_i, b_i]\)，请从中选取尽可能多的区间，使它们互相之间没有交点(端点不算)  这一类的问题十分常见，在一些活动安排上有很多使用，因而又称会场安排问题。 例题：洛谷的 P1803 凌乱的yyy / 线段覆盖。 题目描述 -">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/08/03/区间问题/POJ_3485.png">
+<meta property="og:updated_time" content="2019-08-03T08:36:29.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="区间问题">
+<meta name="twitter:description" content="区间问题是在 OJ 中非常常见的一类贪心算法的问题，这里我做一个总结。 1. 最大不相交覆盖区间问题 1.1 问题描述  在数轴上有 n 个区间 \([a_i, b_i]\)，请从中选取尽可能多的区间，使它们互相之间没有交点(端点不算)  这一类的问题十分常见，在一些活动安排上有很多使用，因而又称会场安排问题。 例题：洛谷的 P1803 凌乱的yyy / 线段覆盖。 题目描述 -">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/03/区间问题/POJ_3485.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/03/区间问题/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>区间问题 | Frostime</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frostime</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/区间问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zuo Yiping">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frostime">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">区间问题
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-03 13:25:43 / 修改时间：16:36:29" itemprop="dateCreated datePublished" datetime="2019-08-03T13:25:43+08:00">2019-08-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/OJ/" itemprop="url" rel="index"><span itemprop="name">OJ</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>区间问题是在 OJ 中非常常见的一类贪心算法的问题，这里我做一个总结。</p>
+<h1 id="最大不相交覆盖区间问题">1. 最大不相交覆盖区间问题</h1>
+<h2 id="问题描述">1.1 问题描述</h2>
+<blockquote>
+<p>在数轴上有 n 个区间 <span class="math inline">\([a_i, b_i]\)</span>，请从中选取尽可能多的区间，使它们互相之间没有交点(端点不算)</p>
+</blockquote>
+<p>这一类的问题十分常见，在一些活动安排上有很多使用，因而又称<em>会场安排问题</em>。</p>
+<p>例题：洛谷的 <a href="https://www.luogu.org/problem/P1803" target="_blank" rel="noopener">P1803 凌乱的yyy / 线段覆盖</a>。</p>
+<pre><code>题目描述
+----------
+现在各大oj上有n个比赛，每个比赛的开始、结束的时间点是知道的。
+yyy认为，参加越多的比赛，noip就能考的越好（假的）
+所以，他想知道他最多能参加几个比赛。
+由于yyy是蒟蒻，如果要参加一个比赛必须善始善终，而且不能同时参加2个及以上的比赛。
+
+输入格式
+----------
+第一行是一个整数n ，接下来n行每行是2个整数ai,bi(ai&lt;bi)，表示比赛开始、结束的时间。
+
+输出格式
+----------
+一个整数最多参加的比赛数目。</code></pre>
+<h2 id="贪心策略">1.2 贪心策略</h2>
+<p>这种问题的策略很简单：</p>
+<ol type="1">
+<li>将所有区间<strong>按照结束点的大小</strong>递增排序</li>
+<li>从头到尾遍历，总是贪心地选择更靠前的区间(只要不和已经选择的区间重叠)</li>
+</ol>
+<h2 id="代码">1.3 代码</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Cover</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> start;</span><br><span class="line">    <span class="keyword">int</span> end;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 按照活动的结束时间从小到大排列</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Cover &amp;p1, Cover &amp;p2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p1.end &lt; p2.end;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> len = n;</span><br><span class="line">    Cover lines[len];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; lines[i].start &gt;&gt; lines[i].end;</span><br><span class="line"></span><br><span class="line">    sort(lines, lines + n, cmp);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//上次参加的比赛的结束时间，参加的比赛数量</span></span><br><span class="line">    <span class="keyword">int</span> endTime = INT_MIN, participate = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//贪心地选择结束时间早的活动参加</span></span><br><span class="line">        <span class="keyword">if</span> (endTime &lt;= lines[i].start)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//参加这次的活动</span></span><br><span class="line">            ++participate;</span><br><span class="line">            endTime = lines[i].end;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; participate &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="区间选点问题">2. 区间选点问题</h1>
+<h2 id="问题描述-1">2.1 问题描述</h2>
+<blockquote>
+<p>数轴上有n个闭区间 <span class="math inline">\([a_i, b_i]\)</span>。取尽量少的点，使得每个区间内都至少有一个点（不同区间内含的点可以是同一个）</p>
+</blockquote>
+<h2 id="思路描述">2.2 思路描述</h2>
+<ol type="1">
+<li>将所有区间<strong>按照结束点的大小</strong>递增排序</li>
+<li>选择第一个区间的结束点作为第一个点</li>
+<li>从前往后遍历
+<ul>
+<li>如果上一个点在本区间内，就查看下一个区间</li>
+<li>否则，选择本区间的结束点作为新的点</li>
+</ul></li>
+</ol>
+<h2 id="代码-1">2.3 代码</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Interval &amp;a, <span class="keyword">const</span> Interval &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.end &lt; b.end;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 排序</span></span><br><span class="line">sort(vec.begin(), vec.end(), cmp);</span><br><span class="line"><span class="comment">//贪心地选择</span></span><br><span class="line"><span class="keyword">int</span> pointAt = INT_MIN, pointNum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//若选中的点在当前区间内，就不用管了</span></span><br><span class="line">    <span class="keyword">if</span> (pointAt &gt;= vec[i].start &amp;&amp; pointAt &lt;= vec[i].end)</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        pointAt = vec[i].end;</span><br><span class="line">        ++pointNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; pointNum &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p>实际上，根据我的验证，这类题的代码<strong>和最大不相交覆盖问题的代码一模一样</strong>。。。只不过为了便于理解写法不同而已。</p>
+<h2 id="例题poj-3485-highway">2.4 例题：POJ 3485 Highway</h2>
+<p>题目描述</p>
+<pre><code>Description
+----------
+Bob is a skilled engineer. He must design a highway that crosses a region with few villages. Since this region is quite unpopulated, he wants to minimize the number of exits from the highway. He models the highway as a line segment S (starting from zero), the villages as points on a plane, and the exits as points on S. Considering that the highway and the villages position are known, Bob must find the minimum number of exists such that each village location is at most at the distance D from at least one exit. He knows that all village locations are at most at the distance D from S.
+
+Input
+----------
+The program input is from a text file. Each data set in the file stands for a particular set of a highway and the positions of the villages. The data set starts with the length L (fits an integer) of the highway. Follows the distance D (fits an integer), the number N of villages, and for each village the location (x,y). The program prints the minimum number of exits.
+White spaces can occur freely in the input. The input data are correct and terminate with an end of file.
+
+Output
+----------
+For each set of data the program prints the result to the standard output from the beginning of a line. An input/output sample is in the table below. There is a single data set. The highway length L is 100, the distance D is 50. There are 3 villages having the locations (2, 4), (50, 10), (70, 30). The result for the data set is the minimum number of exits: 1.
+
+Sample Input
+----------
+100
+50
+3
+2 4
+50 10
+70 30
+
+Sample Output
+----------
+1</code></pre>
+<p>实际上这道题就是区间选点的一个变型，而且这种变形的方式还挺常见。</p>
+<p>题目翻译一下意思是：X轴上公路从0到L，X轴上下有一些点给出坐标代表村庄，问在公路上最少建几个出口才能使每个村庄到出口的距离不超过D。</p>
+<p><img src="/2019/08/03/区间问题/POJ_3485.png"></p>
+<p>从这张图上看，我们就可以发现，只要计算出每个村庄到公路上的投影，立刻就可以变成区间选点问题。</p>
+<p>AC 代码如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Copyright(c)</span></span><br><span class="line"><span class="comment"> * All rights reserved.</span></span><br><span class="line"><span class="comment"> * Author: Zuo YiPing</span></span><br><span class="line"><span class="comment"> * Date: 2019-07-26-10.50.31</span></span><br><span class="line"><span class="comment"> * OJ Question: POJ 3485 Highways</span></span><br><span class="line"><span class="comment"> * Description: http://poj.org/problem?id=3485</span></span><br><span class="line"><span class="comment"> * Difficulty: 模板题，区间选点问题</span></span><br><span class="line"><span class="comment"> * Key Points: 贪心法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Interval</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> start;</span><br><span class="line">    <span class="keyword">double</span> end;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> L, D, N;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Interval &amp;a, <span class="keyword">const</span> Interval &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.end &lt; b.end;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; L &gt;&gt; D &gt;&gt; N)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;Interval&gt; vec(N);</span><br><span class="line">        <span class="keyword">double</span> x, y;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">            <span class="keyword">double</span> delta = <span class="built_in">sqrt</span>(D * D - y * y);</span><br><span class="line">            vec[i].start = x - delta;</span><br><span class="line">            vec[i].end = x + delta;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(vec.begin(), vec.end(), cmp);</span><br><span class="line">        <span class="keyword">int</span> pointAt = INT_MIN, pointNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//若选中的点在当前区间内，就不用管了</span></span><br><span class="line">            <span class="keyword">if</span> (pointAt &gt;= vec[i].start &amp;&amp; pointAt &lt;= vec[i].end)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                pointAt = vec[i].end;</span><br><span class="line">                ++pointNum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; pointNum &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="区间全覆盖问题">3. 区间全覆盖问题</h1>
+<h2 id="问题描述-2">3.1 问题描述</h2>
+<blockquote>
+<p>数轴上有 n 个闭区间 <span class="math inline">\([a_i, b_i]\)</span>，选择尽量少的区间覆盖一条指定线段 <span class="math inline">\([s, t]\)</span></p>
+</blockquote>
+<h2 id="思路描述-1">3.2 思路描述</h2>
+<blockquote>
+<p>将所有区间按左端点坐标从小到大排序，顺序处理每个区间。每次选择覆盖点 s 的区间中右端点坐标最大的一个，并将 s更新为该区间的右端点坐标，直到选择的区间已包含 t</p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/贪心/" rel="tag"># 贪心</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/01/【Git】分支管理/" rel="next" title="【Git】分支管理">
+                <i class="fa fa-chevron-left"></i> 【Git】分支管理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zuo Yiping</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#最大不相交覆盖区间问题"><span class="nav-text">1. 最大不相交覆盖区间问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-text">1.1 问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贪心策略"><span class="nav-text">1.2 贪心策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">1.3 代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#区间选点问题"><span class="nav-text">2. 区间选点问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述-1"><span class="nav-text">2.1 问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路描述"><span class="nav-text">2.2 思路描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码-1"><span class="nav-text">2.3 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例题poj-3485-highway"><span class="nav-text">2.4 例题：POJ 3485 Highway</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#区间全覆盖问题"><span class="nav-text">3. 区间全覆盖问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述-2"><span class="nav-text">3.1 问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路描述-1"><span class="nav-text">3.2 思路描述</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zuo Yiping</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 â€“ <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.0</div>
+
+
+
+
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
