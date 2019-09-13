@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/无法运行.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/exm.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/第二次打包.png">
-<meta property="og:updated_time" content="2019-05-24T13:09:34.581Z">
+<meta property="og:updated_time" content="2019-08-25T08:25:14.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用 Pyinstaller 来打包 + 解决打包结果过大问题">
 <meta name="twitter:description" content="这段时间应老师的要求，给实验室写了一个基于 PyQt5 的小工具。然而源码发过去人家还不要，一定要打包成可执行软件。 那就打包呗，刚好以前对 Pyinstaller 有一点接触，就用了一下这玩意。这篇博文主要记录一下基本用法和踩得一些坑。 1. 用 Pyinstaller 打包 Python 程序 首先我们需要安装 Pyinstaller: 1pip install pyinstaller">
@@ -370,12 +370,24 @@
                 
               
 
-              <time title="创建时间：2019-05-24 20:24:35 / 修改时间：21:09:34" itemprop="dateCreated datePublished" datetime="2019-05-24T20:24:35+08:00">2019-05-24</time>
+              <time title="创建时间：2019-05-24 20:24:35" itemprop="dateCreated datePublished" datetime="2019-05-24T20:24:35+08:00">2019-05-24</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-25 16:25:14" itemprop="dateModified" datetime="2019-08-25T16:25:14+08:00">2019-08-25</time>
               
             
           </span>
@@ -502,6 +514,9 @@
 <p>打包完毕后，你就会发现，很明显干净多了：</p>
 <p><img src="/2019/05/24/用-Pyinstaller-来打包-解决打包结果过大问题/第二次打包.png"></p>
 <p>再一看，一共 90 M，足足缩小了 6 倍多。</p>
+<h1 id="扫尾工作">4. 扫尾工作</h1>
+<p>如果我们进入 <code>C:\Users\xxx\.virtualenvs</code> 目录下，就能发现我们刚刚创建的虚拟环境的 python 依赖。不过我们只是为了打包才创建的临时环境，所以肯定不会希望它一直存在占磁盘空间。</p>
+<p>为了删除虚拟环境，进入工程目录下，运行 <code>pipenv --rm</code> 即可。</p>
 
       
     </div>
@@ -769,7 +784,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用-pyinstaller-打包-python-程序"><span class="nav-text">1. 用 Pyinstaller 打包 Python 程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加入依赖项"><span class="nav-text">2. 加入依赖项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-pipenv"><span class="nav-text">3. 使用 Pipenv</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用-pyinstaller-打包-python-程序"><span class="nav-text">1. 用 Pyinstaller 打包 Python 程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加入依赖项"><span class="nav-text">2. 加入依赖项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-pipenv"><span class="nav-text">3. 使用 Pipenv</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扫尾工作"><span class="nav-text">4. 扫尾工作</span></a></li></ol></div>
             
 
           </div>
