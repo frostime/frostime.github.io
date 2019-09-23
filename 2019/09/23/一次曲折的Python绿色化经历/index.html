@@ -107,14 +107,14 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/2_DIR.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/3_DLL_Not_Found.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/3_PIP_Failed.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/4_pip.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/4_PIP.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/3_DLL_Not_Found.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/5_pyd.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/6_DW_Usage.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/7_DLL_Error.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/7_DLL.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/23/一次曲折的Python绿色化经历/8_LIB.png">
-<meta property="og:updated_time" content="2019-09-23T01:50:09.340Z">
+<meta property="og:updated_time" content="2019-09-23T02:11:33.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一次曲折的Python绿色化经历">
 <meta name="twitter:description" content="1. 背景 这段时间和老师在做一个模拟器相关的项目，我这边是做一个本地运行算法再通过 TCP 发信号控制模拟器的东西。前两天算是收尾了。于是老师让我把我做的Python部分的程序打包一下。 打包就打包呗，我兴冲冲地打算用 pyinstaller 做成可执行软件就行了，不过老师拦住我，对我提出了以下的要求：  不许打包成 *.exe，要保持源代码，方便以后的人阅读修改 把打包好的东西放到我">
@@ -377,7 +377,7 @@
                 
               
 
-              <time title="创建时间：2019-09-23 09:40:58 / 修改时间：09:50:09" itemprop="dateCreated datePublished" datetime="2019-09-23T09:40:58+08:00">2019-09-23</time>
+              <time title="创建时间：2019-09-23 09:40:58 / 修改时间：10:11:33" itemprop="dateCreated datePublished" datetime="2019-09-23T09:40:58+08:00">2019-09-23</time>
             
 
             
@@ -502,7 +502,7 @@ six==1.12.0</code></pre>
 <p>我擦，这是怎么回事，为啥我的 pip 没法用了。我在这个坑上我停了很久，后来才通过一篇博客了解到是怎么回事。</p>
 <p>在解释这个问题前，首先请大家思考一个问题，当我们使用 pip 的时候，它是如何定位到对应的 python 解释器的路径的呢？也许大家会不假思索地回答：当然是通过环境变量喽！</p>
 <p>没错，一开始我也这么想，但当我用 winhex 直接去查看 pip 二进制内容时，却惊讶地发现：</p>
-<p><img src="/2019/09/23/一次曲折的Python绿色化经历/4_pip.png"></p>
+<p><img src="/2019/09/23/一次曲折的Python绿色化经历/4_PIP.png"></p>
 <p>没错，pip 居然直接把 python.exe 的绝对路径写在了二进制文件里面了！其实仔细一想，他这样的做法也是有他的道理的，毕竟他需要考虑到同一台机器上安装了不同个 Python 的情况。但是对于我们要做绿化的 python 就很要命了。</p>
 <p>乍办呢？很简单，我们直接手动把它的二进制文件修改一下，只保留一个 Python.exe，然后让他通过环境变量来寻找就行了。</p>
 <p><a href="https://blog.csdn.net/qq446252221/article/details/91042163" target="_blank" rel="noopener">这是我参考的博文链接</a></p>
